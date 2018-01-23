@@ -1,0 +1,29 @@
+<project default="all">
+    <target name="build-template">
+		<property name="folder.LinqTemplateBuilder" value="tool/LinqTemplateBuilder"/>
+		<property name="jar.LinqTemplateBuilder" value="${folder.LinqTemplateBuilder}/dist/LinqTemplateBuilder.jar"/>
+		<property name="jar.just-template" value="${folder.LinqTemplateBuilder}/lib/just-template.jar"/>
+		
+		<delete dir="${folder.LinqTemplateBuilder}/bin"/>
+		<mkdir dir="${folder.LinqTemplateBuilder}/bin"/>
+		<javac 
+			srcdir="${folder.LinqTemplateBuilder}/src" 
+			destdir="${folder.LinqTemplateBuilder}/bin"
+			encoding="utf-8"
+			includeantruntime="false"
+		>
+			<classpath>
+				<pathelement location="${jar.just-template}"/>
+			</classpath>
+        </javac>
+		<jar jarfile="${jar.LinqTemplateBuilder}" basedir="${folder.LinqTemplateBuilder}/bin" includes="*/**">
+            <manifest>
+                <attribute name="Main-Class" value="Main"/>
+            </manifest>
+		</jar>
+		<exec executable="cmd.exe">
+			<arg line="/c java -Xbootclasspath/a:${jar.just-template} -jar ${jar.LinqTemplateBuilder} project/src/c41/utility/linq/ITEnumerable.java.template  project/src/c41/utility/linq/ITEnumerable.java.template.config"/>
+		</exec>
+    </target>
+</project>
+
