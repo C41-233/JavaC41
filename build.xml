@@ -1,4 +1,5 @@
 <project default="all">
+
     <target name="build-template">
 		<property name="folder.LinqTemplateBuilder" value="tool/LinqTemplateBuilder"/>
 		<property name="jar.LinqTemplateBuilder" value="${folder.LinqTemplateBuilder}/dist/LinqTemplateBuilder.jar"/>
@@ -25,5 +26,18 @@
 			<arg line="/c java -Xbootclasspath/a:${jar.just-template} -jar ${jar.LinqTemplateBuilder} project/src/c41/utility/linq/ITEnumerable.java.template  project/src/c41/utility/linq/ITEnumerable.java.template.config"/>
 		</exec>
     </target>
+	
+	<target name="build-dist">
+		<delete dir="project/bin"/>
+		<mkdir dir="project/bin"/>
+		<javac 
+			srcdir="project/src" 
+			destdir="project/bin"
+			encoding="utf-8"
+			includeantruntime="false"
+		>
+        </javac>
+		<jar jarfile="dist/java-c41.jar" basedir="project/bin" includes="c41/**"/>
+	</target>
 </project>
 
