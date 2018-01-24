@@ -1,15 +1,32 @@
-<project default="all">
-
-    <target name="build-template">
-		<property name="folder.LinqTemplateBuilder" value="tool/LinqTemplateBuilder"/>
-		<property name="jar.LinqTemplateBuilder" value="${folder.LinqTemplateBuilder}/dist/LinqTemplateBuilder.jar"/>
-		<property name="jar.just-template" value="${folder.LinqTemplateBuilder}/lib/just-template.jar"/>
-		
-		<delete dir="${folder.LinqTemplateBuilder}/bin"/>
-		<mkdir dir="${folder.LinqTemplateBuilder}/bin"/>
+<project default="build">
+	<property name="folder.project" value="project"/>
+	<property name="folder.project.bin" value="${folder.project}/bin"/>
+	
+	<property name="folder.LinqTemplateBuilder" value="tool/LinqTemplateBuilder"/>
+	<property name="jar.LinqTemplateBuilder" value="${folder.LinqTemplateBuilder}/dist/LinqTemplateBuilder.jar"/>
+	<property name="jar.just-template" value="${folder.LinqTemplateBuilder}/lib/just-template.jar"/>
+	
+	<target name="build" depends="generate-linq-template">
+		<delete includeEmptyDirs="true" failonerror="false">
+			<fileset dir="${folder.project.bin}/c41"/>
+		</delete>
+		<javac 
+			srcdir="${folder.project}/src" 
+			destdir="${folder.project.bin}"
+			encoding="utf-8"
+			includeantruntime="false"
+		>
+        </javac>
+	</target>
+	
+	<target name="build-LinqTemplateBuilder">
+		<property name="folder.LinqTemplateBuilder.bin" value="${folder.LinqTemplateBuilder}/bin"/>
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${folder.LinqTemplateBuilder.bin}" includes="**/*"/>
+		</delete>
 		<javac 
 			srcdir="${folder.LinqTemplateBuilder}/src" 
-			destdir="${folder.LinqTemplateBuilder}/bin"
+			destdir="${folder.LinqTemplateBuilder.bin}"
 			encoding="utf-8"
 			includeantruntime="false"
 		>
@@ -17,27 +34,43 @@
 				<pathelement location="${jar.just-template}"/>
 			</classpath>
         </javac>
-		<jar jarfile="${jar.LinqTemplateBuilder}" basedir="${folder.LinqTemplateBuilder}/bin" includes="*/**">
+		<jar jarfile="${jar.LinqTemplateBuilder}" basedir="${folder.LinqTemplateBuilder.bin}" includes="*/**">
             <manifest>
                 <attribute name="Main-Class" value="Main"/>
             </manifest>
 		</jar>
+	</target>
+	
+    <target name="generate-linq-template" depends="build-LinqTemplateBuilder">
 		<exec executable="cmd.exe">
 			<arg line="/c java -Xbootclasspath/a:${jar.just-template} -jar ${jar.LinqTemplateBuilder} project/src/c41/utility/linq/ITEnumerable.java.template  project/src/c41/utility/linq/ITEnumerable.java.template.config"/>
 		</exec>
     </target>
 	
-	<target name="build-dist">
-		<delete dir="project/bin"/>
-		<mkdir dir="project/bin"/>
-		<javac 
-			srcdir="project/src" 
-			destdir="project/bin"
-			encoding="utf-8"
-			includeantruntime="false"
+	<target name="generate-docs">
+		<delete dir="docs/api" failonerror="false"/>
+		<javadoc   
+			sourcepath="${folder.project}/src"   
+			packagenames="c41.*"   
+			destdir="docs/api"  
+			charset="UTF8"  
+			docencoding="UTF8"  
+			encoding="UTF8"  
+			private="false"  
+			windowtitle="JavaC41"  
+			use="true"
+			failonwarning="true"
 		>
-        </javac>
-		<jar jarfile="dist/java-c41.jar" basedir="project/bin" includes="c41/**"/>
+			<arg value="-notimestamp"/>
+		</javadoc>  
+	</target>
+	
+	<target name="build-jar" depends="build">
+		<jar jarfile="dist/java-c41.jar" basedir="${folder.project.bin}" includes="c41/**">
+		<manifest>
+			<attribute name="Built-By" value="C41"/>
+		</manifest>
+		</jar>
 	</target>
 </project>
 
