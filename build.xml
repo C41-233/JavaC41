@@ -42,7 +42,7 @@
 	</target>
 	
     <target name="generate-linq-template" depends="build-LinqTemplateBuilder">
-		<exec executable="cmd.exe">
+		<exec executable="cmd.exe" failonerror="true">
 			<arg line="/c java -Xbootclasspath/a:${jar.just-template} -jar ${jar.LinqTemplateBuilder} project/src/c41/utility/linq/ITEnumerable.java.template  project/src/c41/utility/linq/ITEnumerable.java.template.config"/>
 		</exec>
     </target>
