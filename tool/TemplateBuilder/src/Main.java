@@ -18,11 +18,14 @@ import freemarker.template.Version;
 public class Main {
 
 	public static void main(String[] args) throws Exception {
-		String arg = args[0];
-		File templateFile = new File(arg);
+		String arg1 = args[0];
+		String arg2 = args[1];
+		String arg3 = args[2];
+		
+		File templateFile = new File(arg1);
 		String templateFileName = templateFile.getName();
 		File directory = templateFile.getParentFile();
-		File configFile = new File(directory, templateFileName+".xml");
+		File configFile = new File(arg3);
 		
 		Configuration configuration = new Configuration(new Version("2.3.27"));
 		configuration.setDirectoryForTemplateLoading(templateFile.getParentFile());
@@ -30,10 +33,10 @@ public class Main {
 		configuration.setLogTemplateExceptions(false);
 		configuration.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
 		Template template = configuration.getTemplate(templateFileName);
-
+		
 		for(Config config : createConfig(configFile)) {
-			System.out.println("generate " + config.output);
-			File outputFile = new File(directory, config.output);
+			File outputFile = new File(directory, arg2.replace("$", config.output));
+			System.out.println("generate " + outputFile.getAbsolutePath());
 			try(FileOutputStream fos = new FileOutputStream(outputFile)){
 				OutputStreamWriter writer = new OutputStreamWriter(fos, "utf8");
 				template.process(config.arguments, writer);
@@ -53,7 +56,9 @@ public class Main {
 		for(int i=0; i<listTemplate.getLength(); i++) {
 			Element elementTemplate = (Element) listTemplate.item(i);
 			Config config = new Config();
-			config.output = elementTemplate.getAttribute("output");
+			String name = elementTemplate.getAttribute("name");
+			config.output = name;
+			config.arguments.put("Name", name);
 			
 			NodeList listParameter = elementTemplate.getElementsByTagName("parameter");
 			for(int j=0; j<listParameter.getLength(); j++) {

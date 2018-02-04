@@ -1,0 +1,14 @@
+<templates>
+	<template name="Byte">
+		<parameter name="Primitive" value="byte"/>
+		<parameter name="Box" value="Byte"/>
+	</template>
+	<template name="Char">
+		<parameter name="Primitive" value="char"/>
+		<parameter name="Box" value="Character"/>
+	</template>
+	<template name="Int">
+		<parameter name="Primitive" value="int"/>
+		<parameter name="Box" value="Integer"/>
+	</template>
+</templates>
