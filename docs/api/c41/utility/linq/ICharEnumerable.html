@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":6,"i5":18,"i6":18,"i7":18};
+var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":6,"i6":18};
 var tabs = {65535:["t0","所有方法"],2:["t2","实例方法"],4:["t3","抽象方法"],16:["t5","默认方法"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -49,8 +49,8 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../c41/utility/linq/IByteEnumerator.html" title="c41.utility.linq中的接口"><span class="typeNameLink">上一个类</span></a></li>
-<li><a href="../../../c41/utility/linq/ICharEnumerator.html" title="c41.utility.linq中的接口"><span class="typeNameLink">下一个类</span></a></li>
+<li><a href="../../../c41/utility/linq/IByteEnumerable.html" title="c41.utility.linq中的接口"><span class="typeNameLink">上一个类</span></a></li>
+<li><a href="../../../c41/utility/linq/IDoubleEnumerable.html" title="c41.utility.linq中的接口"><span class="typeNameLink">下一个类</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?c41/utility/linq/ICharEnumerable.html" target="_top">框架</a></li>
@@ -107,7 +107,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public interface <span class="typeNameLabel">ICharEnumerable</span>
 extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.linq中的接口">IEnumerable</a>&lt;java.lang.Character&gt;</pre>
-<div class="block">基本类型char的Enumerator。</div>
+<div class="block">基本类型char的Enumerable。</div>
 </li>
 </ul>
 </div>
@@ -127,50 +127,42 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 <th class="colLast" scope="col">方法和说明</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>default void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/ICharEnumerable.html#foreach-c41.lambda.action.ICharAction-">foreach</a></span>(<a href="../../../c41/lambda/action/ICharAction.html" title="c41.lambda.action中的接口">ICharAction</a>&nbsp;action)</code>
-<div class="block">遍历每一个元素执行Action。</div>
+<td class="colFirst"><code>default char</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/ICharEnumerable.html#at-int-">at</a></span>(int&nbsp;index)</code>
+<div class="block">查询指定下标的值。</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>default void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/ICharEnumerable.html#foreach-c41.lambda.action.IForeachCharAction-">foreach</a></span>(<a href="../../../c41/lambda/action/IForeachCharAction.html" title="c41.lambda.action中的接口">IForeachCharAction</a>&nbsp;action)</code>
-<div class="block">遍历每一个元素执行Action。</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
 <td class="colFirst"><code>default boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/ICharEnumerable.html#isAll-c41.lambda.predicate.ICharPredicate-">isAll</a></span>(<a href="../../../c41/lambda/predicate/ICharPredicate.html" title="c41.lambda.predicate中的接口">ICharPredicate</a>&nbsp;predicate)</code>
 <div class="block">所有元素都满足谓词。</div>
 </td>
 </tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>default boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/ICharEnumerable.html#isExist-char-">isExist</a></span>(char&nbsp;value)</code>
+<div class="block">存在指定值。</div>
+</td>
+</tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>default boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/ICharEnumerable.html#isExist-c41.lambda.predicate.ICharPredicate-">isExist</a></span>(<a href="../../../c41/lambda/predicate/ICharPredicate.html" title="c41.lambda.predicate中的接口">ICharPredicate</a>&nbsp;predicate)</code>
+<div class="block">存在满足谓词的元素。</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>default boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/ICharEnumerable.html#isNotAll-c41.lambda.predicate.ICharPredicate-">isNotAll</a></span>(<a href="../../../c41/lambda/predicate/ICharPredicate.html" title="c41.lambda.predicate中的接口">ICharPredicate</a>&nbsp;predicate)</code>
 <div class="block">非所有元素都满足谓词。</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code><a href="../../../c41/utility/linq/ICharEnumerator.html" title="c41.utility.linq中的接口">ICharEnumerator</a></code></td>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code><a href="../../../c41/utility/linq/enumerator/ICharEnumerator.html" title="c41.utility.linq.enumerator中的接口">ICharEnumerator</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/ICharEnumerable.html#iterator--">iterator</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>default &lt;V&gt;&nbsp;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="c41.utility.linq中的接口">IReferenceEnumerable</a>&lt;V&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/ICharEnumerable.html#select-c41.lambda.selector.ICharSelector-">select</a></span>(<a href="../../../c41/lambda/selector/ICharSelector.html" title="c41.lambda.selector中的接口">ICharSelector</a>&lt;? extends V&gt;&nbsp;selector)</code>
-<div class="block">对每一个元素进行投影。</div>
-</td>
-</tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code>default <a href="../../../c41/utility/linq/ICharEnumerable.html" title="c41.utility.linq中的接口">ICharEnumerable</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/ICharEnumerable.html#skip-int-">skip</a></span>(int&nbsp;n)</code>
-<div class="block">跳过前n个元素。</div>
-</td>
-</tr>
-<tr id="i7" class="rowColor">
 <td class="colFirst"><code>default char[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/ICharEnumerable.html#toArray--">toArray</a></span>()</code>
-<div class="block">将查询转化为一个char数组。</div>
-</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/ICharEnumerable.html#toArray--">toArray</a></span>()</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -178,7 +170,7 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 <!--   -->
 </a>
 <h3>从接口继承的方法&nbsp;c41.utility.linq.<a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.linq中的接口">IEnumerable</a></h3>
-<code><a href="../../../c41/utility/linq/IEnumerable.html#cast--">cast</a>, <a href="../../../c41/utility/linq/IEnumerable.html#count--">count</a>, <a href="../../../c41/utility/linq/IEnumerable.html#hasDuplicate--">hasDuplicate</a>, <a href="../../../c41/utility/linq/IEnumerable.html#isEmpty--">isEmpty</a>, <a href="../../../c41/utility/linq/IEnumerable.html#isNotEmpty--">isNotEmpty</a>, <a href="../../../c41/utility/linq/IEnumerable.html#toCollection-c41.lambda.function.IFunction-">toCollection</a>, <a href="../../../c41/utility/linq/IEnumerable.html#toInt--">toInt</a>, <a href="../../../c41/utility/linq/IEnumerable.html#toList--">toList</a>, <a href="../../../c41/utility/linq/IEnumerable.html#toSet--">toSet</a></code></li>
+<code><a href="../../../c41/utility/linq/IEnumerable.html#cast--">cast</a>, <a href="../../../c41/utility/linq/IEnumerable.html#count--">count</a>, <a href="../../../c41/utility/linq/IEnumerable.html#hasDuplicate--">hasDuplicate</a>, <a href="../../../c41/utility/linq/IEnumerable.html#isEmpty--">isEmpty</a>, <a href="../../../c41/utility/linq/IEnumerable.html#isNotEmpty--">isNotEmpty</a>, <a href="../../../c41/utility/linq/IEnumerable.html#skip-int-">skip</a>, <a href="../../../c41/utility/linq/IEnumerable.html#toCollection-c41.lambda.function.IFunction-">toCollection</a>, <a href="../../../c41/utility/linq/IEnumerable.html#toInt--">toInt</a>, <a href="../../../c41/utility/linq/IEnumerable.html#toList--">toList</a>, <a href="../../../c41/utility/linq/IEnumerable.html#toSet--">toSet</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Iterable">
@@ -207,12 +199,31 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 <ul class="blockList">
 <li class="blockList">
 <h4>iterator</h4>
-<pre><a href="../../../c41/utility/linq/ICharEnumerator.html" title="c41.utility.linq中的接口">ICharEnumerator</a>&nbsp;iterator()</pre>
+<pre><a href="../../../c41/utility/linq/enumerator/ICharEnumerator.html" title="c41.utility.linq.enumerator中的接口">ICharEnumerator</a>&nbsp;iterator()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">指定者:</span></dt>
 <dd><code><a href="../../../c41/utility/linq/IEnumerable.html#iterator--">iterator</a></code>&nbsp;在接口中&nbsp;<code><a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.linq中的接口">IEnumerable</a>&lt;java.lang.Character&gt;</code></dd>
 <dt><span class="overrideSpecifyLabel">指定者:</span></dt>
 <dd><code>iterator</code>&nbsp;在接口中&nbsp;<code>java.lang.Iterable&lt;java.lang.Character&gt;</code></dd>
+</dl>
+</li>
+</ul>
+<a name="at-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>at</h4>
+<pre>default&nbsp;char&nbsp;at(int&nbsp;index)</pre>
+<div class="block">查询指定下标的值。</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>index</code> - 下标</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>指定值</dd>
+<dt><span class="throwsLabel">抛出:</span></dt>
+<dd><code>java.lang.IllegalArgumentException</code> - index &lt; 0</dd>
+<dd><code>java.util.NoSuchElementException</code> - 下标超出迭代器范围</dd>
 </dl>
 </li>
 </ul>
@@ -231,7 +242,39 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 <dd>如果所有元素都满足谓词，则返回true</dd>
 <dt><span class="seeLabel">另请参阅:</span></dt>
 <dd><a href="../../../c41/utility/linq/IReferenceEnumerable.html#isAll-c41.lambda.predicate.IPredicate-"><code>IReferenceEnumerable.isAll(IPredicate)</code></a>, 
-<a href="../../../c41/utility/linq/IIntEnumerable.html#isAll-c41.lambda.predicate.IIntPredicate-"><code>IIntEnumerable.isAll(IIntPredicate)</code></a></dd>
+<a href="../../../c41/utility/linq/ICharEnumerable.html#isAll-c41.lambda.predicate.ICharPredicate-"><code>isAll(ICharPredicate)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="isExist-c41.lambda.predicate.ICharPredicate-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isExist</h4>
+<pre>default&nbsp;boolean&nbsp;isExist(<a href="../../../c41/lambda/predicate/ICharPredicate.html" title="c41.lambda.predicate中的接口">ICharPredicate</a>&nbsp;predicate)</pre>
+<div class="block">存在满足谓词的元素。</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>predicate</code> - 谓词</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>如果存在，则返回true</dd>
+</dl>
+</li>
+</ul>
+<a name="isExist-char-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isExist</h4>
+<pre>default&nbsp;boolean&nbsp;isExist(char&nbsp;value)</pre>
+<div class="block">存在指定值。</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>value</code> - 值</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>如果存在，则返回true</dd>
 </dl>
 </li>
 </ul>
@@ -254,81 +297,10 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 <a name="toArray--">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>toArray</h4>
 <pre>default&nbsp;char[]&nbsp;toArray()</pre>
-<div class="block">将查询转化为一个char数组。</div>
-<dl>
-<dt><span class="returnLabel">返回:</span></dt>
-<dd>char数组</dd>
-</dl>
-</li>
-</ul>
-<a name="foreach-c41.lambda.action.IForeachCharAction-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>foreach</h4>
-<pre>default&nbsp;void&nbsp;foreach(<a href="../../../c41/lambda/action/IForeachCharAction.html" title="c41.lambda.action中的接口">IForeachCharAction</a>&nbsp;action)</pre>
-<div class="block">遍历每一个元素执行Action。</div>
-<dl>
-<dt><span class="paramLabel">参数:</span></dt>
-<dd><code>action</code> - Action</dd>
-</dl>
-</li>
-</ul>
-<a name="foreach-c41.lambda.action.ICharAction-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>foreach</h4>
-<pre>default&nbsp;void&nbsp;foreach(<a href="../../../c41/lambda/action/ICharAction.html" title="c41.lambda.action中的接口">ICharAction</a>&nbsp;action)</pre>
-<div class="block">遍历每一个元素执行Action。</div>
-<dl>
-<dt><span class="paramLabel">参数:</span></dt>
-<dd><code>action</code> - Action</dd>
-</dl>
-</li>
-</ul>
-<a name="select-c41.lambda.selector.ICharSelector-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>select</h4>
-<pre>default&nbsp;&lt;V&gt;&nbsp;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="c41.utility.linq中的接口">IReferenceEnumerable</a>&lt;V&gt;&nbsp;select(<a href="../../../c41/lambda/selector/ICharSelector.html" title="c41.lambda.selector中的接口">ICharSelector</a>&lt;? extends V&gt;&nbsp;selector)</pre>
-<div class="block">对每一个元素进行投影。</div>
-<dl>
-<dt><span class="paramLabel">类型参数:</span></dt>
-<dd><code>V</code> - 投影类型</dd>
-<dt><span class="paramLabel">参数:</span></dt>
-<dd><code>selector</code> - 投影</dd>
-<dt><span class="returnLabel">返回:</span></dt>
-<dd>投影后的元素查询</dd>
-</dl>
-</li>
-</ul>
-<a name="skip-int-">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>skip</h4>
-<pre>default&nbsp;<a href="../../../c41/utility/linq/ICharEnumerable.html" title="c41.utility.linq中的接口">ICharEnumerable</a>&nbsp;skip(int&nbsp;n)</pre>
-<div class="block"><span class="descfrmTypeLabel">从接口复制的说明:&nbsp;<code><a href="../../../c41/utility/linq/IEnumerable.html#skip-int-">IEnumerable</a></code></span></div>
-<div class="block">跳过前n个元素。
- 如果在延迟执行时，跳过的个数超出了迭代器范围，则抛出<code>NoSuchElementException</code>。</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
-<dd><code><a href="../../../c41/utility/linq/IEnumerable.html#skip-int-">skip</a></code>&nbsp;在接口中&nbsp;<code><a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.linq中的接口">IEnumerable</a>&lt;java.lang.Character&gt;</code></dd>
-<dt><span class="paramLabel">参数:</span></dt>
-<dd><code>n</code> - 跳过的元素个数</dd>
-<dt><span class="returnLabel">返回:</span></dt>
-<dd>跳过后的查询</dd>
-</dl>
 </li>
 </ul>
 </li>
@@ -359,8 +331,8 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../c41/utility/linq/IByteEnumerator.html" title="c41.utility.linq中的接口"><span class="typeNameLink">上一个类</span></a></li>
-<li><a href="../../../c41/utility/linq/ICharEnumerator.html" title="c41.utility.linq中的接口"><span class="typeNameLink">下一个类</span></a></li>
+<li><a href="../../../c41/utility/linq/IByteEnumerable.html" title="c41.utility.linq中的接口"><span class="typeNameLink">上一个类</span></a></li>
+<li><a href="../../../c41/utility/linq/IDoubleEnumerable.html" title="c41.utility.linq中的接口"><span class="typeNameLink">下一个类</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?c41/utility/linq/ICharEnumerable.html" target="_top">框架</a></li>

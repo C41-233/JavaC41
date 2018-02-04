@@ -19,7 +19,7 @@ class EnumerationEnumerable<T> implements IReferenceEnumerable<T> {
 		return enumerator;
 	}
 
-	private final class Enumerator extends EnumeratorBase<T>{
+	private final class Enumerator extends ReferenceEnumeratorBase<T>{
 
 		private final Enumeration<T> enumeration;
 		private T current;

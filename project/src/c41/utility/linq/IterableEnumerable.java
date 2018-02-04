@@ -19,7 +19,7 @@ class IterableEnumerable<T> implements IReferenceEnumerable<T>{
 		return new Enumerator();
 	}
 	
-	private final class Enumerator extends EnumeratorBase<T>{
+	private final class Enumerator extends ReferenceEnumeratorBase<T>{
 
 		private final Iterator<T> iterator = iterable.iterator();
 		

@@ -117,7 +117,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	}
 	
 	public default <K> IReferenceGroupEnumerable<K, T> groupBy(ISelector<T, K> selector){
-		return new GroupByReferenceEnumerable<>(this, selector);
+		return new ReferenceGroupByEnumerable<>(this, selector);
 	}
 	
 	public default <V> IReferenceEnumerable<V> instanceOf(Class<V> cl){
@@ -214,23 +214,23 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public IEnumerator<T> iterator();
 	
 	public default <U> IReferenceEnumerable<Tuple2<T, U>> join(Iterable<U> other){
-		return new JoinEnumerable<>(this, other, (t, u)->Tuples.make(t, u));
+		return new ReferenceJoinEnumerable<>(this, other, (t, u)->Tuples.make(t, u));
 	}
 	
 	public default <U, V> IReferenceEnumerable<V> join(Iterable<U> other, IJoiner<T, U, V> joiner){
-		return new JoinEnumerable<>(this, other, joiner);
+		return new ReferenceJoinEnumerable<>(this, other, joiner);
 	}
 
 	public default <U, V> IReferenceEnumerable<V> join(U[] other, IJoiner<T, U, V> joiner){
-		return new JoinEnumerable<>(this, new ArrayEnumerable<>(other), joiner);
+		return new ReferenceJoinEnumerable<>(this, new ReferenceArrayEnumerable<>(other), joiner);
 	}
 	
 	public default IReferenceSortedEnumerable<T> orderBy(Comparator<? super T> comparator){
-		return new OrderByEnumerable<>(this, comparator);
+		return new ReferenceOrderByEnumerable<>(this, comparator);
 	}
 	
 	public default <V extends Comparable<? super V>> IReferenceSortedEnumerable<T> orderBy(ISelector<? super T, V> selector){
-		return new OrderByEnumerable<>(this, (t1, t2)->Comparators.compare(selector.select(t1), selector.select(t2)));
+		return new ReferenceOrderByEnumerable<>(this, (t1, t2)->Comparators.compare(selector.select(t1), selector.select(t2)));
 	}
 	
 	/**
@@ -241,7 +241,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default IReferenceSortedEnumerable<T> orderByPredicate(IPredicate<T> predicate){
 		Arguments.isNotNull(predicate);
 		
-		return new OrderByEnumerable<>(this, (t1, t2)->{
+		return new ReferenceOrderByEnumerable<>(this, (t1, t2)->{
 			boolean b1 = predicate.is(t1);
 			boolean b2 = predicate.is(t2);
 			
@@ -260,21 +260,21 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	 * @return 排序后的查询
 	 */
 	public default IReferenceSortedEnumerable<T> orderBySelf(){
-		return new OrderByEnumerable<>(this, (t1, t2)->{
+		return new ReferenceOrderByEnumerable<>(this, (t1, t2)->{
 			return Comparators.compareNatural(t1, t2);
 		});
 	}
 	
 	public default <V> IReferenceEnumerable<V> select(ISelector<? super T, ? extends V> selector){
-		return new SelectEnumerable<>(this, selector);
+		return new ReferenceSelectEnumerable<>(this, selector);
 	}
 
 	public default <V> IReferenceEnumerable<V> select(ISelectorEx<? super T, ? extends V> selector){
-		return new SelectEnumerable<>(this, selector);
+		return new ReferenceSelectEnumerable<>(this, selector);
 	}
 
 	public default <V> IReferenceEnumerable<V> selectMany(ISelector<? super T, ? extends Iterable<? extends V>> selector){
-		return new SelectManyEnumerable<>(this, selector);
+		return new ReferenceSelectManyEnumerable<>(this, selector);
 	}
 	
 	public default T[] toArray(Class<T> type) {
@@ -309,11 +309,11 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	}
 	
 	public default IReferenceEnumerable<T> union(Iterable<? extends T> iterable){
-		return new UnionEnumerable<>(this, Linq.from(iterable));
+		return new ReferenceUnionEnumerable<>(this, Linq.from(iterable));
 	}
 	
 	public default IReferenceEnumerable<T> where(IPredicate<? super T> predicate){
-		return new WhereEnumerable<>(this, predicate);
+		return new ReferenceWhereEnumerable<>(this, predicate);
 	}
 	
 }

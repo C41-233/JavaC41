@@ -16,3 +16,4 @@ c41.utility.collection.tuple
 c41.utility.comparator
 c41.utility.generator
 c41.utility.linq
+c41.utility.linq.enumerator

@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":18,"i7":18,"i8":6,"i9":18};
+var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":6,"i6":18};
 var tabs = {65535:["t0","所有方法"],2:["t2","实例方法"],4:["t3","抽象方法"],16:["t5","默认方法"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -49,8 +49,8 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../c41/utility/linq/IEnumerator.html" title="c41.utility.linq中的接口"><span class="typeNameLink">上一个类</span></a></li>
-<li><a href="../../../c41/utility/linq/IIntEnumerator.html" title="c41.utility.linq中的接口"><span class="typeNameLink">下一个类</span></a></li>
+<li><a href="../../../c41/utility/linq/IFloatEnumerable.html" title="c41.utility.linq中的接口"><span class="typeNameLink">上一个类</span></a></li>
+<li><a href="../../../c41/utility/linq/ILongEnumerable.html" title="c41.utility.linq中的接口"><span class="typeNameLink">下一个类</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?c41/utility/linq/IIntEnumerable.html" target="_top">框架</a></li>
@@ -107,6 +107,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public interface <span class="typeNameLabel">IIntEnumerable</span>
 extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.linq中的接口">IEnumerable</a>&lt;java.lang.Integer&gt;</pre>
+<div class="block">基本类型int的Enumerable。</div>
 </li>
 </ul>
 </div>
@@ -127,11 +128,15 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>default int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IIntEnumerable.html#at-int-">at</a></span>(int&nbsp;index)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IIntEnumerable.html#at-int-">at</a></span>(int&nbsp;index)</code>
+<div class="block">查询指定下标的值。</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>default boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IIntEnumerable.html#isAll-c41.lambda.predicate.IIntPredicate-">isAll</a></span>(<a href="../../../c41/lambda/predicate/IIntPredicate.html" title="c41.lambda.predicate中的接口">IIntPredicate</a>&nbsp;predicate)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IIntEnumerable.html#isAll-c41.lambda.predicate.IIntPredicate-">isAll</a></span>(<a href="../../../c41/lambda/predicate/IIntPredicate.html" title="c41.lambda.predicate中的接口">IIntPredicate</a>&nbsp;predicate)</code>
+<div class="block">所有元素都满足谓词。</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>default boolean</code></td>
@@ -152,28 +157,10 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 </td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>default boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IIntEnumerable.html#isNotExist-c41.lambda.predicate.IIntPredicate-">isNotExist</a></span>(<a href="../../../c41/lambda/predicate/IIntPredicate.html" title="c41.lambda.predicate中的接口">IIntPredicate</a>&nbsp;predicate)</code>
-<div class="block">不存在满足谓词的元素。</div>
-</td>
-</tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>default boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IIntEnumerable.html#isNotExist-int-">isNotExist</a></span>(int&nbsp;value)</code>
-<div class="block">不存在指定值。</div>
-</td>
-</tr>
-<tr id="i7" class="rowColor">
-<td class="colFirst"><code>default boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IIntEnumerable.html#isNotExistAnyOf-int...-">isNotExistAnyOf</a></span>(int...&nbsp;values)</code>
-<div class="block">不存在任何一个指定值。</div>
-</td>
-</tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code><a href="../../../c41/utility/linq/IIntEnumerator.html" title="c41.utility.linq中的接口">IIntEnumerator</a></code></td>
+<td class="colFirst"><code><a href="../../../c41/utility/linq/enumerator/IIntEnumerator.html" title="c41.utility.linq.enumerator中的接口">IIntEnumerator</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IIntEnumerable.html#iterator--">iterator</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>default int[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IIntEnumerable.html#toArray--">toArray</a></span>()</code>&nbsp;</td>
 </tr>
@@ -206,6 +193,21 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 <!--   -->
 </a>
 <h3>方法详细资料</h3>
+<a name="iterator--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>iterator</h4>
+<pre><a href="../../../c41/utility/linq/enumerator/IIntEnumerator.html" title="c41.utility.linq.enumerator中的接口">IIntEnumerator</a>&nbsp;iterator()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
+<dd><code><a href="../../../c41/utility/linq/IEnumerable.html#iterator--">iterator</a></code>&nbsp;在接口中&nbsp;<code><a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.linq中的接口">IEnumerable</a>&lt;java.lang.Integer&gt;</code></dd>
+<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
+<dd><code>iterator</code>&nbsp;在接口中&nbsp;<code>java.lang.Iterable&lt;java.lang.Integer&gt;</code></dd>
+</dl>
+</li>
+</ul>
 <a name="at-int-">
 <!--   -->
 </a>
@@ -213,6 +215,16 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 <li class="blockList">
 <h4>at</h4>
 <pre>default&nbsp;int&nbsp;at(int&nbsp;index)</pre>
+<div class="block">查询指定下标的值。</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>index</code> - 下标</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>指定值</dd>
+<dt><span class="throwsLabel">抛出:</span></dt>
+<dd><code>java.lang.IllegalArgumentException</code> - index &lt; 0</dd>
+<dd><code>java.util.NoSuchElementException</code> - 下标超出迭代器范围</dd>
+</dl>
 </li>
 </ul>
 <a name="isAll-c41.lambda.predicate.IIntPredicate-">
@@ -222,6 +234,16 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 <li class="blockList">
 <h4>isAll</h4>
 <pre>default&nbsp;boolean&nbsp;isAll(<a href="../../../c41/lambda/predicate/IIntPredicate.html" title="c41.lambda.predicate中的接口">IIntPredicate</a>&nbsp;predicate)</pre>
+<div class="block">所有元素都满足谓词。</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>predicate</code> - 谓词</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>如果所有元素都满足谓词，则返回true</dd>
+<dt><span class="seeLabel">另请参阅:</span></dt>
+<dd><a href="../../../c41/utility/linq/IReferenceEnumerable.html#isAll-c41.lambda.predicate.IPredicate-"><code>IReferenceEnumerable.isAll(IPredicate)</code></a>, 
+<a href="../../../c41/utility/linq/ICharEnumerable.html#isAll-c41.lambda.predicate.ICharPredicate-"><code>ICharEnumerable.isAll(ICharPredicate)</code></a></dd>
+</dl>
 </li>
 </ul>
 <a name="isExist-c41.lambda.predicate.IIntPredicate-">
@@ -272,69 +294,6 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 </dl>
 </li>
 </ul>
-<a name="isNotExist-c41.lambda.predicate.IIntPredicate-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isNotExist</h4>
-<pre>default&nbsp;boolean&nbsp;isNotExist(<a href="../../../c41/lambda/predicate/IIntPredicate.html" title="c41.lambda.predicate中的接口">IIntPredicate</a>&nbsp;predicate)</pre>
-<div class="block">不存在满足谓词的元素。</div>
-<dl>
-<dt><span class="paramLabel">参数:</span></dt>
-<dd><code>predicate</code> - 谓词</dd>
-<dt><span class="returnLabel">返回:</span></dt>
-<dd>如果不存在，则返回true</dd>
-</dl>
-</li>
-</ul>
-<a name="isNotExist-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isNotExist</h4>
-<pre>default&nbsp;boolean&nbsp;isNotExist(int&nbsp;value)</pre>
-<div class="block">不存在指定值。</div>
-<dl>
-<dt><span class="paramLabel">参数:</span></dt>
-<dd><code>value</code> - 元素</dd>
-<dt><span class="returnLabel">返回:</span></dt>
-<dd>如果不存在，则返回true</dd>
-</dl>
-</li>
-</ul>
-<a name="isNotExistAnyOf-int...-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isNotExistAnyOf</h4>
-<pre>default&nbsp;boolean&nbsp;isNotExistAnyOf(int...&nbsp;values)</pre>
-<div class="block">不存在任何一个指定值。</div>
-<dl>
-<dt><span class="paramLabel">参数:</span></dt>
-<dd><code>values</code> - 多个指定值</dd>
-<dt><span class="returnLabel">返回:</span></dt>
-<dd>如果不存在，则返回true</dd>
-</dl>
-</li>
-</ul>
-<a name="iterator--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>iterator</h4>
-<pre><a href="../../../c41/utility/linq/IIntEnumerator.html" title="c41.utility.linq中的接口">IIntEnumerator</a>&nbsp;iterator()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
-<dd><code><a href="../../../c41/utility/linq/IEnumerable.html#iterator--">iterator</a></code>&nbsp;在接口中&nbsp;<code><a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.linq中的接口">IEnumerable</a>&lt;java.lang.Integer&gt;</code></dd>
-<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
-<dd><code>iterator</code>&nbsp;在接口中&nbsp;<code>java.lang.Iterable&lt;java.lang.Integer&gt;</code></dd>
-</dl>
-</li>
-</ul>
 <a name="toArray--">
 <!--   -->
 </a>
@@ -372,8 +331,8 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../c41/utility/linq/IEnumerator.html" title="c41.utility.linq中的接口"><span class="typeNameLink">上一个类</span></a></li>
-<li><a href="../../../c41/utility/linq/IIntEnumerator.html" title="c41.utility.linq中的接口"><span class="typeNameLink">下一个类</span></a></li>
+<li><a href="../../../c41/utility/linq/IFloatEnumerable.html" title="c41.utility.linq中的接口"><span class="typeNameLink">上一个类</span></a></li>
+<li><a href="../../../c41/utility/linq/ILongEnumerable.html" title="c41.utility.linq中的接口"><span class="typeNameLink">下一个类</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?c41/utility/linq/IIntEnumerable.html" target="_top">框架</a></li>

@@ -28,7 +28,7 @@ public final class Linq {
 	}
 
 	public static <T> IReferenceEnumerable<T> from(T[] array){
-		return new ArrayEnumerable<>(array);
+		return new ReferenceArrayEnumerable<>(array);
 	}
 	
 	public static <T> IReferenceEnumerable<T> from(Iterable<T> iterable){
@@ -53,7 +53,7 @@ public final class Linq {
 	
 	@SafeVarargs
 	public static <T> IReferenceEnumerable<T> fromElements(T...elements) {
-		return new ArrayEnumerable<>(elements);
+		return new ReferenceArrayEnumerable<>(elements);
 	}
 
 }

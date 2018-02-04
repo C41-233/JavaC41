@@ -20,7 +20,7 @@ class NodeListEnumerable implements IReferenceEnumerable<Node>{
 		return new Enumerator();
 	}
 
-	private final class Enumerator extends EnumeratorBase<Node>
+	private final class Enumerator extends ReferenceEnumeratorBase<Node>
 	{
 
 		private int index = -1;

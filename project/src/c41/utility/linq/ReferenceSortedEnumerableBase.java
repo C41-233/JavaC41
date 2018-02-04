@@ -9,10 +9,10 @@ abstract class ReferenceSortedEnumerableBase<T> implements IReferenceSortedEnume
 	@Override
 	public IReferenceSortedEnumerable<T> thenBy(Comparator<? super T> comparator) {
 		Arguments.isNotNull(comparator);
-		return new ThenByEnumerable<>(this, comparator);
+		return new ReferenceThenByEnumerable<>(this, comparator);
 	}
 
 	@Override
-	public abstract ISortedEnumerator<T> iterator();
+	public abstract IReferenceSortedEnumerator<T> iterator();
 	
 }
