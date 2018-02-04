@@ -2,11 +2,11 @@
 	<property name="folder.project" value="project"/>
 	<property name="folder.project.bin" value="${folder.project}/bin"/>
 	
-	<property name="folder.LinqTemplateBuilder" value="tool/LinqTemplateBuilder"/>
-	<property name="jar.LinqTemplateBuilder" value="${folder.LinqTemplateBuilder}/dist/LinqTemplateBuilder.jar"/>
-	<property name="jar.just-template" value="${folder.LinqTemplateBuilder}/lib/just-template.jar"/>
+	<property name="folder.TemplateBuilder" value="tool/TemplateBuilder"/>
+	<property name="jar.TemplateBuilder" value="${folder.TemplateBuilder}/dist/TemplateBuilder.jar"/>
+	<property name="jar.freemarker" value="${folder.TemplateBuilder}/lib/freemarker.jar"/>
 	
-	<target name="build" depends="generate-linq-template">
+	<target name="build" depends="generate-templates">
 		<delete includeEmptyDirs="true" failonerror="false">
 			<fileset dir="${folder.project.bin}/c41"/>
 		</delete>
@@ -19,31 +19,31 @@
         </javac>
 	</target>
 	
-	<target name="build-LinqTemplateBuilder">
-		<property name="folder.LinqTemplateBuilder.bin" value="${folder.LinqTemplateBuilder}/bin"/>
+	<target name="build-TemplateBuilder">
+		<property name="folder.TemplateBuilder.bin" value="${folder.TemplateBuilder}/bin"/>
 		<delete includeemptydirs="true" failonerror="false">
-			<fileset dir="${folder.LinqTemplateBuilder.bin}" includes="**/*"/>
+			<fileset dir="${folder.TemplateBuilder.bin}" includes="**/*"/>
 		</delete>
 		<javac 
-			srcdir="${folder.LinqTemplateBuilder}/src" 
-			destdir="${folder.LinqTemplateBuilder.bin}"
+			srcdir="${folder.TemplateBuilder}/src" 
+			destdir="${folder.TemplateBuilder.bin}"
 			encoding="utf-8"
 			includeantruntime="false"
 		>
 			<classpath>
-				<pathelement location="${jar.just-template}"/>
+				<pathelement location="${jar.freemarker}"/>
 			</classpath>
         </javac>
-		<jar jarfile="${jar.LinqTemplateBuilder}" basedir="${folder.LinqTemplateBuilder.bin}" includes="*/**">
+		<jar jarfile="${jar.TemplateBuilder}" basedir="${folder.TemplateBuilder.bin}" includes="*/**">
             <manifest>
                 <attribute name="Main-Class" value="Main"/>
             </manifest>
 		</jar>
 	</target>
 	
-    <target name="generate-linq-template" depends="build-LinqTemplateBuilder">
+    <target name="generate-templates" depends="build-TemplateBuilder">
 		<exec executable="cmd.exe" failonerror="true">
-			<arg line="/c java -Xbootclasspath/a:${jar.just-template} -jar ${jar.LinqTemplateBuilder} project/src/c41/utility/linq/ITEnumerable.java.template  project/src/c41/utility/linq/ITEnumerable.java.template.config"/>
+			<arg line="/c java -Xbootclasspath/a:${jar.freemarker} -jar ${jar.TemplateBuilder} project/src/c41/utility/linq/ITEnumerable.java.template"/>
 		</exec>
     </target>
 	
