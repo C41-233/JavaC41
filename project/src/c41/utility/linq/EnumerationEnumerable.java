@@ -3,6 +3,7 @@ package c41.utility.linq;
 import java.util.Enumeration;
 
 import c41.utility.assertion.Arguments;
+import c41.utility.linq.enumerator.IEnumerator;
 
 class EnumerationEnumerable<T> implements IReferenceEnumerable<T> {
 

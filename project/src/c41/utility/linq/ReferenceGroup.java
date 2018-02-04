@@ -2,6 +2,8 @@ package c41.utility.linq;
 
 import java.util.ArrayList;
 
+import c41.utility.linq.enumerator.IEnumerator;
+
 class ReferenceGroup<TKey, TValue> implements IReferenceGroup<TKey, TValue>{
 
 	private final IReferenceEnumerable<TValue> enumerable;

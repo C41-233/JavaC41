@@ -42,9 +42,15 @@
 	</target>
 	
     <target name="generate-templates" depends="build-TemplateBuilder">
-		<exec executable="cmd.exe" failonerror="true">
-			<arg line="/c java -Xbootclasspath/a:${jar.freemarker} -jar ${jar.TemplateBuilder} project/src/c41/utility/linq/ITEnumerable.java.template"/>
-		</exec>
+		<macrodef name="generate">
+			<attribute name="src"/>
+			<sequential>
+				<exec executable="cmd.exe" failonerror="true">
+					<arg line="/c java -Xbootclasspath/a:${jar.freemarker} -jar ${jar.TemplateBuilder} @{src}"/>
+				</exec>
+			</sequential>
+		</macrodef>
+		<generate src="project/src/c41/utility/linq/ITEnumerable.java.template"/>
     </target>
 	
 	<target name="generate-docs">

@@ -4,6 +4,7 @@ import java.util.Iterator;
 
 import c41.lambda.function.IJoiner;
 import c41.utility.assertion.Arguments;
+import c41.utility.linq.enumerator.IEnumerator;
 
 class JoinEnumerable<T, U, V> implements IReferenceEnumerable<V>{
 

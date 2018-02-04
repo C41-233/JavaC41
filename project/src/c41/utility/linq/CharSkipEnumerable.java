@@ -1,5 +1,7 @@
 package c41.utility.linq;
 
+import c41.utility.linq.enumerator.ICharEnumerator;
+
 class CharSkipEnumerable extends SkipEnumerable<Character> implements ICharEnumerable{
 
 	public CharSkipEnumerable(ICharEnumerable enumerable, int skip) {

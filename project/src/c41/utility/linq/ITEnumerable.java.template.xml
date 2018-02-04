@@ -7,4 +7,12 @@
 		<parameter name="Enumerator" value="IByteEnumerator"/>
 		<parameter name="Predicate" value="IBytePredicate"/>
 	</template>
+	<!--  <template output="ILongEnumerable.java">
+		<parameter name="Primitive" value="long"/>
+		<parameter name="Box" value="Long"/>
+		<parameter name="Next" value="nextLong"/>
+		<parameter name="Enumerable" value="ILongEnumerable"/>
+		<parameter name="Enumerator" value="ILongEnumerator"/>
+		<parameter name="Predicate" value="ILongPredicate"/>
+	</template>-->
 </templates>

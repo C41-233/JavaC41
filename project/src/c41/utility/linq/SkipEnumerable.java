@@ -3,6 +3,7 @@ package c41.utility.linq;
 import java.util.NoSuchElementException;
 
 import c41.utility.assertion.Arguments;
+import c41.utility.linq.enumerator.IEnumerator;
 
 class SkipEnumerable<T> implements IEnumerable<T>{
 

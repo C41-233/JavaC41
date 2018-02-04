@@ -7,6 +7,7 @@ import java.util.Set;
 
 import c41.lambda.function.IFunction;
 import c41.utility.collection.Iterables;
+import c41.utility.linq.enumerator.IEnumerator;
 
 /**
  * Enumerable的基接口。

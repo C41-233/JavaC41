@@ -8,6 +8,7 @@ import java.util.NoSuchElementException;
 
 import c41.lambda.predicate.*;
 import c41.utility.assertion.Arguments;
+import c41.utility.linq.enumerator.*;
 
 /**
  * 基本类型${Primitive}的Enumerable。

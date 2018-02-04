@@ -2,6 +2,8 @@ package c41.utility.linq;
 
 import java.util.NoSuchElementException;
 
+import c41.utility.linq.enumerator.ICharEnumerator;
+
 abstract class CharEnumeratorBase implements ICharEnumerator{
 
 	private boolean isBefore = true;

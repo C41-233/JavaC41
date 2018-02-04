@@ -1,4 +1,4 @@
-package c41.utility.linq;
+package c41.utility.linq.enumerator;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

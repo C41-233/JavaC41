@@ -3,6 +3,7 @@ package c41.utility.linq;
 import java.util.NoSuchElementException;
 
 import c41.utility.assertion.Arguments;
+import c41.utility.linq.enumerator.IEnumerator;
 
 class ArrayEnumerable<T> implements IReferenceEnumerable<T>{
 

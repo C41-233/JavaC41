@@ -1,4 +1,4 @@
-package c41.utility.linq;
+package c41.utility.linq.enumerator;
 
 /**
  * 基本类型char的Enumerator。

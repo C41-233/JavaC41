@@ -23,6 +23,7 @@ import c41.utility.collection.Iterables;
 import c41.utility.collection.tuple.Tuple2;
 import c41.utility.collection.tuple.Tuples;
 import c41.utility.comparator.Comparators;
+import c41.utility.linq.enumerator.IEnumerator;
 
 /**
  * 引用类型的Enumerable。

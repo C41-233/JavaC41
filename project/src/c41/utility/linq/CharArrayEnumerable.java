@@ -1,6 +1,7 @@
 package c41.utility.linq;
 
 import c41.utility.assertion.Arguments;
+import c41.utility.linq.enumerator.ICharEnumerator;
 
 class CharArrayEnumerable implements ICharEnumerable{
 

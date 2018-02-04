@@ -2,6 +2,8 @@ package c41.utility.linq;
 
 import java.util.NoSuchElementException;
 
+import c41.utility.linq.enumerator.IEnumerator;
+
 abstract class EnumeratorBase<T> implements IEnumerator<T>{
 
 	private boolean isBefore = true;

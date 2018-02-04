@@ -7,6 +7,7 @@ import java.util.NoSuchElementException;
 import c41.lambda.predicate.IIntPredicate;
 import c41.utility.algorithm.LinearSearch;
 import c41.utility.assertion.Arguments;
+import c41.utility.linq.enumerator.IIntEnumerator;
 
 public interface IIntEnumerable extends IEnumerable<Integer>{
 
