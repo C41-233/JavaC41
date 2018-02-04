@@ -36,7 +36,7 @@ public class Main {
 		
 		for(Config config : createConfig(configFile)) {
 			File outputFile = new File(directory, arg2.replace("$", config.output));
-			System.out.println("generate " + outputFile.getAbsolutePath());
+			System.out.println("generate " + outputFile.getName());
 			try(FileOutputStream fos = new FileOutputStream(outputFile)){
 				OutputStreamWriter writer = new OutputStreamWriter(fos, "utf8");
 				template.process(config.arguments, writer);

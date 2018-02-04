@@ -7,8 +7,24 @@
 		<parameter name="Primitive" value="char"/>
 		<parameter name="Box" value="Character"/>
 	</template>
+	<template name="Short">
+		<parameter name="Primitive" value="short"/>
+		<parameter name="Box" value="Short"/>
+	</template>
 	<template name="Int">
 		<parameter name="Primitive" value="int"/>
 		<parameter name="Box" value="Integer"/>
+	</template>
+	<template name="Long">
+		<parameter name="Primitive" value="long"/>
+		<parameter name="Box" value="Long"/>
+	</template>
+	<template name="Float">
+		<parameter name="Primitive" value="float"/>
+		<parameter name="Box" value="Float"/>
+	</template>
+	<template name="Double">
+		<parameter name="Primitive" value="double"/>
+		<parameter name="Box" value="Double"/>
 	</template>
 </templates>
