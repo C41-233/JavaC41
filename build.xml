@@ -16,7 +16,7 @@
 			encoding="utf-8"
 			includeantruntime="false"
 		>
-        </javac>
+		</javac>
 	</target>
 	
 	<target name="build-TemplateBuilder">
