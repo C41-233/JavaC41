@@ -20,7 +20,7 @@ public final class Linq {
 	}
 	
 	public static ICharEnumerable from(String string) {
-		return new CharArrayEnumerable(string);
+		return new StringEnumerable(string);
 	}
 	
 	public static ICharEnumerable from(char[] array) {

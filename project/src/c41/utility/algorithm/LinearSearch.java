@@ -2,9 +2,9 @@ package c41.utility.algorithm;
 
 import java.util.Objects;
 
+import c41.core.assertion.Arguments;
 import c41.lambda.predicate.IPredicate;
 import c41.reflect.StaticClassException;
-import c41.utility.assertion.Arguments;
 
 public final class LinearSearch {
 

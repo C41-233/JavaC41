@@ -1,8 +1,8 @@
 package c41.utility.linq;
 
+import c41.core.assertion.Arguments;
 import c41.lambda.selector.ISelector;
 import c41.lambda.selector.ISelectorEx;
-import c41.utility.assertion.Arguments;
 import c41.utility.linq.enumerator.IEnumerator;
 
 class ReferenceSelectEnumerable<T, V> implements IReferenceEnumerable<V>{

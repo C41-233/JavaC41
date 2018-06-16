@@ -1,6 +1,6 @@
 package c41.utility.linq;
 
-import c41.utility.assertion.Arguments;
+import c41.core.assertion.Arguments;
 import c41.utility.linq.enumerator.IEnumerator;
 
 class ReferenceUnionEnumerable<T> implements IReferenceEnumerable<T>{

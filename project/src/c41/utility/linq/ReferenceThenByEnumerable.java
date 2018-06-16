@@ -3,7 +3,7 @@ package c41.utility.linq;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-import c41.utility.assertion.Arguments;
+import c41.core.assertion.Arguments;
 
 class ReferenceThenByEnumerable<T> extends ReferenceSortedEnumerableBase<T>{
 

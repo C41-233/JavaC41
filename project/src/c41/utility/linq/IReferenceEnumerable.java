@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.NoSuchElementException;
 
+import c41.core.assertion.Arguments;
 import c41.lambda.action.IAction1;
 import c41.lambda.action.IForeachAction;
 import c41.lambda.function.IBooleanFunction1;
@@ -18,7 +19,6 @@ import c41.lambda.predicate.IIntPredicate;
 import c41.lambda.predicate.IPredicate;
 import c41.lambda.selector.ISelector;
 import c41.lambda.selector.ISelectorEx;
-import c41.utility.assertion.Arguments;
 import c41.utility.collection.Iterables;
 import c41.utility.collection.tuple.Tuple2;
 import c41.utility.collection.tuple.Tuples;
@@ -277,10 +277,20 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 		return new ReferenceSelectManyEnumerable<>(this, selector);
 	}
 	
+	/**
+	 * 构造所有元素组成的数组
+	 * @param type 用于指定类型
+	 * @return 数组
+	 */
 	public default T[] toArray(Class<T> type) {
 		return Iterables.toArray(this, type);
 	}
-	
+
+	/**
+	 * 构造所有元素组成的数组
+	 * @param array 数组
+	 * @return 数组
+	 */
 	public default T[] toArray(T[] array) {
 		return Iterables.toArray(this, array);
 	}

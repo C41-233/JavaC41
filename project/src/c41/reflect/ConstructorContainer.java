@@ -3,7 +3,7 @@ package c41.reflect;
 import java.lang.reflect.Constructor;
 
 import c41.core.Core;
-import c41.utility.Strings;
+import c41.utility.string.Strings;
 
 final class ConstructorContainer<T> {
 

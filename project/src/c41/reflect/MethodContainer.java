@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-import c41.utility.Strings;
 import c41.utility.collection.list.TypeArrayList;
 import c41.utility.linq.Linq;
+import c41.utility.string.Strings;
 
 final class MethodContainer {
 

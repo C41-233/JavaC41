@@ -57,6 +57,7 @@
 		<generate src="project/src/c41/lambda/predicate/ITPredicate.java.template" dest="I$Predicate.java"/>
 		<generate src="project/src/c41/utility/linq/enumerator/ITEnumerator.java.template" dest="I$Enumerator.java"/>
 		<generate src="project/src/c41/utility/linq/ITEnumerable.java.template" dest="I$Enumerable.java"/>
+		<generate src="project/src/c41/utility/collection/list/TList.java.template" dest="$List.java"/>
     </target>
 	
 	<target name="generate-docs">

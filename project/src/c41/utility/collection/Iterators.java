@@ -10,6 +10,7 @@ import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.Set;
 
+import c41.core.assertion.Arguments;
 import c41.lambda.action.IAction1;
 import c41.lambda.action.IForeachAction;
 import c41.lambda.function.IBooleanFunction1;
@@ -18,7 +19,6 @@ import c41.lambda.function.IFunction;
 import c41.lambda.predicate.IPredicate;
 import c41.reflect.StaticClassException;
 import c41.utility.algorithm.LinearSearch;
-import c41.utility.assertion.Arguments;
 
 public final class Iterators {
 

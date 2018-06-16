@@ -3,7 +3,7 @@ package c41.utility.linq;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import c41.utility.assertion.Arguments;
+import c41.core.assertion.Arguments;
 import c41.utility.linq.enumerator.IEnumerator;
 
 class NodeListEnumerable implements IReferenceEnumerable<Node>{
