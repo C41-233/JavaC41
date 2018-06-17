@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","所有方法"],2:["t2","实例方法"],8:["t4","具体方法"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -109,13 +109,13 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>所有已实现的接口:</dt>
-<dd>java.lang.Iterable&lt;java.lang.Double&gt;</dd>
+<dd><a href="../../../../c41/utility/collection/IDoubleCollection.html" title="c41.utility.collection中的接口">IDoubleCollection</a>, <a href="../../../../c41/utility/collection/list/IDoubleListView.html" title="c41.utility.collection.list中的接口">IDoubleListView</a>, <a href="../../../../c41/utility/linq/IDoubleEnumerable.html" title="c41.utility.linq中的接口">IDoubleEnumerable</a>, <a href="../../../../c41/utility/linq/IEnumerable.html" title="c41.utility.linq中的接口">IEnumerable</a>&lt;java.lang.Double&gt;, java.lang.Iterable&lt;java.lang.Double&gt;</dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">DoubleArrayList</span>
 extends java.lang.Object
-implements java.lang.Iterable&lt;java.lang.Double&gt;</pre>
+implements <a href="../../../../c41/utility/collection/IDoubleCollection.html" title="c41.utility.collection中的接口">IDoubleCollection</a>, <a href="../../../../c41/utility/collection/list/IDoubleListView.html" title="c41.utility.collection.list中的接口">IDoubleListView</a></pre>
 </li>
 </ul>
 </div>
@@ -158,37 +158,35 @@ implements java.lang.Iterable&lt;java.lang.Double&gt;</pre>
 <th class="colLast" scope="col">方法和说明</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>void</code></td>
+<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/list/DoubleArrayList.html#add-double-">add</a></span>(double&nbsp;e)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/list/DoubleArrayList.html#addAll-java.lang.Iterable-">addAll</a></span>(java.lang.Iterable&lt;java.lang.Double&gt;&nbsp;it)</code>&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/list/DoubleArrayList.html#clear--">clear</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/list/DoubleArrayList.html#get-int-">get</a></span>(int&nbsp;i)</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>java.util.Iterator&lt;java.lang.Double&gt;</code></td>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code><a href="../../../../c41/utility/linq/enumerator/IDoubleEnumerator.html" title="c41.utility.linq.enumerator中的接口">IDoubleEnumerator</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/list/DoubleArrayList.html#iterator--">iterator</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/list/DoubleArrayList.html#set-int-double-">set</a></span>(int&nbsp;i,
    double&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/list/DoubleArrayList.html#size--">size</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>double[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/list/DoubleArrayList.html#toArray--">toArray</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/list/DoubleArrayList.html#toArray--">toArray</a></span>()</code>
+<div class="block">返回所有元素组成的数组。</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -197,6 +195,27 @@ implements java.lang.Iterable&lt;java.lang.Double&gt;</pre>
 </a>
 <h3>从类继承的方法&nbsp;java.lang.Object</h3>
 <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.c41.utility.collection.IDoubleCollection">
+<!--   -->
+</a>
+<h3>从接口继承的方法&nbsp;c41.utility.collection.<a href="../../../../c41/utility/collection/IDoubleCollection.html" title="c41.utility.collection中的接口">IDoubleCollection</a></h3>
+<code><a href="../../../../c41/utility/collection/IDoubleCollection.html#addAll-java.lang.Iterable-">addAll</a>, <a href="../../../../c41/utility/collection/IDoubleCollection.html#count--">count</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.c41.utility.linq.IDoubleEnumerable">
+<!--   -->
+</a>
+<h3>从接口继承的方法&nbsp;c41.utility.linq.<a href="../../../../c41/utility/linq/IDoubleEnumerable.html" title="c41.utility.linq中的接口">IDoubleEnumerable</a></h3>
+<code><a href="../../../../c41/utility/linq/IDoubleEnumerable.html#at-int-">at</a>, <a href="../../../../c41/utility/linq/IDoubleEnumerable.html#countIf-c41.lambda.predicate.IDoublePredicate-">countIf</a>, <a href="../../../../c41/utility/linq/IDoubleEnumerable.html#first--">first</a>, <a href="../../../../c41/utility/linq/IDoubleEnumerable.html#firstDuplicate--">firstDuplicate</a>, <a href="../../../../c41/utility/linq/IDoubleEnumerable.html#firstDuplicateOrDefault--">firstDuplicateOrDefault</a>, <a href="../../../../c41/utility/linq/IDoubleEnumerable.html#firstDuplicateOrDefault-double-">firstDuplicateOrDefault</a>, <a href="../../../../c41/utility/linq/IDoubleEnumerable.html#firstIf-c41.lambda.predicate.IDoublePredicate-">firstIf</a>, <a href="../../../../c41/utility/linq/IDoubleEnumerable.html#firstIndexIf-c41.lambda.predicate.IDoublePredicate-">firstIndexIf</a>, <a href="../../../../c41/utility/linq/IDoubleEnumerable.html#firstIndexOf-double-">firstIndexOf</a>, <a href="../../../../c41/utility/linq/IDoubleEnumerable.html#firstIndexOf-double-double-">firstIndexOf</a>, <a href="../../../../c41/utility/linq/IDoubleEnumerable.html#isAll-c41.lambda.predicate.IDoublePredicate-">isAll</a>, <a href="../../../../c41/utility/linq/IDoubleEnumerable.html#isExist-double-">isExist</a>, <a href="../../../../c41/utility/linq/IDoubleEnumerable.html#isExist-c41.lambda.predicate.IDoublePredicate-">isExist</a>, <a href="../../../../c41/utility/linq/IDoubleEnumerable.html#isNotAll-c41.lambda.predicate.IDoublePredicate-">isNotAll</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.c41.utility.linq.IEnumerable">
+<!--   -->
+</a>
+<h3>从接口继承的方法&nbsp;c41.utility.linq.<a href="../../../../c41/utility/linq/IEnumerable.html" title="c41.utility.linq中的接口">IEnumerable</a></h3>
+<code><a href="../../../../c41/utility/linq/IEnumerable.html#cast--">cast</a>, <a href="../../../../c41/utility/linq/IEnumerable.html#hasDuplicate--">hasDuplicate</a>, <a href="../../../../c41/utility/linq/IEnumerable.html#isEmpty--">isEmpty</a>, <a href="../../../../c41/utility/linq/IEnumerable.html#isNotEmpty--">isNotEmpty</a>, <a href="../../../../c41/utility/linq/IEnumerable.html#skip-int-">skip</a>, <a href="../../../../c41/utility/linq/IEnumerable.html#toCollection-c41.lambda.function.IFunction-">toCollection</a>, <a href="../../../../c41/utility/linq/IEnumerable.html#toInt--">toInt</a>, <a href="../../../../c41/utility/linq/IEnumerable.html#toList--">toList</a>, <a href="../../../../c41/utility/linq/IEnumerable.html#toSet--">toSet</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Iterable">
@@ -260,16 +279,11 @@ implements java.lang.Iterable&lt;java.lang.Double&gt;</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>add</h4>
-<pre>public&nbsp;void&nbsp;add(double&nbsp;e)</pre>
-</li>
-</ul>
-<a name="addAll-java.lang.Iterable-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>addAll</h4>
-<pre>public&nbsp;void&nbsp;addAll(java.lang.Iterable&lt;java.lang.Double&gt;&nbsp;it)</pre>
+<pre>public&nbsp;boolean&nbsp;add(double&nbsp;e)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
+<dd><code><a href="../../../../c41/utility/collection/IDoubleCollection.html#add-double-">add</a></code>&nbsp;在接口中&nbsp;<code><a href="../../../../c41/utility/collection/IDoubleCollection.html" title="c41.utility.collection中的接口">IDoubleCollection</a></code></dd>
+</dl>
 </li>
 </ul>
 <a name="set-int-double-">
@@ -289,6 +303,10 @@ implements java.lang.Iterable&lt;java.lang.Double&gt;</pre>
 <li class="blockList">
 <h4>get</h4>
 <pre>public&nbsp;double&nbsp;get(int&nbsp;i)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
+<dd><code><a href="../../../../c41/utility/collection/list/IDoubleListView.html#get-int-">get</a></code>&nbsp;在接口中&nbsp;<code><a href="../../../../c41/utility/collection/list/IDoubleListView.html" title="c41.utility.collection.list中的接口">IDoubleListView</a></code></dd>
+</dl>
 </li>
 </ul>
 <a name="size--">
@@ -298,6 +316,12 @@ implements java.lang.Iterable&lt;java.lang.Double&gt;</pre>
 <li class="blockList">
 <h4>size</h4>
 <pre>public&nbsp;int&nbsp;size()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
+<dd><code><a href="../../../../c41/utility/collection/IDoubleCollection.html#size--">size</a></code>&nbsp;在接口中&nbsp;<code><a href="../../../../c41/utility/collection/IDoubleCollection.html" title="c41.utility.collection中的接口">IDoubleCollection</a></code></dd>
+<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
+<dd><code><a href="../../../../c41/utility/collection/list/IDoubleListView.html#size--">size</a></code>&nbsp;在接口中&nbsp;<code><a href="../../../../c41/utility/collection/list/IDoubleListView.html" title="c41.utility.collection.list中的接口">IDoubleListView</a></code></dd>
+</dl>
 </li>
 </ul>
 <a name="clear--">
@@ -316,6 +340,15 @@ implements java.lang.Iterable&lt;java.lang.Double&gt;</pre>
 <li class="blockList">
 <h4>toArray</h4>
 <pre>public&nbsp;double[]&nbsp;toArray()</pre>
+<div class="block"><span class="descfrmTypeLabel">从接口复制的说明:&nbsp;<code><a href="../../../../c41/utility/linq/IDoubleEnumerable.html#toArray--">IDoubleEnumerable</a></code></span></div>
+<div class="block">返回所有元素组成的数组。
+ 如果没有元素，则返回空数组。</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
+<dd><code><a href="../../../../c41/utility/linq/IDoubleEnumerable.html#toArray--">toArray</a></code>&nbsp;在接口中&nbsp;<code><a href="../../../../c41/utility/linq/IDoubleEnumerable.html" title="c41.utility.linq中的接口">IDoubleEnumerable</a></code></dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>数组</dd>
+</dl>
 </li>
 </ul>
 <a name="iterator--">
@@ -324,8 +357,12 @@ implements java.lang.Iterable&lt;java.lang.Double&gt;</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>iterator</h4>
-<pre>public&nbsp;java.util.Iterator&lt;java.lang.Double&gt;&nbsp;iterator()</pre>
+<pre>public&nbsp;<a href="../../../../c41/utility/linq/enumerator/IDoubleEnumerator.html" title="c41.utility.linq.enumerator中的接口">IDoubleEnumerator</a>&nbsp;iterator()</pre>
 <dl>
+<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
+<dd><code><a href="../../../../c41/utility/linq/IDoubleEnumerable.html#iterator--">iterator</a></code>&nbsp;在接口中&nbsp;<code><a href="../../../../c41/utility/linq/IDoubleEnumerable.html" title="c41.utility.linq中的接口">IDoubleEnumerable</a></code></dd>
+<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
+<dd><code><a href="../../../../c41/utility/linq/IEnumerable.html#iterator--">iterator</a></code>&nbsp;在接口中&nbsp;<code><a href="../../../../c41/utility/linq/IEnumerable.html" title="c41.utility.linq中的接口">IEnumerable</a>&lt;java.lang.Double&gt;</code></dd>
 <dt><span class="overrideSpecifyLabel">指定者:</span></dt>
 <dd><code>iterator</code>&nbsp;在接口中&nbsp;<code>java.lang.Iterable&lt;java.lang.Double&gt;</code></dd>
 </dl>

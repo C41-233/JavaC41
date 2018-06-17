@@ -9,6 +9,7 @@ import java.util.NoSuchElementException;
 
 import c41.lambda.predicate.*;
 import c41.core.assertion.Arguments;
+import c41.utility.algorithm.Maths;
 import c41.utility.linq.enumerator.*;
 import c41.utility.collection.list.*;
 import c41.utility.collection.set.*;
@@ -90,6 +91,32 @@ public interface IShortEnumerable extends IEnumerable<Short>{
 	}
 	
 	/**
+	 * 返回第一个重复元素。如果不存在，则返回0。
+	 * @return 第一个重复元素或0。
+	 */
+	public default short firstDuplicateOrDefault(){
+		return firstDuplicateOrDefault((short)0);
+	}
+	
+	/**
+	 * 返回第一个重复元素。如果不存在，则返回默认值。
+	 * @param def 默认值
+	 * @return 第一个重复元素或默认值。
+	 */
+	public default short firstDuplicateOrDefault(short def){
+		ShortHashSet set = new ShortHashSet();
+		
+		IShortEnumerator enumerator = iterator();
+		while(enumerator.hasNext()){
+			short value = enumerator.nextShort();
+			if(!set.add(value)){
+				return value;
+			}
+		}
+		return def;
+	}
+	
+	/**
 	 * 返回第一个满足条件的元素。
 	 * @param predicate 谓词
 	 * @return 第一个满足的元素
@@ -107,6 +134,45 @@ public interface IShortEnumerable extends IEnumerable<Short>{
 		}
 		throw new NoSuchElementException();
 	}
+	
+	/**
+	 * 返回第一个满足条件的下标。如果不存在，则返回-1。
+	 * @param predicate 谓词
+	 * @return 下标。
+	 */
+	public default int firstIndexIf(IShortPredicate predicate){
+		Arguments.isNotNull(predicate);
+		
+		IShortEnumerator enumerator = iterator();
+		int index = 0;
+		while(enumerator.hasNext()){
+			short value = enumerator.nextShort();
+			if(predicate.is(value)){
+				return index;
+			}
+			++index;
+		}
+		return -1;
+	}
+	
+	/**
+	 * 返回元素value的下标。如果不存在，则返回-1。
+	 * @param value 目标元素
+	 * @return 下标
+	 */
+	public default int firstIndexOf(short value){
+		IShortEnumerator enumerator = iterator();
+		int index = 0;
+		while(enumerator.hasNext()){
+			short val = enumerator.nextShort();
+			if(val == value){
+				return index;
+			}
+			++index;
+		}
+		return -1;
+	}
+	
 	
 	/**
 	 * 所有元素都满足谓词。

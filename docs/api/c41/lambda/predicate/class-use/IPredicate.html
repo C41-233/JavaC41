@@ -214,16 +214,6 @@
        <a href="../../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super T&gt;&nbsp;predicate)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>static &lt;T&gt;&nbsp;int</code></td>
-<td class="colLast"><span class="typeNameLabel">Iterables.</span><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/Iterables.html#findFirstIndex-java.lang.Iterable-c41.lambda.predicate.IPredicate-">findFirstIndex</a></span>(java.lang.Iterable&lt;T&gt;&nbsp;iterable,
-              <a href="../../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super T&gt;&nbsp;predicate)</code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static &lt;T&gt;&nbsp;int</code></td>
-<td class="colLast"><span class="typeNameLabel">Iterators.</span><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/Iterators.html#findFirstIndex-java.util.Iterator-c41.lambda.predicate.IPredicate-">findFirstIndex</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
-              <a href="../../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super T&gt;&nbsp;predicate)</code>&nbsp;</td>
-</tr>
-<tr class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><span class="typeNameLabel">Iterables.</span><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/Iterables.html#findFirstOrCreateDefault-java.lang.Iterable-c41.lambda.predicate.IPredicate-c41.lambda.function.IFunction-">findFirstOrCreateDefault</a></span>(java.lang.Iterable&lt;T&gt;&nbsp;iterable,
                         <a href="../../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super T&gt;&nbsp;predicate,
@@ -261,6 +251,16 @@
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><span class="typeNameLabel">Iterables.</span><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/Iterables.html#firstIf-java.lang.Iterable-c41.lambda.predicate.IPredicate-">firstIf</a></span>(java.lang.Iterable&lt;T&gt;&nbsp;iterable,
        <a href="../../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super T&gt;&nbsp;predicate)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;int</code></td>
+<td class="colLast"><span class="typeNameLabel">Iterables.</span><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/Iterables.html#firstIndexIf-java.lang.Iterable-c41.lambda.predicate.IPredicate-">firstIndexIf</a></span>(java.lang.Iterable&lt;T&gt;&nbsp;iterable,
+            <a href="../../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super T&gt;&nbsp;predicate)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;int</code></td>
+<td class="colLast"><span class="typeNameLabel">Iterators.</span><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/Iterators.html#firstIndexIf-java.util.Iterator-c41.lambda.predicate.IPredicate-">firstIndexIf</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
+            <a href="../../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super T&gt;&nbsp;predicate)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
@@ -340,27 +340,29 @@
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>default int</code></td>
-<td class="colLast"><span class="typeNameLabel">IReferenceEnumerable.</span><code><span class="memberNameLink"><a href="../../../../c41/utility/linq/IReferenceEnumerable.html#findFirstIndex-c41.lambda.predicate.IPredicate-">findFirstIndex</a></span>(<a href="../../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super <a href="../../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;predicate)</code>&nbsp;</td>
-</tr>
-<tr class="altColor">
 <td class="colFirst"><code>default <a href="../../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a></code></td>
 <td class="colLast"><span class="typeNameLabel">IReferenceEnumerable.</span><code><span class="memberNameLink"><a href="../../../../c41/utility/linq/IReferenceEnumerable.html#findFirstOrCreateDefault-c41.lambda.predicate.IPredicate-c41.lambda.function.IFunction-">findFirstOrCreateDefault</a></span>(<a href="../../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super <a href="../../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;predicate,
                         <a href="../../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends <a href="../../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;defProvider)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>default <a href="../../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a></code></td>
 <td class="colLast"><span class="typeNameLabel">IReferenceEnumerable.</span><code><span class="memberNameLink"><a href="../../../../c41/utility/linq/IReferenceEnumerable.html#findFirstOrDefault-c41.lambda.predicate.IPredicate-">findFirstOrDefault</a></span>(<a href="../../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super <a href="../../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;predicate)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>default <a href="../../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a></code></td>
 <td class="colLast"><span class="typeNameLabel">IReferenceEnumerable.</span><code><span class="memberNameLink"><a href="../../../../c41/utility/linq/IReferenceEnumerable.html#findFirstOrDefault-c41.lambda.predicate.IPredicate-T-">findFirstOrDefault</a></span>(<a href="../../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super <a href="../../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;predicate,
                   <a href="../../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&nbsp;def)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>default <a href="../../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a></code></td>
 <td class="colLast"><span class="typeNameLabel">IReferenceEnumerable.</span><code><span class="memberNameLink"><a href="../../../../c41/utility/linq/IReferenceEnumerable.html#firstIf-c41.lambda.predicate.IPredicate-">firstIf</a></span>(<a href="../../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super <a href="../../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;predicate)</code>
 <div class="block">返回第一个满足条件的元素。</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>default int</code></td>
+<td class="colLast"><span class="typeNameLabel">IReferenceEnumerable.</span><code><span class="memberNameLink"><a href="../../../../c41/utility/linq/IReferenceEnumerable.html#firstIndexIf-c41.lambda.predicate.IPredicate-">firstIndexIf</a></span>(<a href="../../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super <a href="../../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;predicate)</code>
+<div class="block">返回第一个满足条件的下标。</div>
 </td>
 </tr>
 <tr class="altColor">

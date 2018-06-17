@@ -16,7 +16,7 @@ public class SequenceLongGenerator implements ILongGenerator{
 	
 	@Override
 	public long nextLong() {
-		return value.incrementAndGet();
+		return value.getAndIncrement();
 	}
 
 }

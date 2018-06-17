@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10};
+var methods = {"i0":10,"i1":10,"i2":10};
 var tabs = {65535:["t0","所有方法"],2:["t2","实例方法"],8:["t4","具体方法"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -107,10 +107,15 @@ var activeTableTab = "activeTableTab";
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
+<dl>
+<dt>所有已实现的接口:</dt>
+<dd><a href="../../../../c41/utility/collection/ILongCollection.html" title="c41.utility.collection中的接口">ILongCollection</a>, <a href="../../../../c41/utility/linq/IEnumerable.html" title="c41.utility.linq中的接口">IEnumerable</a>&lt;java.lang.Long&gt;, <a href="../../../../c41/utility/linq/ILongEnumerable.html" title="c41.utility.linq中的接口">ILongEnumerable</a>, java.lang.Iterable&lt;java.lang.Long&gt;</dd>
+</dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">LongHashSet</span>
-extends java.lang.Object</pre>
+extends java.lang.Object
+implements <a href="../../../../c41/utility/collection/ILongCollection.html" title="c41.utility.collection中的接口">ILongCollection</a></pre>
 </li>
 </ul>
 </div>
@@ -150,6 +155,14 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/set/LongHashSet.html#add-long-">add</a></span>(long&nbsp;value)</code>&nbsp;</td>
 </tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code><a href="../../../../c41/utility/linq/enumerator/ILongEnumerator.html" title="c41.utility.linq.enumerator中的接口">ILongEnumerator</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/set/LongHashSet.html#iterator--">iterator</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/set/LongHashSet.html#size--">size</a></span>()</code>&nbsp;</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -157,6 +170,34 @@ extends java.lang.Object</pre>
 </a>
 <h3>从类继承的方法&nbsp;java.lang.Object</h3>
 <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.c41.utility.collection.ILongCollection">
+<!--   -->
+</a>
+<h3>从接口继承的方法&nbsp;c41.utility.collection.<a href="../../../../c41/utility/collection/ILongCollection.html" title="c41.utility.collection中的接口">ILongCollection</a></h3>
+<code><a href="../../../../c41/utility/collection/ILongCollection.html#addAll-java.lang.Iterable-">addAll</a>, <a href="../../../../c41/utility/collection/ILongCollection.html#count--">count</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.c41.utility.linq.ILongEnumerable">
+<!--   -->
+</a>
+<h3>从接口继承的方法&nbsp;c41.utility.linq.<a href="../../../../c41/utility/linq/ILongEnumerable.html" title="c41.utility.linq中的接口">ILongEnumerable</a></h3>
+<code><a href="../../../../c41/utility/linq/ILongEnumerable.html#at-int-">at</a>, <a href="../../../../c41/utility/linq/ILongEnumerable.html#countIf-c41.lambda.predicate.ILongPredicate-">countIf</a>, <a href="../../../../c41/utility/linq/ILongEnumerable.html#first--">first</a>, <a href="../../../../c41/utility/linq/ILongEnumerable.html#firstDuplicate--">firstDuplicate</a>, <a href="../../../../c41/utility/linq/ILongEnumerable.html#firstDuplicateOrDefault--">firstDuplicateOrDefault</a>, <a href="../../../../c41/utility/linq/ILongEnumerable.html#firstDuplicateOrDefault-long-">firstDuplicateOrDefault</a>, <a href="../../../../c41/utility/linq/ILongEnumerable.html#firstIf-c41.lambda.predicate.ILongPredicate-">firstIf</a>, <a href="../../../../c41/utility/linq/ILongEnumerable.html#firstIndexIf-c41.lambda.predicate.ILongPredicate-">firstIndexIf</a>, <a href="../../../../c41/utility/linq/ILongEnumerable.html#firstIndexOf-long-">firstIndexOf</a>, <a href="../../../../c41/utility/linq/ILongEnumerable.html#isAll-c41.lambda.predicate.ILongPredicate-">isAll</a>, <a href="../../../../c41/utility/linq/ILongEnumerable.html#isExist-c41.lambda.predicate.ILongPredicate-">isExist</a>, <a href="../../../../c41/utility/linq/ILongEnumerable.html#isExist-long-">isExist</a>, <a href="../../../../c41/utility/linq/ILongEnumerable.html#isNotAll-c41.lambda.predicate.ILongPredicate-">isNotAll</a>, <a href="../../../../c41/utility/linq/ILongEnumerable.html#toArray--">toArray</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.c41.utility.linq.IEnumerable">
+<!--   -->
+</a>
+<h3>从接口继承的方法&nbsp;c41.utility.linq.<a href="../../../../c41/utility/linq/IEnumerable.html" title="c41.utility.linq中的接口">IEnumerable</a></h3>
+<code><a href="../../../../c41/utility/linq/IEnumerable.html#cast--">cast</a>, <a href="../../../../c41/utility/linq/IEnumerable.html#hasDuplicate--">hasDuplicate</a>, <a href="../../../../c41/utility/linq/IEnumerable.html#isEmpty--">isEmpty</a>, <a href="../../../../c41/utility/linq/IEnumerable.html#isNotEmpty--">isNotEmpty</a>, <a href="../../../../c41/utility/linq/IEnumerable.html#skip-int-">skip</a>, <a href="../../../../c41/utility/linq/IEnumerable.html#toCollection-c41.lambda.function.IFunction-">toCollection</a>, <a href="../../../../c41/utility/linq/IEnumerable.html#toInt--">toInt</a>, <a href="../../../../c41/utility/linq/IEnumerable.html#toList--">toList</a>, <a href="../../../../c41/utility/linq/IEnumerable.html#toSet--">toSet</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.java.lang.Iterable">
+<!--   -->
+</a>
+<h3>从接口继承的方法&nbsp;java.lang.Iterable</h3>
+<code>forEach, spliterator</code></li>
 </ul>
 </li>
 </ul>
@@ -192,10 +233,44 @@ extends java.lang.Object</pre>
 <a name="add-long-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>add</h4>
 <pre>public&nbsp;boolean&nbsp;add(long&nbsp;value)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
+<dd><code><a href="../../../../c41/utility/collection/ILongCollection.html#add-long-">add</a></code>&nbsp;在接口中&nbsp;<code><a href="../../../../c41/utility/collection/ILongCollection.html" title="c41.utility.collection中的接口">ILongCollection</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="size--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>size</h4>
+<pre>public&nbsp;int&nbsp;size()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
+<dd><code><a href="../../../../c41/utility/collection/ILongCollection.html#size--">size</a></code>&nbsp;在接口中&nbsp;<code><a href="../../../../c41/utility/collection/ILongCollection.html" title="c41.utility.collection中的接口">ILongCollection</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="iterator--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>iterator</h4>
+<pre>public&nbsp;<a href="../../../../c41/utility/linq/enumerator/ILongEnumerator.html" title="c41.utility.linq.enumerator中的接口">ILongEnumerator</a>&nbsp;iterator()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
+<dd><code><a href="../../../../c41/utility/linq/IEnumerable.html#iterator--">iterator</a></code>&nbsp;在接口中&nbsp;<code><a href="../../../../c41/utility/linq/IEnumerable.html" title="c41.utility.linq中的接口">IEnumerable</a>&lt;java.lang.Long&gt;</code></dd>
+<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
+<dd><code><a href="../../../../c41/utility/linq/ILongEnumerable.html#iterator--">iterator</a></code>&nbsp;在接口中&nbsp;<code><a href="../../../../c41/utility/linq/ILongEnumerable.html" title="c41.utility.linq中的接口">ILongEnumerable</a></code></dd>
+<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
+<dd><code>iterator</code>&nbsp;在接口中&nbsp;<code>java.lang.Iterable&lt;java.lang.Long&gt;</code></dd>
+</dl>
 </li>
 </ul>
 </li>

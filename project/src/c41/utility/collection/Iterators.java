@@ -87,39 +87,6 @@ public final class Iterators {
 		return true;
 	}
 
-	public static <T> T findFirstDuplicateOrDefault(Iterator<T> iterator, T def) {
-		return firstDuplicateOrCreateDefault(iterator, ()->def);
-	}
-
-	public static <T> int findFirstIndex(Iterator<T> iterator, IPredicate<? super T> predicate) {
-		Arguments.isNotNull(iterator);
-		Arguments.isNotNull(predicate);
-	
-		int index = 0;
-		while(iterator.hasNext()) {
-			T obj = iterator.next();
-			if(predicate.is(obj)) {
-				return index;
-			}
-			index++;
-		}
-		return -1;
-	}
-
-	public static <T> int findFirstIndex(Iterator<T> iterator, T value) {
-		Arguments.isNotNull(iterator);
-		
-		int index = 0;
-		while(iterator.hasNext()) {
-			T obj = iterator.next();
-			if(Objects.equals(obj, value)) {
-				return index;
-			}
-			index++;
-		}
-		return -1;
-	}
-
 	public static <T> T findFirstOrCreateDefault(Iterator<T> iterator, IPredicate<? super T> predicate, IFunction<? extends T> defProvider) {
 		Arguments.isNotNull(iterator);
 		Arguments.isNotNull(predicate);
@@ -168,7 +135,54 @@ public final class Iterators {
 	}
 
 	public static <T> T firstDuplicateOrDefault(Iterator<T> iterator) {
-		return findFirstDuplicateOrDefault(iterator, null);
+		return firstDuplicateOrDefault(iterator, null);
+	}
+
+	public static <T> T firstDuplicateOrDefault(Iterator<T> iterator, T def) {
+		return firstDuplicateOrCreateDefault(iterator, ()->def);
+	}
+
+	public static <T> int firstIndexIf(Iterator<T> iterator, IPredicate<? super T> predicate) {
+		Arguments.isNotNull(iterator);
+		Arguments.isNotNull(predicate);
+	
+		int index = 0;
+		while(iterator.hasNext()) {
+			T obj = iterator.next();
+			if(predicate.is(obj)) {
+				return index;
+			}
+			index++;
+		}
+		return -1;
+	}
+
+	public static <T> int firstIndexOf(Iterator<T> iterator, T value) {
+		Arguments.isNotNull(iterator);
+		
+		int index = 0;
+		while(iterator.hasNext()) {
+			T obj = iterator.next();
+			if(Objects.equals(obj, value)) {
+				return index;
+			}
+			index++;
+		}
+		return -1;
+	}
+
+	public static <T> int firstReferenceIndexOf(Iterator<T> iterator, T value) {
+		Arguments.isNotNull(iterator);
+		
+		int index = 0;
+		while(iterator.hasNext()) {
+			T val = iterator.next();
+			if(val == value) {
+				return index; 
+			}
+			++index;
+		}
+		return -1;
 	}
 
 	public static <T> T fisrtIf(Iterator<T> iterator, IPredicate<? super T> predicate) {
@@ -304,7 +318,7 @@ public final class Iterators {
 		}
 		return false;
 	}
-
+	
 	/**
 	 * 迭代器存在满足谓词的元素。
 	 * @param <T> 泛型参数
@@ -356,7 +370,7 @@ public final class Iterators {
 		}
 		return false;
 	}
-	
+
 	public static boolean isNotEmpty(Iterator<?> iterable) {
 		return isEmpty(iterable) == false;
 	}
@@ -385,7 +399,7 @@ public final class Iterators {
 		}
 		return true;
 	}
-
+	
 	public static boolean isNotExistAnyOf(Iterator<?> iterator, Object...values) {
 		Arguments.isNotNull(iterator);
 		Arguments.isNotNull(values);
@@ -412,7 +426,7 @@ public final class Iterators {
 		}
 		return true;
 	}
-	
+
 	public static <T> Iterator<T> of(T[] array){
 		return new Iterator<T>() {
 
@@ -429,7 +443,7 @@ public final class Iterators {
 			}
 		};
 	}
-
+	
 	public static <T> Object[] toArray(Iterator<T> iterator) {
 		Arguments.isNotNull(iterator);
 		
@@ -463,7 +477,7 @@ public final class Iterators {
 		}
 		return collection;
 	}
-	
+
 	public static <T> List<T> toList(Iterator<T> iterator){
 		return toCollection(iterator, ()->new ArrayList<>());
 	}

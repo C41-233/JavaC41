@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","所有方法"],2:["t2","实例方法"],8:["t4","具体方法"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -50,7 +50,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../c41/utility/collection/list/DoubleArrayList.html" title="c41.utility.collection.list中的类"><span class="typeNameLink">上一个类</span></a></li>
-<li><a href="../../../../c41/utility/collection/list/IntArrayList.html" title="c41.utility.collection.list中的类"><span class="typeNameLink">下一个类</span></a></li>
+<li><a href="../../../../c41/utility/collection/list/IByteListView.html" title="c41.utility.collection.list中的接口"><span class="typeNameLink">下一个类</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?c41/utility/collection/list/FloatArrayList.html" target="_top">框架</a></li>
@@ -109,13 +109,13 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>所有已实现的接口:</dt>
-<dd>java.lang.Iterable&lt;java.lang.Float&gt;</dd>
+<dd><a href="../../../../c41/utility/collection/IFloatCollection.html" title="c41.utility.collection中的接口">IFloatCollection</a>, <a href="../../../../c41/utility/collection/list/IFloatListView.html" title="c41.utility.collection.list中的接口">IFloatListView</a>, <a href="../../../../c41/utility/linq/IEnumerable.html" title="c41.utility.linq中的接口">IEnumerable</a>&lt;java.lang.Float&gt;, <a href="../../../../c41/utility/linq/IFloatEnumerable.html" title="c41.utility.linq中的接口">IFloatEnumerable</a>, java.lang.Iterable&lt;java.lang.Float&gt;</dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">FloatArrayList</span>
 extends java.lang.Object
-implements java.lang.Iterable&lt;java.lang.Float&gt;</pre>
+implements <a href="../../../../c41/utility/collection/IFloatCollection.html" title="c41.utility.collection中的接口">IFloatCollection</a>, <a href="../../../../c41/utility/collection/list/IFloatListView.html" title="c41.utility.collection.list中的接口">IFloatListView</a></pre>
 </li>
 </ul>
 </div>
@@ -158,37 +158,35 @@ implements java.lang.Iterable&lt;java.lang.Float&gt;</pre>
 <th class="colLast" scope="col">方法和说明</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>void</code></td>
+<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/list/FloatArrayList.html#add-float-">add</a></span>(float&nbsp;e)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/list/FloatArrayList.html#addAll-java.lang.Iterable-">addAll</a></span>(java.lang.Iterable&lt;java.lang.Float&gt;&nbsp;it)</code>&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/list/FloatArrayList.html#clear--">clear</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>float</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/list/FloatArrayList.html#get-int-">get</a></span>(int&nbsp;i)</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>java.util.Iterator&lt;java.lang.Float&gt;</code></td>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code><a href="../../../../c41/utility/linq/enumerator/IFloatEnumerator.html" title="c41.utility.linq.enumerator中的接口">IFloatEnumerator</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/list/FloatArrayList.html#iterator--">iterator</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>float</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/list/FloatArrayList.html#set-int-float-">set</a></span>(int&nbsp;i,
    float&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/list/FloatArrayList.html#size--">size</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>float[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/list/FloatArrayList.html#toArray--">toArray</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/list/FloatArrayList.html#toArray--">toArray</a></span>()</code>
+<div class="block">返回所有元素组成的数组。</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -197,6 +195,27 @@ implements java.lang.Iterable&lt;java.lang.Float&gt;</pre>
 </a>
 <h3>从类继承的方法&nbsp;java.lang.Object</h3>
 <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.c41.utility.collection.IFloatCollection">
+<!--   -->
+</a>
+<h3>从接口继承的方法&nbsp;c41.utility.collection.<a href="../../../../c41/utility/collection/IFloatCollection.html" title="c41.utility.collection中的接口">IFloatCollection</a></h3>
+<code><a href="../../../../c41/utility/collection/IFloatCollection.html#addAll-java.lang.Iterable-">addAll</a>, <a href="../../../../c41/utility/collection/IFloatCollection.html#count--">count</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.c41.utility.linq.IFloatEnumerable">
+<!--   -->
+</a>
+<h3>从接口继承的方法&nbsp;c41.utility.linq.<a href="../../../../c41/utility/linq/IFloatEnumerable.html" title="c41.utility.linq中的接口">IFloatEnumerable</a></h3>
+<code><a href="../../../../c41/utility/linq/IFloatEnumerable.html#at-int-">at</a>, <a href="../../../../c41/utility/linq/IFloatEnumerable.html#countIf-c41.lambda.predicate.IFloatPredicate-">countIf</a>, <a href="../../../../c41/utility/linq/IFloatEnumerable.html#first--">first</a>, <a href="../../../../c41/utility/linq/IFloatEnumerable.html#firstDuplicate--">firstDuplicate</a>, <a href="../../../../c41/utility/linq/IFloatEnumerable.html#firstDuplicateOrDefault--">firstDuplicateOrDefault</a>, <a href="../../../../c41/utility/linq/IFloatEnumerable.html#firstDuplicateOrDefault-float-">firstDuplicateOrDefault</a>, <a href="../../../../c41/utility/linq/IFloatEnumerable.html#firstIf-c41.lambda.predicate.IFloatPredicate-">firstIf</a>, <a href="../../../../c41/utility/linq/IFloatEnumerable.html#firstIndexIf-c41.lambda.predicate.IFloatPredicate-">firstIndexIf</a>, <a href="../../../../c41/utility/linq/IFloatEnumerable.html#firstIndexOf-float-">firstIndexOf</a>, <a href="../../../../c41/utility/linq/IFloatEnumerable.html#firstIndexOf-float-float-">firstIndexOf</a>, <a href="../../../../c41/utility/linq/IFloatEnumerable.html#isAll-c41.lambda.predicate.IFloatPredicate-">isAll</a>, <a href="../../../../c41/utility/linq/IFloatEnumerable.html#isExist-float-">isExist</a>, <a href="../../../../c41/utility/linq/IFloatEnumerable.html#isExist-c41.lambda.predicate.IFloatPredicate-">isExist</a>, <a href="../../../../c41/utility/linq/IFloatEnumerable.html#isNotAll-c41.lambda.predicate.IFloatPredicate-">isNotAll</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.c41.utility.linq.IEnumerable">
+<!--   -->
+</a>
+<h3>从接口继承的方法&nbsp;c41.utility.linq.<a href="../../../../c41/utility/linq/IEnumerable.html" title="c41.utility.linq中的接口">IEnumerable</a></h3>
+<code><a href="../../../../c41/utility/linq/IEnumerable.html#cast--">cast</a>, <a href="../../../../c41/utility/linq/IEnumerable.html#hasDuplicate--">hasDuplicate</a>, <a href="../../../../c41/utility/linq/IEnumerable.html#isEmpty--">isEmpty</a>, <a href="../../../../c41/utility/linq/IEnumerable.html#isNotEmpty--">isNotEmpty</a>, <a href="../../../../c41/utility/linq/IEnumerable.html#skip-int-">skip</a>, <a href="../../../../c41/utility/linq/IEnumerable.html#toCollection-c41.lambda.function.IFunction-">toCollection</a>, <a href="../../../../c41/utility/linq/IEnumerable.html#toInt--">toInt</a>, <a href="../../../../c41/utility/linq/IEnumerable.html#toList--">toList</a>, <a href="../../../../c41/utility/linq/IEnumerable.html#toSet--">toSet</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Iterable">
@@ -260,16 +279,11 @@ implements java.lang.Iterable&lt;java.lang.Float&gt;</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>add</h4>
-<pre>public&nbsp;void&nbsp;add(float&nbsp;e)</pre>
-</li>
-</ul>
-<a name="addAll-java.lang.Iterable-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>addAll</h4>
-<pre>public&nbsp;void&nbsp;addAll(java.lang.Iterable&lt;java.lang.Float&gt;&nbsp;it)</pre>
+<pre>public&nbsp;boolean&nbsp;add(float&nbsp;e)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
+<dd><code><a href="../../../../c41/utility/collection/IFloatCollection.html#add-float-">add</a></code>&nbsp;在接口中&nbsp;<code><a href="../../../../c41/utility/collection/IFloatCollection.html" title="c41.utility.collection中的接口">IFloatCollection</a></code></dd>
+</dl>
 </li>
 </ul>
 <a name="set-int-float-">
@@ -289,6 +303,10 @@ implements java.lang.Iterable&lt;java.lang.Float&gt;</pre>
 <li class="blockList">
 <h4>get</h4>
 <pre>public&nbsp;float&nbsp;get(int&nbsp;i)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
+<dd><code><a href="../../../../c41/utility/collection/list/IFloatListView.html#get-int-">get</a></code>&nbsp;在接口中&nbsp;<code><a href="../../../../c41/utility/collection/list/IFloatListView.html" title="c41.utility.collection.list中的接口">IFloatListView</a></code></dd>
+</dl>
 </li>
 </ul>
 <a name="size--">
@@ -298,6 +316,12 @@ implements java.lang.Iterable&lt;java.lang.Float&gt;</pre>
 <li class="blockList">
 <h4>size</h4>
 <pre>public&nbsp;int&nbsp;size()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
+<dd><code><a href="../../../../c41/utility/collection/IFloatCollection.html#size--">size</a></code>&nbsp;在接口中&nbsp;<code><a href="../../../../c41/utility/collection/IFloatCollection.html" title="c41.utility.collection中的接口">IFloatCollection</a></code></dd>
+<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
+<dd><code><a href="../../../../c41/utility/collection/list/IFloatListView.html#size--">size</a></code>&nbsp;在接口中&nbsp;<code><a href="../../../../c41/utility/collection/list/IFloatListView.html" title="c41.utility.collection.list中的接口">IFloatListView</a></code></dd>
+</dl>
 </li>
 </ul>
 <a name="clear--">
@@ -316,6 +340,15 @@ implements java.lang.Iterable&lt;java.lang.Float&gt;</pre>
 <li class="blockList">
 <h4>toArray</h4>
 <pre>public&nbsp;float[]&nbsp;toArray()</pre>
+<div class="block"><span class="descfrmTypeLabel">从接口复制的说明:&nbsp;<code><a href="../../../../c41/utility/linq/IFloatEnumerable.html#toArray--">IFloatEnumerable</a></code></span></div>
+<div class="block">返回所有元素组成的数组。
+ 如果没有元素，则返回空数组。</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
+<dd><code><a href="../../../../c41/utility/linq/IFloatEnumerable.html#toArray--">toArray</a></code>&nbsp;在接口中&nbsp;<code><a href="../../../../c41/utility/linq/IFloatEnumerable.html" title="c41.utility.linq中的接口">IFloatEnumerable</a></code></dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>数组</dd>
+</dl>
 </li>
 </ul>
 <a name="iterator--">
@@ -324,8 +357,12 @@ implements java.lang.Iterable&lt;java.lang.Float&gt;</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>iterator</h4>
-<pre>public&nbsp;java.util.Iterator&lt;java.lang.Float&gt;&nbsp;iterator()</pre>
+<pre>public&nbsp;<a href="../../../../c41/utility/linq/enumerator/IFloatEnumerator.html" title="c41.utility.linq.enumerator中的接口">IFloatEnumerator</a>&nbsp;iterator()</pre>
 <dl>
+<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
+<dd><code><a href="../../../../c41/utility/linq/IEnumerable.html#iterator--">iterator</a></code>&nbsp;在接口中&nbsp;<code><a href="../../../../c41/utility/linq/IEnumerable.html" title="c41.utility.linq中的接口">IEnumerable</a>&lt;java.lang.Float&gt;</code></dd>
+<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
+<dd><code><a href="../../../../c41/utility/linq/IFloatEnumerable.html#iterator--">iterator</a></code>&nbsp;在接口中&nbsp;<code><a href="../../../../c41/utility/linq/IFloatEnumerable.html" title="c41.utility.linq中的接口">IFloatEnumerable</a></code></dd>
 <dt><span class="overrideSpecifyLabel">指定者:</span></dt>
 <dd><code>iterator</code>&nbsp;在接口中&nbsp;<code>java.lang.Iterable&lt;java.lang.Float&gt;</code></dd>
 </dl>
@@ -360,7 +397,7 @@ implements java.lang.Iterable&lt;java.lang.Float&gt;</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../c41/utility/collection/list/DoubleArrayList.html" title="c41.utility.collection.list中的类"><span class="typeNameLink">上一个类</span></a></li>
-<li><a href="../../../../c41/utility/collection/list/IntArrayList.html" title="c41.utility.collection.list中的类"><span class="typeNameLink">下一个类</span></a></li>
+<li><a href="../../../../c41/utility/collection/list/IByteListView.html" title="c41.utility.collection.list中的接口"><span class="typeNameLink">下一个类</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?c41/utility/collection/list/FloatArrayList.html" target="_top">框架</a></li>

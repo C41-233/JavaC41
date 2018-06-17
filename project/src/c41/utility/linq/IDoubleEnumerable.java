@@ -9,6 +9,7 @@ import java.util.NoSuchElementException;
 
 import c41.lambda.predicate.*;
 import c41.core.assertion.Arguments;
+import c41.utility.algorithm.Maths;
 import c41.utility.linq.enumerator.*;
 import c41.utility.collection.list.*;
 import c41.utility.collection.set.*;
@@ -90,6 +91,32 @@ public interface IDoubleEnumerable extends IEnumerable<Double>{
 	}
 	
 	/**
+	 * 返回第一个重复元素。如果不存在，则返回0。
+	 * @return 第一个重复元素或0。
+	 */
+	public default double firstDuplicateOrDefault(){
+		return firstDuplicateOrDefault(0.0);
+	}
+	
+	/**
+	 * 返回第一个重复元素。如果不存在，则返回默认值。
+	 * @param def 默认值
+	 * @return 第一个重复元素或默认值。
+	 */
+	public default double firstDuplicateOrDefault(double def){
+		DoubleHashSet set = new DoubleHashSet();
+		
+		IDoubleEnumerator enumerator = iterator();
+		while(enumerator.hasNext()){
+			double value = enumerator.nextDouble();
+			if(!set.add(value)){
+				return value;
+			}
+		}
+		return def;
+	}
+	
+	/**
 	 * 返回第一个满足条件的元素。
 	 * @param predicate 谓词
 	 * @return 第一个满足的元素
@@ -106,6 +133,65 @@ public interface IDoubleEnumerable extends IEnumerable<Double>{
 			}
 		}
 		throw new NoSuchElementException();
+	}
+	
+	/**
+	 * 返回第一个满足条件的下标。如果不存在，则返回-1。
+	 * @param predicate 谓词
+	 * @return 下标。
+	 */
+	public default int firstIndexIf(IDoublePredicate predicate){
+		Arguments.isNotNull(predicate);
+		
+		IDoubleEnumerator enumerator = iterator();
+		int index = 0;
+		while(enumerator.hasNext()){
+			double value = enumerator.nextDouble();
+			if(predicate.is(value)){
+				return index;
+			}
+			++index;
+		}
+		return -1;
+	}
+	
+	/**
+	 * 返回元素value的下标。如果不存在，则返回-1。
+	 * @param value 目标元素
+	 * @return 下标
+	 */
+	public default int firstIndexOf(double value){
+		IDoubleEnumerator enumerator = iterator();
+		int index = 0;
+		while(enumerator.hasNext()){
+			double val = enumerator.nextDouble();
+			if(val == value){
+				return index;
+			}
+			++index;
+		}
+		return -1;
+	}
+	
+	/**
+	 * 返回元素value的下标。如果不存在，则返回-1。
+	 * @param value 目标元素
+	 * @param epsilon 误差
+	 * @return 下标
+	 */
+	public default int firstIndexOf(double value, double epsilon){
+		Arguments.is(epsilon >= 0, "epsilon < 0");
+	
+		IDoubleEnumerator enumerator = iterator();
+		int index = 0;
+		while(enumerator.hasNext()){
+			double val = enumerator.nextDouble();
+			if(Maths.equals(val, value, epsilon)){
+				return index;
+			}
+			++index;
+		}
+		return -1;
 	}
 	
 	/**

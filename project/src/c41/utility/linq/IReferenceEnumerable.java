@@ -51,18 +51,6 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 		return Iterables.countIf(this, predicate);
 	}
 
-	public default T findFirstDuplicateOrDefault(T def) {
-		return Iterables.findFirstDuplicateOrDefault(this, def);
-	}
-	
-	public default int findFirstIndex(IPredicate<? super T> predicate) {
-		return Iterables.findFirstIndex(this, predicate);
-	}
-
-	public default int findFirstIndex(T value) {
-		return Iterables.findFirstIndex(this, value);
-	}
-	
 	public default T findFirstOrCreateDefault(IPredicate<? super T> predicate, IFunction<? extends T> defProvider) {
 		return Iterables.findFirstOrCreateDefault(this, predicate, defProvider);
 	}
@@ -70,11 +58,11 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default T findFirstOrDefault(IPredicate<? super T> predicate) {
 		return Iterables.findFirstOrDefault(this, predicate);
 	}
-	
+
 	public default T findFirstOrDefault(IPredicate<? super T> predicate, T def) {
 		return Iterables.findFirstOrDefault(this, predicate, def);
 	}
-
+	
 	/**
 	 * 获取第一个元素。
 	 * @return 第一个元素
@@ -94,7 +82,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	
 	/**
 	 * 返回第一个重复的元素。如果不存在，就返回默认值。
-	 * @param defProvider 默认值
+	 * @param defProvider 默认值工厂
 	 * @return 第一个重复元素或默认值
 	 */
 	public default T firstDuplicateOrCreateDefault(IFunction<? extends T> defProvider) {
@@ -103,10 +91,19 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 
 	/**
 	 * 返回第一个重复元素。如果不存在，则返回null。
-	 * @return 默认值或null。
+	 * @return 第一个重复元素或null。
 	 */
 	public default T firstDuplicateOrDefault() {
 		return Iterables.firstDuplicateOrDefault(this);
+	}
+	
+	/**
+	 * 返回第一个重复的元素。如果不存在，返回默认值。
+	 * @param def 默认值
+	 * @return 第一个重复元素或默认值。
+	 */
+	public default T firstDuplicateOrDefault(T def) {
+		return Iterables.firstDuplicateOrDefault(this, def);
 	}
 	
 	/**
@@ -119,6 +116,35 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 		return Iterables.firstIf(this, predicate);
 	}
 
+	/**
+	 * 返回第一个满足条件的下标。如果不存在，则返回-1。
+	 * @param predicate 谓词
+	 * @return 下标。
+	 */
+	public default int firstIndexIf(IPredicate<? super T> predicate) {
+		return Iterables.firstIndexIf(this, predicate);
+	}
+	
+	/**
+	 * 返回元素value的下标。如果不存在，则返回-1。
+	 * <p>比较以@{code equals}的方式进行。</p>
+	 * @param value 目标元素
+	 * @return 下标
+	 */
+	public default int firstIndexOf(T value) {
+		return Iterables.firstIndexOf(this, value);
+	}
+
+	/**
+	 * 返回元素value的下标。如果不存在，则返回-1。
+	 * <p>比较以引用比较的方式进行。</p>
+	 * @param value 目标元素
+	 * @return 下标
+	 */
+	public default int firstReferenceIndexOf(T value) {
+		return Iterables.firstReferenceIndexOf(this, value);
+	}
+	
 	/**
 	 * 对每个元素执行操作。
 	 * @param action 对每个元素执行的操作
@@ -176,7 +202,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 
 	/**
 	 * 存在与{@code value}相等的元素。
-	 * 比较以{@code equals}的方式进行。
+	 * <p>比较以{@code equals}的方式进行。</p>
 	 * @param value 元素
 	 * @return 如果存在，则返回true
 	 */

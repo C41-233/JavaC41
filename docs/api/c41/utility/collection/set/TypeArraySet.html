@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","所有方法"],2:["t2","实例方法"],8:["t4","具体方法"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -109,7 +109,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>所有已实现的接口:</dt>
-<dd><a href="../../../../c41/utility/collection/ITypeCollection.html" title="c41.utility.collection中的接口">ITypeCollection</a>&lt;T&gt;</dd>
+<dd><a href="../../../../c41/utility/collection/ITypeCollection.html" title="c41.utility.collection中的接口">ITypeCollection</a>&lt;T&gt;, java.lang.Iterable&lt;T&gt;</dd>
 </dl>
 <hr>
 <br>
@@ -160,6 +160,14 @@ implements <a href="../../../../c41/utility/collection/ITypeCollection.html" tit
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/set/TypeArraySet.html#addAll-T:A-">addAll</a></span>(<a href="../../../../c41/utility/collection/set/TypeArraySet.html" title="TypeArraySet中的类型参数">T</a>[]&nbsp;array)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>java.util.Iterator&lt;<a href="../../../../c41/utility/collection/set/TypeArraySet.html" title="TypeArraySet中的类型参数">T</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/set/TypeArraySet.html#iterator--">iterator</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/set/TypeArraySet.html#size--">size</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../c41/utility/collection/set/TypeArraySet.html" title="TypeArraySet中的类型参数">T</a>[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/set/TypeArraySet.html#toArray--">toArray</a></span>()</code>&nbsp;</td>
 </tr>
@@ -170,6 +178,13 @@ implements <a href="../../../../c41/utility/collection/ITypeCollection.html" tit
 </a>
 <h3>从类继承的方法&nbsp;java.lang.Object</h3>
 <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.java.lang.Iterable">
+<!--   -->
+</a>
+<h3>从接口继承的方法&nbsp;java.lang.Iterable</h3>
+<code>forEach, spliterator</code></li>
 </ul>
 </li>
 </ul>
@@ -235,13 +250,39 @@ implements <a href="../../../../c41/utility/collection/ITypeCollection.html" tit
 <a name="toArray--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>toArray</h4>
 <pre>public&nbsp;<a href="../../../../c41/utility/collection/set/TypeArraySet.html" title="TypeArraySet中的类型参数">T</a>[]&nbsp;toArray()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">指定者:</span></dt>
 <dd><code><a href="../../../../c41/utility/collection/ITypeCollection.html#toArray--">toArray</a></code>&nbsp;在接口中&nbsp;<code><a href="../../../../c41/utility/collection/ITypeCollection.html" title="c41.utility.collection中的接口">ITypeCollection</a>&lt;<a href="../../../../c41/utility/collection/set/TypeArraySet.html" title="TypeArraySet中的类型参数">T</a>&gt;</code></dd>
+</dl>
+</li>
+</ul>
+<a name="iterator--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>iterator</h4>
+<pre>public&nbsp;java.util.Iterator&lt;<a href="../../../../c41/utility/collection/set/TypeArraySet.html" title="TypeArraySet中的类型参数">T</a>&gt;&nbsp;iterator()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
+<dd><code>iterator</code>&nbsp;在接口中&nbsp;<code>java.lang.Iterable&lt;<a href="../../../../c41/utility/collection/set/TypeArraySet.html" title="TypeArraySet中的类型参数">T</a>&gt;</code></dd>
+</dl>
+</li>
+</ul>
+<a name="size--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>size</h4>
+<pre>public&nbsp;int&nbsp;size()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
+<dd><code><a href="../../../../c41/utility/collection/ITypeCollection.html#size--">size</a></code>&nbsp;在接口中&nbsp;<code><a href="../../../../c41/utility/collection/ITypeCollection.html" title="c41.utility.collection中的接口">ITypeCollection</a>&lt;<a href="../../../../c41/utility/collection/set/TypeArraySet.html" title="TypeArraySet中的类型参数">T</a>&gt;</code></dd>
 </dl>
 </li>
 </ul>
