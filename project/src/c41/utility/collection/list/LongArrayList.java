@@ -8,7 +8,7 @@ import c41.core.assertion.Arguments;
 import c41.utility.collection.*;
 import c41.utility.linq.enumerator.*;
 
-public class LongArrayList implements ILongCollection{
+public class LongArrayList implements ILongCollection, ILongListView{
 
 	private long[] data;
 	private int size;
@@ -46,6 +46,7 @@ public class LongArrayList implements ILongCollection{
 		return old;
 	}
 	
+	@Override
 	public long get(int i){
 		checkRange(i);
 		

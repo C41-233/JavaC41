@@ -1,0 +1,11 @@
+<#assign ClassName = "I${Name}ListView">
+
+package c41.utility.collection.list;
+
+public interface ${ClassName} extends Iterable<${Box}>{
+	
+	public ${Primitive} get(int index);
+	
+	public int size();
+	
+}

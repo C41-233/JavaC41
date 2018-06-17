@@ -8,7 +8,7 @@ import c41.core.assertion.Arguments;
 import c41.utility.collection.*;
 import c41.utility.linq.enumerator.*;
 
-public class CharArrayList implements ICharCollection{
+public class CharArrayList implements ICharCollection, ICharListView{
 
 	private char[] data;
 	private int size;
@@ -46,6 +46,7 @@ public class CharArrayList implements ICharCollection{
 		return old;
 	}
 	
+	@Override
 	public char get(int i){
 		checkRange(i);
 		

@@ -58,6 +58,7 @@
 		<generate src="project/src/c41/utility/linq/ITEnumerable.java.template" dest="I$Enumerable.java"/>
 		<generate src="project/src/c41/utility/collection/ITCollection.java.template" dest="I$Collection.java"/>
 		<generate src="project/src/c41/utility/collection/list/TArrayList.java.template" dest="$ArrayList.java"/>
+		<generate src="project/src/c41/utility/collection/list/ITListView.java.template" dest="I$ListView.java"/>
 		<generate src="project/src/c41/utility/collection/set/THashSet.java.template" dest="$HashSet.java"/>
     </target>
 	

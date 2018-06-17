@@ -8,7 +8,7 @@ import c41.core.assertion.Arguments;
 import c41.utility.collection.*;
 import c41.utility.linq.enumerator.*;
 
-public class DoubleArrayList implements IDoubleCollection{
+public class DoubleArrayList implements IDoubleCollection, IDoubleListView{
 
 	private double[] data;
 	private int size;
@@ -46,6 +46,7 @@ public class DoubleArrayList implements IDoubleCollection{
 		return old;
 	}
 	
+	@Override
 	public double get(int i){
 		checkRange(i);
 		

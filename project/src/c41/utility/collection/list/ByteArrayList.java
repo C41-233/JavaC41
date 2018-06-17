@@ -8,7 +8,7 @@ import c41.core.assertion.Arguments;
 import c41.utility.collection.*;
 import c41.utility.linq.enumerator.*;
 
-public class ByteArrayList implements IByteCollection{
+public class ByteArrayList implements IByteCollection, IByteListView{
 
 	private byte[] data;
 	private int size;
@@ -46,6 +46,7 @@ public class ByteArrayList implements IByteCollection{
 		return old;
 	}
 	
+	@Override
 	public byte get(int i){
 		checkRange(i);
 		

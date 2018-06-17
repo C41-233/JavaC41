@@ -8,7 +8,7 @@ import c41.core.assertion.Arguments;
 import c41.utility.collection.*;
 import c41.utility.linq.enumerator.*;
 
-public class FloatArrayList implements IFloatCollection{
+public class FloatArrayList implements IFloatCollection, IFloatListView{
 
 	private float[] data;
 	private int size;
@@ -46,6 +46,7 @@ public class FloatArrayList implements IFloatCollection{
 		return old;
 	}
 	
+	@Override
 	public float get(int i){
 		checkRange(i);
 		

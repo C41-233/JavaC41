@@ -8,7 +8,7 @@ import c41.core.assertion.Arguments;
 import c41.utility.collection.*;
 import c41.utility.linq.enumerator.*;
 
-public class ShortArrayList implements IShortCollection{
+public class ShortArrayList implements IShortCollection, IShortListView{
 
 	private short[] data;
 	private int size;
@@ -46,6 +46,7 @@ public class ShortArrayList implements IShortCollection{
 		return old;
 	}
 	
+	@Override
 	public short get(int i){
 		checkRange(i);
 		

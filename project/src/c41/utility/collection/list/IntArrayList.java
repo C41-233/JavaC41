@@ -8,7 +8,7 @@ import c41.core.assertion.Arguments;
 import c41.utility.collection.*;
 import c41.utility.linq.enumerator.*;
 
-public class IntArrayList implements IIntCollection{
+public class IntArrayList implements IIntCollection, IIntListView{
 
 	private int[] data;
 	private int size;
@@ -46,6 +46,7 @@ public class IntArrayList implements IIntCollection{
 		return old;
 	}
 	
+	@Override
 	public int get(int i){
 		checkRange(i);
 		
