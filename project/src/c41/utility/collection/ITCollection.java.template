@@ -1,0 +1,24 @@
+<#assign ClassName="I${Name}Collection">
+
+package c41.utility.collection;
+
+import c41.utility.linq.*;
+
+public interface ${ClassName} extends I${Name}Enumerable{
+
+	public boolean add(${Primitive} value);
+	
+	public default void addAll(Iterable<${Box}> it){
+		for(${Primitive} val : it){
+			add(val);
+		}
+	}
+	
+	public int size();
+	
+	@Override
+	public default int count(){
+		return size();
+	}
+	
+}

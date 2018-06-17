@@ -3,11 +3,12 @@ package c41.utility.collection.list;
 
 import java.util.Arrays;
 import java.util.ConcurrentModificationException;
-import java.util.Iterator;
 
 import c41.core.assertion.Arguments;
+import c41.utility.collection.*;
+import c41.utility.linq.enumerator.*;
 
-public class IntArrayList implements Iterable<Integer>{
+public class IntArrayList implements IIntCollection{
 
 	private int[] data;
 	private int size;
@@ -29,16 +30,12 @@ public class IntArrayList implements Iterable<Integer>{
 		addAll(it);
 	}
 	
-	public void add(int e){
+	@Override
+	public boolean add(int e){
 		expandCapacity(size+1);
 		data[size] = e;
 		size++;
-	}
-	
-	public void addAll(Iterable<Integer> it){
-		for(int val : it){
-			add(val);
-		}
+		return true;
 	}
 	
 	public int set(int i, int value){
@@ -74,6 +71,7 @@ public class IntArrayList implements Iterable<Integer>{
 		mod++;
 	}
 	
+	@Override
 	public int size(){
 		return this.size;
 	}
@@ -83,16 +81,17 @@ public class IntArrayList implements Iterable<Integer>{
 		mod++;
 	}
 	
+	@Override
 	public int[] toArray(){
 		return Arrays.copyOf(data, size);
 	}
 	
 	@Override
-	public Iterator<Integer> iterator() {
-		return new It();
+	public IIntEnumerator iterator() {
+		return new Itr();
 	}
 	
-	private class It implements Iterator<Integer>{
+	private class Itr implements IIntEnumerator{
 	
 		private int i;
 		private int version = mod;
@@ -103,10 +102,14 @@ public class IntArrayList implements Iterable<Integer>{
 		}
 
 		@Override
-		public Integer next() {
-			checkVersion();
-			
+		public int currentInt() {
 			return data[i++];
+		}
+
+		@Override
+		public void moveNext(){
+			checkVersion();
+			++i;
 		}
 	
 		private void checkVersion(){

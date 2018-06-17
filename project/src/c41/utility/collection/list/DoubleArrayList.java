@@ -3,11 +3,12 @@ package c41.utility.collection.list;
 
 import java.util.Arrays;
 import java.util.ConcurrentModificationException;
-import java.util.Iterator;
 
 import c41.core.assertion.Arguments;
+import c41.utility.collection.*;
+import c41.utility.linq.enumerator.*;
 
-public class DoubleArrayList implements Iterable<Double>{
+public class DoubleArrayList implements IDoubleCollection{
 
 	private double[] data;
 	private int size;
@@ -29,16 +30,12 @@ public class DoubleArrayList implements Iterable<Double>{
 		addAll(it);
 	}
 	
-	public void add(double e){
+	@Override
+	public boolean add(double e){
 		expandCapacity(size+1);
 		data[size] = e;
 		size++;
-	}
-	
-	public void addAll(Iterable<Double> it){
-		for(double val : it){
-			add(val);
-		}
+		return true;
 	}
 	
 	public double set(int i, double value){
@@ -74,6 +71,7 @@ public class DoubleArrayList implements Iterable<Double>{
 		mod++;
 	}
 	
+	@Override
 	public int size(){
 		return this.size;
 	}
@@ -83,16 +81,17 @@ public class DoubleArrayList implements Iterable<Double>{
 		mod++;
 	}
 	
+	@Override
 	public double[] toArray(){
 		return Arrays.copyOf(data, size);
 	}
 	
 	@Override
-	public Iterator<Double> iterator() {
-		return new It();
+	public IDoubleEnumerator iterator() {
+		return new Itr();
 	}
 	
-	private class It implements Iterator<Double>{
+	private class Itr implements IDoubleEnumerator{
 	
 		private int i;
 		private int version = mod;
@@ -103,10 +102,14 @@ public class DoubleArrayList implements Iterable<Double>{
 		}
 
 		@Override
-		public Double next() {
-			checkVersion();
-			
+		public double currentDouble() {
 			return data[i++];
+		}
+
+		@Override
+		public void moveNext(){
+			checkVersion();
+			++i;
 		}
 	
 		private void checkVersion(){

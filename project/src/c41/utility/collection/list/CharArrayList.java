@@ -3,11 +3,12 @@ package c41.utility.collection.list;
 
 import java.util.Arrays;
 import java.util.ConcurrentModificationException;
-import java.util.Iterator;
 
 import c41.core.assertion.Arguments;
+import c41.utility.collection.*;
+import c41.utility.linq.enumerator.*;
 
-public class CharArrayList implements Iterable<Character>{
+public class CharArrayList implements ICharCollection{
 
 	private char[] data;
 	private int size;
@@ -29,16 +30,12 @@ public class CharArrayList implements Iterable<Character>{
 		addAll(it);
 	}
 	
-	public void add(char e){
+	@Override
+	public boolean add(char e){
 		expandCapacity(size+1);
 		data[size] = e;
 		size++;
-	}
-	
-	public void addAll(Iterable<Character> it){
-		for(char val : it){
-			add(val);
-		}
+		return true;
 	}
 	
 	public char set(int i, char value){
@@ -74,6 +71,7 @@ public class CharArrayList implements Iterable<Character>{
 		mod++;
 	}
 	
+	@Override
 	public int size(){
 		return this.size;
 	}
@@ -83,16 +81,17 @@ public class CharArrayList implements Iterable<Character>{
 		mod++;
 	}
 	
+	@Override
 	public char[] toArray(){
 		return Arrays.copyOf(data, size);
 	}
 	
 	@Override
-	public Iterator<Character> iterator() {
-		return new It();
+	public ICharEnumerator iterator() {
+		return new Itr();
 	}
 	
-	private class It implements Iterator<Character>{
+	private class Itr implements ICharEnumerator{
 	
 		private int i;
 		private int version = mod;
@@ -103,10 +102,14 @@ public class CharArrayList implements Iterable<Character>{
 		}
 
 		@Override
-		public Character next() {
-			checkVersion();
-			
+		public char currentChar() {
 			return data[i++];
+		}
+
+		@Override
+		public void moveNext(){
+			checkVersion();
+			++i;
 		}
 	
 		private void checkVersion(){

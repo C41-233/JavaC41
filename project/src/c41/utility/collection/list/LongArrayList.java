@@ -3,11 +3,12 @@ package c41.utility.collection.list;
 
 import java.util.Arrays;
 import java.util.ConcurrentModificationException;
-import java.util.Iterator;
 
 import c41.core.assertion.Arguments;
+import c41.utility.collection.*;
+import c41.utility.linq.enumerator.*;
 
-public class LongArrayList implements Iterable<Long>{
+public class LongArrayList implements ILongCollection{
 
 	private long[] data;
 	private int size;
@@ -29,16 +30,12 @@ public class LongArrayList implements Iterable<Long>{
 		addAll(it);
 	}
 	
-	public void add(long e){
+	@Override
+	public boolean add(long e){
 		expandCapacity(size+1);
 		data[size] = e;
 		size++;
-	}
-	
-	public void addAll(Iterable<Long> it){
-		for(long val : it){
-			add(val);
-		}
+		return true;
 	}
 	
 	public long set(int i, long value){
@@ -74,6 +71,7 @@ public class LongArrayList implements Iterable<Long>{
 		mod++;
 	}
 	
+	@Override
 	public int size(){
 		return this.size;
 	}
@@ -83,16 +81,17 @@ public class LongArrayList implements Iterable<Long>{
 		mod++;
 	}
 	
+	@Override
 	public long[] toArray(){
 		return Arrays.copyOf(data, size);
 	}
 	
 	@Override
-	public Iterator<Long> iterator() {
-		return new It();
+	public ILongEnumerator iterator() {
+		return new Itr();
 	}
 	
-	private class It implements Iterator<Long>{
+	private class Itr implements ILongEnumerator{
 	
 		private int i;
 		private int version = mod;
@@ -103,10 +102,14 @@ public class LongArrayList implements Iterable<Long>{
 		}
 
 		@Override
-		public Long next() {
-			checkVersion();
-			
+		public long currentLong() {
 			return data[i++];
+		}
+
+		@Override
+		public void moveNext(){
+			checkVersion();
+			++i;
 		}
 	
 		private void checkVersion(){

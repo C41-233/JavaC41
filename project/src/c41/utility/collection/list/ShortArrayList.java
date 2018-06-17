@@ -3,11 +3,12 @@ package c41.utility.collection.list;
 
 import java.util.Arrays;
 import java.util.ConcurrentModificationException;
-import java.util.Iterator;
 
 import c41.core.assertion.Arguments;
+import c41.utility.collection.*;
+import c41.utility.linq.enumerator.*;
 
-public class ShortArrayList implements Iterable<Short>{
+public class ShortArrayList implements IShortCollection{
 
 	private short[] data;
 	private int size;
@@ -29,16 +30,12 @@ public class ShortArrayList implements Iterable<Short>{
 		addAll(it);
 	}
 	
-	public void add(short e){
+	@Override
+	public boolean add(short e){
 		expandCapacity(size+1);
 		data[size] = e;
 		size++;
-	}
-	
-	public void addAll(Iterable<Short> it){
-		for(short val : it){
-			add(val);
-		}
+		return true;
 	}
 	
 	public short set(int i, short value){
@@ -74,6 +71,7 @@ public class ShortArrayList implements Iterable<Short>{
 		mod++;
 	}
 	
+	@Override
 	public int size(){
 		return this.size;
 	}
@@ -83,16 +81,17 @@ public class ShortArrayList implements Iterable<Short>{
 		mod++;
 	}
 	
+	@Override
 	public short[] toArray(){
 		return Arrays.copyOf(data, size);
 	}
 	
 	@Override
-	public Iterator<Short> iterator() {
-		return new It();
+	public IShortEnumerator iterator() {
+		return new Itr();
 	}
 	
-	private class It implements Iterator<Short>{
+	private class Itr implements IShortEnumerator{
 	
 		private int i;
 		private int version = mod;
@@ -103,10 +102,14 @@ public class ShortArrayList implements Iterable<Short>{
 		}
 
 		@Override
-		public Short next() {
-			checkVersion();
-			
+		public short currentShort() {
 			return data[i++];
+		}
+
+		@Override
+		public void moveNext(){
+			checkVersion();
+			++i;
 		}
 	
 		private void checkVersion(){

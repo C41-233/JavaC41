@@ -1,14 +1,16 @@
 <#assign ClassName = "${Name}ArrayList">
+<#assign Enumerator = "I${Name}Enumerator">
 
 package c41.utility.collection.list;
 
 import java.util.Arrays;
 import java.util.ConcurrentModificationException;
-import java.util.Iterator;
 
 import c41.core.assertion.Arguments;
+import c41.utility.collection.*;
+import c41.utility.linq.enumerator.*;
 
-public class ${ClassName} implements Iterable<${Box}>{
+public class ${ClassName} implements I${Name}Collection{
 
 	private ${Primitive}[] data;
 	private int size;
@@ -30,16 +32,12 @@ public class ${ClassName} implements Iterable<${Box}>{
 		addAll(it);
 	}
 	
-	public void add(${Primitive} e){
+	@Override
+	public boolean add(${Primitive} e){
 		expandCapacity(size+1);
 		data[size] = e;
 		size++;
-	}
-	
-	public void addAll(Iterable<${Box}> it){
-		for(${Primitive} val : it){
-			add(val);
-		}
+		return true;
 	}
 	
 	public ${Primitive} set(int i, ${Primitive} value){
@@ -75,6 +73,7 @@ public class ${ClassName} implements Iterable<${Box}>{
 		mod++;
 	}
 	
+	@Override
 	public int size(){
 		return this.size;
 	}
@@ -84,16 +83,17 @@ public class ${ClassName} implements Iterable<${Box}>{
 		mod++;
 	}
 	
+	@Override
 	public ${Primitive}[] toArray(){
 		return Arrays.copyOf(data, size);
 	}
 	
 	@Override
-	public Iterator<${Box}> iterator() {
-		return new It();
+	public ${Enumerator} iterator() {
+		return new Itr();
 	}
 	
-	private class It implements Iterator<${Box}>{
+	private class Itr implements ${Enumerator}{
 	
 		private int i;
 		private int version = mod;
@@ -104,10 +104,14 @@ public class ${ClassName} implements Iterable<${Box}>{
 		}
 
 		@Override
-		public ${Box} next() {
-			checkVersion();
-			
+		public ${Primitive} current${Name}() {
 			return data[i++];
+		}
+
+		@Override
+		public void moveNext(){
+			checkVersion();
+			++i;
 		}
 	
 		private void checkVersion(){

@@ -3,11 +3,12 @@ package c41.utility.collection.list;
 
 import java.util.Arrays;
 import java.util.ConcurrentModificationException;
-import java.util.Iterator;
 
 import c41.core.assertion.Arguments;
+import c41.utility.collection.*;
+import c41.utility.linq.enumerator.*;
 
-public class ByteArrayList implements Iterable<Byte>{
+public class ByteArrayList implements IByteCollection{
 
 	private byte[] data;
 	private int size;
@@ -29,16 +30,12 @@ public class ByteArrayList implements Iterable<Byte>{
 		addAll(it);
 	}
 	
-	public void add(byte e){
+	@Override
+	public boolean add(byte e){
 		expandCapacity(size+1);
 		data[size] = e;
 		size++;
-	}
-	
-	public void addAll(Iterable<Byte> it){
-		for(byte val : it){
-			add(val);
-		}
+		return true;
 	}
 	
 	public byte set(int i, byte value){
@@ -74,6 +71,7 @@ public class ByteArrayList implements Iterable<Byte>{
 		mod++;
 	}
 	
+	@Override
 	public int size(){
 		return this.size;
 	}
@@ -83,16 +81,17 @@ public class ByteArrayList implements Iterable<Byte>{
 		mod++;
 	}
 	
+	@Override
 	public byte[] toArray(){
 		return Arrays.copyOf(data, size);
 	}
 	
 	@Override
-	public Iterator<Byte> iterator() {
-		return new It();
+	public IByteEnumerator iterator() {
+		return new Itr();
 	}
 	
-	private class It implements Iterator<Byte>{
+	private class Itr implements IByteEnumerator{
 	
 		private int i;
 		private int version = mod;
@@ -103,10 +102,14 @@ public class ByteArrayList implements Iterable<Byte>{
 		}
 
 		@Override
-		public Byte next() {
-			checkVersion();
-			
+		public byte currentByte() {
 			return data[i++];
+		}
+
+		@Override
+		public void moveNext(){
+			checkVersion();
+			++i;
 		}
 	
 		private void checkVersion(){

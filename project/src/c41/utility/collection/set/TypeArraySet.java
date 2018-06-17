@@ -1,6 +1,7 @@
 package c41.utility.collection.set;
 
 import java.util.HashSet;
+import java.util.Iterator;
 
 import c41.utility.collection.ITypeCollection;
 import c41.utility.collection.list.TypeArrayList;
@@ -31,6 +32,16 @@ public class TypeArraySet<T> implements ITypeCollection<T>{
 	@Override
 	public T[] toArray() {
 		return list.toArray();
+	}
+
+	@Override
+	public Iterator<T> iterator() {
+		return set.iterator();
+	}
+
+	@Override
+	public int size() {
+		return set.size();
 	}
 
 }

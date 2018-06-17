@@ -1,10 +1,15 @@
 <#assign ClassName="${Name}HashSet">
+<#assign Enumerator="I${Name}Enumerator">
 
 package  c41.utility.collection.set;
 
 import java.util.HashSet;
+import java.util.Iterator;
 
-public class ${ClassName}{
+import c41.utility.collection.*;
+import c41.utility.linq.enumerator.*;
+
+public class ${ClassName} implements I${Name}Collection{
 
 	private final HashSet<${Box}> set = new HashSet<>();
 
@@ -12,8 +17,41 @@ public class ${ClassName}{
 	
 	}
 
+	@Override
 	public boolean add(${Primitive} value){
 		return set.add(value);
 	}
 
+	@Override
+	public int size(){
+		return set.size();
+	}
+
+	@Override
+	public ${Enumerator} iterator(){
+		return new Itr();
+	}
+	
+	private class Itr implements ${Enumerator}{
+	
+		private final Iterator<${Box}> iterator = set.iterator();
+		private ${Box} current;
+		
+		@Override
+		public boolean hasNext() {
+			return iterator.hasNext();
+		}
+
+		@Override
+		public void moveNext() {
+			current = iterator.next();
+		}
+
+		@Override
+		public ${Primitive} current${Name}() {
+			return current;
+		}
+	
+	}
+	
 }

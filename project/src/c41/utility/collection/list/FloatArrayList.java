@@ -3,11 +3,12 @@ package c41.utility.collection.list;
 
 import java.util.Arrays;
 import java.util.ConcurrentModificationException;
-import java.util.Iterator;
 
 import c41.core.assertion.Arguments;
+import c41.utility.collection.*;
+import c41.utility.linq.enumerator.*;
 
-public class FloatArrayList implements Iterable<Float>{
+public class FloatArrayList implements IFloatCollection{
 
 	private float[] data;
 	private int size;
@@ -29,16 +30,12 @@ public class FloatArrayList implements Iterable<Float>{
 		addAll(it);
 	}
 	
-	public void add(float e){
+	@Override
+	public boolean add(float e){
 		expandCapacity(size+1);
 		data[size] = e;
 		size++;
-	}
-	
-	public void addAll(Iterable<Float> it){
-		for(float val : it){
-			add(val);
-		}
+		return true;
 	}
 	
 	public float set(int i, float value){
@@ -74,6 +71,7 @@ public class FloatArrayList implements Iterable<Float>{
 		mod++;
 	}
 	
+	@Override
 	public int size(){
 		return this.size;
 	}
@@ -83,16 +81,17 @@ public class FloatArrayList implements Iterable<Float>{
 		mod++;
 	}
 	
+	@Override
 	public float[] toArray(){
 		return Arrays.copyOf(data, size);
 	}
 	
 	@Override
-	public Iterator<Float> iterator() {
-		return new It();
+	public IFloatEnumerator iterator() {
+		return new Itr();
 	}
 	
-	private class It implements Iterator<Float>{
+	private class Itr implements IFloatEnumerator{
 	
 		private int i;
 		private int version = mod;
@@ -103,10 +102,14 @@ public class FloatArrayList implements Iterable<Float>{
 		}
 
 		@Override
-		public Float next() {
-			checkVersion();
-			
+		public float currentFloat() {
 			return data[i++];
+		}
+
+		@Override
+		public void moveNext(){
+			checkVersion();
+			++i;
 		}
 	
 		private void checkVersion(){
