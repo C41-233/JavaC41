@@ -41,7 +41,7 @@ public final class Iterators {
 		}
 		throw new NoSuchElementException();
 	}
-
+	
 	public static int count(Iterator<?> iterator) {
 		Arguments.isNotNull(iterator);
 		
@@ -87,26 +87,8 @@ public final class Iterators {
 		return true;
 	}
 
-	public static <T> T findFirstDuplicateOrCreateDefault(Iterator<T> iterator, IFunction<? extends T> defProvider){
-		Arguments.isNotNull(iterator);
-		Arguments.isNotNull(defProvider);
-		
-		HashSet<T> set = new HashSet<>();
-		while(iterator.hasNext()) {
-			T obj = iterator.next();
-			if(set.add(obj) == false) {
-				return obj;
-			}
-		}
-		return defProvider.invoke();
-	}
-
-	public static <T> T findFirstDuplicateOrDefault(Iterator<T> iterator) {
-		return findFirstDuplicateOrDefault(iterator, null);
-	}
-
 	public static <T> T findFirstDuplicateOrDefault(Iterator<T> iterator, T def) {
-		return findFirstDuplicateOrCreateDefault(iterator, ()->def);
+		return firstDuplicateOrCreateDefault(iterator, ()->def);
 	}
 
 	public static <T> int findFirstIndex(Iterator<T> iterator, IPredicate<? super T> predicate) {
@@ -166,9 +148,27 @@ public final class Iterators {
 	}
 
 	public static <T> T firstDuplicate(Iterator<T> iterator) {
-		return findFirstDuplicateOrCreateDefault(iterator, ()->{
+		return firstDuplicateOrCreateDefault(iterator, ()->{
 			throw new NoSuchElementException();
 		});
+	}
+
+	public static <T> T firstDuplicateOrCreateDefault(Iterator<T> iterator, IFunction<? extends T> defProvider){
+		Arguments.isNotNull(iterator);
+		Arguments.isNotNull(defProvider);
+		
+		HashSet<T> set = new HashSet<>();
+		while(iterator.hasNext()) {
+			T obj = iterator.next();
+			if(set.add(obj) == false) {
+				return obj;
+			}
+		}
+		return defProvider.invoke();
+	}
+
+	public static <T> T firstDuplicateOrDefault(Iterator<T> iterator) {
+		return findFirstDuplicateOrDefault(iterator, null);
 	}
 
 	public static <T> T fisrtIf(Iterator<T> iterator, IPredicate<? super T> predicate) {
@@ -304,7 +304,7 @@ public final class Iterators {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * 迭代器存在满足谓词的元素。
 	 * @param <T> 泛型参数
@@ -356,7 +356,7 @@ public final class Iterators {
 		}
 		return false;
 	}
-
+	
 	public static boolean isNotEmpty(Iterator<?> iterable) {
 		return isEmpty(iterable) == false;
 	}
@@ -385,7 +385,7 @@ public final class Iterators {
 		}
 		return true;
 	}
-	
+
 	public static boolean isNotExistAnyOf(Iterator<?> iterator, Object...values) {
 		Arguments.isNotNull(iterator);
 		Arguments.isNotNull(values);
@@ -411,6 +411,23 @@ public final class Iterators {
 			}
 		}
 		return true;
+	}
+	
+	public static <T> Iterator<T> of(T[] array){
+		return new Iterator<T>() {
+
+			private int i = 0;
+			
+			@Override
+			public boolean hasNext() {
+				return i < array.length;
+			}	
+
+			@Override
+			public T next() {
+				return array[i++];
+			}
+		};
 	}
 
 	public static <T> Object[] toArray(Iterator<T> iterator) {

@@ -1,6 +1,7 @@
 package c41.utility.collection;
 
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -26,7 +27,7 @@ public final class Iterables {
 		Arguments.isNotNull(iterable);
 		return Iterators.at(iterable.iterator(), index);
 	}
-
+	
 	public static int count(Iterable<?> iterable) {
 		Arguments.isNotNull(iterable);
 		return Iterators.count(iterable.iterator());
@@ -47,41 +48,31 @@ public final class Iterables {
 		return Iterators.equals(iterable1.iterator(), iterable2.iterator());
 	}
 
-	public static <T> T findFirstDuplicateOrCreateDefault(Iterable<T> iterable, IFunction<? extends T> defProvider){
-		Arguments.isNotNull(iterable);
-		return Iterators.findFirstDuplicateOrCreateDefault(iterable.iterator(), defProvider);
-	}
-	
-	public static <T> T findFirstDuplicateOrDefault(Iterable<T> iterable) {
-		Arguments.isNotNull(iterable);
-		return Iterators.findFirstDuplicateOrDefault(iterable.iterator());
-	}
-
 	public static <T> T findFirstDuplicateOrDefault(Iterable<T> iterable, T def) {
 		Arguments.isNotNull(iterable);
 		return Iterators.findFirstDuplicateOrDefault(iterable.iterator(), def);
 	}
-	
+
 	public static <T> int findFirstIndex(Iterable<T> iterable, IPredicate<? super T> predicate) {
 		Arguments.isNotNull(iterable);
 		return Iterators.findFirstIndex(iterable.iterator(), predicate);
 	}
-
+	
 	public static <T> int findFirstIndex(Iterable<T> iterable, T value) {
 		Arguments.isNotNull(iterable);
 		return Iterators.findFirstIndex(iterable.iterator(), value);
 	}
-	
+
 	public static <T> T findFirstOrCreateDefault(Iterable<T> iterable, IPredicate<? super T> predicate, IFunction<? extends T> defProvider) {
 		Arguments.isNotNull(iterable);
 		return Iterators.findFirstOrCreateDefault(iterable.iterator(), predicate, defProvider);
 	}
-
+	
 	public static <T> T findFirstOrDefault(Iterable<T> iterable, IPredicate<? super T> predicate) {
 		Arguments.isNotNull(iterable);
 		return Iterators.findFirstOrDefault(iterable.iterator(), predicate);
 	}
-	
+
 	public static <T> T findFirstOrDefault(Iterable<T> iterable, IPredicate<? super T> predicate, T def) {
 		Arguments.isNotNull(iterable);
 		return Iterators.findFirstOrDefault(iterable.iterator(), predicate, def);
@@ -95,6 +86,16 @@ public final class Iterables {
 	public static <T> T firstDuplicate(Iterable<T> iterable) {
 		Arguments.isNotNull(iterable);
 		return Iterators.firstDuplicate(iterable.iterator());
+	}
+	
+	public static <T> T firstDuplicateOrCreateDefault(Iterable<T> iterable, IFunction<? extends T> defProvider){
+		Arguments.isNotNull(iterable);
+		return Iterators.firstDuplicateOrCreateDefault(iterable.iterator(), defProvider);
+	}
+	
+	public static <T> T firstDuplicateOrDefault(Iterable<T> iterable) {
+		Arguments.isNotNull(iterable);
+		return Iterators.firstDuplicateOrDefault(iterable.iterator());
 	}
 
 	public static <T> T firstIf(Iterable<T> iterable, IPredicate<? super T> predicate) {
@@ -125,7 +126,7 @@ public final class Iterables {
 		Arguments.isNotNull(iterable);
 		return Iterators.foreach(iterable.iterator(), action);
 	}
-	
+
 	/**
 	 * 对每个元素执行操作。
 	 * @param <T> 泛型参数
@@ -176,7 +177,7 @@ public final class Iterables {
 		Arguments.isNotNull(iterable);
 		return Iterators.isExist(iterable.iterator(), value);
 	}
-
+	
 	/**
 	 * 存在满足谓词的元素。
 	 * @param <T> 泛型参数
@@ -210,7 +211,7 @@ public final class Iterables {
 		Arguments.isNotNull(iterable);
 		return Iterators.isNotEmpty(iterable.iterator());
 	}
-	
+
 	public static boolean isNotExist(Iterable<?> iterable, Object value) {
 		Arguments.isNotNull(iterable);
 		return Iterators.isNotExist(iterable.iterator(), value);
@@ -229,6 +230,16 @@ public final class Iterables {
 	public static boolean isNotExistReference(Iterable<?> iterable, Object value) {
 		Arguments.isNotNull(iterable);
 		return Iterators.isNotExistReference(iterable.iterator(), value);
+	}
+	
+	public static <T> Iterable<T> of(T[] array){
+		return new Iterable<T>() {
+
+			@Override
+			public Iterator<T> iterator() {
+				return Iterators.of(array);
+			}
+		};
 	}
 	
 	public static <T> Object[] toArray(Iterable<T> iterable) {

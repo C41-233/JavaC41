@@ -61,6 +61,21 @@ public interface IShortEnumerable extends IEnumerable<Short>{
 		return count;
 	}
 	
+	/**
+	 * 获取第一个元素。
+	 * @return 第一个元素
+	 * @exception NoSuchElementException 如果不存在元素
+	 */
+	public default short first(){
+		IShortEnumerator enumerator = iterator();
+		return enumerator.next();
+	}
+	
+	/**
+	 * 获取第一个重复元素。
+	 * @return 第一个重复元素
+	 * @exception NoSuchElementException 如果不存在元素
+	 */
 	public default short firstDuplicate(){
 		ShortHashSet set = new ShortHashSet();
 		

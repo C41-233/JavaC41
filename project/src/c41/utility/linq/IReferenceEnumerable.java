@@ -51,14 +51,6 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 		return Iterables.countIf(this, predicate);
 	}
 
-	public default T findFirstDuplicateOrCreateDefault(IFunction<? extends T> defProvider) {
-		return Iterables.findFirstDuplicateOrCreateDefault(this, defProvider);
-	}
-	
-	public default T findFirstDuplicateOrDefault() {
-		return Iterables.findFirstDuplicateOrDefault(this);
-	}
-
 	public default T findFirstDuplicateOrDefault(T def) {
 		return Iterables.findFirstDuplicateOrDefault(this, def);
 	}
@@ -66,7 +58,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default int findFirstIndex(IPredicate<? super T> predicate) {
 		return Iterables.findFirstIndex(this, predicate);
 	}
-	
+
 	public default int findFirstIndex(T value) {
 		return Iterables.findFirstIndex(this, value);
 	}
@@ -74,7 +66,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default T findFirstOrCreateDefault(IPredicate<? super T> predicate, IFunction<? extends T> defProvider) {
 		return Iterables.findFirstOrCreateDefault(this, predicate, defProvider);
 	}
-
+	
 	public default T findFirstOrDefault(IPredicate<? super T> predicate) {
 		return Iterables.findFirstOrDefault(this, predicate);
 	}
@@ -82,17 +74,39 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default T findFirstOrDefault(IPredicate<? super T> predicate, T def) {
 		return Iterables.findFirstOrDefault(this, predicate, def);
 	}
-	
+
+	/**
+	 * 获取第一个元素。
+	 * @return 第一个元素
+	 * @exception NoSuchElementException 如果不存在元素
+	 */
 	public default T first() {
 		return Iterables.first(this);
 	}
-
+	
 	/**
 	 * 返回第一个重复的元素，重复元素按照@{code equals}方式比较。
 	 * @return 重复元素
 	 */
 	public default T firstDuplicate() {
 		return Iterables.firstDuplicate(this);
+	}
+	
+	/**
+	 * 返回第一个重复的元素。如果不存在，就返回默认值。
+	 * @param defProvider 默认值
+	 * @return 第一个重复元素或默认值
+	 */
+	public default T firstDuplicateOrCreateDefault(IFunction<? extends T> defProvider) {
+		return Iterables.firstDuplicateOrCreateDefault(this, defProvider);
+	}
+
+	/**
+	 * 返回第一个重复元素。如果不存在，则返回null。
+	 * @return 默认值或null。
+	 */
+	public default T firstDuplicateOrDefault() {
+		return Iterables.firstDuplicateOrDefault(this);
 	}
 	
 	/**
