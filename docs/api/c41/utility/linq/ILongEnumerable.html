@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":6,"i6":18};
+var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":18,"i7":18,"i8":6,"i9":18};
 var tabs = {65535:["t0","所有方法"],2:["t2","实例方法"],4:["t3","抽象方法"],16:["t5","默认方法"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -133,36 +133,54 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>default int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/ILongEnumerable.html#countIf-c41.lambda.predicate.ILongPredicate-">countIf</a></span>(<a href="../../../c41/lambda/predicate/ILongPredicate.html" title="c41.lambda.predicate中的接口">ILongPredicate</a>&nbsp;predicate)</code>
+<div class="block">返回满足条件的元素数量。</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>default long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/ILongEnumerable.html#firstDuplicate--">firstDuplicate</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>default long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/ILongEnumerable.html#firstIf-c41.lambda.predicate.ILongPredicate-">firstIf</a></span>(<a href="../../../c41/lambda/predicate/ILongPredicate.html" title="c41.lambda.predicate中的接口">ILongPredicate</a>&nbsp;predicate)</code>
+<div class="block">返回第一个满足条件的元素。</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>default boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/ILongEnumerable.html#isAll-c41.lambda.predicate.ILongPredicate-">isAll</a></span>(<a href="../../../c41/lambda/predicate/ILongPredicate.html" title="c41.lambda.predicate中的接口">ILongPredicate</a>&nbsp;predicate)</code>
 <div class="block">所有元素都满足谓词。</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>default boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/ILongEnumerable.html#isExist-c41.lambda.predicate.ILongPredicate-">isExist</a></span>(<a href="../../../c41/lambda/predicate/ILongPredicate.html" title="c41.lambda.predicate中的接口">ILongPredicate</a>&nbsp;predicate)</code>
 <div class="block">存在满足谓词的元素。</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>default boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/ILongEnumerable.html#isExist-long-">isExist</a></span>(long&nbsp;value)</code>
 <div class="block">存在指定值。</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>default boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/ILongEnumerable.html#isNotAll-c41.lambda.predicate.ILongPredicate-">isNotAll</a></span>(<a href="../../../c41/lambda/predicate/ILongPredicate.html" title="c41.lambda.predicate中的接口">ILongPredicate</a>&nbsp;predicate)</code>
 <div class="block">非所有元素都满足谓词。</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../c41/utility/linq/enumerator/ILongEnumerator.html" title="c41.utility.linq.enumerator中的接口">ILongEnumerator</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/ILongEnumerable.html#iterator--">iterator</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>default long[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/ILongEnumerable.html#toArray--">toArray</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/ILongEnumerable.html#toArray--">toArray</a></span>()</code>
+<div class="block">返回所有元素组成的数组。</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -224,6 +242,49 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 <dt><span class="throwsLabel">抛出:</span></dt>
 <dd><code>java.lang.IllegalArgumentException</code> - index &lt; 0</dd>
 <dd><code>java.util.NoSuchElementException</code> - 下标超出迭代器范围</dd>
+</dl>
+</li>
+</ul>
+<a name="countIf-c41.lambda.predicate.ILongPredicate-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>countIf</h4>
+<pre>default&nbsp;int&nbsp;countIf(<a href="../../../c41/lambda/predicate/ILongPredicate.html" title="c41.lambda.predicate中的接口">ILongPredicate</a>&nbsp;predicate)</pre>
+<div class="block">返回满足条件的元素数量。</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>predicate</code> - 谓词</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>数量</dd>
+</dl>
+</li>
+</ul>
+<a name="firstDuplicate--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>firstDuplicate</h4>
+<pre>default&nbsp;long&nbsp;firstDuplicate()</pre>
+</li>
+</ul>
+<a name="firstIf-c41.lambda.predicate.ILongPredicate-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>firstIf</h4>
+<pre>default&nbsp;long&nbsp;firstIf(<a href="../../../c41/lambda/predicate/ILongPredicate.html" title="c41.lambda.predicate中的接口">ILongPredicate</a>&nbsp;predicate)</pre>
+<div class="block">返回第一个满足条件的元素。</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>predicate</code> - 谓词</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>第一个满足的元素</dd>
+<dt><span class="throwsLabel">抛出:</span></dt>
+<dd><code>java.util.NoSuchElementException</code> - 没有满足条件的元素</dd>
 </dl>
 </li>
 </ul>
@@ -301,6 +362,12 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 <li class="blockList">
 <h4>toArray</h4>
 <pre>default&nbsp;long[]&nbsp;toArray()</pre>
+<div class="block">返回所有元素组成的数组。
+ 如果没有元素，则返回空数组。</div>
+<dl>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>数组</dd>
+</dl>
 </li>
 </ul>
 </li>

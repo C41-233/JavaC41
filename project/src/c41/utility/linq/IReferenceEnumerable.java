@@ -42,16 +42,13 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 		return Iterables.at(this, index);
 	}
 
-	public default int count(IPredicate<? super T> predicate) {
-		return Iterables.count(this, predicate);
-	}
-
-	public default T findFirst(IPredicate<? super T> predicate) {
-		return Iterables.findFirst(this, predicate);
-	}
-	
-	public default T findFirstDuplicate() {
-		return Iterables.findFirstDuplicate(this);
+	/**
+	 * 返回满足条件的元素数量。
+	 * @param predicate 谓词
+	 * @return 数量
+	 */
+	public default int countIf(IPredicate<? super T> predicate) {
+		return Iterables.countIf(this, predicate);
 	}
 
 	public default T findFirstDuplicateOrCreateDefault(IFunction<? extends T> defProvider) {
@@ -61,7 +58,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default T findFirstDuplicateOrDefault() {
 		return Iterables.findFirstDuplicateOrDefault(this);
 	}
-	
+
 	public default T findFirstDuplicateOrDefault(T def) {
 		return Iterables.findFirstDuplicateOrDefault(this, def);
 	}
@@ -69,7 +66,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default int findFirstIndex(IPredicate<? super T> predicate) {
 		return Iterables.findFirstIndex(this, predicate);
 	}
-
+	
 	public default int findFirstIndex(T value) {
 		return Iterables.findFirstIndex(this, value);
 	}
@@ -77,17 +74,35 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default T findFirstOrCreateDefault(IPredicate<? super T> predicate, IFunction<? extends T> defProvider) {
 		return Iterables.findFirstOrCreateDefault(this, predicate, defProvider);
 	}
-	
+
 	public default T findFirstOrDefault(IPredicate<? super T> predicate) {
 		return Iterables.findFirstOrDefault(this, predicate);
 	}
-
+	
 	public default T findFirstOrDefault(IPredicate<? super T> predicate, T def) {
 		return Iterables.findFirstOrDefault(this, predicate, def);
 	}
 	
 	public default T first() {
 		return Iterables.first(this);
+	}
+
+	/**
+	 * 返回第一个重复的元素，重复元素按照@{code equals}方式比较。
+	 * @return 重复元素
+	 */
+	public default T firstDuplicate() {
+		return Iterables.firstDuplicate(this);
+	}
+	
+	/**
+	 * 返回第一个满足条件的元素。
+	 * @param predicate 谓词
+	 * @return 第一个满足的元素
+	 * @exception NoSuchElementException 没有满足条件的元素
+	 */
+	public default T firstIf(IPredicate<? super T> predicate) {
+		return Iterables.firstIf(this, predicate);
 	}
 
 	/**
@@ -279,13 +294,21 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	
 	/**
 	 * 构造所有元素组成的数组
+	 * @return 数组
+	 */
+	public default Object[] toArray() {
+		return Iterables.toArray(this);
+	}
+
+	/**
+	 * 构造所有元素组成的数组
 	 * @param type 用于指定类型
 	 * @return 数组
 	 */
 	public default T[] toArray(Class<T> type) {
 		return Iterables.toArray(this, type);
 	}
-
+	
 	/**
 	 * 构造所有元素组成的数组
 	 * @param array 数组

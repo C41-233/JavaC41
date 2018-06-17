@@ -20,6 +20,11 @@ class NodeListEnumerable implements IReferenceEnumerable<Node>{
 		return new Enumerator();
 	}
 
+	@Override
+	public int count() {
+		return nodes.getLength();
+	}
+	
 	private final class Enumerator extends ReferenceEnumeratorBase<Node>
 	{
 

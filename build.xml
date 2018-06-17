@@ -50,14 +50,14 @@
 				<exec executable="cmd.exe" failonerror="true">
 					<arg line="/c java -Xbootclasspath/a:${jar.freemarker} -jar ${jar.TemplateBuilder} @{src} @{dest} ${folder.TemplateBuilder}/templates.xml"/>
 				</exec>
-				<echo message="success"/>
 			</sequential>
 		</macrodef>
 		<generate src="project/src/c41/lambda/action/ITAction.java.template" dest="I$Action.java"/>
 		<generate src="project/src/c41/lambda/predicate/ITPredicate.java.template" dest="I$Predicate.java"/>
 		<generate src="project/src/c41/utility/linq/enumerator/ITEnumerator.java.template" dest="I$Enumerator.java"/>
 		<generate src="project/src/c41/utility/linq/ITEnumerable.java.template" dest="I$Enumerable.java"/>
-		<generate src="project/src/c41/utility/collection/list/TList.java.template" dest="$List.java"/>
+		<generate src="project/src/c41/utility/collection/list/TArrayList.java.template" dest="$ArrayList.java"/>
+		<generate src="project/src/c41/utility/collection/set/THashSet.java.template" dest="$HashSet.java"/>
     </target>
 	
 	<target name="generate-docs">

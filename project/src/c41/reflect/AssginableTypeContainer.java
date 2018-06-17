@@ -1,7 +1,7 @@
 package c41.reflect;
 
 import c41.utility.collection.list.TypeArrayList;
-import c41.utility.collection.list.TypeArraySet;
+import c41.utility.collection.set.TypeArraySet;
 
 final class AssginableTypeContainer<T> {
 

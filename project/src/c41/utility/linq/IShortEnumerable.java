@@ -10,6 +10,8 @@ import java.util.NoSuchElementException;
 import c41.lambda.predicate.*;
 import c41.core.assertion.Arguments;
 import c41.utility.linq.enumerator.*;
+import c41.utility.collection.list.*;
+import c41.utility.collection.set.*;
 
 /**
  * 基本类型short的Enumerable。
@@ -38,6 +40,55 @@ public interface IShortEnumerable extends IEnumerable<Short>{
 		}
 		if(enumerator.hasNext()) {
 			return enumerator.nextShort();
+		}
+		throw new NoSuchElementException();
+	}
+	
+	/**
+	 * 返回满足条件的元素数量。
+	 * @param predicate 谓词
+	 * @return 数量
+	 */
+	public default int countIf(IShortPredicate predicate){
+		Arguments.isNotNull(predicate);
+		
+		int count = 0;
+		IShortEnumerator enumerator = iterator();
+		while(enumerator.hasNext()){
+			enumerator.nextShort();
+			count++;
+		}
+		return count;
+	}
+	
+	public default short firstDuplicate(){
+		ShortHashSet set = new ShortHashSet();
+		
+		IShortEnumerator enumerator = iterator();
+		while(enumerator.hasNext()){
+			short value = enumerator.nextShort();
+			if(!set.add(value)){
+				return value;
+			}
+		}
+		throw new NoSuchElementException();
+	}
+	
+	/**
+	 * 返回第一个满足条件的元素。
+	 * @param predicate 谓词
+	 * @return 第一个满足的元素
+	 * @exception NoSuchElementException 没有满足条件的元素
+	 */
+	public default short firstIf(IShortPredicate predicate){
+		Arguments.isNotNull(predicate);
+		
+		IShortEnumerator enumerator = iterator();
+		while(enumerator.hasNext()){
+			short value = enumerator.nextShort();
+			if(predicate.is(value)){
+				return value;
+			}
 		}
 		throw new NoSuchElementException();
 	}
@@ -114,8 +165,14 @@ public interface IShortEnumerable extends IEnumerable<Short>{
 		return false;
 	}
 	
+	/**
+	 * 返回所有元素组成的数组。
+	 * 如果没有元素，则返回空数组。
+	 * @return 数组
+	 */
 	public default short[] toArray() {
-		return null;
+		ShortArrayList list = new ShortArrayList(this);
+		return list.toArray();
 	}
 	
 }

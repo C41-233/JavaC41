@@ -13,6 +13,9 @@ import c41.lambda.function.IFunction;
 import c41.lambda.predicate.IPredicate;
 import c41.reflect.StaticClassException;
 
+/**
+ * @{code Iterable}的工具类型，大部分用于为Linq提供默认实现。
+ */
 public final class Iterables {
 
 	private Iterables() {
@@ -29,9 +32,9 @@ public final class Iterables {
 		return Iterators.count(iterable.iterator());
 	}
 
-	public static <T> int count(Iterable<T> iterable, IPredicate<? super T> predicate) {
+	public static <T> int countIf(Iterable<T> iterable, IPredicate<? super T> predicate) {
 		Arguments.isNotNull(iterable);
-		return Iterators.count(iterable.iterator(), predicate);
+		return Iterators.countIf(iterable.iterator(), predicate);
 	}
 
 	public static boolean equals(Iterable<?> iterable1, Iterable<?> iterable2) {
@@ -42,16 +45,6 @@ public final class Iterables {
 			return false;
 		}
 		return Iterators.equals(iterable1.iterator(), iterable2.iterator());
-	}
-
-	public static <T> T findFirst(Iterable<T> iterable, IPredicate<? super T> predicate) {
-		Arguments.isNotNull(iterable);
-		return Iterators.findFirst(iterable.iterator(), predicate);
-	}
-	
-	public static <T> T findFirstDuplicate(Iterable<T> iterable) {
-		Arguments.isNotNull(iterable);
-		return Iterators.findFirstDuplicate(iterable.iterator());
 	}
 
 	public static <T> T findFirstDuplicateOrCreateDefault(Iterable<T> iterable, IFunction<? extends T> defProvider){
@@ -83,20 +76,30 @@ public final class Iterables {
 		Arguments.isNotNull(iterable);
 		return Iterators.findFirstOrCreateDefault(iterable.iterator(), predicate, defProvider);
 	}
-	
+
 	public static <T> T findFirstOrDefault(Iterable<T> iterable, IPredicate<? super T> predicate) {
 		Arguments.isNotNull(iterable);
 		return Iterators.findFirstOrDefault(iterable.iterator(), predicate);
 	}
-
+	
 	public static <T> T findFirstOrDefault(Iterable<T> iterable, IPredicate<? super T> predicate, T def) {
 		Arguments.isNotNull(iterable);
 		return Iterators.findFirstOrDefault(iterable.iterator(), predicate, def);
 	}
-
+	
 	public static <T> T first(Iterable<T> iterable) {
 		Arguments.isNotNull(iterable);
 		return Iterators.first(iterable.iterator());
+	}
+
+	public static <T> T firstDuplicate(Iterable<T> iterable) {
+		Arguments.isNotNull(iterable);
+		return Iterators.firstDuplicate(iterable.iterator());
+	}
+
+	public static <T> T firstIf(Iterable<T> iterable, IPredicate<? super T> predicate) {
+		Arguments.isNotNull(iterable);
+		return Iterators.fisrtIf(iterable.iterator(), predicate);
 	}
 
 	/**
@@ -228,6 +231,11 @@ public final class Iterables {
 		return Iterators.isNotExistReference(iterable.iterator(), value);
 	}
 	
+	public static <T> Object[] toArray(Iterable<T> iterable) {
+		Arguments.isNotNull(iterable);
+		return Iterators.toArray(iterable.iterator());
+	}
+	
 	public static <T> T[] toArray(Iterable<T> iterable, Class<T> cl) {
 		Arguments.isNotNull(iterable);
 		return Iterators.toArray(iterable.iterator(), cl);
@@ -247,7 +255,7 @@ public final class Iterables {
 		Arguments.isNotNull(iterable);
 		return Iterators.toList(iterable.iterator());
 	}
-	
+
 	public static <T> Set<T> toSet(Iterable<T> iterable){
 		Arguments.isNotNull(iterable);
 		return Iterators.toSet(iterable.iterator());

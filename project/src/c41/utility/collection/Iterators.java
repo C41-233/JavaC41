@@ -53,7 +53,7 @@ public final class Iterators {
 		return count;
 	}
 
-	public static <T> int count(Iterator<T> iterator, IPredicate<? super T> predicate) {
+	public static <T> int countIf(Iterator<T> iterator, IPredicate<? super T> predicate) {
 		Arguments.isNotNull(iterator);
 		Arguments.isNotNull(predicate);
 		
@@ -85,18 +85,6 @@ public final class Iterators {
 			return false;
 		}
 		return true;
-	}
-
-	public static <T> T findFirst(Iterator<T> iterator, IPredicate<? super T> predicate) {
-		return findFirstOrCreateDefault(iterator, predicate, ()->{
-			throw new NoSuchElementException();
-		});
-	}
-
-	public static <T> T findFirstDuplicate(Iterator<T> iterator) {
-		return findFirstDuplicateOrCreateDefault(iterator, ()->{
-			throw new NoSuchElementException();
-		});
 	}
 
 	public static <T> T findFirstDuplicateOrCreateDefault(Iterator<T> iterator, IFunction<? extends T> defProvider){
@@ -175,6 +163,18 @@ public final class Iterators {
 	public static <T> T first(Iterator<T> iterator) {
 		Arguments.isNotNull(iterator);
 		return iterator.next();
+	}
+
+	public static <T> T firstDuplicate(Iterator<T> iterator) {
+		return findFirstDuplicateOrCreateDefault(iterator, ()->{
+			throw new NoSuchElementException();
+		});
+	}
+
+	public static <T> T fisrtIf(Iterator<T> iterator, IPredicate<? super T> predicate) {
+		return findFirstOrCreateDefault(iterator, predicate, ()->{
+			throw new NoSuchElementException();
+		});
 	}
 
 	/**
@@ -413,6 +413,13 @@ public final class Iterators {
 		return true;
 	}
 
+	public static <T> Object[] toArray(Iterator<T> iterator) {
+		Arguments.isNotNull(iterator);
+		
+		List<T> list = toList(iterator);
+		return list.toArray();
+	}
+	
 	@SuppressWarnings("unchecked")
 	public static <T> T[] toArray(Iterator<T> iterator, Class<T> type) {
 		Arguments.isNotNull(type);
@@ -443,7 +450,7 @@ public final class Iterators {
 	public static <T> List<T> toList(Iterator<T> iterator){
 		return toCollection(iterator, ()->new ArrayList<>());
 	}
-	
+
 	public static <T> Set<T> toSet(Iterator<T> iterator){
 		return toCollection(iterator, ()->new HashSet<>());
 	}

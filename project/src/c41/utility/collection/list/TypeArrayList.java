@@ -3,6 +3,8 @@ package c41.utility.collection.list;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+import c41.utility.collection.ITypeCollection;
+
 public class TypeArrayList<T> implements ITypeCollection<T>{
 
 	private final Class<T> cl;

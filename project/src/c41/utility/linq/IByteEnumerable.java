@@ -10,6 +10,8 @@ import java.util.NoSuchElementException;
 import c41.lambda.predicate.*;
 import c41.core.assertion.Arguments;
 import c41.utility.linq.enumerator.*;
+import c41.utility.collection.list.*;
+import c41.utility.collection.set.*;
 
 /**
  * 基本类型byte的Enumerable。
@@ -38,6 +40,55 @@ public interface IByteEnumerable extends IEnumerable<Byte>{
 		}
 		if(enumerator.hasNext()) {
 			return enumerator.nextByte();
+		}
+		throw new NoSuchElementException();
+	}
+	
+	/**
+	 * 返回满足条件的元素数量。
+	 * @param predicate 谓词
+	 * @return 数量
+	 */
+	public default int countIf(IBytePredicate predicate){
+		Arguments.isNotNull(predicate);
+		
+		int count = 0;
+		IByteEnumerator enumerator = iterator();
+		while(enumerator.hasNext()){
+			enumerator.nextByte();
+			count++;
+		}
+		return count;
+	}
+	
+	public default byte firstDuplicate(){
+		ByteHashSet set = new ByteHashSet();
+		
+		IByteEnumerator enumerator = iterator();
+		while(enumerator.hasNext()){
+			byte value = enumerator.nextByte();
+			if(!set.add(value)){
+				return value;
+			}
+		}
+		throw new NoSuchElementException();
+	}
+	
+	/**
+	 * 返回第一个满足条件的元素。
+	 * @param predicate 谓词
+	 * @return 第一个满足的元素
+	 * @exception NoSuchElementException 没有满足条件的元素
+	 */
+	public default byte firstIf(IBytePredicate predicate){
+		Arguments.isNotNull(predicate);
+		
+		IByteEnumerator enumerator = iterator();
+		while(enumerator.hasNext()){
+			byte value = enumerator.nextByte();
+			if(predicate.is(value)){
+				return value;
+			}
 		}
 		throw new NoSuchElementException();
 	}
@@ -114,8 +165,14 @@ public interface IByteEnumerable extends IEnumerable<Byte>{
 		return false;
 	}
 	
+	/**
+	 * 返回所有元素组成的数组。
+	 * 如果没有元素，则返回空数组。
+	 * @return 数组
+	 */
 	public default byte[] toArray() {
-		return null;
+		ByteArrayList list = new ByteArrayList(this);
+		return list.toArray();
 	}
 	
 }

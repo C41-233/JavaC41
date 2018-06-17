@@ -10,6 +10,8 @@ import java.util.NoSuchElementException;
 import c41.lambda.predicate.*;
 import c41.core.assertion.Arguments;
 import c41.utility.linq.enumerator.*;
+import c41.utility.collection.list.*;
+import c41.utility.collection.set.*;
 
 /**
  * 基本类型long的Enumerable。
@@ -38,6 +40,55 @@ public interface ILongEnumerable extends IEnumerable<Long>{
 		}
 		if(enumerator.hasNext()) {
 			return enumerator.nextLong();
+		}
+		throw new NoSuchElementException();
+	}
+	
+	/**
+	 * 返回满足条件的元素数量。
+	 * @param predicate 谓词
+	 * @return 数量
+	 */
+	public default int countIf(ILongPredicate predicate){
+		Arguments.isNotNull(predicate);
+		
+		int count = 0;
+		ILongEnumerator enumerator = iterator();
+		while(enumerator.hasNext()){
+			enumerator.nextLong();
+			count++;
+		}
+		return count;
+	}
+	
+	public default long firstDuplicate(){
+		LongHashSet set = new LongHashSet();
+		
+		ILongEnumerator enumerator = iterator();
+		while(enumerator.hasNext()){
+			long value = enumerator.nextLong();
+			if(!set.add(value)){
+				return value;
+			}
+		}
+		throw new NoSuchElementException();
+	}
+	
+	/**
+	 * 返回第一个满足条件的元素。
+	 * @param predicate 谓词
+	 * @return 第一个满足的元素
+	 * @exception NoSuchElementException 没有满足条件的元素
+	 */
+	public default long firstIf(ILongPredicate predicate){
+		Arguments.isNotNull(predicate);
+		
+		ILongEnumerator enumerator = iterator();
+		while(enumerator.hasNext()){
+			long value = enumerator.nextLong();
+			if(predicate.is(value)){
+				return value;
+			}
 		}
 		throw new NoSuchElementException();
 	}
@@ -114,8 +165,14 @@ public interface ILongEnumerable extends IEnumerable<Long>{
 		return false;
 	}
 	
+	/**
+	 * 返回所有元素组成的数组。
+	 * 如果没有元素，则返回空数组。
+	 * @return 数组
+	 */
 	public default long[] toArray() {
-		return null;
+		LongArrayList list = new LongArrayList(this);
+		return list.toArray();
 	}
 	
 }

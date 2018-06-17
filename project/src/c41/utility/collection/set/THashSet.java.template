@@ -1,0 +1,19 @@
+<#assign ClassName="${Name}HashSet">
+
+package  c41.utility.collection.set;
+
+import java.util.HashSet;
+
+public class ${ClassName}{
+
+	private final HashSet<${Box}> set = new HashSet<>();
+
+	public ${ClassName}(){
+	
+	}
+
+	public boolean add(${Primitive} value){
+		return set.add(value);
+	}
+
+}

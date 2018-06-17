@@ -10,6 +10,8 @@ import java.util.NoSuchElementException;
 import c41.lambda.predicate.*;
 import c41.core.assertion.Arguments;
 import c41.utility.linq.enumerator.*;
+import c41.utility.collection.list.*;
+import c41.utility.collection.set.*;
 
 /**
  * 基本类型int的Enumerable。
@@ -38,6 +40,55 @@ public interface IIntEnumerable extends IEnumerable<Integer>{
 		}
 		if(enumerator.hasNext()) {
 			return enumerator.nextInt();
+		}
+		throw new NoSuchElementException();
+	}
+	
+	/**
+	 * 返回满足条件的元素数量。
+	 * @param predicate 谓词
+	 * @return 数量
+	 */
+	public default int countIf(IIntPredicate predicate){
+		Arguments.isNotNull(predicate);
+		
+		int count = 0;
+		IIntEnumerator enumerator = iterator();
+		while(enumerator.hasNext()){
+			enumerator.nextInt();
+			count++;
+		}
+		return count;
+	}
+	
+	public default int firstDuplicate(){
+		IntHashSet set = new IntHashSet();
+		
+		IIntEnumerator enumerator = iterator();
+		while(enumerator.hasNext()){
+			int value = enumerator.nextInt();
+			if(!set.add(value)){
+				return value;
+			}
+		}
+		throw new NoSuchElementException();
+	}
+	
+	/**
+	 * 返回第一个满足条件的元素。
+	 * @param predicate 谓词
+	 * @return 第一个满足的元素
+	 * @exception NoSuchElementException 没有满足条件的元素
+	 */
+	public default int firstIf(IIntPredicate predicate){
+		Arguments.isNotNull(predicate);
+		
+		IIntEnumerator enumerator = iterator();
+		while(enumerator.hasNext()){
+			int value = enumerator.nextInt();
+			if(predicate.is(value)){
+				return value;
+			}
 		}
 		throw new NoSuchElementException();
 	}
@@ -114,8 +165,14 @@ public interface IIntEnumerable extends IEnumerable<Integer>{
 		return false;
 	}
 	
+	/**
+	 * 返回所有元素组成的数组。
+	 * 如果没有元素，则返回空数组。
+	 * @return 数组
+	 */
 	public default int[] toArray() {
-		return null;
+		IntArrayList list = new IntArrayList(this);
+		return list.toArray();
 	}
 	
 }
