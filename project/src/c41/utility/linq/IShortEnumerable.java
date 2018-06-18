@@ -9,10 +9,10 @@ import java.util.NoSuchElementException;
 
 import c41.lambda.predicate.*;
 import c41.core.assertion.Arguments;
-import c41.utility.algorithm.Maths;
 import c41.utility.linq.enumerator.*;
 import c41.utility.collection.list.*;
 import c41.utility.collection.set.*;
+
 
 /**
  * 基本类型short的Enumerable。
