@@ -49,46 +49,31 @@ public final class Iterables {
 		return Iterators.equals(iterable1.iterator(), iterable2.iterator());
 	}
 
-	public static <T> T findFirstOrCreateDefault(Iterable<T> iterable, IPredicate<? super T> predicate, IFunction<? extends T> defProvider) {
-		Arguments.isNotNull(iterable);
-		return Iterators.findFirstOrCreateDefault(iterable.iterator(), predicate, defProvider);
-	}
-
-	public static <T> T findFirstOrDefault(Iterable<T> iterable, IPredicate<? super T> predicate) {
-		Arguments.isNotNull(iterable);
-		return Iterators.findFirstOrDefault(iterable.iterator(), predicate);
-	}
-	
-	public static <T> T findFirstOrDefault(Iterable<T> iterable, IPredicate<? super T> predicate, T def) {
-		Arguments.isNotNull(iterable);
-		return Iterators.findFirstOrDefault(iterable.iterator(), predicate, def);
-	}
-
 	public static <T> T first(Iterable<T> iterable) {
 		Arguments.isNotNull(iterable);
 		return Iterators.first(iterable.iterator());
 	}
-	
+
 	public static <T> T firstDuplicate(Iterable<T> iterable) {
 		Arguments.isNotNull(iterable);
 		return Iterators.firstDuplicate(iterable.iterator());
 	}
-
+	
 	public static <T> T firstDuplicateOrCreateDefault(Iterable<T> iterable, IFunction<? extends T> defProvider){
 		Arguments.isNotNull(iterable);
 		return Iterators.firstDuplicateOrCreateDefault(iterable.iterator(), defProvider);
 	}
-	
+
 	public static <T> T firstDuplicateOrDefault(Iterable<T> iterable) {
 		Arguments.isNotNull(iterable);
 		return Iterators.firstDuplicateOrDefault(iterable.iterator());
 	}
-
+	
 	public static <T> T firstDuplicateOrDefault(Iterable<T> iterable, T def) {
 		Arguments.isNotNull(iterable);
 		return Iterators.firstDuplicateOrDefault(iterable.iterator(), def);
 	}
-	
+
 	public static <T> T firstIf(Iterable<T> iterable, IPredicate<? super T> predicate) {
 		Arguments.isNotNull(iterable);
 		return Iterators.fisrtIf(iterable.iterator(), predicate);
@@ -102,6 +87,21 @@ public final class Iterables {
 	public static <T> int firstIndexOf(Iterable<T> iterable, T value) {
 		Arguments.isNotNull(iterable);
 		return Iterators.firstIndexOf(iterable.iterator(), value);
+	}
+	
+	public static <T> T firstOrCreateDefaultIf(Iterable<T> iterable, IPredicate<? super T> predicate, IFunction<? extends T> defProvider) {
+		Arguments.isNotNull(iterable);
+		return Iterators.firstOrCreateDefaultIf(iterable.iterator(), predicate, defProvider);
+	}
+	
+	public static <T> T firstOrDefaultIf(Iterable<T> iterable, IPredicate<? super T> predicate) {
+		Arguments.isNotNull(iterable);
+		return Iterators.firstOrDefaultIf(iterable.iterator(), predicate);
+	}
+
+	public static <T> T firstOrDefaultIf(Iterable<T> iterable, IPredicate<? super T> predicate, T def) {
+		Arguments.isNotNull(iterable);
+		return Iterators.firstOrDefaultIf(iterable.iterator(), predicate, def);
 	}
 
 	public static <T> int firstReferenceIndexOf(Iterable<T> iterable, T value) {

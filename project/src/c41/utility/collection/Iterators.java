@@ -87,28 +87,6 @@ public final class Iterators {
 		return true;
 	}
 
-	public static <T> T findFirstOrCreateDefault(Iterator<T> iterator, IPredicate<? super T> predicate, IFunction<? extends T> defProvider) {
-		Arguments.isNotNull(iterator);
-		Arguments.isNotNull(predicate);
-		Arguments.isNotNull(defProvider);
-		
-		while(iterator.hasNext()) {
-			T obj = iterator.next();
-			if(predicate.is(obj)) {
-				return obj;
-			}
-		}
-		return defProvider.invoke();
-	}
-
-	public static <T> T findFirstOrDefault(Iterator<T> iterable, IPredicate<? super T> predicate) {
-		return findFirstOrDefault(iterable, predicate, null);
-	}
-
-	public static <T> T findFirstOrDefault(Iterator<T> iterator, IPredicate<? super T> predicate, T def) {
-		return findFirstOrCreateDefault(iterator, predicate, ()->def);
-	}
-
 	public static <T> T first(Iterator<T> iterator) {
 		Arguments.isNotNull(iterator);
 		return iterator.next();
@@ -139,7 +117,16 @@ public final class Iterators {
 	}
 
 	public static <T> T firstDuplicateOrDefault(Iterator<T> iterator, T def) {
-		return firstDuplicateOrCreateDefault(iterator, ()->def);
+		Arguments.isNotNull(iterator);
+		
+		HashSet<T> set = new HashSet<>();
+		while(iterator.hasNext()) {
+			T obj = iterator.next();
+			if(set.add(obj) == false) {
+				return obj;
+			}
+		}
+		return def;
 	}
 
 	public static <T> int firstIndexIf(Iterator<T> iterator, IPredicate<? super T> predicate) {
@@ -171,6 +158,37 @@ public final class Iterators {
 		return -1;
 	}
 
+	public static <T> T firstOrCreateDefaultIf(Iterator<T> iterator, IPredicate<? super T> predicate, IFunction<? extends T> defProvider) {
+		Arguments.isNotNull(iterator);
+		Arguments.isNotNull(predicate);
+		Arguments.isNotNull(defProvider);
+		
+		while(iterator.hasNext()) {
+			T obj = iterator.next();
+			if(predicate.is(obj)) {
+				return obj;
+			}
+		}
+		return defProvider.invoke();
+	}
+
+	public static <T> T firstOrDefaultIf(Iterator<T> iterable, IPredicate<? super T> predicate) {
+		return firstOrDefaultIf(iterable, predicate, null);
+	}
+
+	public static <T> T firstOrDefaultIf(Iterator<T> iterator, IPredicate<? super T> predicate, T def) {
+		Arguments.isNotNull(iterator);
+		Arguments.isNotNull(predicate);
+		
+		while(iterator.hasNext()) {
+			T obj = iterator.next();
+			if(predicate.is(obj)) {
+				return obj;
+			}
+		}
+		return def;
+	}
+
 	public static <T> int firstReferenceIndexOf(Iterator<T> iterator, T value) {
 		Arguments.isNotNull(iterator);
 		
@@ -186,9 +204,17 @@ public final class Iterators {
 	}
 
 	public static <T> T fisrtIf(Iterator<T> iterator, IPredicate<? super T> predicate) {
-		return findFirstOrCreateDefault(iterator, predicate, ()->{
-			throw new NoSuchElementException();
-		});
+		Arguments.isNotNull(iterator);
+		Arguments.isNotNull(predicate);
+		
+		while(iterator.hasNext()) {
+			T obj = iterator.next();
+			if(predicate.is(obj)) {
+				return obj;
+			}
+		}			
+		
+		throw new NoSuchElementException();
 	}
 
 	/**

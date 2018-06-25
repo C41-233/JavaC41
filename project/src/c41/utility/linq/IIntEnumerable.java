@@ -175,6 +175,32 @@ public interface IIntEnumerable extends IEnumerable<Integer>{
 	
 	
 	/**
+	 * 返回第一个满足条件的元素。如果不存在，则返回0。
+	 * @param predicate 谓词
+	 * @return 第一个满足条件的元素或0
+	 */
+	public default int firstOrDefaultIf(IIntPredicate predicate){
+		return firstOrDefaultIf(predicate, 0);
+	}
+	
+	/**
+	 * 返回第一个满足条件的元素。如果不存在，则返回默认值。
+	 * @param predicate 谓词
+	 * @param def 默认值
+	 * @return 第一个满足条件的元素或默认值
+	 */
+	public default int firstOrDefaultIf(IIntPredicate predicate, int def){
+		IIntEnumerator enumerator = iterator();
+		while(enumerator.hasNext()){
+			int val = enumerator.nextInt();
+			if(predicate.is(val)){
+				return val;
+			}
+		}
+		return def;
+	}
+	
+	/**
 	 * 所有元素都满足谓词。
 	 * @param predicate 谓词
 	 * @return 如果所有元素都满足谓词，则返回true

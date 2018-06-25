@@ -51,16 +51,8 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 		return Iterables.countIf(this, predicate);
 	}
 
-	public default T findFirstOrCreateDefault(IPredicate<? super T> predicate, IFunction<? extends T> defProvider) {
-		return Iterables.findFirstOrCreateDefault(this, predicate, defProvider);
-	}
-	
-	public default T findFirstOrDefault(IPredicate<? super T> predicate) {
-		return Iterables.findFirstOrDefault(this, predicate);
-	}
-
 	public default T findFirstOrDefault(IPredicate<? super T> predicate, T def) {
-		return Iterables.findFirstOrDefault(this, predicate, def);
+		return Iterables.firstOrDefaultIf(this, predicate, def);
 	}
 	
 	/**
@@ -71,7 +63,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default T first() {
 		return Iterables.first(this);
 	}
-	
+
 	/**
 	 * 返回第一个重复的元素，重复元素按照@{code equals}方式比较。
 	 * @return 重复元素
@@ -88,7 +80,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default T firstDuplicateOrCreateDefault(IFunction<? extends T> defProvider) {
 		return Iterables.firstDuplicateOrCreateDefault(this, defProvider);
 	}
-
+	
 	/**
 	 * 返回第一个重复元素。如果不存在，则返回null。
 	 * @return 第一个重复元素或null。
@@ -105,7 +97,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default T firstDuplicateOrDefault(T def) {
 		return Iterables.firstDuplicateOrDefault(this, def);
 	}
-	
+
 	/**
 	 * 返回第一个满足条件的元素。
 	 * @param predicate 谓词
@@ -115,7 +107,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default T firstIf(IPredicate<? super T> predicate) {
 		return Iterables.firstIf(this, predicate);
 	}
-
+	
 	/**
 	 * 返回第一个满足条件的下标。如果不存在，则返回-1。
 	 * @param predicate 谓词
@@ -133,6 +125,25 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	 */
 	public default int firstIndexOf(T value) {
 		return Iterables.firstIndexOf(this, value);
+	}
+
+	/**
+	 * 返回第一个满足条件的元素。如果不存在，则返回默认值。
+	 * @param predicate 谓词
+	 * @param defProvider 默认值
+	 * @return 第一个满足条件的元素或默认值
+	 */
+	public default T firstOrCreateDefaultIf(IPredicate<? super T> predicate, IFunction<? extends T> defProvider) {
+		return Iterables.firstOrCreateDefaultIf(this, predicate, defProvider);
+	}
+	
+	/**
+	 * 返回第一个满足条件的元素。如果不存在，则返回null。
+	 * @param predicate 谓词
+	 * @return 第一个满足条件的元素或null
+	 */
+	public default T firstOrDefaultIf(IPredicate<? super T> predicate) {
+		return Iterables.firstOrDefaultIf(this, predicate);
 	}
 
 	/**
