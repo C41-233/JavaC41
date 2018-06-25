@@ -33,4 +33,21 @@ public final class Core {
 		return Core.<RuntimeException>throwRuntime(e);
 	}
 
+	public static void throwRun(IRunnable run) {
+		try {
+			run.run();
+		}
+		catch (Throwable e) {
+			throw throwException(e);
+		}
+	}
+	
+	public static <T> T throwRun(IReturnable<T> run) {
+		try {
+			return run.run();
+		} catch (Throwable e) {
+			throw throwException(e);
+		}
+	}
+	
 }
