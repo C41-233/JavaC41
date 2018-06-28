@@ -1,10 +1,14 @@
 package c41.utility.string;
 
+import c41.reflect.StaticClassException;
+
 public final class Strings{
 
 	public static final String Empty = "";
 	
-	private Strings() {}
+	private Strings() {
+		throw new StaticClassException();
+	}
 	
 	public static String format(String format, Object... args) {
 		if(args.length == 0) {

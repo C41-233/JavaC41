@@ -1,8 +1,11 @@
 <#assign IsFloat = Primitive == 'float' || Primitive == "double">
+
 <#assign Next = "next${Name}">
 <#assign Enumerable = "I${Name}Enumerable">
 <#assign Enumerator = "I${Name}Enumerator">
 <#assign Predicate = "I${Name}Predicate">
+<#assign Action = "I${Name}Action">
+
 <#assign ArrayList = "${Name}ArrayList">
 <#assign HashSet = "${Name}HashSet">
 
@@ -14,6 +17,7 @@ package c41.utility.linq;
 
 import java.util.NoSuchElementException;
 
+import c41.lambda.action.*;
 import c41.lambda.predicate.*;
 import c41.core.assertion.Arguments;
 import c41.utility.linq.enumerator.*;
@@ -232,6 +236,23 @@ public interface ${Enumerable} extends IEnumerable<${Box}>{
 		return def;
 	}
 	
+	/**
+	 * 对每个元素执行操作。
+	 * @param action 对每个元素执行的操作
+	 * @return 执行的次数
+	 */
+	public default int foreach(${Action} action) {
+		Arguments.isNotNull(action);
+		
+		${Enumerator} enumerator = iterator();
+		int count = 0;
+		while(enumerator.hasNext()) {
+			action.invoke(enumerator.${Next}());
+			count++;
+		}
+		return count;
+	}
+
 	/**
 	 * 所有元素都满足谓词。
 	 * @param predicate 谓词

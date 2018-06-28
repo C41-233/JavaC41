@@ -2,8 +2,8 @@ package c41.reflect;
 
 import java.util.HashMap;
 
+import c41.cache.WeakMemoryCache;
 import c41.core.Core;
-import c41.utility.cache.WeakMemoryCache;
 
 public final class Types {
 

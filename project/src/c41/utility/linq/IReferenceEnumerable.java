@@ -51,10 +51,6 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 		return Iterables.countIf(this, predicate);
 	}
 
-	public default T findFirstOrDefault(IPredicate<? super T> predicate, T def) {
-		return Iterables.firstOrDefaultIf(this, predicate, def);
-	}
-	
 	/**
 	 * 获取第一个元素。
 	 * @return 第一个元素
@@ -63,7 +59,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default T first() {
 		return Iterables.first(this);
 	}
-
+	
 	/**
 	 * 返回第一个重复的元素，重复元素按照@{code equals}方式比较。
 	 * @return 重复元素
@@ -71,7 +67,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default T firstDuplicate() {
 		return Iterables.firstDuplicate(this);
 	}
-	
+
 	/**
 	 * 返回第一个重复的元素。如果不存在，就返回默认值。
 	 * @param defProvider 默认值工厂
@@ -97,7 +93,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default T firstDuplicateOrDefault(T def) {
 		return Iterables.firstDuplicateOrDefault(this, def);
 	}
-
+	
 	/**
 	 * 返回第一个满足条件的元素。
 	 * @param predicate 谓词
@@ -107,7 +103,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default T firstIf(IPredicate<? super T> predicate) {
 		return Iterables.firstIf(this, predicate);
 	}
-	
+
 	/**
 	 * 返回第一个满足条件的下标。如果不存在，则返回-1。
 	 * @param predicate 谓词
@@ -126,7 +122,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default int firstIndexOf(T value) {
 		return Iterables.firstIndexOf(this, value);
 	}
-
+	
 	/**
 	 * 返回第一个满足条件的元素。如果不存在，则返回默认值。
 	 * @param predicate 谓词
@@ -136,7 +132,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default T firstOrCreateDefaultIf(IPredicate<? super T> predicate, IFunction<? extends T> defProvider) {
 		return Iterables.firstOrCreateDefaultIf(this, predicate, defProvider);
 	}
-	
+
 	/**
 	 * 返回第一个满足条件的元素。如果不存在，则返回null。
 	 * @param predicate 谓词
@@ -144,6 +140,16 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	 */
 	public default T firstOrDefaultIf(IPredicate<? super T> predicate) {
 		return Iterables.firstOrDefaultIf(this, predicate);
+	}
+	
+	/**
+	 * 返回第一个满足条件的元素。如果不存在，则返回默认值。
+	 * @param predicate 谓词
+	 * @param def 默认值
+	 * @return 第一个满足条件的元素或默认值
+	 */
+	public default T firstOrDefaultIf(IPredicate<? super T> predicate, T def) {
+		return Iterables.firstOrDefaultIf(this, predicate, def);
 	}
 
 	/**

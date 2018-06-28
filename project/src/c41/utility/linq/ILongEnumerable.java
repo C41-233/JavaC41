@@ -7,6 +7,7 @@ package c41.utility.linq;
 
 import java.util.NoSuchElementException;
 
+import c41.lambda.action.*;
 import c41.lambda.predicate.*;
 import c41.core.assertion.Arguments;
 import c41.utility.linq.enumerator.*;
@@ -200,6 +201,23 @@ public interface ILongEnumerable extends IEnumerable<Long>{
 		return def;
 	}
 	
+	/**
+	 * 对每个元素执行操作。
+	 * @param action 对每个元素执行的操作
+	 * @return 执行的次数
+	 */
+	public default int foreach(ILongAction action) {
+		Arguments.isNotNull(action);
+		
+		ILongEnumerator enumerator = iterator();
+		int count = 0;
+		while(enumerator.hasNext()) {
+			action.invoke(enumerator.nextLong());
+			count++;
+		}
+		return count;
+	}
+
 	/**
 	 * 所有元素都满足谓词。
 	 * @param predicate 谓词

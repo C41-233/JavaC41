@@ -1,4 +1,4 @@
-package c41.utility.cache;
+package c41.cache;
 
 import java.lang.ref.WeakReference;
 import java.util.HashMap;

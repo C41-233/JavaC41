@@ -6,6 +6,7 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 
 import c41.lambda.function.IFunction;
+import c41.utility.Convert;
 import c41.utility.collection.Iterables;
 import c41.utility.linq.enumerator.IEnumerator;
 
@@ -80,13 +81,12 @@ public interface IEnumerable<T> extends Iterable<T>{
 		return Iterables.toCollection(this, provider);
 	}
 	
-	
 	/**
 	 * 将元素转换为int。
 	 * @return IIntEnumerable
 	 */
 	public default IIntEnumerable toInt() {
-		return new SelectIntEnumerable<>(this, value->((Number)value).intValue());
+		return new SelectIntEnumerable<>(this, value->Convert.toInt(value));
 	}
 	
 	/**
