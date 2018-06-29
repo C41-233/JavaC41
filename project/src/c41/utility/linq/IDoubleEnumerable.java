@@ -240,6 +240,22 @@ public interface IDoubleEnumerable extends IEnumerable<Double>{
 	}
 
 	/**
+	 * 对每个元素执行操作。
+	 * @param action 对每个元素执行的操作，参数包含当前元素及其下标
+	 * @return 执行的次数
+	 */
+	public default int foreach(IForeachDoubleAction action) {
+		Arguments.isNotNull(action);
+		
+		IDoubleEnumerator enumerator = iterator();
+		int count = 0;
+		while(enumerator.hasNext()) {
+			action.invoke(enumerator.nextDouble(), count++);
+		}
+		return count;
+	}
+
+	/**
 	 * 所有元素都满足谓词。
 	 * @param predicate 谓词
 	 * @return 如果所有元素都满足谓词，则返回true

@@ -261,7 +261,7 @@ public final class Iterators {
 	 * @param function 对每个元素执行的操作，返回false表示break
 	 * @return 执行的次数
 	 */
-	public static <T> int foreachEx(Iterator<T> iterator, IBooleanFunction1<? super T> function) {
+	public static <T> int foreach2(Iterator<T> iterator, IBooleanFunction1<? super T> function) {
 		Arguments.isNotNull(iterator);
 		Arguments.isNotNull(function);
 		
@@ -282,7 +282,7 @@ public final class Iterators {
 	 * @param function 对每个元素执行的操作，参数包含当前元素及其下标，返回false表示break
 	 * @return 执行的次数
 	 */
-	public static <T> int foreachEx(Iterator<T> iterator, IForeachFunction<? super T> function) {
+	public static <T> int foreach2(Iterator<T> iterator, IForeachFunction<? super T> function) {
 		Arguments.isNotNull(iterator);
 		Arguments.isNotNull(function);
 		

@@ -11,11 +11,38 @@ import java.util.Map;
 
 import org.junit.Test;
 
+import c41.core.reference.IntReference;
 import c41.utility.linq.IReferenceEnumerable;
 import c41.utility.linq.Linq;
 
 public class TestCommon {
 
+	@Test
+	public void foreach() {
+		List<Integer> list = new ArrayList<>();
+		int rst1 = 0, rst2 = 0;
+		for(int i=0; i<200; i++) {
+			rst1 += i;
+			if(i < 100) {
+				rst2 += i;
+			}
+			list.add(i);
+		}
+		
+		IntReference test1 = new IntReference();
+		IntReference test2 = new IntReference();
+		Linq.from(list).foreach(v->test1.value+=v);
+		Linq.from(list).foreach2(v->{
+			if(v < 100) {
+				test2.value += v;
+				return true;
+			}
+			return false;
+		});
+		assertEquals(rst1, test1.value);
+		assertEquals(rst2, test2.value);
+	}
+	
 	@Test
 	public void count() {
 		assertEquals(10, Linq.from("1234567890").count());

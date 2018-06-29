@@ -1,13 +1,15 @@
+c41.cache
 c41.core
 c41.core.assertion
+c41.core.reference
 c41.io
 c41.lambda.action
 c41.lambda.function
 c41.lambda.predicate
 c41.lambda.selector
 c41.reflect
+c41.utility
 c41.utility.algorithm
-c41.utility.cache
 c41.utility.collection
 c41.utility.collection.list
 c41.utility.collection.map

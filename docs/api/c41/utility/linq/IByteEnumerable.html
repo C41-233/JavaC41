@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":18,"i7":18,"i8":18,"i9":18,"i10":18,"i11":18,"i12":18,"i13":6,"i14":18};
+var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":18,"i7":18,"i8":18,"i9":18,"i10":18,"i11":18,"i12":18,"i13":18,"i14":18,"i15":18,"i16":18,"i17":6,"i18":18};
 var tabs = {65535:["t0","所有方法"],2:["t2","实例方法"],4:["t3","抽象方法"],16:["t5","默认方法"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -189,34 +189,59 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 </td>
 </tr>
 <tr id="i9" class="rowColor">
+<td class="colFirst"><code>default byte</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IByteEnumerable.html#firstOrDefaultIf-c41.lambda.predicate.IBytePredicate-">firstOrDefaultIf</a></span>(<a href="../../../c41/lambda/predicate/IBytePredicate.html" title="c41.lambda.predicate中的接口">IBytePredicate</a>&nbsp;predicate)</code>
+<div class="block">返回第一个满足条件的元素。</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>default byte</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IByteEnumerable.html#firstOrDefaultIf-c41.lambda.predicate.IBytePredicate-byte-">firstOrDefaultIf</a></span>(<a href="../../../c41/lambda/predicate/IBytePredicate.html" title="c41.lambda.predicate中的接口">IBytePredicate</a>&nbsp;predicate,
+                byte&nbsp;def)</code>
+<div class="block">返回第一个满足条件的元素。</div>
+</td>
+</tr>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>default int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IByteEnumerable.html#foreach-c41.lambda.action.IByteAction-">foreach</a></span>(<a href="../../../c41/lambda/action/IByteAction.html" title="c41.lambda.action中的接口">IByteAction</a>&nbsp;action)</code>
+<div class="block">对每个元素执行操作。</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>default int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IByteEnumerable.html#foreach-c41.lambda.action.IForeachByteAction-">foreach</a></span>(<a href="../../../c41/lambda/action/IForeachByteAction.html" title="c41.lambda.action中的接口">IForeachByteAction</a>&nbsp;action)</code>
+<div class="block">对每个元素执行操作。</div>
+</td>
+</tr>
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>default boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IByteEnumerable.html#isAll-c41.lambda.predicate.IBytePredicate-">isAll</a></span>(<a href="../../../c41/lambda/predicate/IBytePredicate.html" title="c41.lambda.predicate中的接口">IBytePredicate</a>&nbsp;predicate)</code>
 <div class="block">所有元素都满足谓词。</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>default boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IByteEnumerable.html#isExist-byte-">isExist</a></span>(byte&nbsp;value)</code>
 <div class="block">存在指定值。</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>default boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IByteEnumerable.html#isExist-c41.lambda.predicate.IBytePredicate-">isExist</a></span>(<a href="../../../c41/lambda/predicate/IBytePredicate.html" title="c41.lambda.predicate中的接口">IBytePredicate</a>&nbsp;predicate)</code>
 <div class="block">存在满足谓词的元素。</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>default boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IByteEnumerable.html#isNotAll-c41.lambda.predicate.IBytePredicate-">isNotAll</a></span>(<a href="../../../c41/lambda/predicate/IBytePredicate.html" title="c41.lambda.predicate中的接口">IBytePredicate</a>&nbsp;predicate)</code>
 <div class="block">非所有元素都满足谓词。</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code><a href="../../../c41/utility/linq/enumerator/IByteEnumerator.html" title="c41.utility.linq.enumerator中的接口">IByteEnumerator</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IByteEnumerable.html#iterator--">iterator</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>default byte[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IByteEnumerable.html#toArray--">toArray</a></span>()</code>
 <div class="block">返回所有元素组成的数组。</div>
@@ -410,6 +435,72 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 <dd><code>value</code> - 目标元素</dd>
 <dt><span class="returnLabel">返回:</span></dt>
 <dd>下标</dd>
+</dl>
+</li>
+</ul>
+<a name="firstOrDefaultIf-c41.lambda.predicate.IBytePredicate-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>firstOrDefaultIf</h4>
+<pre>default&nbsp;byte&nbsp;firstOrDefaultIf(<a href="../../../c41/lambda/predicate/IBytePredicate.html" title="c41.lambda.predicate中的接口">IBytePredicate</a>&nbsp;predicate)</pre>
+<div class="block">返回第一个满足条件的元素。如果不存在，则返回0。</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>predicate</code> - 谓词</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>第一个满足条件的元素或0</dd>
+</dl>
+</li>
+</ul>
+<a name="firstOrDefaultIf-c41.lambda.predicate.IBytePredicate-byte-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>firstOrDefaultIf</h4>
+<pre>default&nbsp;byte&nbsp;firstOrDefaultIf(<a href="../../../c41/lambda/predicate/IBytePredicate.html" title="c41.lambda.predicate中的接口">IBytePredicate</a>&nbsp;predicate,
+                              byte&nbsp;def)</pre>
+<div class="block">返回第一个满足条件的元素。如果不存在，则返回默认值。</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>predicate</code> - 谓词</dd>
+<dd><code>def</code> - 默认值</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>第一个满足条件的元素或默认值</dd>
+</dl>
+</li>
+</ul>
+<a name="foreach-c41.lambda.action.IByteAction-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>foreach</h4>
+<pre>default&nbsp;int&nbsp;foreach(<a href="../../../c41/lambda/action/IByteAction.html" title="c41.lambda.action中的接口">IByteAction</a>&nbsp;action)</pre>
+<div class="block">对每个元素执行操作。</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>action</code> - 对每个元素执行的操作</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>执行的次数</dd>
+</dl>
+</li>
+</ul>
+<a name="foreach-c41.lambda.action.IForeachByteAction-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>foreach</h4>
+<pre>default&nbsp;int&nbsp;foreach(<a href="../../../c41/lambda/action/IForeachByteAction.html" title="c41.lambda.action中的接口">IForeachByteAction</a>&nbsp;action)</pre>
+<div class="block">对每个元素执行操作。</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>action</code> - 对每个元素执行的操作，参数包含当前元素及其下标</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>执行的次数</dd>
 </dl>
 </li>
 </ul>

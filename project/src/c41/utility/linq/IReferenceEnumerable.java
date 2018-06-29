@@ -180,12 +180,12 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 		return Iterables.foreach(this, action);
 	}
 
-	public default int foreachEx(IBooleanFunction1<? super T> function) {
-		return Iterables.foreachEx(this, function);
+	public default int foreach2(IBooleanFunction1<? super T> function) {
+		return Iterables.foreach2(this, function);
 	}
 	
-	public default int foreachEx(IForeachFunction<? super T> function) {
-		return Iterables.foreachEx(this, function);
+	public default int foreach2(IForeachFunction<? super T> function) {
+		return Iterables.foreach2(this, function);
 	}
 	
 	public default <K> IReferenceGroupEnumerable<K, T> groupBy(ISelector<T, K> selector){

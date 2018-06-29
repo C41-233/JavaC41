@@ -1,4 +1,4 @@
-package c41.core;
+package c41.core.reference;
 
 public class Reference<T> {
 
