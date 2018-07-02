@@ -193,7 +193,7 @@ public final class Iterables {
 	 */
 	public static <T> boolean isExist(Iterable<T> iterable, IPredicate<? super T> predicate) {
 		Arguments.isNotNull(iterable);
-		return isExist(iterable, predicate);
+		return Iterators.isExist(iterable.iterator(), predicate);
 	}
 
 	public static boolean isExistReference(Iterable<?> iterable, Object value) {

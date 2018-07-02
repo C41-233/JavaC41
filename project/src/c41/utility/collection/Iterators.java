@@ -364,7 +364,7 @@ public final class Iterators {
 		}
 		return false;
 	}
-	
+
 	public static boolean isExistReference(Iterator<?> iterator, Object value) {
 		Arguments.isNotNull(iterator);
 		
@@ -511,5 +511,5 @@ public final class Iterators {
 	public static <T> Set<T> toSet(Iterator<T> iterator){
 		return toCollection(iterator, ()->new HashSet<>());
 	}
-	
+
 }
