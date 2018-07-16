@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 import c41.lambda.function.IFunction;
 
-public class WeakMemoryCache<K, V>{
+public class WeakMemoryCache<K, V> implements ICache<K, V>{
 
 	private final HashMap<K, WeakReference<V>> data = new HashMap<>();
 
@@ -13,6 +13,7 @@ public class WeakMemoryCache<K, V>{
 		data.put(key, new WeakReference<>(value));
 	}
 	
+	@Override
 	public synchronized V get(K key) {
 		WeakReference<V> ref = data.get(key);
 		if(ref == null) {
@@ -52,6 +53,11 @@ public class WeakMemoryCache<K, V>{
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public void clear() {
+		data.clear();
 	}
 	
 }

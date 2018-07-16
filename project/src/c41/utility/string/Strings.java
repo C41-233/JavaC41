@@ -29,4 +29,11 @@ public final class Strings{
 		return sb.toString();
 	}
 	
+	public static String removeLast(String string, String token) {
+		if(string.endsWith(token)) {
+			return string.substring(0, string.length() - token.length());
+		}
+		return string;
+	}
+	
 }
