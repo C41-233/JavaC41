@@ -2,6 +2,9 @@ package c41.utility.comparator;
 
 import java.util.Comparator;
 
+import c41.core.assertion.Arguments;
+import c41.lambda.predicate.IPredicate;
+
 public final class Comparators {
 
 	private Comparators() {}
@@ -35,6 +38,11 @@ public final class Comparators {
 			return -1;
 		}
 		return compare(obj1.toString(), obj2.toString());
+	}
+	
+	public static <T> ComparatorChain<T> by(IPredicate<T> predicate){
+		Arguments.isNotNull(predicate);
+		return new ComparatorChain<>((t1, t2) -> -Comparators.compare(predicate.invoke(t1), predicate.invoke(t2)));
 	}
 	
 	public static <T> ComparatorChain<T> by(Comparator<T> comparator){

@@ -2,6 +2,10 @@ package c41.utility.string;
 
 import c41.reflect.StaticClassException;
 
+/**
+ * https://unicode-table.com/en/blocks/basic-latin/
+ *
+ */
 public final class Chars {
 
 	private Chars() {
@@ -17,6 +21,22 @@ public final class Chars {
 		return ch <= 256;
 	}
 
+	public static boolean isBasicLatin(int ch) {
+		return ch >= 0x0020 && ch <= 0x007F;
+	}
+	
+	public static boolean isBasicLatinAlphabet(int ch) {
+		return ch >= 0x0041 && ch <= 0x007A;
+	}
+	
+	public static boolean isBasicLatinAlphabetUpperCase(int ch) {
+		return ch >= 'A' && ch <= 'Z';
+	}
+	
+	public static boolean isBasicLatinAlphabetLowerCase(int ch) {
+		return ch >= 'a' && ch <= 'z';
+	}
+	
 	/**
 	 * 判断是否是基本拉丁数字。
 	 * @param ch 字符

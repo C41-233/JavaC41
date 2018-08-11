@@ -57,6 +57,10 @@ public class FileWriter implements ICloseable{
 	public void println(String s) {
 		print(s + "\n");
 	}
+	
+	public void println(char val) {
+		print(val + "\n");
+	}
 
 	public void println(int val) {
 		print(val + "\n");

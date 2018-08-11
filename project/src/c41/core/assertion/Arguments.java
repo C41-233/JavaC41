@@ -37,4 +37,9 @@ public final class Arguments{
 		}
 	}
 	
+	public static void isMatch(String value, String regex) {
+		Arguments.isNotNull(value);
+		is(value.matches(regex), "[%s] not match [%s]", value, regex);
+	}
+	
 }
