@@ -1,5 +1,6 @@
 package c41.utility.string;
 
+import c41.core.assertion.Arguments;
 import c41.reflect.StaticClassException;
 
 public final class Strings{
@@ -29,8 +30,27 @@ public final class Strings{
 		return sb.toString();
 	}
 	
+	public static String removeFirst(String string, String token) {
+		Arguments.isNotNull(string);
+		Arguments.isNotNull(token);
+		
+		if(string.startsWith(token)) {
+			if(string.length() == token.length()) {
+				return "";
+			}
+			return string.substring(token.length());
+		}
+		return string;
+	}
+	
 	public static String removeLast(String string, String token) {
+		Arguments.isNotNull(string);
+		Arguments.isNotNull(token);
+		
 		if(string.endsWith(token)) {
+			if(string.length() == token.length()) {
+				return "";
+			}
 			return string.substring(0, string.length() - token.length());
 		}
 		return string;

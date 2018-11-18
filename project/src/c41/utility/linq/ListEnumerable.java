@@ -40,7 +40,7 @@ class ListEnumerable<T> extends IterableEnumerable<T>{
 	@Override
 	public T[] toArray(Class<T> type) {
 		T[] arr = (T[]) Array.newInstance(type, list.size());
-		return super.toArray(arr);
+		return list.toArray(arr);
 	}
 	
 	@Override
