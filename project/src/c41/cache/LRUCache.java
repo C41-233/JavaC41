@@ -61,6 +61,7 @@ public class LRUCache<K, V> implements ICache<K, V>{
 					cache.value = value;
 					cache.isUsed = true;	
 				}
+				return value;
 			}
 		}
 	}

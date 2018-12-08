@@ -1,16 +1,17 @@
-package test.program;
+package test.cache;
 
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.junit.Test;
 
 import c41.cache.ICacheHandler;
 import c41.cache.LRUCache;
 
-public class Main {
+public class LRUTest {
 
-	public static void main(String[] args) {
-
+	@Test
+	public void test() {
 		List<String> result = new ArrayList<>();
 		LRUCache<Integer, Integer> cache = new LRUCache<>(12, new ICacheHandler<Integer, Integer>() {
 			@Override
