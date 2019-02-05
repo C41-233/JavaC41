@@ -1,31 +1,64 @@
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.apache.commons.io.FileUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
+import freemarker.template.TemplateException;
 import freemarker.template.TemplateExceptionHandler;
 import freemarker.template.Version;
 
 public class Main {
 
+	private static ArrayList<Config> Configs;
+	
 	public static void main(String[] args) throws Exception {
-		String arg1 = args[0];
-		String arg2 = args[1];
-		String arg3 = args[2];
+		String srcPath = args[0];
+		String destPath = args[1];
+		String configPath = args[2];
 		
-		File templateFile = new File(arg1);
+		File configFile = new File(configPath);
+		Configs = createConfig(configFile);
+		
+		File dest = new File(destPath);
+		
+		File root = new File(srcPath);
+		
+		if(!root.getParent().equals(dest.getParent())) {
+			System.err.println("project not same parent file");
+			return;
+		}
+		
+		FileUtils.cleanDirectory(dest);
+		visit(root, dest);
+	}
+	
+	private static void visit(File root, File dest) throws IOException, TemplateException {
+		for(File file : root.listFiles()) {
+			if(file.isDirectory()) {
+				visit(file, new File(dest, file.getName()));
+			}
+			else if(file.getName().endsWith(".java.template")){
+				run(file, dest);
+			}
+		}
+	}
+
+	private static void run(File templateFile, File dest) throws IOException, TemplateException {
+		System.out.println("read " + templateFile.getAbsolutePath());
+		
 		String templateFileName = templateFile.getName();
-		File directory = templateFile.getParentFile();
-		File configFile = new File(arg3);
 		
 		Configuration configuration = new Configuration(new Version("2.3.27"));
 		configuration.setDirectoryForTemplateLoading(templateFile.getParentFile());
@@ -34,18 +67,37 @@ public class Main {
 		configuration.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
 		Template template = configuration.getTemplate(templateFileName);
 		
-		for(Config config : createConfig(configFile)) {
-			File outputFile = new File(directory, arg2.replace("$", config.output));
+		templateFileName = templateFileName.replace(".java.template", "");
+		
+		dest.mkdirs();
+		
+		if(templateFileName.contains("$")) {
+			for(Config config : Configs) {
+				File outputFile = new File(dest, templateFileName.replace("$", config.output) + ".java");
+				System.out.println("generate " + outputFile.getName());
+				try(FileOutputStream fos = new FileOutputStream(outputFile)){
+					OutputStreamWriter writer = new OutputStreamWriter(fos, "utf8");
+					template.process(config.arguments, writer);
+				}
+			}
+		}
+		else {
+			File outputFile = new File(dest, templateFileName + ".java");
 			System.out.println("generate " + outputFile.getName());
 			try(FileOutputStream fos = new FileOutputStream(outputFile)){
 				OutputStreamWriter writer = new OutputStreamWriter(fos, "utf8");
-				template.process(config.arguments, writer);
+				ArrayList<HashMap<String, String>> arguments = new ArrayList<>();
+				for (Config config : Configs) {
+					arguments.add(config.arguments);
+				}
+				HashMap<String, Object> root = new HashMap<>();
+				root.put("configs", arguments);
+				template.process(root, writer);
 			}
 		}
-		
 	}
-
-	private static Iterable<Config> createConfig(File configFile) throws Exception{
+	
+	private static ArrayList<Config> createConfig(File configFile) throws Exception{
 		ArrayList<Config> list = new ArrayList<>();
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = factory.newDocumentBuilder();

@@ -1,0 +1,54 @@
+package c41.utility.linq;
+
+import c41.core.assertion.Arguments;
+import c41.utility.linq.enumerator.*;
+
+<#list configs as config>
+<#assign Primitive = config.Primitive>
+<#assign Name = config.Name>
+<#assign TypeName = "${Name}ArrayEnumerable">
+<#assign Array = "${Primitive}[]">
+<#assign Enumerator = "I${Name}Enumerator">
+class ${TypeName} implements I${Name}Enumerable{
+
+	private final ${Array} array;
+
+	public ${TypeName}(${Array} array) {
+		Arguments.isNotNull(array);
+		this.array = array;
+	}
+	
+	@Override
+	public int count() {
+		return array.length;
+	}
+	
+	@Override
+	public ${Array} toArray() {
+		return array.clone();
+	}
+	
+	@Override
+	public ${Enumerator} iterator() {
+		return new Enumerator();
+	}
+
+	private final class Enumerator extends ${Name}EnumeratorBase{
+
+		private int i = -1;
+		
+		@Override
+		public boolean hasNext() {
+			return i+1 < array.length;
+		}
+
+		@Override
+		protected ${Primitive} doNext() {
+			return array[++i];
+		}
+		
+	}
+	
+}
+
+</#list>

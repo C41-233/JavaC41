@@ -3,6 +3,7 @@ package c41.utility.linq;
 import java.util.NoSuchElementException;
 
 import c41.core.assertion.Arguments;
+import c41.utility.linq.enumerator.ReferenceEnumeratorBase;
 import c41.utility.linq.enumerator.IEnumerator;
 
 class ReferenceArrayEnumerable<T> implements IReferenceEnumerable<T>{
@@ -44,15 +45,10 @@ class ReferenceArrayEnumerable<T> implements IReferenceEnumerable<T>{
 		}
 
 		@Override
-		public void doMoveNext() {
-			++index;
+		protected T doNext() {
+			return array[++index];
 		}
 
-		@Override
-		public T doCurrent() {
-			return array[index];
-		}
-		
 	}
 	
 }

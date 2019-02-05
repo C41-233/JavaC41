@@ -27,6 +27,22 @@ public final class Linq {
 		return new CharArrayEnumerable(array);
 	}
 
+	public static IByteEnumerable from(byte[] array) {
+		return new ByteArrayEnumerable(array);
+	}
+	
+	public static IShortEnumerable from(short[] array) {
+		return new ShortArrayEnumerable(array);
+	}
+	
+	public static IIntEnumerable from(int[] array) {
+		return new IntArrayEnumerable(array);
+	}
+	
+	public static ILongEnumerable from(long[] array) {
+		return new LongArrayEnumerable(array);
+	}
+	
 	public static <T> IReferenceEnumerable<T> from(T[] array){
 		return new ReferenceArrayEnumerable<>(array);
 	}

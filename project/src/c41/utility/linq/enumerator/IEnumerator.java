@@ -23,22 +23,6 @@ public interface IEnumerator<T> extends Iterator<T>{
 	 * @throws NoSuchElementException 迭代器已经到达末尾
 	 */
 	@Override
-	public default T next() {
-		moveNext();
-		return current();
-	}
-	
-	/**
-	 * 迭代器向后移动
-	 * @throws NoSuchElementException 迭代器已经到达末尾
-	 */
-	public void moveNext();
-	
-	/**
-	 * 获取当前元素。
-	 * @return 当前元素
-	 * @throws NoSuchElementException 迭代器在范围之前
-	 */
-	public T current();
+	public T next();
 	
 }

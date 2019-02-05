@@ -1,0 +1,13 @@
+package c41.lambda.selector;
+
+@FunctionalInterface
+public interface I${Name}Selector<V> extends ISelector<${Box}, V>{
+
+	public V select(${Primitive} ch);
+	
+	@Override
+	public default V select(${Box} ch) {
+		return select((${Primitive})ch);
+	}
+	
+}

@@ -1,0 +1,47 @@
+package c41.utility.linq;
+
+import c41.lambda.selector.*;
+import c41.utility.linq.enumerator.*;
+
+<#list configs as config>
+<#assign Primitive = config.Primitive>
+<#assign Name = config.Name>
+<#assign TypeName = "${Name}SelectEnumerable">
+<#assign Array = "${Primitive}[]">
+<#assign Enumerable = "I${Name}Enumerable">
+<#assign Enumerator = "I${Name}Enumerator">
+<#assign Selector = "I${Name}Selector">
+class ${TypeName}<V> implements IReferenceEnumerable<V>{
+
+	private final ${Enumerable} enumerable;
+	private final ${Selector}<V> selector;
+	
+	public ${TypeName}(${Enumerable} enumerable, ${Selector}<V> selector) {
+		this.enumerable = enumerable;
+		this.selector = selector;
+	}
+
+	@Override
+	public IEnumerator<V> iterator() {
+		return new Enumerator();
+	}
+
+	private final class Enumerator implements IEnumerator<V>{
+
+		private final ${Enumerator} enumerator = enumerable.iterator();
+		
+		@Override
+		public boolean hasNext() {
+			return enumerator.hasNext();
+		}
+
+		@Override
+		public V next() {
+			return selector.select(enumerator.next());
+		}
+		
+	}
+	
+}
+
+</#list>

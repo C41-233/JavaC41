@@ -1,0 +1,20 @@
+package c41.utility.linq.enumerator;
+
+import java.util.NoSuchElementException;
+
+public abstract class ${Name}EnumeratorBase implements I${Name}Enumerator {
+
+	@Override
+	public abstract boolean hasNext();
+
+	protected abstract ${Primitive} doNext();
+	
+	@Override
+	public final ${Primitive} next${Name}() {
+		if(!hasNext()) {
+			throw new NoSuchElementException();
+		}
+		return doNext();
+	}
+
+}

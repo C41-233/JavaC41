@@ -305,6 +305,10 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 		return new ReferenceOrderByEnumerable<>(this, (t1, t2)->Comparators.compare(selector.select(t1), selector.select(t2)));
 	}
 	
+	public default IEnumerable<T> limit(int n){
+		return new ReferenceLimitEnumerable<>(this, n);
+	}
+	
 	/**
 	 * 对元素按照条件排序，条件成立的排在前，条件不成立的排在后
 	 * @param predicate 谓词

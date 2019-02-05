@@ -4,7 +4,9 @@
 	
 	<property name="folder.TemplateBuilder" value="tool/TemplateBuilder"/>
 	<property name="jar.TemplateBuilder" value="${folder.TemplateBuilder}/dist/TemplateBuilder.jar"/>
-	<property name="jar.freemarker" value="${folder.TemplateBuilder}/lib/freemarker.jar"/>
+	<property name="folder.lib" value="tool/lib/"/>
+	<property name="jar.freemarker" value="${folder.lib}/freemarker.jar"/>
+	<property name="jar.commons-io" value="${folder.lib}/commons-io-2.5.jar"/>
 	
 	<target name="build" depends="generate-templates">
 		<delete includeEmptyDirs="true" failonerror="false">
@@ -32,6 +34,7 @@
 		>
 			<classpath>
 				<pathelement location="${jar.freemarker}"/>
+				<pathelement location="${jar.commons-io}"/>
 			</classpath>
         </javac>
 		<jar jarfile="${jar.TemplateBuilder}" basedir="${folder.TemplateBuilder.bin}" includes="*/**">
@@ -48,20 +51,11 @@
 			<sequential>
 				<echo message="generate by @{src}"/>
 				<exec executable="cmd.exe" failonerror="true">
-					<arg line="/c java -Xbootclasspath/a:${jar.freemarker} -jar ${jar.TemplateBuilder} @{src} @{dest} ${folder.TemplateBuilder}/templates.xml"/>
+					<arg line="/c java -Xbootclasspath/a:${jar.freemarker};${jar.commons-io} -jar ${jar.TemplateBuilder} @{src} @{dest} ${folder.TemplateBuilder}/templates.xml"/>
 				</exec>
 			</sequential>
 		</macrodef>
-		<generate src="project/src/c41/core/reference/TReference.java.template" dest="$Reference.java"/>
-		<generate src="project/src/c41/lambda/action/ITAction.java.template" dest="I$Action.java"/>
-		<generate src="project/src/c41/lambda/action/IForeachTAction.java.template" dest="IForeach$Action.java"/>
-		<generate src="project/src/c41/lambda/predicate/ITPredicate.java.template" dest="I$Predicate.java"/>
-		<generate src="project/src/c41/utility/linq/enumerator/ITEnumerator.java.template" dest="I$Enumerator.java"/>
-		<generate src="project/src/c41/utility/linq/ITEnumerable.java.template" dest="I$Enumerable.java"/>
-		<generate src="project/src/c41/utility/collection/ITCollection.java.template" dest="I$Collection.java"/>
-		<generate src="project/src/c41/utility/collection/list/TArrayList.java.template" dest="$ArrayList.java"/>
-		<generate src="project/src/c41/utility/collection/list/ITListView.java.template" dest="I$ListView.java"/>
-		<generate src="project/src/c41/utility/collection/set/THashSet.java.template" dest="$HashSet.java"/>
+		<generate src="project/src" dest="project/autogen"/>
     </target>
 	
 	<target name="generate-docs">

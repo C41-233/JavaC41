@@ -19,10 +19,9 @@ class EnumerationEnumerable<T> implements IReferenceEnumerable<T> {
 		return enumerator;
 	}
 
-	private final class Enumerator extends ReferenceEnumeratorBase<T>{
+	private final class Enumerator implements IEnumerator<T>{
 
 		private final Enumeration<T> enumeration;
-		private T current;
 		
 		public Enumerator(Enumeration<T> enumeration) {
 			this.enumeration = enumeration;
@@ -34,15 +33,10 @@ class EnumerationEnumerable<T> implements IReferenceEnumerable<T> {
 		}
 
 		@Override
-		protected void doMoveNext() {
-			this.current = enumeration.nextElement();
+		public T next() {
+			return enumeration.nextElement();
 		}
 
-		@Override
-		protected T doCurrent() {
-			return current;
-		}
-		
 	}
 	
 }
