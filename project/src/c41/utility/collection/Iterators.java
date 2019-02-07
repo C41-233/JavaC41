@@ -263,7 +263,7 @@ public final class Iterators {
 		return def;
 	}
 
-	public static <T> int firstReferenceIndexOf(Iterator<T> iterator, T value) {
+	public static <T> int firstIndexOfReference(Iterator<T> iterator, T value) {
 		Arguments.isNotNull(iterator);
 		
 		int index = 0;

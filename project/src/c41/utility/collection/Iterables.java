@@ -128,6 +128,11 @@ public final class Iterables {
 		return Iterators.firstIndexOf(iterable.iterator(), value);
 	}
 
+	public static <T> int firstIndexOfReference(Iterable<T> iterable, T value) {
+		Arguments.isNotNull(iterable);
+		return Iterators.firstIndexOfReference(iterable.iterator(), value);
+	}
+	
 	public static <T> T firstOrCreateDefaultIf(Iterable<T> iterable, IPredicate<? super T> predicate, IFunction<? extends T> defProvider) {
 		Arguments.isNotNull(iterable);
 		return Iterators.firstOrCreateDefaultIf(iterable.iterator(), predicate, defProvider);
@@ -141,11 +146,6 @@ public final class Iterables {
 	public static <T> T firstOrDefaultIf(Iterable<T> iterable, IPredicate<? super T> predicate, T def) {
 		Arguments.isNotNull(iterable);
 		return Iterators.firstOrDefaultIf(iterable.iterator(), predicate, def);
-	}
-	
-	public static <T> int firstReferenceIndexOf(Iterable<T> iterable, T value) {
-		Arguments.isNotNull(iterable);
-		return Iterators.firstReferenceIndexOf(iterable.iterator(), value);
 	}
 	
 	/**

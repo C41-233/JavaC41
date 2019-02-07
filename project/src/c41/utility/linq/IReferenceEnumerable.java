@@ -163,6 +163,16 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	}
 	
 	/**
+	 * 返回元素value的下标。如果不存在，则返回-1。
+	 * <p>比较以引用比较的方式进行。</p>
+	 * @param value 目标元素
+	 * @return 下标
+	 */
+	public default int firstIndexOfReference(T value) {
+		return Iterables.firstIndexOfReference(this, value);
+	}
+
+	/**
 	 * 返回第一个满足条件的元素。如果不存在，则返回默认值。
 	 * @param predicate 谓词
 	 * @param defProvider 默认值
@@ -180,7 +190,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default T firstOrDefaultIf(IPredicate<? super T> predicate) {
 		return Iterables.firstOrDefaultIf(this, predicate);
 	}
-
+	
 	/**
 	 * 返回第一个满足条件的元素。如果不存在，则返回默认值。
 	 * @param predicate 谓词
@@ -189,16 +199,6 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	 */
 	public default T firstOrDefaultIf(IPredicate<? super T> predicate, T def) {
 		return Iterables.firstOrDefaultIf(this, predicate, def);
-	}
-	
-	/**
-	 * 返回元素value的下标。如果不存在，则返回-1。
-	 * <p>比较以引用比较的方式进行。</p>
-	 * @param value 目标元素
-	 * @return 下标
-	 */
-	public default int firstReferenceIndexOf(T value) {
-		return Iterables.firstReferenceIndexOf(this, value);
 	}
 	
 	/**
