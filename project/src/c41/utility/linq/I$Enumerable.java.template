@@ -94,7 +94,7 @@ public interface ${Enumerable} extends IEnumerable<${Box}>{
 	 * @return 第一个重复元素
 	 * @exception NoSuchElementException 如果不存在元素
 	 */
-	public default ${Primitive} firstDuplicate(){
+	public default ${Primitive} firstDuplicateElement(){
 		${HashSet} set = new ${HashSet}();
 		
 		${Enumerator} enumerator = iterator();
@@ -111,8 +111,8 @@ public interface ${Enumerable} extends IEnumerable<${Box}>{
 	 * 返回第一个重复元素。如果不存在，则返回0。
 	 * @return 第一个重复元素或0。
 	 */
-	public default ${Primitive} firstDuplicateOrDefault(){
-		return firstDuplicateOrDefault(${Default});
+	public default ${Primitive} firstDuplicateElementOrDefault(){
+		return firstDuplicateElementOrDefault(${Default});
 	}
 	
 	/**
@@ -120,7 +120,7 @@ public interface ${Enumerable} extends IEnumerable<${Box}>{
 	 * @param def 默认值
 	 * @return 第一个重复元素或默认值。
 	 */
-	public default ${Primitive} firstDuplicateOrDefault(${Primitive} def){
+	public default ${Primitive} firstDuplicateElementOrDefault(${Primitive} def){
 		${HashSet} set = new ${HashSet}();
 		
 		${Enumerator} enumerator = iterator();
@@ -276,10 +276,10 @@ public interface ${Enumerable} extends IEnumerable<${Box}>{
 	 * 所有元素都满足谓词。
 	 * @param predicate 谓词
 	 * @return 如果所有元素都满足谓词，则返回true
-	 * @see IReferenceEnumerable#isAll(IPredicate)
-	 * @see ICharEnumerable#isAll(ICharPredicate)
+	 * @see IReferenceEnumerable#all(IPredicate)
+	 * @see ICharEnumerable#all(ICharPredicate)
 	 */
-	public default boolean isAll(${Predicate} predicate) {
+	public default boolean all(${Predicate} predicate) {
 		Arguments.isNotNull(predicate);
 		
 		${Enumerator} enumerator = iterator();
@@ -297,7 +297,7 @@ public interface ${Enumerable} extends IEnumerable<${Box}>{
 	 * @param predicate 谓词
 	 * @return 如果存在，则返回true
 	 */
-	public default boolean isExist(${Predicate} predicate) {
+	public default boolean existsIf(${Predicate} predicate) {
 		Arguments.isNotNull(predicate);
 		
 		${Enumerator} enumerator = iterator();
@@ -315,7 +315,7 @@ public interface ${Enumerable} extends IEnumerable<${Box}>{
 	 * @param value 值
 	 * @return 如果存在，则返回true
 	 */
-	public default boolean isExist(${Primitive} value) {
+	public default boolean exists(${Primitive} value) {
 		${Enumerator} enumerator = iterator();
 		while(enumerator.hasNext()) {
 			${Primitive} val = enumerator.${Next}();
@@ -331,7 +331,7 @@ public interface ${Enumerable} extends IEnumerable<${Box}>{
 	 * @param predicate 谓词
 	 * @return 如果非所有元素都满足谓词，返回true
 	 */
-	public default boolean isNotAll(${Predicate} predicate) {
+	public default boolean notAll(${Predicate} predicate) {
 		Arguments.isNotNull(predicate);
 		
 		${Enumerator} enumerator = iterator();
@@ -349,6 +349,7 @@ public interface ${Enumerable} extends IEnumerable<${Box}>{
 	 * @param n 跳过的元素个数
 	 * @return 跳过后的查询
 	 */
+	@Override
 	public default ${Enumerable} skip(int n){
 		return new ${Name}SkipEnumerable(this, n);
 	}

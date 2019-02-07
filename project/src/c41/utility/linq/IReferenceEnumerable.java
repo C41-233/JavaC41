@@ -32,6 +32,17 @@ import c41.utility.linq.enumerator.IEnumerator;
 public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 
 	/**
+	 * 所有元素都满足谓词。
+	 * @param predicate 谓词
+	 * @return 如果所有元素都满足谓词，则返回true
+	 * @see ICharEnumerable#all(ICharPredicate)
+	 * @see IIntEnumerable#all(IIntPredicate)
+	 */
+	public default boolean all(IPredicate<? super T> predicate) {
+		return Iterables.all(this, predicate);
+	}
+
+	/**
 	 * 查询指定下标的元素。
 	 * @param index 下标
 	 * @return 指定元素
@@ -50,7 +61,35 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default int countIf(IPredicate<? super T> predicate) {
 		return Iterables.countIf(this, predicate);
 	}
+	
+	/**
+	 * 存在与{@code value}相等的元素。
+	 * <p>比较以{@code equals}的方式进行。</p>
+	 * @param value 元素
+	 * @return 如果存在，则返回true
+	 */
+	public default boolean exists(T value) {
+		return Iterables.exists(this, value);
+	}
 
+	/**
+	 * 存在满足谓词的元素。
+	 * @param predicate 谓词
+	 * @return 如果存在，则返回true
+	 */
+	public default boolean existsIf(IPredicate<? super T> predicate) {
+		return Iterables.existsIf(this, predicate);
+	}
+	
+	/**
+	 * 存在与@{code value}引用相同的元素。
+	 * @param value 元素
+	 * @return 如果存在，则返回true
+	 */
+	public default boolean existsReference(T value) {
+		return Iterables.existsReference(this, value);
+	}
+	
 	/**
 	 * 获取第一个元素。
 	 * @return 第一个元素
@@ -64,7 +103,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	 * 返回第一个重复的元素，重复元素按照@{code equals}方式比较。
 	 * @return 重复元素
 	 */
-	public default T firstDuplicate() {
+	public default T firstDuplicateElement() {
 		return Iterables.firstDuplicate(this);
 	}
 
@@ -73,7 +112,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	 * @param defProvider 默认值工厂
 	 * @return 第一个重复元素或默认值
 	 */
-	public default T firstDuplicateOrCreateDefault(IFunction<? extends T> defProvider) {
+	public default T firstDuplicateElementOrCreateDefault(IFunction<? extends T> defProvider) {
 		return Iterables.firstDuplicateOrCreateDefault(this, defProvider);
 	}
 	
@@ -81,7 +120,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	 * 返回第一个重复元素。如果不存在，则返回null。
 	 * @return 第一个重复元素或null。
 	 */
-	public default T firstDuplicateOrDefault() {
+	public default T firstDuplicateElementOrDefault() {
 		return Iterables.firstDuplicateOrDefault(this);
 	}
 	
@@ -90,10 +129,10 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	 * @param def 默认值
 	 * @return 第一个重复元素或默认值。
 	 */
-	public default T firstDuplicateOrDefault(T def) {
+	public default T firstDuplicateElementOrDefault(T def) {
 		return Iterables.firstDuplicateOrDefault(this, def);
 	}
-	
+
 	/**
 	 * 返回第一个满足条件的元素。
 	 * @param predicate 谓词
@@ -103,7 +142,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default T firstIf(IPredicate<? super T> predicate) {
 		return Iterables.firstIf(this, predicate);
 	}
-
+	
 	/**
 	 * 返回第一个满足条件的下标。如果不存在，则返回-1。
 	 * @param predicate 谓词
@@ -112,7 +151,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default int firstIndexIf(IPredicate<? super T> predicate) {
 		return Iterables.firstIndexIf(this, predicate);
 	}
-	
+
 	/**
 	 * 返回元素value的下标。如果不存在，则返回-1。
 	 * <p>比较以@{code equals}的方式进行。</p>
@@ -141,7 +180,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default T firstOrDefaultIf(IPredicate<? super T> predicate) {
 		return Iterables.firstOrDefaultIf(this, predicate);
 	}
-	
+
 	/**
 	 * 返回第一个满足条件的元素。如果不存在，则返回默认值。
 	 * @param predicate 谓词
@@ -151,7 +190,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default T firstOrDefaultIf(IPredicate<? super T> predicate, T def) {
 		return Iterables.firstOrDefaultIf(this, predicate, def);
 	}
-
+	
 	/**
 	 * 返回元素value的下标。如果不存在，则返回-1。
 	 * <p>比较以引用比较的方式进行。</p>
@@ -170,7 +209,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default int foreach(IAction1<? super T> action) {
 		return Iterables.foreach(this, action);
 	}
-
+	
 	/**
 	 * 对每个元素执行操作。
 	 * @param action 对每个元素执行的操作，参数包含当前元素及其下标
@@ -183,11 +222,11 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default int foreach2(IBooleanFunction1<? super T> function) {
 		return Iterables.foreach2(this, function);
 	}
-	
+
 	public default int foreach2(IForeachFunction<? super T> function) {
 		return Iterables.foreach2(this, function);
 	}
-	
+
 	public default <K> IReferenceEnumerable<IReferenceGroup<K, T>> groupBy(ISelector<T, K> selector){
 		return new ReferenceGroupByEnumerable<>(this, selector);
 	}
@@ -197,94 +236,9 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 		return where(c->cl.isInstance(c)).cast();
 	}
 
-	/**
-	 * 所有元素都满足谓词。
-	 * @param predicate 谓词
-	 * @return 如果所有元素都满足谓词，则返回true
-	 * @see ICharEnumerable#isAll(ICharPredicate)
-	 * @see IIntEnumerable#isAll(IIntPredicate)
-	 */
-	public default boolean isAll(IPredicate<? super T> predicate) {
-		return Iterables.isAll(this, predicate);
-	}
-
-	/**
-	 * 存在满足谓词的元素。
-	 * @param predicate 谓词
-	 * @return 如果存在，则返回true
-	 */
-	public default boolean isExist(IPredicate<? super T> predicate) {
-		return Iterables.isExist(this, predicate);
-	}
-
-	/**
-	 * 存在与{@code value}相等的元素。
-	 * <p>比较以{@code equals}的方式进行。</p>
-	 * @param value 元素
-	 * @return 如果存在，则返回true
-	 */
-	public default boolean isExist(T value) {
-		return Iterables.isExist(this, value);
-	}
-	
-	/**
-	 * 存在与@{code value}引用相同的元素。
-	 * @param value 元素
-	 * @return 如果存在，则返回true
-	 */
-	public default boolean isExistReference(T value) {
-		return Iterables.isExistReference(this, value);
-	}
-
-	/**
-	 * 非所有元素都满足谓词。
-	 * @param predicate 谓词
-	 * @return 如果非所有元素都满足谓词，返回true
-	 */
-	public default boolean isNotAll(IPredicate<? super T> predicate) {
-		return Iterables.isNotAll(this, predicate);
-	}
-
-	/**
-	 * 不存在满足谓词的元素。
-	 * @param predicate 谓词
-	 * @return 如果不存在，则返回true
-	 */
-	public default boolean isNotExist(IPredicate<? super T> predicate) {
-		return Iterables.isNotExist(this, predicate);
-	}
-
-	/**
-	 * 不存在与{@code value}相等的元素。
-	 * 比较以{@code equals}的方式进行。
-	 * @param value 元素
-	 * @return 如果不存在，则返回true
-	 */
-	public default boolean isNotExist(T value) {
-		return Iterables.isNotExist(this, value);
-	}
-
-	/**
-	 * 不存在与任何一个指定元素相等的元素。
-	 * @param values 多个指定元素
-	 * @return 如果不存在，则返回true
-	 */
-	public default boolean isNotExistAnyOf(Object... values){
-		return Iterables.isNotExistAnyOf(this, values);
-	}
-
-	/**
-	 * 不存在与{@code value}引用相同的元素。
-	 * @param value 元素
-	 * @return 如果不存在，则返回true
-	 */
-	public default boolean isNotExistReference(T value) {
-		return Iterables.isNotExistReference(this, value);
-	}
-	
 	@Override
 	public IEnumerator<T> iterator();
-	
+
 	/**
 	 * 返回该Enumerable与other的笛卡尔积，针对每一个T和U的组合，生成一个Tuple2
 	 * @param <U> 另一个类型
@@ -294,7 +248,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default <U> IReferenceEnumerable<Tuple2<T, U>> join(Iterable<U> other){
 		return new ReferenceJoinEnumerable<>(this, other, (t, u)->Tuples.make(t, u));
 	}
-	
+
 	/**
 	 * 返回该Enumerable与other的笛卡尔积，针对每一个T和U的组合，生成一个V。
 	 * @param <U> 另一个类型
@@ -310,9 +264,55 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default <U, V> IReferenceEnumerable<V> join(U[] other, IJoiner<T, U, V> joiner){
 		return new ReferenceJoinEnumerable<>(this, new ReferenceArrayEnumerable<>(other), joiner);
 	}
-	
+
 	public default IEnumerable<T> limit(int n){
 		return new ReferenceLimitEnumerable<>(this, n);
+	}
+	
+	/**
+	 * 非所有元素都满足谓词。
+	 * @param predicate 谓词
+	 * @return 如果非所有元素都满足谓词，返回true
+	 */
+	public default boolean notAll(IPredicate<? super T> predicate) {
+		return Iterables.notAll(this, predicate);
+	}
+	
+	/**
+	 * 不存在与{@code value}相等的元素。
+	 * 比较以{@code equals}的方式进行。
+	 * @param value 元素
+	 * @return 如果不存在，则返回true
+	 */
+	public default boolean notExists(T value) {
+		return Iterables.notExists(this, value);
+	}
+	
+	/**
+	 * 不存在与任何一个指定元素相等的元素。
+	 * @param values 多个指定元素
+	 * @return 如果不存在，则返回true
+	 */
+	public default boolean notExistsAnyOf(Object... values){
+		return Iterables.notExistsAnyOf(this, values);
+	}
+
+	/**
+	 * 不存在满足谓词的元素。
+	 * @param predicate 谓词
+	 * @return 如果不存在，则返回true
+	 */
+	public default boolean notExistsIf(IPredicate<? super T> predicate) {
+		return Iterables.notExistsIf(this, predicate);
+	}
+	
+	/**
+	 * 不存在与{@code value}引用相同的元素。
+	 * @param value 元素
+	 * @return 如果不存在，则返回true
+	 */
+	public default boolean notExistsReference(T value) {
+		return Iterables.notExistsReference(this, value);
 	}
 	
 	public default IReferenceSortedEnumerable<T> orderBy(Comparator<? super T> comparator){
@@ -328,7 +328,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	 * @param predicate 谓词
 	 * @return 排序后的查询
 	 */
-	public default IReferenceSortedEnumerable<T> orderByPredicate(IPredicate<T> predicate){
+	public default IReferenceSortedEnumerable<T> orderByCondition(IPredicate<T> predicate){
 		Arguments.isNotNull(predicate);
 		
 		return new ReferenceOrderByEnumerable<>(this, (t1, t2)->{
@@ -367,15 +367,6 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 		return new ReferenceSelectManyEnumerable<>(this, selector);
 	}
 
-	/**
-	 * 跳过前n个元素。
-	 * @param n 跳过的元素个数
-	 * @return 跳过后的查询
-	 */
-	public default IEnumerable<T> skip(int n){
-		return new ReferenceSkipEnumerable<>(this, n);
-	}
-	
 	/**
 	 * 构造所有元素组成的数组
 	 * @return 数组

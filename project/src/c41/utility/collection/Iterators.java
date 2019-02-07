@@ -26,6 +26,26 @@ public final class Iterators {
 		throw new StaticClassException();
 	}
 
+	/**
+	 * 迭代器所有元素都满足谓词。
+	 * @param <T> 泛型参数
+	 * @param iterator 迭代器
+	 * @param predicate 谓词
+	 * @return 如果所有元素都满足谓词，则返回true
+	 */
+	public static <T> boolean all(Iterator<T> iterator, IPredicate<? super T> predicate) {
+		Arguments.isNotNull(iterator);
+		Arguments.isNotNull(predicate);
+		
+		while(iterator.hasNext()) {
+			T obj = iterator.next();
+			if(predicate.is(obj) == false) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
 	public static <T> T at(Iterator<T> iterator, int index) {
 		Arguments.isNotNull(iterator);
 		Arguments.is(index>=0, "%d < 0", index);
@@ -41,7 +61,7 @@ public final class Iterators {
 		}
 		throw new NoSuchElementException();
 	}
-	
+
 	public static int count(Iterator<?> iterator) {
 		Arguments.isNotNull(iterator);
 		
@@ -85,6 +105,60 @@ public final class Iterators {
 			return false;
 		}
 		return true;
+	}
+
+	public static boolean exists(Iterator<?> iterator, Object value) {
+		Arguments.isNotNull(iterator);
+		
+		while(iterator.hasNext()) {
+			Object obj = iterator.next();
+			if(Objects.equals(obj, value)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * 迭代器存在满足谓词的元素。
+	 * @param <T> 泛型参数
+	 * @param iterator 迭代器
+	 * @param predicate 谓词
+	 * @return 如果存在，则返回true
+	 */
+	public static <T> boolean existsIf(Iterator<T> iterator, IPredicate<? super T> predicate) {
+		Arguments.isNotNull(iterator);
+		Arguments.isNotNull(predicate);
+		
+		while(iterator.hasNext()) {
+			T obj = iterator.next();
+			if(predicate.is(obj)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static boolean existsReference(Iterator<?> iterator, Object value) {
+		Arguments.isNotNull(iterator);
+		
+		while(iterator.hasNext()) {
+			Object obj = iterator.next();
+			if(obj == value) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static <T, TCollection extends Collection<T>> TCollection fillCollection(Iterator<T> iterator, TCollection collection) {
+		Arguments.isNotNull(iterator);
+		Arguments.isNotNull(collection);
+		
+		while(iterator.hasNext()) {
+			collection.add(iterator.next());
+		}
+		return collection;
 	}
 
 	public static <T> T first(Iterator<T> iterator) {
@@ -274,7 +348,7 @@ public final class Iterators {
 		}
 		return count;
 	}
-
+	
 	/**
 	 * 对每个元素执行操作。
 	 * @param <T> 泛型参数
@@ -307,94 +381,10 @@ public final class Iterators {
 		}
 		return false;
 	}
-
-	/**
-	 * 迭代器所有元素都满足谓词。
-	 * @param <T> 泛型参数
-	 * @param iterator 迭代器
-	 * @param predicate 谓词
-	 * @return 如果所有元素都满足谓词，则返回true
-	 */
-	public static <T> boolean isAll(Iterator<T> iterator, IPredicate<? super T> predicate) {
-		Arguments.isNotNull(iterator);
-		Arguments.isNotNull(predicate);
-		
-		while(iterator.hasNext()) {
-			T obj = iterator.next();
-			if(predicate.is(obj) == false) {
-				return false;
-			}
-		}
-		return true;
-	}
-
+	
 	public static boolean isEmpty(Iterator<?> iterator) {
 		Arguments.isNotNull(iterator);
 		return iterator.hasNext() == false;
-	}
-
-	public static boolean isExist(Iterator<?> iterator, Object value) {
-		Arguments.isNotNull(iterator);
-		
-		while(iterator.hasNext()) {
-			Object obj = iterator.next();
-			if(Objects.equals(obj, value)) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	/**
-	 * 迭代器存在满足谓词的元素。
-	 * @param <T> 泛型参数
-	 * @param iterator 迭代器
-	 * @param predicate 谓词
-	 * @return 如果存在，则返回true
-	 */
-	public static <T> boolean isExist(Iterator<T> iterator, IPredicate<? super T> predicate) {
-		Arguments.isNotNull(iterator);
-		Arguments.isNotNull(predicate);
-		
-		while(iterator.hasNext()) {
-			T obj = iterator.next();
-			if(predicate.is(obj)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public static boolean isExistReference(Iterator<?> iterator, Object value) {
-		Arguments.isNotNull(iterator);
-		
-		while(iterator.hasNext()) {
-			Object obj = iterator.next();
-			if(obj == value) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	/**
-	 * 迭代器非所有元素都满足谓词。
-	 * @param <T> 泛型参数
-	 * @param iterator 迭代器
-	 * @param predicate 谓词
-	 * @return 如果非所有元素都满足谓词，返回true
-	 */
-	public static <T> boolean isNotAll(Iterator<T> iterator, IPredicate<? super T> predicate) {
-		Arguments.isNotNull(iterator);
-		Arguments.isNotNull(predicate);
-		
-		while(iterator.hasNext()) {
-			T obj = iterator.next();
-			if(predicate.is(obj) == false) {
-				return true;
-			}
-		}
-		return false;
 	}
 
 	public static boolean isNotEmpty(Iterator<?> iterable) {
@@ -413,7 +403,42 @@ public final class Iterators {
 		return true;
 	}
 
-	public static <T> boolean isNotExist(Iterator<T> iterator, IPredicate<? super T> predicate) {
+	/**
+	 * 迭代器非所有元素都满足谓词。
+	 * @param <T> 泛型参数
+	 * @param iterator 迭代器
+	 * @param predicate 谓词
+	 * @return 如果非所有元素都满足谓词，返回true
+	 */
+	public static <T> boolean notAll(Iterator<T> iterator, IPredicate<? super T> predicate) {
+		Arguments.isNotNull(iterator);
+		Arguments.isNotNull(predicate);
+		
+		while(iterator.hasNext()) {
+			T obj = iterator.next();
+			if(predicate.is(obj) == false) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public static boolean notExistsAnyOf(Iterator<?> iterator, Object...values) {
+		Arguments.isNotNull(iterator);
+		Arguments.isNotNull(values);
+		
+		if(values.length <= 16) {
+			return notExistsIf(iterator, (Object obj)->LinearSearch.isExist(values, obj));
+		}
+		
+		HashSet<Object> set = new HashSet<>();
+		for(Object value : values) {
+			set.add(value);
+		}
+		return notExistsIf(iterator, (Object obj)->set.contains(obj));
+	}
+	
+	public static <T> boolean notExistsIf(Iterator<T> iterator, IPredicate<? super T> predicate) {
 		Arguments.isNotNull(iterator);
 		Arguments.isNotNull(predicate);
 
@@ -425,23 +450,8 @@ public final class Iterators {
 		}
 		return true;
 	}
-	
-	public static boolean isNotExistAnyOf(Iterator<?> iterator, Object...values) {
-		Arguments.isNotNull(iterator);
-		Arguments.isNotNull(values);
-		
-		if(values.length <= 16) {
-			return isNotExist(iterator, (Object obj)->LinearSearch.isExist(values, obj));
-		}
-		
-		HashSet<Object> set = new HashSet<>();
-		for(Object value : values) {
-			set.add(value);
-		}
-		return isNotExist(iterator, (Object obj)->set.contains(obj));
-	}
-	
-	public static boolean isNotExistReference(Iterator<?> iterator, Object value) {
+
+	public static boolean notExistsReference(Iterator<?> iterator, Object value) {
 		Arguments.isNotNull(iterator);
 
 		while(iterator.hasNext()) {
@@ -452,7 +462,7 @@ public final class Iterators {
 		}
 		return true;
 	}
-
+	
 	public static <T> Iterator<T> of(T[] array){
 		return new Iterator<T>() {
 
@@ -493,23 +503,12 @@ public final class Iterators {
 		return list.toArray(array);
 	}
 	
-	public static <T, TCollection extends Collection<T>> TCollection toCollection(Iterator<T> iterator, IFunction<TCollection> provider) {
-		Arguments.isNotNull(iterator);
-		Arguments.isNotNull(provider);
-		
-		TCollection collection = provider.invoke();
-		while(iterator.hasNext()) {
-			collection.add(iterator.next());
-		}
-		return collection;
-	}
-
 	public static <T> List<T> toList(Iterator<T> iterator){
-		return toCollection(iterator, ()->new ArrayList<>());
+		return fillCollection(iterator, new ArrayList<>());
 	}
 
 	public static <T> Set<T> toSet(Iterator<T> iterator){
-		return toCollection(iterator, ()->new HashSet<>());
+		return fillCollection(iterator, new HashSet<>());
 	}
 
 }

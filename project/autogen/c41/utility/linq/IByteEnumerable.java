@@ -81,7 +81,7 @@ public interface IByteEnumerable extends IEnumerable<Byte>{
 	 * @return 第一个重复元素
 	 * @exception NoSuchElementException 如果不存在元素
 	 */
-	public default byte firstDuplicate(){
+	public default byte firstDuplicateElement(){
 		ByteHashSet set = new ByteHashSet();
 		
 		IByteEnumerator enumerator = iterator();
@@ -98,8 +98,8 @@ public interface IByteEnumerable extends IEnumerable<Byte>{
 	 * 返回第一个重复元素。如果不存在，则返回0。
 	 * @return 第一个重复元素或0。
 	 */
-	public default byte firstDuplicateOrDefault(){
-		return firstDuplicateOrDefault((byte)0);
+	public default byte firstDuplicateElementOrDefault(){
+		return firstDuplicateElementOrDefault((byte)0);
 	}
 	
 	/**
@@ -107,7 +107,7 @@ public interface IByteEnumerable extends IEnumerable<Byte>{
 	 * @param def 默认值
 	 * @return 第一个重复元素或默认值。
 	 */
-	public default byte firstDuplicateOrDefault(byte def){
+	public default byte firstDuplicateElementOrDefault(byte def){
 		ByteHashSet set = new ByteHashSet();
 		
 		IByteEnumerator enumerator = iterator();
@@ -241,10 +241,10 @@ public interface IByteEnumerable extends IEnumerable<Byte>{
 	 * 所有元素都满足谓词。
 	 * @param predicate 谓词
 	 * @return 如果所有元素都满足谓词，则返回true
-	 * @see IReferenceEnumerable#isAll(IPredicate)
-	 * @see ICharEnumerable#isAll(ICharPredicate)
+	 * @see IReferenceEnumerable#all(IPredicate)
+	 * @see ICharEnumerable#all(ICharPredicate)
 	 */
-	public default boolean isAll(IBytePredicate predicate) {
+	public default boolean all(IBytePredicate predicate) {
 		Arguments.isNotNull(predicate);
 		
 		IByteEnumerator enumerator = iterator();
@@ -262,7 +262,7 @@ public interface IByteEnumerable extends IEnumerable<Byte>{
 	 * @param predicate 谓词
 	 * @return 如果存在，则返回true
 	 */
-	public default boolean isExist(IBytePredicate predicate) {
+	public default boolean existsIf(IBytePredicate predicate) {
 		Arguments.isNotNull(predicate);
 		
 		IByteEnumerator enumerator = iterator();
@@ -280,7 +280,7 @@ public interface IByteEnumerable extends IEnumerable<Byte>{
 	 * @param value 值
 	 * @return 如果存在，则返回true
 	 */
-	public default boolean isExist(byte value) {
+	public default boolean exists(byte value) {
 		IByteEnumerator enumerator = iterator();
 		while(enumerator.hasNext()) {
 			byte val = enumerator.nextByte();
@@ -296,7 +296,7 @@ public interface IByteEnumerable extends IEnumerable<Byte>{
 	 * @param predicate 谓词
 	 * @return 如果非所有元素都满足谓词，返回true
 	 */
-	public default boolean isNotAll(IBytePredicate predicate) {
+	public default boolean notAll(IBytePredicate predicate) {
 		Arguments.isNotNull(predicate);
 		
 		IByteEnumerator enumerator = iterator();
@@ -314,6 +314,7 @@ public interface IByteEnumerable extends IEnumerable<Byte>{
 	 * @param n 跳过的元素个数
 	 * @return 跳过后的查询
 	 */
+	@Override
 	public default IByteEnumerable skip(int n){
 		return new ByteSkipEnumerable(this, n);
 	}

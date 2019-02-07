@@ -81,7 +81,7 @@ public interface ILongEnumerable extends IEnumerable<Long>{
 	 * @return 第一个重复元素
 	 * @exception NoSuchElementException 如果不存在元素
 	 */
-	public default long firstDuplicate(){
+	public default long firstDuplicateElement(){
 		LongHashSet set = new LongHashSet();
 		
 		ILongEnumerator enumerator = iterator();
@@ -98,8 +98,8 @@ public interface ILongEnumerable extends IEnumerable<Long>{
 	 * 返回第一个重复元素。如果不存在，则返回0。
 	 * @return 第一个重复元素或0。
 	 */
-	public default long firstDuplicateOrDefault(){
-		return firstDuplicateOrDefault(0L);
+	public default long firstDuplicateElementOrDefault(){
+		return firstDuplicateElementOrDefault(0L);
 	}
 	
 	/**
@@ -107,7 +107,7 @@ public interface ILongEnumerable extends IEnumerable<Long>{
 	 * @param def 默认值
 	 * @return 第一个重复元素或默认值。
 	 */
-	public default long firstDuplicateOrDefault(long def){
+	public default long firstDuplicateElementOrDefault(long def){
 		LongHashSet set = new LongHashSet();
 		
 		ILongEnumerator enumerator = iterator();
@@ -241,10 +241,10 @@ public interface ILongEnumerable extends IEnumerable<Long>{
 	 * 所有元素都满足谓词。
 	 * @param predicate 谓词
 	 * @return 如果所有元素都满足谓词，则返回true
-	 * @see IReferenceEnumerable#isAll(IPredicate)
-	 * @see ICharEnumerable#isAll(ICharPredicate)
+	 * @see IReferenceEnumerable#all(IPredicate)
+	 * @see ICharEnumerable#all(ICharPredicate)
 	 */
-	public default boolean isAll(ILongPredicate predicate) {
+	public default boolean all(ILongPredicate predicate) {
 		Arguments.isNotNull(predicate);
 		
 		ILongEnumerator enumerator = iterator();
@@ -262,7 +262,7 @@ public interface ILongEnumerable extends IEnumerable<Long>{
 	 * @param predicate 谓词
 	 * @return 如果存在，则返回true
 	 */
-	public default boolean isExist(ILongPredicate predicate) {
+	public default boolean existsIf(ILongPredicate predicate) {
 		Arguments.isNotNull(predicate);
 		
 		ILongEnumerator enumerator = iterator();
@@ -280,7 +280,7 @@ public interface ILongEnumerable extends IEnumerable<Long>{
 	 * @param value 值
 	 * @return 如果存在，则返回true
 	 */
-	public default boolean isExist(long value) {
+	public default boolean exists(long value) {
 		ILongEnumerator enumerator = iterator();
 		while(enumerator.hasNext()) {
 			long val = enumerator.nextLong();
@@ -296,7 +296,7 @@ public interface ILongEnumerable extends IEnumerable<Long>{
 	 * @param predicate 谓词
 	 * @return 如果非所有元素都满足谓词，返回true
 	 */
-	public default boolean isNotAll(ILongPredicate predicate) {
+	public default boolean notAll(ILongPredicate predicate) {
 		Arguments.isNotNull(predicate);
 		
 		ILongEnumerator enumerator = iterator();
@@ -314,6 +314,7 @@ public interface ILongEnumerable extends IEnumerable<Long>{
 	 * @param n 跳过的元素个数
 	 * @return 跳过后的查询
 	 */
+	@Override
 	public default ILongEnumerable skip(int n){
 		return new LongSkipEnumerable(this, n);
 	}

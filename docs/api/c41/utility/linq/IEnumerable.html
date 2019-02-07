@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":6,"i6":18,"i7":18,"i8":18,"i9":18,"i10":18,"i11":18,"i12":18,"i13":18,"i14":18};
+var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":6,"i7":18,"i8":18,"i9":18,"i10":18,"i11":18,"i12":18,"i13":18,"i14":18,"i15":18};
 var tabs = {65535:["t0","所有方法"],2:["t2","实例方法"],4:["t3","抽象方法"],16:["t5","默认方法"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -151,76 +151,82 @@ extends java.lang.Iterable&lt;T&gt;</pre>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>default boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IEnumerable.html#hasDuplicate--">hasDuplicate</a></span>()</code>
-<div class="block">是否存在重复元素。</div>
+<td class="colFirst"><code>default &lt;TCollection extends java.util.Collection&lt;<a href="../../../c41/utility/linq/IEnumerable.html" title="IEnumerable中的类型参数">T</a>&gt;&gt;<br>TCollection</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IEnumerable.html#fillCollection-TCollection-">fillCollection</a></span>(TCollection&nbsp;collection)</code>
+<div class="block">将所有元素添加到Collection中，元素被加入的顺序与迭代器的顺序一致。</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>default boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IEnumerable.html#hasDuplicateElement--">hasDuplicateElement</a></span>()</code>
+<div class="block">是否存在重复元素。</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>default boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IEnumerable.html#isEmpty--">isEmpty</a></span>()</code>
 <div class="block">是否是一个空查询（元素的个数为0）。</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>default boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IEnumerable.html#isNotEmpty--">isNotEmpty</a></span>()</code>
 <div class="block">是否是一个非空查询（元素的个数不为0）。</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../c41/utility/linq/enumerator/IEnumerator.html" title="c41.utility.linq.enumerator中的接口">IEnumerator</a>&lt;<a href="../../../c41/utility/linq/IEnumerable.html" title="IEnumerable中的类型参数">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IEnumerable.html#iterator--">iterator</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>default <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.linq中的接口">IEnumerable</a>&lt;<a href="../../../c41/utility/linq/IEnumerable.html" title="IEnumerable中的类型参数">T</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IEnumerable.html#skip-int-">skip</a></span>(int&nbsp;n)</code>
+<div class="block">跳过前n个元素。</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>default <a href="../../../c41/utility/linq/IByteEnumerable.html" title="c41.utility.linq中的接口">IByteEnumerable</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IEnumerable.html#toByte--">toByte</a></span>()</code>
 <div class="block">将元素转换为byte。</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
-<td class="colFirst"><code>default &lt;TCollection extends java.util.Collection&lt;<a href="../../../c41/utility/linq/IEnumerable.html" title="IEnumerable中的类型参数">T</a>&gt;&gt;<br>TCollection</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IEnumerable.html#toCollection-c41.lambda.function.IFunction-">toCollection</a></span>(<a href="../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;TCollection&gt;&nbsp;provider)</code>
-<div class="block">将所有元素以Collection的形式返回，元素被加入的顺序与迭代器的顺序一致。</div>
-</td>
-</tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>default <a href="../../../c41/utility/linq/IDoubleEnumerable.html" title="c41.utility.linq中的接口">IDoubleEnumerable</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IEnumerable.html#toDouble--">toDouble</a></span>()</code>
 <div class="block">将元素转换为double。</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>default <a href="../../../c41/utility/linq/IFloatEnumerable.html" title="c41.utility.linq中的接口">IFloatEnumerable</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IEnumerable.html#toFloat--">toFloat</a></span>()</code>
 <div class="block">将元素转换为float。</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>default <a href="../../../c41/utility/linq/IIntEnumerable.html" title="c41.utility.linq中的接口">IIntEnumerable</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IEnumerable.html#toInt--">toInt</a></span>()</code>
 <div class="block">将元素转换为int。</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>default java.util.List&lt;<a href="../../../c41/utility/linq/IEnumerable.html" title="IEnumerable中的类型参数">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IEnumerable.html#toList--">toList</a></span>()</code>
 <div class="block">将所有元素以List的形式返回，元素的顺序与迭代器的顺序一致。</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>default <a href="../../../c41/utility/linq/ILongEnumerable.html" title="c41.utility.linq中的接口">ILongEnumerable</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IEnumerable.html#toLong--">toLong</a></span>()</code>
 <div class="block">将元素转换为long。</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>default java.util.Set&lt;<a href="../../../c41/utility/linq/IEnumerable.html" title="IEnumerable中的类型参数">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IEnumerable.html#toSet--">toSet</a></span>()</code>
 <div class="block">将所有元素以Set的形式返回。</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>default <a href="../../../c41/utility/linq/IShortEnumerable.html" title="c41.utility.linq中的接口">IShortEnumerable</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IEnumerable.html#toShort--">toShort</a></span>()</code>
 <div class="block">将元素转换为short。</div>
@@ -278,13 +284,33 @@ extends java.lang.Iterable&lt;T&gt;</pre>
 </dl>
 </li>
 </ul>
-<a name="hasDuplicate--">
+<a name="fillCollection-java.util.Collection-">
+<!--   -->
+</a><a name="fillCollection-TCollection-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>hasDuplicate</h4>
-<pre>default&nbsp;boolean&nbsp;hasDuplicate()</pre>
+<h4>fillCollection</h4>
+<pre>default&nbsp;&lt;TCollection extends java.util.Collection&lt;<a href="../../../c41/utility/linq/IEnumerable.html" title="IEnumerable中的类型参数">T</a>&gt;&gt;&nbsp;TCollection&nbsp;fillCollection(TCollection&nbsp;collection)</pre>
+<div class="block">将所有元素添加到Collection中，元素被加入的顺序与迭代器的顺序一致。</div>
+<dl>
+<dt><span class="paramLabel">类型参数:</span></dt>
+<dd><code>TCollection</code> - 集合类型</dd>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>collection</code> - 集合</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>collection</dd>
+</dl>
+</li>
+</ul>
+<a name="hasDuplicateElement--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>hasDuplicateElement</h4>
+<pre>default&nbsp;boolean&nbsp;hasDuplicateElement()</pre>
 <div class="block">是否存在重复元素。</div>
 <dl>
 <dt><span class="returnLabel">返回:</span></dt>
@@ -333,21 +359,19 @@ extends java.lang.Iterable&lt;T&gt;</pre>
 </dl>
 </li>
 </ul>
-<a name="toCollection-c41.lambda.function.IFunction-">
+<a name="skip-int-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>toCollection</h4>
-<pre>default&nbsp;&lt;TCollection extends java.util.Collection&lt;<a href="../../../c41/utility/linq/IEnumerable.html" title="IEnumerable中的类型参数">T</a>&gt;&gt;&nbsp;TCollection&nbsp;toCollection(<a href="../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;TCollection&gt;&nbsp;provider)</pre>
-<div class="block">将所有元素以Collection的形式返回，元素被加入的顺序与迭代器的顺序一致。</div>
+<h4>skip</h4>
+<pre>default&nbsp;<a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.linq中的接口">IEnumerable</a>&lt;<a href="../../../c41/utility/linq/IEnumerable.html" title="IEnumerable中的类型参数">T</a>&gt;&nbsp;skip(int&nbsp;n)</pre>
+<div class="block">跳过前n个元素。</div>
 <dl>
-<dt><span class="paramLabel">类型参数:</span></dt>
-<dd><code>TCollection</code> - 集合类型</dd>
 <dt><span class="paramLabel">参数:</span></dt>
-<dd><code>provider</code> - 创建Collection</dd>
+<dd><code>n</code> - 跳过的元素个数</dd>
 <dt><span class="returnLabel">返回:</span></dt>
-<dd>collection</dd>
+<dd>跳过后的查询</dd>
 </dl>
 </li>
 </ul>
@@ -365,45 +389,17 @@ extends java.lang.Iterable&lt;T&gt;</pre>
 </dl>
 </li>
 </ul>
-<a name="toShort--">
+<a name="toDouble--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>toShort</h4>
-<pre>default&nbsp;<a href="../../../c41/utility/linq/IShortEnumerable.html" title="c41.utility.linq中的接口">IShortEnumerable</a>&nbsp;toShort()</pre>
-<div class="block">将元素转换为short。</div>
+<h4>toDouble</h4>
+<pre>default&nbsp;<a href="../../../c41/utility/linq/IDoubleEnumerable.html" title="c41.utility.linq中的接口">IDoubleEnumerable</a>&nbsp;toDouble()</pre>
+<div class="block">将元素转换为double。</div>
 <dl>
 <dt><span class="returnLabel">返回:</span></dt>
-<dd>IShortEnumerable</dd>
-</dl>
-</li>
-</ul>
-<a name="toInt--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>toInt</h4>
-<pre>default&nbsp;<a href="../../../c41/utility/linq/IIntEnumerable.html" title="c41.utility.linq中的接口">IIntEnumerable</a>&nbsp;toInt()</pre>
-<div class="block">将元素转换为int。</div>
-<dl>
-<dt><span class="returnLabel">返回:</span></dt>
-<dd>IIntEnumerable</dd>
-</dl>
-</li>
-</ul>
-<a name="toLong--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>toLong</h4>
-<pre>default&nbsp;<a href="../../../c41/utility/linq/ILongEnumerable.html" title="c41.utility.linq中的接口">ILongEnumerable</a>&nbsp;toLong()</pre>
-<div class="block">将元素转换为long。</div>
-<dl>
-<dt><span class="returnLabel">返回:</span></dt>
-<dd>ILongEnumerable</dd>
+<dd>IDoubleEnumerable</dd>
 </dl>
 </li>
 </ul>
@@ -421,17 +417,17 @@ extends java.lang.Iterable&lt;T&gt;</pre>
 </dl>
 </li>
 </ul>
-<a name="toDouble--">
+<a name="toInt--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>toDouble</h4>
-<pre>default&nbsp;<a href="../../../c41/utility/linq/IDoubleEnumerable.html" title="c41.utility.linq中的接口">IDoubleEnumerable</a>&nbsp;toDouble()</pre>
-<div class="block">将元素转换为double。</div>
+<h4>toInt</h4>
+<pre>default&nbsp;<a href="../../../c41/utility/linq/IIntEnumerable.html" title="c41.utility.linq中的接口">IIntEnumerable</a>&nbsp;toInt()</pre>
+<div class="block">将元素转换为int。</div>
 <dl>
 <dt><span class="returnLabel">返回:</span></dt>
-<dd>IDoubleEnumerable</dd>
+<dd>IIntEnumerable</dd>
 </dl>
 </li>
 </ul>
@@ -449,10 +445,24 @@ extends java.lang.Iterable&lt;T&gt;</pre>
 </dl>
 </li>
 </ul>
+<a name="toLong--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>toLong</h4>
+<pre>default&nbsp;<a href="../../../c41/utility/linq/ILongEnumerable.html" title="c41.utility.linq中的接口">ILongEnumerable</a>&nbsp;toLong()</pre>
+<div class="block">将元素转换为long。</div>
+<dl>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>ILongEnumerable</dd>
+</dl>
+</li>
+</ul>
 <a name="toSet--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>toSet</h4>
 <pre>default&nbsp;java.util.Set&lt;<a href="../../../c41/utility/linq/IEnumerable.html" title="IEnumerable中的类型参数">T</a>&gt;&nbsp;toSet()</pre>
@@ -460,6 +470,20 @@ extends java.lang.Iterable&lt;T&gt;</pre>
 <dl>
 <dt><span class="returnLabel">返回:</span></dt>
 <dd>Set</dd>
+</dl>
+</li>
+</ul>
+<a name="toShort--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>toShort</h4>
+<pre>default&nbsp;<a href="../../../c41/utility/linq/IShortEnumerable.html" title="c41.utility.linq中的接口">IShortEnumerable</a>&nbsp;toShort()</pre>
+<div class="block">将元素转换为short。</div>
+<dl>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>IShortEnumerable</dd>
 </dl>
 </li>
 </ul>

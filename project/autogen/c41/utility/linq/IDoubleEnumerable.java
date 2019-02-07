@@ -82,7 +82,7 @@ public interface IDoubleEnumerable extends IEnumerable<Double>{
 	 * @return 第一个重复元素
 	 * @exception NoSuchElementException 如果不存在元素
 	 */
-	public default double firstDuplicate(){
+	public default double firstDuplicateElement(){
 		DoubleHashSet set = new DoubleHashSet();
 		
 		IDoubleEnumerator enumerator = iterator();
@@ -99,8 +99,8 @@ public interface IDoubleEnumerable extends IEnumerable<Double>{
 	 * 返回第一个重复元素。如果不存在，则返回0。
 	 * @return 第一个重复元素或0。
 	 */
-	public default double firstDuplicateOrDefault(){
-		return firstDuplicateOrDefault(0.0);
+	public default double firstDuplicateElementOrDefault(){
+		return firstDuplicateElementOrDefault(0.0);
 	}
 	
 	/**
@@ -108,7 +108,7 @@ public interface IDoubleEnumerable extends IEnumerable<Double>{
 	 * @param def 默认值
 	 * @return 第一个重复元素或默认值。
 	 */
-	public default double firstDuplicateOrDefault(double def){
+	public default double firstDuplicateElementOrDefault(double def){
 		DoubleHashSet set = new DoubleHashSet();
 		
 		IDoubleEnumerator enumerator = iterator();
@@ -262,10 +262,10 @@ public interface IDoubleEnumerable extends IEnumerable<Double>{
 	 * 所有元素都满足谓词。
 	 * @param predicate 谓词
 	 * @return 如果所有元素都满足谓词，则返回true
-	 * @see IReferenceEnumerable#isAll(IPredicate)
-	 * @see ICharEnumerable#isAll(ICharPredicate)
+	 * @see IReferenceEnumerable#all(IPredicate)
+	 * @see ICharEnumerable#all(ICharPredicate)
 	 */
-	public default boolean isAll(IDoublePredicate predicate) {
+	public default boolean all(IDoublePredicate predicate) {
 		Arguments.isNotNull(predicate);
 		
 		IDoubleEnumerator enumerator = iterator();
@@ -283,7 +283,7 @@ public interface IDoubleEnumerable extends IEnumerable<Double>{
 	 * @param predicate 谓词
 	 * @return 如果存在，则返回true
 	 */
-	public default boolean isExist(IDoublePredicate predicate) {
+	public default boolean existsIf(IDoublePredicate predicate) {
 		Arguments.isNotNull(predicate);
 		
 		IDoubleEnumerator enumerator = iterator();
@@ -301,7 +301,7 @@ public interface IDoubleEnumerable extends IEnumerable<Double>{
 	 * @param value 值
 	 * @return 如果存在，则返回true
 	 */
-	public default boolean isExist(double value) {
+	public default boolean exists(double value) {
 		IDoubleEnumerator enumerator = iterator();
 		while(enumerator.hasNext()) {
 			double val = enumerator.nextDouble();
@@ -317,7 +317,7 @@ public interface IDoubleEnumerable extends IEnumerable<Double>{
 	 * @param predicate 谓词
 	 * @return 如果非所有元素都满足谓词，返回true
 	 */
-	public default boolean isNotAll(IDoublePredicate predicate) {
+	public default boolean notAll(IDoublePredicate predicate) {
 		Arguments.isNotNull(predicate);
 		
 		IDoubleEnumerator enumerator = iterator();
@@ -335,6 +335,7 @@ public interface IDoubleEnumerable extends IEnumerable<Double>{
 	 * @param n 跳过的元素个数
 	 * @return 跳过后的查询
 	 */
+	@Override
 	public default IDoubleEnumerable skip(int n){
 		return new DoubleSkipEnumerable(this, n);
 	}

@@ -81,7 +81,7 @@ public interface ICharEnumerable extends IEnumerable<Character>{
 	 * @return 第一个重复元素
 	 * @exception NoSuchElementException 如果不存在元素
 	 */
-	public default char firstDuplicate(){
+	public default char firstDuplicateElement(){
 		CharHashSet set = new CharHashSet();
 		
 		ICharEnumerator enumerator = iterator();
@@ -98,8 +98,8 @@ public interface ICharEnumerable extends IEnumerable<Character>{
 	 * 返回第一个重复元素。如果不存在，则返回0。
 	 * @return 第一个重复元素或0。
 	 */
-	public default char firstDuplicateOrDefault(){
-		return firstDuplicateOrDefault((char)0);
+	public default char firstDuplicateElementOrDefault(){
+		return firstDuplicateElementOrDefault((char)0);
 	}
 	
 	/**
@@ -107,7 +107,7 @@ public interface ICharEnumerable extends IEnumerable<Character>{
 	 * @param def 默认值
 	 * @return 第一个重复元素或默认值。
 	 */
-	public default char firstDuplicateOrDefault(char def){
+	public default char firstDuplicateElementOrDefault(char def){
 		CharHashSet set = new CharHashSet();
 		
 		ICharEnumerator enumerator = iterator();
@@ -241,10 +241,10 @@ public interface ICharEnumerable extends IEnumerable<Character>{
 	 * 所有元素都满足谓词。
 	 * @param predicate 谓词
 	 * @return 如果所有元素都满足谓词，则返回true
-	 * @see IReferenceEnumerable#isAll(IPredicate)
-	 * @see ICharEnumerable#isAll(ICharPredicate)
+	 * @see IReferenceEnumerable#all(IPredicate)
+	 * @see ICharEnumerable#all(ICharPredicate)
 	 */
-	public default boolean isAll(ICharPredicate predicate) {
+	public default boolean all(ICharPredicate predicate) {
 		Arguments.isNotNull(predicate);
 		
 		ICharEnumerator enumerator = iterator();
@@ -262,7 +262,7 @@ public interface ICharEnumerable extends IEnumerable<Character>{
 	 * @param predicate 谓词
 	 * @return 如果存在，则返回true
 	 */
-	public default boolean isExist(ICharPredicate predicate) {
+	public default boolean existsIf(ICharPredicate predicate) {
 		Arguments.isNotNull(predicate);
 		
 		ICharEnumerator enumerator = iterator();
@@ -280,7 +280,7 @@ public interface ICharEnumerable extends IEnumerable<Character>{
 	 * @param value 值
 	 * @return 如果存在，则返回true
 	 */
-	public default boolean isExist(char value) {
+	public default boolean exists(char value) {
 		ICharEnumerator enumerator = iterator();
 		while(enumerator.hasNext()) {
 			char val = enumerator.nextChar();
@@ -296,7 +296,7 @@ public interface ICharEnumerable extends IEnumerable<Character>{
 	 * @param predicate 谓词
 	 * @return 如果非所有元素都满足谓词，返回true
 	 */
-	public default boolean isNotAll(ICharPredicate predicate) {
+	public default boolean notAll(ICharPredicate predicate) {
 		Arguments.isNotNull(predicate);
 		
 		ICharEnumerator enumerator = iterator();
@@ -314,6 +314,7 @@ public interface ICharEnumerable extends IEnumerable<Character>{
 	 * @param n 跳过的元素个数
 	 * @return 跳过后的查询
 	 */
+	@Override
 	public default ICharEnumerable skip(int n){
 		return new CharSkipEnumerable(this, n);
 	}

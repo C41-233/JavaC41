@@ -81,7 +81,7 @@ public interface IShortEnumerable extends IEnumerable<Short>{
 	 * @return 第一个重复元素
 	 * @exception NoSuchElementException 如果不存在元素
 	 */
-	public default short firstDuplicate(){
+	public default short firstDuplicateElement(){
 		ShortHashSet set = new ShortHashSet();
 		
 		IShortEnumerator enumerator = iterator();
@@ -98,8 +98,8 @@ public interface IShortEnumerable extends IEnumerable<Short>{
 	 * 返回第一个重复元素。如果不存在，则返回0。
 	 * @return 第一个重复元素或0。
 	 */
-	public default short firstDuplicateOrDefault(){
-		return firstDuplicateOrDefault((short)0);
+	public default short firstDuplicateElementOrDefault(){
+		return firstDuplicateElementOrDefault((short)0);
 	}
 	
 	/**
@@ -107,7 +107,7 @@ public interface IShortEnumerable extends IEnumerable<Short>{
 	 * @param def 默认值
 	 * @return 第一个重复元素或默认值。
 	 */
-	public default short firstDuplicateOrDefault(short def){
+	public default short firstDuplicateElementOrDefault(short def){
 		ShortHashSet set = new ShortHashSet();
 		
 		IShortEnumerator enumerator = iterator();
@@ -241,10 +241,10 @@ public interface IShortEnumerable extends IEnumerable<Short>{
 	 * 所有元素都满足谓词。
 	 * @param predicate 谓词
 	 * @return 如果所有元素都满足谓词，则返回true
-	 * @see IReferenceEnumerable#isAll(IPredicate)
-	 * @see ICharEnumerable#isAll(ICharPredicate)
+	 * @see IReferenceEnumerable#all(IPredicate)
+	 * @see ICharEnumerable#all(ICharPredicate)
 	 */
-	public default boolean isAll(IShortPredicate predicate) {
+	public default boolean all(IShortPredicate predicate) {
 		Arguments.isNotNull(predicate);
 		
 		IShortEnumerator enumerator = iterator();
@@ -262,7 +262,7 @@ public interface IShortEnumerable extends IEnumerable<Short>{
 	 * @param predicate 谓词
 	 * @return 如果存在，则返回true
 	 */
-	public default boolean isExist(IShortPredicate predicate) {
+	public default boolean existsIf(IShortPredicate predicate) {
 		Arguments.isNotNull(predicate);
 		
 		IShortEnumerator enumerator = iterator();
@@ -280,7 +280,7 @@ public interface IShortEnumerable extends IEnumerable<Short>{
 	 * @param value 值
 	 * @return 如果存在，则返回true
 	 */
-	public default boolean isExist(short value) {
+	public default boolean exists(short value) {
 		IShortEnumerator enumerator = iterator();
 		while(enumerator.hasNext()) {
 			short val = enumerator.nextShort();
@@ -296,7 +296,7 @@ public interface IShortEnumerable extends IEnumerable<Short>{
 	 * @param predicate 谓词
 	 * @return 如果非所有元素都满足谓词，返回true
 	 */
-	public default boolean isNotAll(IShortPredicate predicate) {
+	public default boolean notAll(IShortPredicate predicate) {
 		Arguments.isNotNull(predicate);
 		
 		IShortEnumerator enumerator = iterator();
@@ -314,6 +314,7 @@ public interface IShortEnumerable extends IEnumerable<Short>{
 	 * @param n 跳过的元素个数
 	 * @return 跳过后的查询
 	 */
+	@Override
 	public default IShortEnumerable skip(int n){
 		return new ShortSkipEnumerable(this, n);
 	}

@@ -82,7 +82,7 @@ public interface IFloatEnumerable extends IEnumerable<Float>{
 	 * @return 第一个重复元素
 	 * @exception NoSuchElementException 如果不存在元素
 	 */
-	public default float firstDuplicate(){
+	public default float firstDuplicateElement(){
 		FloatHashSet set = new FloatHashSet();
 		
 		IFloatEnumerator enumerator = iterator();
@@ -99,8 +99,8 @@ public interface IFloatEnumerable extends IEnumerable<Float>{
 	 * 返回第一个重复元素。如果不存在，则返回0。
 	 * @return 第一个重复元素或0。
 	 */
-	public default float firstDuplicateOrDefault(){
-		return firstDuplicateOrDefault(0.0F);
+	public default float firstDuplicateElementOrDefault(){
+		return firstDuplicateElementOrDefault(0.0F);
 	}
 	
 	/**
@@ -108,7 +108,7 @@ public interface IFloatEnumerable extends IEnumerable<Float>{
 	 * @param def 默认值
 	 * @return 第一个重复元素或默认值。
 	 */
-	public default float firstDuplicateOrDefault(float def){
+	public default float firstDuplicateElementOrDefault(float def){
 		FloatHashSet set = new FloatHashSet();
 		
 		IFloatEnumerator enumerator = iterator();
@@ -262,10 +262,10 @@ public interface IFloatEnumerable extends IEnumerable<Float>{
 	 * 所有元素都满足谓词。
 	 * @param predicate 谓词
 	 * @return 如果所有元素都满足谓词，则返回true
-	 * @see IReferenceEnumerable#isAll(IPredicate)
-	 * @see ICharEnumerable#isAll(ICharPredicate)
+	 * @see IReferenceEnumerable#all(IPredicate)
+	 * @see ICharEnumerable#all(ICharPredicate)
 	 */
-	public default boolean isAll(IFloatPredicate predicate) {
+	public default boolean all(IFloatPredicate predicate) {
 		Arguments.isNotNull(predicate);
 		
 		IFloatEnumerator enumerator = iterator();
@@ -283,7 +283,7 @@ public interface IFloatEnumerable extends IEnumerable<Float>{
 	 * @param predicate 谓词
 	 * @return 如果存在，则返回true
 	 */
-	public default boolean isExist(IFloatPredicate predicate) {
+	public default boolean existsIf(IFloatPredicate predicate) {
 		Arguments.isNotNull(predicate);
 		
 		IFloatEnumerator enumerator = iterator();
@@ -301,7 +301,7 @@ public interface IFloatEnumerable extends IEnumerable<Float>{
 	 * @param value 值
 	 * @return 如果存在，则返回true
 	 */
-	public default boolean isExist(float value) {
+	public default boolean exists(float value) {
 		IFloatEnumerator enumerator = iterator();
 		while(enumerator.hasNext()) {
 			float val = enumerator.nextFloat();
@@ -317,7 +317,7 @@ public interface IFloatEnumerable extends IEnumerable<Float>{
 	 * @param predicate 谓词
 	 * @return 如果非所有元素都满足谓词，返回true
 	 */
-	public default boolean isNotAll(IFloatPredicate predicate) {
+	public default boolean notAll(IFloatPredicate predicate) {
 		Arguments.isNotNull(predicate);
 		
 		IFloatEnumerator enumerator = iterator();
@@ -335,6 +335,7 @@ public interface IFloatEnumerable extends IEnumerable<Float>{
 	 * @param n 跳过的元素个数
 	 * @return 跳过后的查询
 	 */
+	@Override
 	public default IFloatEnumerable skip(int n){
 		return new FloatSkipEnumerable(this, n);
 	}

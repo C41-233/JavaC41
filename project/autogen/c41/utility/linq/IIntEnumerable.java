@@ -81,7 +81,7 @@ public interface IIntEnumerable extends IEnumerable<Integer>{
 	 * @return 第一个重复元素
 	 * @exception NoSuchElementException 如果不存在元素
 	 */
-	public default int firstDuplicate(){
+	public default int firstDuplicateElement(){
 		IntHashSet set = new IntHashSet();
 		
 		IIntEnumerator enumerator = iterator();
@@ -98,8 +98,8 @@ public interface IIntEnumerable extends IEnumerable<Integer>{
 	 * 返回第一个重复元素。如果不存在，则返回0。
 	 * @return 第一个重复元素或0。
 	 */
-	public default int firstDuplicateOrDefault(){
-		return firstDuplicateOrDefault(0);
+	public default int firstDuplicateElementOrDefault(){
+		return firstDuplicateElementOrDefault(0);
 	}
 	
 	/**
@@ -107,7 +107,7 @@ public interface IIntEnumerable extends IEnumerable<Integer>{
 	 * @param def 默认值
 	 * @return 第一个重复元素或默认值。
 	 */
-	public default int firstDuplicateOrDefault(int def){
+	public default int firstDuplicateElementOrDefault(int def){
 		IntHashSet set = new IntHashSet();
 		
 		IIntEnumerator enumerator = iterator();
@@ -241,10 +241,10 @@ public interface IIntEnumerable extends IEnumerable<Integer>{
 	 * 所有元素都满足谓词。
 	 * @param predicate 谓词
 	 * @return 如果所有元素都满足谓词，则返回true
-	 * @see IReferenceEnumerable#isAll(IPredicate)
-	 * @see ICharEnumerable#isAll(ICharPredicate)
+	 * @see IReferenceEnumerable#all(IPredicate)
+	 * @see ICharEnumerable#all(ICharPredicate)
 	 */
-	public default boolean isAll(IIntPredicate predicate) {
+	public default boolean all(IIntPredicate predicate) {
 		Arguments.isNotNull(predicate);
 		
 		IIntEnumerator enumerator = iterator();
@@ -262,7 +262,7 @@ public interface IIntEnumerable extends IEnumerable<Integer>{
 	 * @param predicate 谓词
 	 * @return 如果存在，则返回true
 	 */
-	public default boolean isExist(IIntPredicate predicate) {
+	public default boolean existsIf(IIntPredicate predicate) {
 		Arguments.isNotNull(predicate);
 		
 		IIntEnumerator enumerator = iterator();
@@ -280,7 +280,7 @@ public interface IIntEnumerable extends IEnumerable<Integer>{
 	 * @param value 值
 	 * @return 如果存在，则返回true
 	 */
-	public default boolean isExist(int value) {
+	public default boolean exists(int value) {
 		IIntEnumerator enumerator = iterator();
 		while(enumerator.hasNext()) {
 			int val = enumerator.nextInt();
@@ -296,7 +296,7 @@ public interface IIntEnumerable extends IEnumerable<Integer>{
 	 * @param predicate 谓词
 	 * @return 如果非所有元素都满足谓词，返回true
 	 */
-	public default boolean isNotAll(IIntPredicate predicate) {
+	public default boolean notAll(IIntPredicate predicate) {
 		Arguments.isNotNull(predicate);
 		
 		IIntEnumerator enumerator = iterator();
@@ -314,6 +314,7 @@ public interface IIntEnumerable extends IEnumerable<Integer>{
 	 * @param n 跳过的元素个数
 	 * @return 跳过后的查询
 	 */
+	@Override
 	public default IIntEnumerable skip(int n){
 		return new IntSkipEnumerable(this, n);
 	}

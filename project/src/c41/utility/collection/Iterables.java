@@ -24,11 +24,23 @@ public final class Iterables {
 		throw new StaticClassException();
 	}
 	
+	/**
+	 * 所有元素都满足谓词。
+	 * @param <T> 泛型参数
+	 * @param iterable 容器
+	 * @param predicate 谓词
+	 * @return 如果所有元素都满足谓词，则返回true
+	 */
+	public static <T> boolean all(Iterable<T> iterable, IPredicate<? super T> predicate) {
+		Arguments.isNotNull(iterable);
+		return Iterators.all(iterable.iterator(), predicate);
+	}
+	
 	public static <T> T at(Iterable<T> iterable, int index) {
 		Arguments.isNotNull(iterable);
 		return Iterators.at(iterable.iterator(), index);
 	}
-	
+
 	public static int count(Iterable<?> iterable) {
 		Arguments.isNotNull(iterable);
 		return Iterators.count(iterable.iterator());
@@ -49,21 +61,48 @@ public final class Iterables {
 		return Iterators.equals(iterable1.iterator(), iterable2.iterator());
 	}
 
+	public static boolean exists(Iterable<?> iterable, Object value) {
+		Arguments.isNotNull(iterable);
+		return Iterators.exists(iterable.iterator(), value);
+	}
+	
+	/**
+	 * 存在满足谓词的元素。
+	 * @param <T> 泛型参数
+	 * @param iterable 容器
+	 * @param predicate 谓词
+	 * @return 如果存在，则返回true
+	 */
+	public static <T> boolean existsIf(Iterable<T> iterable, IPredicate<? super T> predicate) {
+		Arguments.isNotNull(iterable);
+		return Iterators.existsIf(iterable.iterator(), predicate);
+	}
+
+	public static boolean existsReference(Iterable<?> iterable, Object value) {
+		Arguments.isNotNull(iterable);
+		return Iterators.existsReference(iterable.iterator(), value);
+	}
+	
+	public static <T, TCollection extends Collection<T>> TCollection fillCollection(Iterable<T> iterable, TCollection collection) {
+		Arguments.isNotNull(iterable);
+		return Iterators.fillCollection(iterable.iterator(), collection);
+	}
+
 	public static <T> T first(Iterable<T> iterable) {
 		Arguments.isNotNull(iterable);
 		return Iterators.first(iterable.iterator());
 	}
-
+	
 	public static <T> T firstDuplicate(Iterable<T> iterable) {
 		Arguments.isNotNull(iterable);
 		return Iterators.firstDuplicate(iterable.iterator());
 	}
-	
+
 	public static <T> T firstDuplicateOrCreateDefault(Iterable<T> iterable, IFunction<? extends T> defProvider){
 		Arguments.isNotNull(iterable);
 		return Iterators.firstDuplicateOrCreateDefault(iterable.iterator(), defProvider);
 	}
-
+	
 	public static <T> T firstDuplicateOrDefault(Iterable<T> iterable) {
 		Arguments.isNotNull(iterable);
 		return Iterators.firstDuplicateOrDefault(iterable.iterator());
@@ -78,7 +117,7 @@ public final class Iterables {
 		Arguments.isNotNull(iterable);
 		return Iterators.fisrtIf(iterable.iterator(), predicate);
 	}
-	
+
 	public static <T> int firstIndexIf(Iterable<T> iterable, IPredicate<? super T> predicate) {
 		Arguments.isNotNull(iterable);
 		return Iterators.firstIndexIf(iterable.iterator(), predicate);
@@ -88,7 +127,7 @@ public final class Iterables {
 		Arguments.isNotNull(iterable);
 		return Iterators.firstIndexOf(iterable.iterator(), value);
 	}
-	
+
 	public static <T> T firstOrCreateDefaultIf(Iterable<T> iterable, IPredicate<? super T> predicate, IFunction<? extends T> defProvider) {
 		Arguments.isNotNull(iterable);
 		return Iterators.firstOrCreateDefaultIf(iterable.iterator(), predicate, defProvider);
@@ -98,17 +137,17 @@ public final class Iterables {
 		Arguments.isNotNull(iterable);
 		return Iterators.firstOrDefaultIf(iterable.iterator(), predicate);
 	}
-
+	
 	public static <T> T firstOrDefaultIf(Iterable<T> iterable, IPredicate<? super T> predicate, T def) {
 		Arguments.isNotNull(iterable);
 		return Iterators.firstOrDefaultIf(iterable.iterator(), predicate, def);
 	}
-
+	
 	public static <T> int firstReferenceIndexOf(Iterable<T> iterable, T value) {
 		Arguments.isNotNull(iterable);
 		return Iterators.firstReferenceIndexOf(iterable.iterator(), value);
 	}
-
+	
 	/**
 	 * 对每个元素执行操作。
 	 * @param <T> 泛型参数
@@ -120,7 +159,7 @@ public final class Iterables {
 		Arguments.isNotNull(iterable);
 		return Iterators.foreach(iterable.iterator(), action);
 	}
-
+	
 	/**
 	 * 对每个元素执行操作。
 	 * @param <T> 泛型参数
@@ -144,7 +183,7 @@ public final class Iterables {
 		Arguments.isNotNull(iterable);
 		return Iterators.foreach2(iterable.iterator(), function);
 	}
-	
+
 	/**
 	 * 对每个元素执行操作。
 	 * @param <T> 泛型参数
@@ -156,61 +195,15 @@ public final class Iterables {
 		Arguments.isNotNull(iterable);
 		return Iterators.foreach2(iterable.iterator(), function);
 	}
-	
-	public static boolean hasDuplicate(Iterable<?> iterable) {
+
+	public static boolean hasDuplicateElement(Iterable<?> iterable) {
 		Arguments.isNotNull(iterable);
 		return Iterators.hasDuplicate(iterable.iterator());
 	}
-	
-	/**
-	 * 所有元素都满足谓词。
-	 * @param <T> 泛型参数
-	 * @param iterable 容器
-	 * @param predicate 谓词
-	 * @return 如果所有元素都满足谓词，则返回true
-	 */
-	public static <T> boolean isAll(Iterable<T> iterable, IPredicate<? super T> predicate) {
-		Arguments.isNotNull(iterable);
-		return Iterators.isAll(iterable.iterator(), predicate);
-	}
-	
+
 	public static boolean isEmpty(Iterable<?> iterable) {
 		Arguments.isNotNull(iterable);
 		return Iterators.isEmpty(iterable.iterator());
-	}
-	
-	public static boolean isExist(Iterable<?> iterable, Object value) {
-		Arguments.isNotNull(iterable);
-		return Iterators.isExist(iterable.iterator(), value);
-	}
-
-	/**
-	 * 存在满足谓词的元素。
-	 * @param <T> 泛型参数
-	 * @param iterable 容器
-	 * @param predicate 谓词
-	 * @return 如果存在，则返回true
-	 */
-	public static <T> boolean isExist(Iterable<T> iterable, IPredicate<? super T> predicate) {
-		Arguments.isNotNull(iterable);
-		return Iterators.isExist(iterable.iterator(), predicate);
-	}
-
-	public static boolean isExistReference(Iterable<?> iterable, Object value) {
-		Arguments.isNotNull(iterable);
-		return Iterators.isExistReference(iterable.iterator(), value);
-	}
-
-	/**
-	 * 非所有元素都满足谓词。
-	 * @param <T> 泛型参数
-	 * @param iterable 容器
-	 * @param predicate 谓词
-	 * @return 如果非所有元素都满足谓词，返回true
-	 */
-	public static <T> boolean isNotAll(Iterable<T> iterable, IPredicate<? super T> predicate) {
-		Arguments.isNotNull(iterable);
-		return Iterators.isNotAll(iterable.iterator(), predicate);
 	}
 
 	public static boolean isNotEmpty(Iterable<?> iterable) {
@@ -218,24 +211,36 @@ public final class Iterables {
 		return Iterators.isNotEmpty(iterable.iterator());
 	}
 	
-	public static boolean isNotExist(Iterable<?> iterable, Object value) {
+	/**
+	 * 非所有元素都满足谓词。
+	 * @param <T> 泛型参数
+	 * @param iterable 容器
+	 * @param predicate 谓词
+	 * @return 如果非所有元素都满足谓词，返回true
+	 */
+	public static <T> boolean notAll(Iterable<T> iterable, IPredicate<? super T> predicate) {
+		Arguments.isNotNull(iterable);
+		return Iterators.notAll(iterable.iterator(), predicate);
+	}
+	
+	public static boolean notExists(Iterable<?> iterable, Object value) {
 		Arguments.isNotNull(iterable);
 		return Iterators.isNotExist(iterable.iterator(), value);
 	}
 	
-	public static <T> boolean isNotExist(Iterable<T> iterable, IPredicate<? super T> predicate) {
+	public static boolean notExistsAnyOf(Iterable<?> iterable, Object...values) {
 		Arguments.isNotNull(iterable);
-		return Iterators.isNotExist(iterable.iterator(), predicate);
+		return Iterators.notExistsAnyOf(iterable.iterator(), values);
 	}
 	
-	public static boolean isNotExistAnyOf(Iterable<?> iterable, Object...values) {
+	public static <T> boolean notExistsIf(Iterable<T> iterable, IPredicate<? super T> predicate) {
 		Arguments.isNotNull(iterable);
-		return Iterators.isNotExistAnyOf(iterable.iterator(), values);
+		return Iterators.notExistsIf(iterable.iterator(), predicate);
 	}
 	
-	public static boolean isNotExistReference(Iterable<?> iterable, Object value) {
+	public static boolean notExistsReference(Iterable<?> iterable, Object value) {
 		Arguments.isNotNull(iterable);
-		return Iterators.isNotExistReference(iterable.iterator(), value);
+		return Iterators.notExistsReference(iterable.iterator(), value);
 	}
 	
 	public static <T> Iterable<T> of(T[] array){
@@ -257,15 +262,10 @@ public final class Iterables {
 		Arguments.isNotNull(iterable);
 		return Iterators.toArray(iterable.iterator(), cl);
 	}
-	
+
 	public static <T> T[] toArray(Iterable<T> iterable, T[] array) {
 		Arguments.isNotNull(iterable);
 		return Iterators.toArray(iterable.iterator(), array);
-	}
-	
-	public static <T, TCollection extends Collection<T>> TCollection toCollection(Iterable<T> iterable, IFunction<TCollection> provider) {
-		Arguments.isNotNull(iterable);
-		return Iterators.toCollection(iterable.iterator(), provider);
 	}
 
 	public static <T> List<T> toList(Iterable<T> iterable){
