@@ -5,20 +5,28 @@ import java.util.Iterator;
 import c41.core.assertion.Arguments;
 import c41.lambda.function.IJoiner;
 import c41.utility.linq.enumerator.IEnumerator;
+import c41.utility.linq.enumerator.ReferenceEnumeratorBase;
 
+/**
+ * 笛卡尔积。
+ *
+ * @param <T> 类型1
+ * @param <U> 类型2
+ * @param <V> 合并类型
+ */
 class ReferenceJoinEnumerable<T, U, V> implements IReferenceEnumerable<V>{
 
-	private final Iterable<T> source1;
-	private final Iterable<U> source2;
+	private final Iterable<T> iterable1;
+	private final Iterable<U> iterable2;
 	private final IJoiner<T, U, V> joiner;
 	
-	public ReferenceJoinEnumerable(Iterable<T> source1, Iterable<U> source2, IJoiner<T, U, V> joiner) {
-		Arguments.isNotNull(source1);
-		Arguments.isNotNull(source2);
+	public ReferenceJoinEnumerable(Iterable<T> iterable1, Iterable<U> iterable2, IJoiner<T, U, V> joiner) {
+		Arguments.isNotNull(iterable1);
+		Arguments.isNotNull(iterable2);
 		Arguments.isNotNull(joiner);
 		
-		this.source1 = source1;
-		this.source2 = source2;
+		this.iterable1 = iterable1;
+		this.iterable2 = iterable2;
 		this.joiner = joiner;
 	}
 	
@@ -29,50 +37,42 @@ class ReferenceJoinEnumerable<T, U, V> implements IReferenceEnumerable<V>{
 
 	private final class Enumerator extends ReferenceEnumeratorBase<V>{
 
-		private final Iterator<T> data1 = source1.iterator();
-		private Iterator<U> data2 = source2.iterator();
+		private final Iterator<T> iterator1 = iterable1.iterator();
+		private Iterator<U> iterator2 = iterable2.iterator();
 		
 		private T t;
-		private V v;
 		
 		private boolean hasT;
 		
 		@Override
 		public boolean hasNext() {
-			if(hasT == false && data1.hasNext() == false) {
+			if(hasT == false && iterator1.hasNext() == false) {
 				return false;
 			}
 			
-			if(data2.hasNext()) {
+			if(iterator2.hasNext() == true) {
 				return true;
 				
 			}
-			if(data1.hasNext() == false) {
+			if(iterator1.hasNext() == false) {
 				return false;
 			}
 			
-			data2 = source2.iterator();
+			iterator2 = iterable2.iterator();
 			t = null;
 			hasT = false;
-			return data2.hasNext();
+			return iterator2.hasNext();
 		}
 
 		@Override
-		public void doMoveNext() {
+		public V doNext() {
 			if(hasT == false) {
-				t = data1.next();
+				t = iterator1.next();
 				hasT = true;
 			}
-			if(data2.hasNext() == false) {
-				t = data1.next();
-				data2 = source2.iterator();
-			}
-			U u = data2.next();
-			v = joiner.join(t, u);
-		}
-
-		@Override
-		public V doCurrent() {
+			
+			U u = iterator2.next();
+			V v = joiner.join(t, u);
 			return v;
 		}
 		

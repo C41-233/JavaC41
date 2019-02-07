@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 import c41.core.assertion.Arguments;
+import c41.utility.linq.enumerator.ReferenceEnumeratorBase;
 
 class ReferenceThenByEnumerable<T> extends ReferenceSortedEnumerableBase<T>{
 
@@ -11,6 +12,9 @@ class ReferenceThenByEnumerable<T> extends ReferenceSortedEnumerableBase<T>{
 	private final Comparator<? super T> comparator;
 	
 	public ReferenceThenByEnumerable(ReferenceSortedEnumerableBase<T> enumerable, Comparator<? super T> comparator) {
+		Arguments.isNotNull(enumerable);
+		Arguments.isNotNull(comparator);
+		
 		this.enumerable = enumerable;
 		this.comparator = comparator;
 	}
@@ -48,7 +52,7 @@ class ReferenceThenByEnumerable<T> extends ReferenceSortedEnumerableBase<T>{
 		}
 
 		@Override
-		public void doMoveNext() {
+		public T doNext() {
 			if(index >= 0) {
 				list.set(index, null); //gc
 			}
@@ -63,16 +67,13 @@ class ReferenceThenByEnumerable<T> extends ReferenceSortedEnumerableBase<T>{
 				list.sort(comparator);
 				index = 0;
 			}
-		}
-
-		@Override
-		public T doCurrent() {
-			return list.get(index);
+			T current = list.get(index);
+			return current;
 		}
 
 		@Override
 		public boolean hasNextEquals() {
-			return index >=0 && index+1 < list.size() && comparator.compare(current(), list.get(index+1)) == 0;
+			return index >=0 && index+1 < list.size() && comparator.compare(list.get(index), list.get(index+1)) == 0;
 		}
 		
 	}

@@ -3,6 +3,7 @@ package c41.utility.linq;
 import c41.core.assertion.Arguments;
 import c41.lambda.predicate.IPredicate;
 import c41.utility.linq.enumerator.IEnumerator;
+import c41.utility.linq.enumerator.ReferenceEnumeratorBase;
 
 class ReferenceWhereEnumerable<T> implements IReferenceEnumerable<T>{
 
@@ -26,7 +27,6 @@ class ReferenceWhereEnumerable<T> implements IReferenceEnumerable<T>{
 
 		private final IEnumerator<T> enumerator = enumerable.iterator();
 		
-		private T current;
 		private T next;
 		private boolean hasNext = false;
 		
@@ -47,24 +47,20 @@ class ReferenceWhereEnumerable<T> implements IReferenceEnumerable<T>{
 		}
 
 		@Override
-		public void doMoveNext() {
-			current = next;
+		public T doNext() {
+			T current = next;
 			while(enumerator.hasNext()) {
 				T value = enumerator.next();
 				if(predicate.is(value)) {
 					this.next = value;
-					return;
+					return current;
 				}
 			}
 			this.next = null;
 			hasNext = false;
-		}
-
-		@Override
-		public T doCurrent() {
 			return current;
 		}
-		
+
 	}
 	
 }

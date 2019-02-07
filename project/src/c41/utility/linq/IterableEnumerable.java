@@ -7,7 +7,7 @@ import c41.utility.linq.enumerator.IEnumerator;
 
 class IterableEnumerable<T> implements IReferenceEnumerable<T>{
 	
-	private final Iterable<T> iterable;
+	protected final Iterable<T> iterable;
 	
 	public IterableEnumerable(Iterable<T> iterable) {
 		Arguments.isNotNull(iterable);
@@ -19,11 +19,9 @@ class IterableEnumerable<T> implements IReferenceEnumerable<T>{
 		return new Enumerator();
 	}
 	
-	private final class Enumerator extends ReferenceEnumeratorBase<T>{
+	private final class Enumerator implements IEnumerator<T>{
 
 		private final Iterator<T> iterator = iterable.iterator();
-		
-		private T current;
 		
 		@Override
 		public boolean hasNext() {
@@ -31,15 +29,10 @@ class IterableEnumerable<T> implements IReferenceEnumerable<T>{
 		}
 
 		@Override
-		public void doMoveNext() {
-			current = iterator.next();
+		public T next() {
+			return iterator.next();
 		}
 
-		@Override
-		public T doCurrent() {
-			return current;
-		}
-		
 	}
 	
 }

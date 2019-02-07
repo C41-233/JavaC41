@@ -5,6 +5,7 @@ import java.util.Comparator;
 import c41.core.assertion.Arguments;
 import c41.lambda.selector.ISelector;
 import c41.utility.comparator.Comparators;
+import c41.utility.linq.enumerator.IEnumerator;
 
 /**
  * 引用类型的有序Enumerable。
@@ -25,5 +26,25 @@ public interface IReferenceSortedEnumerable<T> extends IReferenceEnumerable<T>{
 			return Comparators.compare((Comparable)t1, (Comparable)t2);
 		});
 	}
+	
+}
+
+interface IReferenceSortedEnumerator<T> extends IEnumerator<T>{
+
+	public boolean hasNextEquals();
+	
+}
+
+
+abstract class ReferenceSortedEnumerableBase<T> implements IReferenceSortedEnumerable<T>{
+
+	@Override
+	public IReferenceSortedEnumerable<T> thenBy(Comparator<? super T> comparator) {
+		Arguments.isNotNull(comparator);
+		return new ReferenceThenByEnumerable<>(this, comparator);
+	}
+
+	@Override
+	public abstract IReferenceSortedEnumerator<T> iterator();
 	
 }

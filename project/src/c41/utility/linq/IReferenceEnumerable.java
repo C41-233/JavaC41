@@ -188,7 +188,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 		return Iterables.foreach2(this, function);
 	}
 	
-	public default <K> IReferenceGroupEnumerable<K, T> groupBy(ISelector<T, K> selector){
+	public default <K> IReferenceEnumerable<IReferenceGroup<K, T>> groupBy(ISelector<T, K> selector){
 		return new ReferenceGroupByEnumerable<>(this, selector);
 	}
 	
@@ -285,16 +285,34 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	@Override
 	public IEnumerator<T> iterator();
 	
+	/**
+	 * 返回该Enumerable与other的笛卡尔积，针对每一个T和U的组合，生成一个Tuple2
+	 * @param <U> 另一个类型
+	 * @param other 另一个迭代器
+	 * @return 合并后的Enumerable
+	 */
 	public default <U> IReferenceEnumerable<Tuple2<T, U>> join(Iterable<U> other){
 		return new ReferenceJoinEnumerable<>(this, other, (t, u)->Tuples.make(t, u));
 	}
 	
+	/**
+	 * 返回该Enumerable与other的笛卡尔积，针对每一个T和U的组合，生成一个V。
+	 * @param <U> 另一个类型
+	 * @param <V> 返回的类型
+	 * @param other 另一个迭代器
+	 * @param joiner 合并T和U，生成一个V
+	 * @return V的Enumerable
+	 */
 	public default <U, V> IReferenceEnumerable<V> join(Iterable<U> other, IJoiner<T, U, V> joiner){
 		return new ReferenceJoinEnumerable<>(this, other, joiner);
 	}
 
 	public default <U, V> IReferenceEnumerable<V> join(U[] other, IJoiner<T, U, V> joiner){
 		return new ReferenceJoinEnumerable<>(this, new ReferenceArrayEnumerable<>(other), joiner);
+	}
+	
+	public default IEnumerable<T> limit(int n){
+		return new ReferenceLimitEnumerable<>(this, n);
 	}
 	
 	public default IReferenceSortedEnumerable<T> orderBy(Comparator<? super T> comparator){
@@ -304,11 +322,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default <V extends Comparable<? super V>> IReferenceSortedEnumerable<T> orderBy(ISelector<? super T, V> selector){
 		return new ReferenceOrderByEnumerable<>(this, (t1, t2)->Comparators.compare(selector.select(t1), selector.select(t2)));
 	}
-	
-	public default IEnumerable<T> limit(int n){
-		return new ReferenceLimitEnumerable<>(this, n);
-	}
-	
+
 	/**
 	 * 对元素按照条件排序，条件成立的排在前，条件不成立的排在后
 	 * @param predicate 谓词
@@ -330,7 +344,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 			return 0;
 		});
 	}
-	
+
 	/**
 	 * 对元素进行自然排序
 	 * @return 排序后的查询
@@ -344,13 +358,22 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default <V> IReferenceEnumerable<V> select(ISelector<? super T, ? extends V> selector){
 		return new ReferenceSelectEnumerable<>(this, selector);
 	}
-
+	
 	public default <V> IReferenceEnumerable<V> select(ISelectorEx<? super T, ? extends V> selector){
 		return new ReferenceSelectEnumerable<>(this, selector);
 	}
 
 	public default <V> IReferenceEnumerable<V> selectMany(ISelector<? super T, ? extends Iterable<? extends V>> selector){
 		return new ReferenceSelectManyEnumerable<>(this, selector);
+	}
+
+	/**
+	 * 跳过前n个元素。
+	 * @param n 跳过的元素个数
+	 * @return 跳过后的查询
+	 */
+	public default IEnumerable<T> skip(int n){
+		return new ReferenceSkipEnumerable<>(this, n);
 	}
 	
 	/**

@@ -1,0 +1,37 @@
+package c41.utility;
+
+import c41.reflect.StaticClassException;
+
+public final class Convert {
+
+	private Convert() {
+		throw new StaticClassException();
+	}
+
+<#list configs as config>
+<#if config.Primitive != "char">
+<#assign Primitive=config.Primitive>
+<#assign Box=config.Box>
+<#assign Name=config.Name>
+<#assign Method="to${Name}">
+	public static ${Primitive} ${Method}(Object val) {
+		if(val instanceof Number) {
+			return ${Method}((Number)val);
+		}
+		if(val instanceof String) {
+			return ${Method}((String)val);
+		}
+		throw new ClassCastException();
+	}
+	
+	public static ${Primitive} ${Method}(Number val) {
+		return val.${Primitive}Value();
+	}
+	
+	public static ${Primitive} ${Method}(String val) {
+		return ${Box}.parse${Name}(val);
+	}
+</#if>
+</#list>
+	
+}

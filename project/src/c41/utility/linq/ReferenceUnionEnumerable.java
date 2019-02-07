@@ -2,6 +2,7 @@ package c41.utility.linq;
 
 import c41.core.assertion.Arguments;
 import c41.utility.linq.enumerator.IEnumerator;
+import c41.utility.linq.enumerator.ReferenceEnumeratorBase;
 
 class ReferenceUnionEnumerable<T> implements IReferenceEnumerable<T>{
 
@@ -32,6 +33,7 @@ class ReferenceUnionEnumerable<T> implements IReferenceEnumerable<T>{
 				if(enumerator1.hasNext()) {
 					return true;
 				}
+				enumerator1 = null;
 				if(enumerator2 == null) {
 					enumerator2 = enumerable2.iterator();
 				}
@@ -40,28 +42,13 @@ class ReferenceUnionEnumerable<T> implements IReferenceEnumerable<T>{
 		}
 
 		@Override
-		public void doMoveNext() {
+		public T doNext() {
 			if(enumerator1 != null) {
-				if(enumerator1.hasNext()) {
-					enumerator1.moveNext();
-					return;
-				}
-				enumerator1 = null;
+				return enumerator1.next();
 			}
-			if(enumerator2 == null) {
-				enumerator2 = enumerable2.iterator();
-			}
-			enumerator2.moveNext();
+			return enumerator2.next();
 		}
 
-		@Override
-		public T doCurrent() {
-			if(enumerator1 != null) {
-				return enumerator1.current();
-			}
-			return enumerator2.current();
-		}
-		
 	}
 	
 }

@@ -11,7 +11,7 @@ class ReferenceSelectEnumerable<T, V> implements IReferenceEnumerable<V>{
 	private final ISelectorEx<? super T, ? extends V> selector;
 	
 	public ReferenceSelectEnumerable(IEnumerable<T> enumerable, ISelector<? super T, ? extends V> selector) {
-		this(enumerable,  (value, i)->selector.select(value));
+		this(enumerable,  (value, i) -> selector.select(value));
 	}
 	
 	public ReferenceSelectEnumerable(IEnumerable<T> enumerable, ISelectorEx<? super T, ? extends V> selector) {
@@ -38,16 +38,10 @@ class ReferenceSelectEnumerable<T, V> implements IReferenceEnumerable<V>{
 		}
 
 		@Override
-		public void moveNext() {
-			enumerator.moveNext();
-			index++;
+		public V next() {
+			return selector.select(enumerator.next(), ++index);
 		}
 
-		@Override
-		public V current() {
-			return selector.select(enumerator.current(), index);
-		}
-		
 	}
 	
 }

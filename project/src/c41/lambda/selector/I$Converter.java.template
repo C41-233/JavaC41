@@ -1,0 +1,13 @@
+package c41.lambda.selector;
+
+@FunctionalInterface
+public interface I${Name}Converter<T> extends ISelector<T, ${Box}>{
+
+	public ${Primitive} convert(T value);
+	
+	@Override
+	public default ${Box} select(T value) {
+		return convert(value);
+	}
+	
+}

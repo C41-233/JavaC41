@@ -331,6 +331,15 @@ public interface IDoubleEnumerable extends IEnumerable<Double>{
 	}
 	
 	/**
+	 * 跳过前n个元素。
+	 * @param n 跳过的元素个数
+	 * @return 跳过后的查询
+	 */
+	public default IDoubleEnumerable skip(int n){
+		return new DoubleSkipEnumerable(this, n);
+	}
+	
+	/**
 	 * 返回所有元素组成的数组。
 	 * 如果没有元素，则返回空数组。
 	 * @return 数组

@@ -1,0 +1,49 @@
+package c41.utility.linq;
+
+import c41.core.assertion.Arguments;
+import c41.lambda.selector.*;
+import c41.utility.linq.enumerator.*;
+
+<#list configs as config>
+<#assign Name=config.Name>
+<#assign Primitive=config.Primitive>
+<#assign TypeName="Convert${Name}Enumerable">
+<#assign Converter="I${Name}Converter">
+<#assign Enumerator="I${Name}Enumerator">
+class ${TypeName}<T> implements I${Name}Enumerable{
+
+	private final IEnumerable<T> enumerable;
+	private final ${Converter}<T> converter;
+	
+	public ${TypeName}(IEnumerable<T> enumerable, ${Converter}<T> converter) {
+		Arguments.isNotNull(enumerable);
+		Arguments.isNotNull(converter);
+		
+		this.enumerable = enumerable;
+		this.converter = converter;
+	}
+	
+	@Override
+	public ${Enumerator} iterator() {
+		return new Enumerator();
+	}
+	
+	private final class Enumerator implements ${Enumerator}{
+
+		private final IEnumerator<T> enumerator = enumerable.iterator();
+		
+		@Override
+		public boolean hasNext() {
+			return enumerator.hasNext();
+		}
+
+		@Override
+		public ${Primitive} next${Name}() {
+			return converter.convert(enumerator.next());
+		}
+		
+	}
+	
+}
+
+</#list>

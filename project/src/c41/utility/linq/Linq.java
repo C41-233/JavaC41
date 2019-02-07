@@ -43,6 +43,14 @@ public final class Linq {
 		return new LongArrayEnumerable(array);
 	}
 	
+	public static IFloatEnumerable from(float[] array) {
+		return new FloatArrayEnumerable(array);
+	}
+	
+	public static IDoubleEnumerable from(double[] array) {
+		return new DoubleArrayEnumerable(array);
+	}
+	
 	public static <T> IReferenceEnumerable<T> from(T[] array){
 		return new ReferenceArrayEnumerable<>(array);
 	}

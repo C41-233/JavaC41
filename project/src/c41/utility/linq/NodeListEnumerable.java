@@ -5,6 +5,7 @@ import org.w3c.dom.NodeList;
 
 import c41.core.assertion.Arguments;
 import c41.utility.linq.enumerator.IEnumerator;
+import c41.utility.linq.enumerator.ReferenceEnumeratorBase;
 
 class NodeListEnumerable implements IReferenceEnumerable<Node>{
 
@@ -25,8 +26,7 @@ class NodeListEnumerable implements IReferenceEnumerable<Node>{
 		return nodes.getLength();
 	}
 	
-	private final class Enumerator extends ReferenceEnumeratorBase<Node>
-	{
+	private final class Enumerator extends ReferenceEnumeratorBase<Node>{
 
 		private int index = -1;
 		
@@ -36,13 +36,8 @@ class NodeListEnumerable implements IReferenceEnumerable<Node>{
 		}
 
 		@Override
-		public void doMoveNext() {
-			index++;
-		}
-
-		@Override
-		public Node doCurrent() {
-			return nodes.item(index);
+		public Node doNext() {
+			return nodes.item(++index);
 		}
 		
 	}

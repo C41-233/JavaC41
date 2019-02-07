@@ -5,6 +5,7 @@ import java.util.Comparator;
 
 import c41.core.assertion.Arguments;
 import c41.utility.linq.enumerator.IEnumerator;
+import c41.utility.linq.enumerator.ReferenceEnumeratorBase;
 
 class ReferenceOrderByEnumerable<T> extends ReferenceSortedEnumerableBase<T>{
 
@@ -44,19 +45,15 @@ class ReferenceOrderByEnumerable<T> extends ReferenceSortedEnumerableBase<T>{
 
 		@Override
 		public boolean hasNextEquals() {
-			return index >= 0 && index+1 < queue.size() && comparator.compare(current(), queue.get(index+1)) == 0;
+			return index >= 0 && index+1 < queue.size() && comparator.compare(queue.get(index), queue.get(index+1)) == 0;
 		}
 		
 		@Override
-		public void doMoveNext() {
+		protected T doNext() {
 			if(index >= 0) {
 				queue.set(index, null); //gc
 			}
 			++index;
-		}
-
-		@Override
-		public T doCurrent() {
 			return queue.get(index);
 		}
 

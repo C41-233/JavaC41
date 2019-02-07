@@ -5,6 +5,7 @@ import java.util.Iterator;
 import c41.core.assertion.Arguments;
 import c41.lambda.selector.ISelector;
 import c41.utility.linq.enumerator.IEnumerator;
+import c41.utility.linq.enumerator.ReferenceEnumeratorBase;
 
 class ReferenceSelectManyEnumerable<T, V> implements IReferenceEnumerable<V>{
 
@@ -28,7 +29,6 @@ class ReferenceSelectManyEnumerable<T, V> implements IReferenceEnumerable<V>{
 
 		private IEnumerator<T> enumerator = enumerable.iterator();
 		private Iterator<? extends V> iterator;
-		private V current;
 		
 		public Enumerator() {
 			while(enumerator.hasNext()) {
@@ -47,27 +47,22 @@ class ReferenceSelectManyEnumerable<T, V> implements IReferenceEnumerable<V>{
 		}
 
 		@Override
-		public void doMoveNext() {
-			current = iterator.next();
+		public V doNext() {
+			V current = iterator.next();
 			if(iterator.hasNext()) {
-				return;
+				return current;
 			}
 
+			iterator = null;
 			while(enumerator.hasNext()) {
 				Iterable<? extends V> iterable = selector.select(enumerator.next());
 				this.iterator = iterable.iterator();
 				if(iterator.hasNext()) {
-					return;
+					return current;
 				}
 			}
-			this.iterator = null;
-		}
-
-		@Override
-		public V doCurrent() {
 			return current;
 		}
-		
 	}
 	
 }

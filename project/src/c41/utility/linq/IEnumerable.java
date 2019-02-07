@@ -62,16 +62,6 @@ public interface IEnumerable<T> extends Iterable<T>{
 	public IEnumerator<T> iterator();
 	
 	/**
-	 * 跳过前n个元素。
-	 * 如果在延迟执行时，跳过的个数超出了迭代器范围，则抛出{@link NoSuchElementException}。
-	 * @param n 跳过的元素个数
-	 * @return 跳过后的查询
-	 */
-	public default IEnumerable<T> skip(int n){
-		return new SkipEnumerable<>(this, n);
-	}
-
-	/**
 	 * 将所有元素以Collection的形式返回，元素被加入的顺序与迭代器的顺序一致。
 	 * @param <TCollection> 集合类型
 	 * @param provider 创建Collection
@@ -80,13 +70,53 @@ public interface IEnumerable<T> extends Iterable<T>{
 	public default <TCollection extends Collection<T>> TCollection toCollection(IFunction<TCollection> provider) {
 		return Iterables.toCollection(this, provider);
 	}
+
+	/**
+	 * 将元素转换为byte。
+	 * @return IByteEnumerable
+	 */
+	public default IByteEnumerable toByte() {
+		return new ConvertByteEnumerable<>(this, value -> Convert.toByte(value));
+	}
+
+	/**
+	 * 将元素转换为short。
+	 * @return IShortEnumerable
+	 */
+	public default IShortEnumerable toShort() {
+		return new ConvertShortEnumerable<>(this, value -> Convert.toShort(value));
+	}
 	
 	/**
 	 * 将元素转换为int。
 	 * @return IIntEnumerable
 	 */
 	public default IIntEnumerable toInt() {
-		return new SelectIntEnumerable<>(this, value->Convert.toInt(value));
+		return new ConvertIntEnumerable<>(this, value -> Convert.toInt(value));
+	}
+
+	/**
+	 * 将元素转换为long。
+	 * @return ILongEnumerable
+	 */
+	public default ILongEnumerable toLong() {
+		return new ConvertLongEnumerable<>(this, value -> Convert.toLong(value));
+	}
+
+	/**
+	 * 将元素转换为float。
+	 * @return IFloatEnumerable
+	 */
+	public default IFloatEnumerable toFloat() {
+		return new ConvertFloatEnumerable<>(this, value -> Convert.toFloat(value));
+	}
+
+	/**
+	 * 将元素转换为double。
+	 * @return IDoubleEnumerable
+	 */
+	public default IDoubleEnumerable toDouble() {
+		return new ConvertDoubleEnumerable<>(this, value -> Convert.toDouble(value));
 	}
 	
 	/**
