@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":18,"i7":18,"i8":18,"i9":18,"i10":18,"i11":18,"i12":18,"i13":18,"i14":18,"i15":18,"i16":18,"i17":18,"i18":6,"i19":18};
+var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":18,"i7":18,"i8":18,"i9":18,"i10":18,"i11":18,"i12":18,"i13":18,"i14":18,"i15":18,"i16":18,"i17":18,"i18":6,"i19":18,"i20":18};
 var tabs = {65535:["t0","所有方法"],2:["t2","实例方法"],4:["t3","抽象方法"],16:["t5","默认方法"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -249,6 +249,12 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IFloatEnumerable.html#iterator--">iterator</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i19" class="rowColor">
+<td class="colFirst"><code>default <a href="../../../c41/utility/linq/IFloatEnumerable.html" title="c41.utility.linq中的接口">IFloatEnumerable</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IFloatEnumerable.html#skip-int-">skip</a></span>(int&nbsp;n)</code>
+<div class="block">跳过前n个元素。</div>
+</td>
+</tr>
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>default float[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IFloatEnumerable.html#toArray--">toArray</a></span>()</code>
 <div class="block">返回所有元素组成的数组。</div>
@@ -260,7 +266,7 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 <!--   -->
 </a>
 <h3>从接口继承的方法&nbsp;c41.utility.linq.<a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.linq中的接口">IEnumerable</a></h3>
-<code><a href="../../../c41/utility/linq/IEnumerable.html#cast--">cast</a>, <a href="../../../c41/utility/linq/IEnumerable.html#count--">count</a>, <a href="../../../c41/utility/linq/IEnumerable.html#hasDuplicate--">hasDuplicate</a>, <a href="../../../c41/utility/linq/IEnumerable.html#isEmpty--">isEmpty</a>, <a href="../../../c41/utility/linq/IEnumerable.html#isNotEmpty--">isNotEmpty</a>, <a href="../../../c41/utility/linq/IEnumerable.html#skip-int-">skip</a>, <a href="../../../c41/utility/linq/IEnumerable.html#toCollection-c41.lambda.function.IFunction-">toCollection</a>, <a href="../../../c41/utility/linq/IEnumerable.html#toInt--">toInt</a>, <a href="../../../c41/utility/linq/IEnumerable.html#toList--">toList</a>, <a href="../../../c41/utility/linq/IEnumerable.html#toSet--">toSet</a></code></li>
+<code><a href="../../../c41/utility/linq/IEnumerable.html#cast--">cast</a>, <a href="../../../c41/utility/linq/IEnumerable.html#count--">count</a>, <a href="../../../c41/utility/linq/IEnumerable.html#hasDuplicate--">hasDuplicate</a>, <a href="../../../c41/utility/linq/IEnumerable.html#isEmpty--">isEmpty</a>, <a href="../../../c41/utility/linq/IEnumerable.html#isNotEmpty--">isNotEmpty</a>, <a href="../../../c41/utility/linq/IEnumerable.html#toByte--">toByte</a>, <a href="../../../c41/utility/linq/IEnumerable.html#toCollection-c41.lambda.function.IFunction-">toCollection</a>, <a href="../../../c41/utility/linq/IEnumerable.html#toDouble--">toDouble</a>, <a href="../../../c41/utility/linq/IEnumerable.html#toFloat--">toFloat</a>, <a href="../../../c41/utility/linq/IEnumerable.html#toInt--">toInt</a>, <a href="../../../c41/utility/linq/IEnumerable.html#toList--">toList</a>, <a href="../../../c41/utility/linq/IEnumerable.html#toLong--">toLong</a>, <a href="../../../c41/utility/linq/IEnumerable.html#toSet--">toSet</a>, <a href="../../../c41/utility/linq/IEnumerable.html#toShort--">toShort</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Iterable">
@@ -593,6 +599,22 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 <dd><code>predicate</code> - 谓词</dd>
 <dt><span class="returnLabel">返回:</span></dt>
 <dd>如果非所有元素都满足谓词，返回true</dd>
+</dl>
+</li>
+</ul>
+<a name="skip-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>skip</h4>
+<pre>default&nbsp;<a href="../../../c41/utility/linq/IFloatEnumerable.html" title="c41.utility.linq中的接口">IFloatEnumerable</a>&nbsp;skip(int&nbsp;n)</pre>
+<div class="block">跳过前n个元素。</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>n</code> - 跳过的元素个数</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>跳过后的查询</dd>
 </dl>
 </li>
 </ul>

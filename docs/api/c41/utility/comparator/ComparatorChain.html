@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","所有方法"],2:["t2","实例方法"],8:["t4","具体方法"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -143,6 +143,14 @@ implements java.util.Comparator&lt;T&gt;</pre>
 <td class="colFirst"><code><a href="../../../c41/utility/comparator/ComparatorChain.html" title="c41.utility.comparator中的类">ComparatorChain</a>&lt;<a href="../../../c41/utility/comparator/ComparatorChain.html" title="ComparatorChain中的类型参数">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/comparator/ComparatorChain.html#thenBy-java.util.Comparator-">thenBy</a></span>(java.util.Comparator&lt;<a href="../../../c41/utility/comparator/ComparatorChain.html" title="ComparatorChain中的类型参数">T</a>&gt;&nbsp;next)</code>&nbsp;</td>
 </tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code><a href="../../../c41/utility/comparator/ComparatorChain.html" title="c41.utility.comparator中的类">ComparatorChain</a>&lt;<a href="../../../c41/utility/comparator/ComparatorChain.html" title="ComparatorChain中的类型参数">T</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/comparator/ComparatorChain.html#thenBy-c41.lambda.predicate.IPredicate-">thenBy</a></span>(<a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;<a href="../../../c41/utility/comparator/ComparatorChain.html" title="ComparatorChain中的类型参数">T</a>&gt;&nbsp;predicate)</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code><a href="../../../c41/utility/comparator/ComparatorChain.html" title="c41.utility.comparator中的类">ComparatorChain</a>&lt;<a href="../../../c41/utility/comparator/ComparatorChain.html" title="ComparatorChain中的类型参数">T</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/comparator/ComparatorChain.html#thenBySelf--">thenBySelf</a></span>()</code>&nbsp;</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -191,10 +199,28 @@ implements java.util.Comparator&lt;T&gt;</pre>
 <a name="thenBy-java.util.Comparator-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>thenBy</h4>
 <pre>public&nbsp;<a href="../../../c41/utility/comparator/ComparatorChain.html" title="c41.utility.comparator中的类">ComparatorChain</a>&lt;<a href="../../../c41/utility/comparator/ComparatorChain.html" title="ComparatorChain中的类型参数">T</a>&gt;&nbsp;thenBy(java.util.Comparator&lt;<a href="../../../c41/utility/comparator/ComparatorChain.html" title="ComparatorChain中的类型参数">T</a>&gt;&nbsp;next)</pre>
+</li>
+</ul>
+<a name="thenBy-c41.lambda.predicate.IPredicate-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>thenBy</h4>
+<pre>public&nbsp;<a href="../../../c41/utility/comparator/ComparatorChain.html" title="c41.utility.comparator中的类">ComparatorChain</a>&lt;<a href="../../../c41/utility/comparator/ComparatorChain.html" title="ComparatorChain中的类型参数">T</a>&gt;&nbsp;thenBy(<a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;<a href="../../../c41/utility/comparator/ComparatorChain.html" title="ComparatorChain中的类型参数">T</a>&gt;&nbsp;predicate)</pre>
+</li>
+</ul>
+<a name="thenBySelf--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>thenBySelf</h4>
+<pre>public&nbsp;<a href="../../../c41/utility/comparator/ComparatorChain.html" title="c41.utility.comparator中的类">ComparatorChain</a>&lt;<a href="../../../c41/utility/comparator/ComparatorChain.html" title="ComparatorChain中的类型参数">T</a>&gt;&nbsp;thenBySelf()</pre>
 </li>
 </ul>
 </li>

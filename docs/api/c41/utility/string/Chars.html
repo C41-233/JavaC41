@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9};
 var tabs = {65535:["t0","所有方法"],1:["t1","静态方法"],8:["t4","具体方法"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -111,6 +111,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public final class <span class="typeNameLabel">Chars</span>
 extends java.lang.Object</pre>
+<div class="block">https://unicode-table.com/en/blocks/basic-latin/</div>
 </li>
 </ul>
 </div>
@@ -137,23 +138,39 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/string/Chars.html#isBasicLatin-int-">isBasicLatin</a></span>(int&nbsp;ch)</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/string/Chars.html#isBasicLatinAlphabet-int-">isBasicLatinAlphabet</a></span>(int&nbsp;ch)</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/string/Chars.html#isBasicLatinAlphabetLowerCase-int-">isBasicLatinAlphabetLowerCase</a></span>(int&nbsp;ch)</code>&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/string/Chars.html#isBasicLatinAlphabetUpperCase-int-">isBasicLatinAlphabetUpperCase</a></span>(int&nbsp;ch)</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/string/Chars.html#isBasicLatinDigit-int-">isBasicLatinDigit</a></span>(int&nbsp;ch)</code>
 <div class="block">判断是否是基本拉丁数字。</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/string/Chars.html#isCJKUnifiedIdeograph-int-">isCJKUnifiedIdeograph</a></span>(int&nbsp;ch)</code>
 <div class="block">判断是否是CJK统一表意字符。</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/string/Chars.html#isHiragana-int-">isHiragana</a></span>(int&nbsp;ch)</code>
 <div class="block">判断是否是平假名。</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/string/Chars.html#isKatakana-int-">isKatakana</a></span>(int&nbsp;ch)</code>
 <div class="block">判断是否是片假名及片假名扩展。</div>
@@ -195,6 +212,42 @@ extends java.lang.Object</pre>
 <dt><span class="returnLabel">返回:</span></dt>
 <dd>结果</dd>
 </dl>
+</li>
+</ul>
+<a name="isBasicLatin-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isBasicLatin</h4>
+<pre>public static&nbsp;boolean&nbsp;isBasicLatin(int&nbsp;ch)</pre>
+</li>
+</ul>
+<a name="isBasicLatinAlphabet-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isBasicLatinAlphabet</h4>
+<pre>public static&nbsp;boolean&nbsp;isBasicLatinAlphabet(int&nbsp;ch)</pre>
+</li>
+</ul>
+<a name="isBasicLatinAlphabetUpperCase-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isBasicLatinAlphabetUpperCase</h4>
+<pre>public static&nbsp;boolean&nbsp;isBasicLatinAlphabetUpperCase(int&nbsp;ch)</pre>
+</li>
+</ul>
+<a name="isBasicLatinAlphabetLowerCase-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isBasicLatinAlphabetLowerCase</h4>
+<pre>public static&nbsp;boolean&nbsp;isBasicLatinAlphabetLowerCase(int&nbsp;ch)</pre>
 </li>
 </ul>
 <a name="isBasicLatinDigit-int-">

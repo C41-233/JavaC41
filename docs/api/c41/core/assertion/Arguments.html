@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9};
 var tabs = {65535:["t0","所有方法"],1:["t1","静态方法"],8:["t4","具体方法"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -145,9 +145,14 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/core/assertion/Arguments.html#isNotEmpty-java.lang.String-">isNotEmpty</a></span>(java.lang.String&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/core/assertion/Arguments.html#isMatch-java.lang.String-java.lang.String-">isMatch</a></span>(java.lang.String&nbsp;value,
+       java.lang.String&nbsp;regex)</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/core/assertion/Arguments.html#isNotEmpty-java.lang.String-">isNotEmpty</a></span>(java.lang.String&nbsp;value)</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/core/assertion/Arguments.html#isNotNull-java.lang.Object-">isNotNull</a></span>(java.lang.Object&nbsp;obj)</code>&nbsp;</td>
 </tr>
@@ -214,10 +219,20 @@ extends java.lang.Object</pre>
 <a name="isAllNotEmpty-java.lang.Iterable-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>isAllNotEmpty</h4>
 <pre>public static&nbsp;void&nbsp;isAllNotEmpty(java.lang.Iterable&lt;java.lang.String&gt;&nbsp;values)</pre>
+</li>
+</ul>
+<a name="isMatch-java.lang.String-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>isMatch</h4>
+<pre>public static&nbsp;void&nbsp;isMatch(java.lang.String&nbsp;value,
+                           java.lang.String&nbsp;regex)</pre>
 </li>
 </ul>
 </li>

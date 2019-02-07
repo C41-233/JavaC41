@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","所有方法"],2:["t2","实例方法"],8:["t4","具体方法"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -49,7 +49,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>上一个类</li>
+<li><a href="../../c41/cache/LRUCache.html" title="c41.cache中的类"><span class="typeNameLink">上一个类</span></a></li>
 <li>下一个类</li>
 </ul>
 <ul class="navList">
@@ -107,10 +107,15 @@ var activeTableTab = "activeTableTab";
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
+<dl>
+<dt>所有已实现的接口:</dt>
+<dd><a href="../../c41/cache/ICache.html" title="c41.cache中的接口">ICache</a>&lt;K,V&gt;</dd>
+</dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">WeakMemoryCache&lt;K,V&gt;</span>
-extends java.lang.Object</pre>
+extends java.lang.Object
+implements <a href="../../c41/cache/ICache.html" title="c41.cache中的接口">ICache</a>&lt;K,V&gt;</pre>
 </li>
 </ul>
 </div>
@@ -147,19 +152,23 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">方法和说明</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../c41/cache/WeakMemoryCache.html#clear--">clear</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../c41/cache/WeakMemoryCache.html#contains-K-">contains</a></span>(<a href="../../c41/cache/WeakMemoryCache.html" title="WeakMemoryCache中的类型参数">K</a>&nbsp;key)</code>&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../c41/cache/WeakMemoryCache.html" title="WeakMemoryCache中的类型参数">V</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../c41/cache/WeakMemoryCache.html#get-K-">get</a></span>(<a href="../../c41/cache/WeakMemoryCache.html" title="WeakMemoryCache中的类型参数">K</a>&nbsp;key)</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../c41/cache/WeakMemoryCache.html" title="WeakMemoryCache中的类型参数">V</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../c41/cache/WeakMemoryCache.html#getOrCreate-K-c41.lambda.function.IFunction-">getOrCreate</a></span>(<a href="../../c41/cache/WeakMemoryCache.html" title="WeakMemoryCache中的类型参数">K</a>&nbsp;key,
            <a href="../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;<a href="../../c41/cache/WeakMemoryCache.html" title="WeakMemoryCache中的类型参数">V</a>&gt;&nbsp;factory)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../c41/cache/WeakMemoryCache.html#put-K-V-">put</a></span>(<a href="../../c41/cache/WeakMemoryCache.html" title="WeakMemoryCache中的类型参数">K</a>&nbsp;key,
    <a href="../../c41/cache/WeakMemoryCache.html" title="WeakMemoryCache中的类型参数">V</a>&nbsp;value)</code>&nbsp;</td>
@@ -224,6 +233,10 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>get</h4>
 <pre>public&nbsp;<a href="../../c41/cache/WeakMemoryCache.html" title="WeakMemoryCache中的类型参数">V</a>&nbsp;get(<a href="../../c41/cache/WeakMemoryCache.html" title="WeakMemoryCache中的类型参数">K</a>&nbsp;key)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
+<dd><code><a href="../../c41/cache/ICache.html#get-K-">get</a></code>&nbsp;在接口中&nbsp;<code><a href="../../c41/cache/ICache.html" title="c41.cache中的接口">ICache</a>&lt;<a href="../../c41/cache/WeakMemoryCache.html" title="WeakMemoryCache中的类型参数">K</a>,<a href="../../c41/cache/WeakMemoryCache.html" title="WeakMemoryCache中的类型参数">V</a>&gt;</code></dd>
+</dl>
 </li>
 </ul>
 <a name="getOrCreate-java.lang.Object-c41.lambda.function.IFunction-">
@@ -243,10 +256,23 @@ extends java.lang.Object</pre>
 </a><a name="contains-K-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>contains</h4>
 <pre>public&nbsp;boolean&nbsp;contains(<a href="../../c41/cache/WeakMemoryCache.html" title="WeakMemoryCache中的类型参数">K</a>&nbsp;key)</pre>
+</li>
+</ul>
+<a name="clear--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>clear</h4>
+<pre>public&nbsp;void&nbsp;clear()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">指定者:</span></dt>
+<dd><code><a href="../../c41/cache/ICache.html#clear--">clear</a></code>&nbsp;在接口中&nbsp;<code><a href="../../c41/cache/ICache.html" title="c41.cache中的接口">ICache</a>&lt;<a href="../../c41/cache/WeakMemoryCache.html" title="WeakMemoryCache中的类型参数">K</a>,<a href="../../c41/cache/WeakMemoryCache.html" title="WeakMemoryCache中的类型参数">V</a>&gt;</code></dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -277,7 +303,7 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>上一个类</li>
+<li><a href="../../c41/cache/LRUCache.html" title="c41.cache中的类"><span class="typeNameLink">上一个类</span></a></li>
 <li>下一个类</li>
 </ul>
 <ul class="navList">

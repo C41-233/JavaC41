@@ -18,8 +18,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":18};
-var tabs = {65535:["t0","所有方法"],2:["t2","实例方法"],4:["t3","抽象方法"],16:["t5","默认方法"]};
+var methods = {"i0":6,"i1":6};
+var tabs = {65535:["t0","所有方法"],2:["t2","实例方法"],4:["t3","抽象方法"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -111,6 +111,10 @@ var activeTableTab = "activeTableTab";
 <dt>所有已知子接口:</dt>
 <dd><a href="../../../../c41/utility/linq/enumerator/IByteEnumerator.html" title="c41.utility.linq.enumerator中的接口">IByteEnumerator</a>, <a href="../../../../c41/utility/linq/enumerator/ICharEnumerator.html" title="c41.utility.linq.enumerator中的接口">ICharEnumerator</a>, <a href="../../../../c41/utility/linq/enumerator/IDoubleEnumerator.html" title="c41.utility.linq.enumerator中的接口">IDoubleEnumerator</a>, <a href="../../../../c41/utility/linq/enumerator/IFloatEnumerator.html" title="c41.utility.linq.enumerator中的接口">IFloatEnumerator</a>, <a href="../../../../c41/utility/linq/enumerator/IIntEnumerator.html" title="c41.utility.linq.enumerator中的接口">IIntEnumerator</a>, <a href="../../../../c41/utility/linq/enumerator/ILongEnumerator.html" title="c41.utility.linq.enumerator中的接口">ILongEnumerator</a>, <a href="../../../../c41/utility/linq/enumerator/IShortEnumerator.html" title="c41.utility.linq.enumerator中的接口">IShortEnumerator</a></dd>
 </dl>
+<dl>
+<dt>所有已知实现类:</dt>
+<dd><a href="../../../../c41/utility/linq/enumerator/ByteEnumeratorBase.html" title="c41.utility.linq.enumerator中的类">ByteEnumeratorBase</a>, <a href="../../../../c41/utility/linq/enumerator/CharEnumeratorBase.html" title="c41.utility.linq.enumerator中的类">CharEnumeratorBase</a>, <a href="../../../../c41/utility/linq/enumerator/DoubleEnumeratorBase.html" title="c41.utility.linq.enumerator中的类">DoubleEnumeratorBase</a>, <a href="../../../../c41/utility/linq/enumerator/FloatEnumeratorBase.html" title="c41.utility.linq.enumerator中的类">FloatEnumeratorBase</a>, <a href="../../../../c41/utility/linq/enumerator/IntEnumeratorBase.html" title="c41.utility.linq.enumerator中的类">IntEnumeratorBase</a>, <a href="../../../../c41/utility/linq/enumerator/LongEnumeratorBase.html" title="c41.utility.linq.enumerator中的类">LongEnumeratorBase</a>, <a href="../../../../c41/utility/linq/enumerator/ReferenceEnumeratorBase.html" title="c41.utility.linq.enumerator中的类">ReferenceEnumeratorBase</a>, <a href="../../../../c41/utility/linq/enumerator/ShortEnumeratorBase.html" title="c41.utility.linq.enumerator中的类">ShortEnumeratorBase</a></dd>
+</dl>
 <hr>
 <br>
 <pre>public interface <span class="typeNameLabel">IEnumerator&lt;T&gt;</span>
@@ -130,31 +134,19 @@ extends java.util.Iterator&lt;T&gt;</pre>
 </a>
 <h3>方法概要</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="方法概要表, 列表方法和解释">
-<caption><span id="t0" class="activeTableTab"><span>所有方法</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">实例方法</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">抽象方法</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">默认方法</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>所有方法</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">实例方法</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">抽象方法</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">限定符和类型</th>
 <th class="colLast" scope="col">方法和说明</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="../../../../c41/utility/linq/enumerator/IEnumerator.html" title="IEnumerator中的类型参数">T</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/linq/enumerator/IEnumerator.html#current--">current</a></span>()</code>
-<div class="block">获取当前元素。</div>
-</td>
-</tr>
-<tr id="i1" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/linq/enumerator/IEnumerator.html#hasNext--">hasNext</a></span>()</code>
 <div class="block">迭代器是否可以向后移动一个元素。</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/linq/enumerator/IEnumerator.html#moveNext--">moveNext</a></span>()</code>
-<div class="block">迭代器向后移动</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>default <a href="../../../../c41/utility/linq/enumerator/IEnumerator.html" title="IEnumerator中的类型参数">T</a></code></td>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code><a href="../../../../c41/utility/linq/enumerator/IEnumerator.html" title="IEnumerator中的类型参数">T</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../c41/utility/linq/enumerator/IEnumerator.html#next--">next</a></span>()</code>
 <div class="block">迭代器向后移动，并返回下一个元素。</div>
 </td>
@@ -199,10 +191,10 @@ extends java.util.Iterator&lt;T&gt;</pre>
 <a name="next--">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>next</h4>
-<pre>default&nbsp;<a href="../../../../c41/utility/linq/enumerator/IEnumerator.html" title="IEnumerator中的类型参数">T</a>&nbsp;next()</pre>
+<pre><a href="../../../../c41/utility/linq/enumerator/IEnumerator.html" title="IEnumerator中的类型参数">T</a>&nbsp;next()</pre>
 <div class="block">迭代器向后移动，并返回下一个元素。</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">指定者:</span></dt>
@@ -211,36 +203,6 @@ extends java.util.Iterator&lt;T&gt;</pre>
 <dd>下一个元素</dd>
 <dt><span class="throwsLabel">抛出:</span></dt>
 <dd><code>java.util.NoSuchElementException</code> - 迭代器已经到达末尾</dd>
-</dl>
-</li>
-</ul>
-<a name="moveNext--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>moveNext</h4>
-<pre>void&nbsp;moveNext()</pre>
-<div class="block">迭代器向后移动</div>
-<dl>
-<dt><span class="throwsLabel">抛出:</span></dt>
-<dd><code>java.util.NoSuchElementException</code> - 迭代器已经到达末尾</dd>
-</dl>
-</li>
-</ul>
-<a name="current--">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>current</h4>
-<pre><a href="../../../../c41/utility/linq/enumerator/IEnumerator.html" title="IEnumerator中的类型参数">T</a>&nbsp;current()</pre>
-<div class="block">获取当前元素。</div>
-<dl>
-<dt><span class="returnLabel">返回:</span></dt>
-<dd>当前元素</dd>
-<dt><span class="throwsLabel">抛出:</span></dt>
-<dd><code>java.util.NoSuchElementException</code> - 迭代器在范围之前</dd>
 </dl>
 </li>
 </ul>

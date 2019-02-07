@@ -61,7 +61,7 @@
 	<target name="generate-docs">
 		<delete dir="docs/api" failonerror="false"/>
 		<javadoc   
-			sourcepath="${folder.project}/src"   
+			sourcepath="${folder.project}/src;${folder.project}/autogen"   
 			packagenames="c41.*"   
 			destdir="docs/api"  
 			charset="UTF8"  
