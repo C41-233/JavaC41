@@ -236,6 +236,24 @@ public interface IIntEnumerable extends IEnumerable<Integer>{
 		}
 		return count;
 	}
+	
+	/**
+	 * 对每个元素执行操作。
+	 * @param predicate 对每个元素执行的操作，返回false表示break
+	 * @return true表示循环完毕，false表示break退出
+	 */
+	public default boolean foreach2(IIntPredicate predicate) {
+		Arguments.isNotNull(predicate);
+		
+		IIntEnumerator enumerator = iterator();
+		while(enumerator.hasNext()) {
+			boolean next = predicate.invoke(enumerator.nextInt());
+			if(!next) {
+				return false;
+			}
+		}
+		return true;
+	}
 
 	/**
 	 * 所有元素都满足谓词。

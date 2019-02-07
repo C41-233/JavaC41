@@ -257,6 +257,24 @@ public interface IFloatEnumerable extends IEnumerable<Float>{
 		}
 		return count;
 	}
+	
+	/**
+	 * 对每个元素执行操作。
+	 * @param predicate 对每个元素执行的操作，返回false表示break
+	 * @return true表示循环完毕，false表示break退出
+	 */
+	public default boolean foreach2(IFloatPredicate predicate) {
+		Arguments.isNotNull(predicate);
+		
+		IFloatEnumerator enumerator = iterator();
+		while(enumerator.hasNext()) {
+			boolean next = predicate.invoke(enumerator.nextFloat());
+			if(!next) {
+				return false;
+			}
+		}
+		return true;
+	}
 
 	/**
 	 * 所有元素都满足谓词。

@@ -10,7 +10,6 @@ import java.util.NoSuchElementException;
 import c41.core.assertion.Arguments;
 import c41.lambda.action.IAction1;
 import c41.lambda.action.IForeachAction;
-import c41.lambda.function.IBooleanFunction1;
 import c41.lambda.function.IForeachFunction;
 import c41.lambda.function.IFunction;
 import c41.lambda.function.IJoiner;
@@ -219,11 +218,11 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 		return Iterables.foreach(this, action);
 	}
 
-	public default int foreach2(IBooleanFunction1<? super T> function) {
-		return Iterables.foreach2(this, function);
+	public default boolean foreach2(IPredicate<? super T> predicate) {
+		return Iterables.foreach2(this, predicate);
 	}
 
-	public default int foreach2(IForeachFunction<? super T> function) {
+	public default boolean foreach2(IForeachFunction<? super T> function) {
 		return Iterables.foreach2(this, function);
 	}
 

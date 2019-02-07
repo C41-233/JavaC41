@@ -8,7 +8,6 @@ import java.util.Set;
 import c41.core.assertion.Arguments;
 import c41.lambda.action.IAction1;
 import c41.lambda.action.IForeachAction;
-import c41.lambda.function.IBooleanFunction1;
 import c41.lambda.function.IForeachFunction;
 import c41.lambda.function.IFunction;
 import c41.lambda.predicate.IPredicate;
@@ -176,12 +175,12 @@ public final class Iterables {
 	 * 对每个元素执行操作。
 	 * @param <T> 泛型参数
 	 * @param iterable 迭代器
-	 * @param function 对每个元素执行的操作，返回false表示break
-	 * @return 执行的次数
+	 * @param predicate 对每个元素执行的操作，返回false表示break
+	 * @return true表示循环完毕，false表示break退出
 	 */
-	public static <T> int foreach2(Iterable<T> iterable, IBooleanFunction1<? super T> function) {
+	public static <T> boolean foreach2(Iterable<T> iterable, IPredicate<? super T> predicate) {
 		Arguments.isNotNull(iterable);
-		return Iterators.foreach2(iterable.iterator(), function);
+		return Iterators.foreach2(iterable.iterator(), predicate);
 	}
 
 	/**
@@ -189,9 +188,9 @@ public final class Iterables {
 	 * @param <T> 泛型参数
 	 * @param iterable 迭代器
 	 * @param function 对每个元素执行的操作，参数包含当前元素及其下标，返回false表示break
-	 * @return 执行的次数
+	 * @return true表示循环完毕，false表示break退出
 	 */
-	public static <T> int foreach2(Iterable<T> iterable, IForeachFunction<? super T> function) {
+	public static <T> boolean foreach2(Iterable<T> iterable, IForeachFunction<? super T> function) {
 		Arguments.isNotNull(iterable);
 		return Iterators.foreach2(iterable.iterator(), function);
 	}

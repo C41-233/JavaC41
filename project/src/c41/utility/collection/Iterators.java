@@ -13,7 +13,6 @@ import java.util.Set;
 import c41.core.assertion.Arguments;
 import c41.lambda.action.IAction1;
 import c41.lambda.action.IForeachAction;
-import c41.lambda.function.IBooleanFunction1;
 import c41.lambda.function.IForeachFunction;
 import c41.lambda.function.IFunction;
 import c41.lambda.predicate.IPredicate;
@@ -332,21 +331,20 @@ public final class Iterators {
 	 * 对每个元素执行操作。
 	 * @param <T> 泛型参数
 	 * @param iterator 迭代器
-	 * @param function 对每个元素执行的操作，返回false表示break
-	 * @return 执行的次数
+	 * @param predicate 对每个元素执行的操作，返回false表示break
+	 * @return true表示循环完毕，false表示break退出
 	 */
-	public static <T> int foreach2(Iterator<T> iterator, IBooleanFunction1<? super T> function) {
+	public static <T> boolean foreach2(Iterator<T> iterator, IPredicate<? super T> predicate) {
 		Arguments.isNotNull(iterator);
-		Arguments.isNotNull(function);
+		Arguments.isNotNull(predicate);
 		
-		int count = 0;
 		while(iterator.hasNext()) {
-			boolean next = function.invoke(iterator.next());
+			boolean next = predicate.invoke(iterator.next());
 			if(!next) {
-				break;
+				return false;
 			}
 		}
-		return count;
+		return true;
 	}
 	
 	/**
@@ -354,9 +352,9 @@ public final class Iterators {
 	 * @param <T> 泛型参数
 	 * @param iterator 迭代器
 	 * @param function 对每个元素执行的操作，参数包含当前元素及其下标，返回false表示break
-	 * @return 执行的次数
+	 * @return true表示循环完毕，false表示break退出
 	 */
-	public static <T> int foreach2(Iterator<T> iterator, IForeachFunction<? super T> function) {
+	public static <T> boolean foreach2(Iterator<T> iterator, IForeachFunction<? super T> function) {
 		Arguments.isNotNull(iterator);
 		Arguments.isNotNull(function);
 		
@@ -364,10 +362,10 @@ public final class Iterators {
 		while(iterator.hasNext()) {
 			boolean next = function.invoke(iterator.next(), count++);
 			if(!next) {
-				break;
+				return false;
 			}
 		}
-		return count;
+		return true;
 	}
 
 	public static boolean hasDuplicate(Iterator<?> iterator) {
