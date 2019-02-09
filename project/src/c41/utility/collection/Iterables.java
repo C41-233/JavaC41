@@ -97,24 +97,24 @@ public final class Iterables {
 		return Iterators.firstDuplicate(iterable.iterator());
 	}
 
+	public static <T> T firstDuplicateElementOrDefault(Iterable<T> iterable) {
+		Arguments.isNotNull(iterable);
+		return Iterators.firstDuplicateElementOrDefault(iterable.iterator());
+	}
+	
+	public static <T> T firstDuplicateElementOrDefault(Iterable<T> iterable, T def) {
+		Arguments.isNotNull(iterable);
+		return Iterators.firstDuplicateElementOrDefault(iterable.iterator(), def);
+	}
+	
 	public static <T> T firstDuplicateOrCreateDefault(Iterable<T> iterable, IFunction<? extends T> defProvider){
 		Arguments.isNotNull(iterable);
 		return Iterators.firstDuplicateOrCreateDefault(iterable.iterator(), defProvider);
 	}
-	
-	public static <T> T firstDuplicateOrDefault(Iterable<T> iterable) {
-		Arguments.isNotNull(iterable);
-		return Iterators.firstDuplicateOrDefault(iterable.iterator());
-	}
-	
-	public static <T> T firstDuplicateOrDefault(Iterable<T> iterable, T def) {
-		Arguments.isNotNull(iterable);
-		return Iterators.firstDuplicateOrDefault(iterable.iterator(), def);
-	}
 
 	public static <T> T firstIf(Iterable<T> iterable, IPredicate<? super T> predicate) {
 		Arguments.isNotNull(iterable);
-		return Iterators.fisrtIf(iterable.iterator(), predicate);
+		return Iterators.firstIf(iterable.iterator(), predicate);
 	}
 
 	public static <T> int firstIndexIf(Iterable<T> iterable, IPredicate<? super T> predicate) {
@@ -131,17 +131,32 @@ public final class Iterables {
 		Arguments.isNotNull(iterable);
 		return Iterators.firstIndexOfReference(iterable.iterator(), value);
 	}
-	
-	public static <T> T firstOrCreateDefaultIf(Iterable<T> iterable, IPredicate<? super T> predicate, IFunction<? extends T> defProvider) {
+
+	public static <T> T firstOrCreateDefault(Iterable<T> iterable, IFunction<? extends T> defaultValueProvider) {
 		Arguments.isNotNull(iterable);
-		return Iterators.firstOrCreateDefaultIf(iterable.iterator(), predicate, defProvider);
+		return Iterators.firstOrCreateDefault(iterable.iterator(), defaultValueProvider);
 	}
 	
+	public static <T> T firstOrCreateDefaultIf(Iterable<T> iterable, IPredicate<? super T> predicate, IFunction<? extends T> defaultValueProvider) {
+		Arguments.isNotNull(iterable);
+		return Iterators.firstOrCreateDefaultIf(iterable.iterator(), predicate, defaultValueProvider);
+	}
+	
+	public static <T> T firstOrDefault(Iterable<T> iterable) {
+		Arguments.isNotNull(iterable);
+		return Iterators.firstOrDefault(iterable.iterator());
+	}
+	
+	public static <T> T firstOrDefault(Iterable<T> iterable, T defaultValue) {
+		Arguments.isNotNull(iterable);
+		return Iterators.firstOrDefault(iterable.iterator(), defaultValue);
+	}
+
 	public static <T> T firstOrDefaultIf(Iterable<T> iterable, IPredicate<? super T> predicate) {
 		Arguments.isNotNull(iterable);
 		return Iterators.firstOrDefaultIf(iterable.iterator(), predicate);
 	}
-	
+
 	public static <T> T firstOrDefaultIf(Iterable<T> iterable, IPredicate<? super T> predicate, T def) {
 		Arguments.isNotNull(iterable);
 		return Iterators.firstOrDefaultIf(iterable.iterator(), predicate, def);
@@ -170,18 +185,6 @@ public final class Iterables {
 		Arguments.isNotNull(iterable);
 		return Iterators.foreach(iterable.iterator(), action);
 	}
-	
-	/**
-	 * 对每个元素执行操作。
-	 * @param <T> 泛型参数
-	 * @param iterable 迭代器
-	 * @param predicate 对每个元素执行的操作，返回false表示break
-	 * @return true表示循环完毕，false表示break退出
-	 */
-	public static <T> boolean foreach2(Iterable<T> iterable, IPredicate<? super T> predicate) {
-		Arguments.isNotNull(iterable);
-		return Iterators.foreach2(iterable.iterator(), predicate);
-	}
 
 	/**
 	 * 对每个元素执行操作。
@@ -195,6 +198,18 @@ public final class Iterables {
 		return Iterators.foreach2(iterable.iterator(), function);
 	}
 
+	/**
+	 * 对每个元素执行操作。
+	 * @param <T> 泛型参数
+	 * @param iterable 迭代器
+	 * @param predicate 对每个元素执行的操作，返回false表示break
+	 * @return true表示循环完毕，false表示break退出
+	 */
+	public static <T> boolean foreach2(Iterable<T> iterable, IPredicate<? super T> predicate) {
+		Arguments.isNotNull(iterable);
+		return Iterators.foreach2(iterable.iterator(), predicate);
+	}
+
 	public static boolean hasDuplicateElement(Iterable<?> iterable) {
 		Arguments.isNotNull(iterable);
 		return Iterators.hasDuplicate(iterable.iterator());
@@ -204,7 +219,7 @@ public final class Iterables {
 		Arguments.isNotNull(iterable);
 		return Iterators.isEmpty(iterable.iterator());
 	}
-
+	
 	public static boolean isNotEmpty(Iterable<?> iterable) {
 		Arguments.isNotNull(iterable);
 		return Iterators.isNotEmpty(iterable.iterator());
@@ -256,7 +271,7 @@ public final class Iterables {
 		Arguments.isNotNull(iterable);
 		return Iterators.toArray(iterable.iterator());
 	}
-	
+
 	public static <T> T[] toArray(Iterable<T> iterable, Class<T> cl) {
 		Arguments.isNotNull(iterable);
 		return Iterators.toArray(iterable.iterator(), cl);

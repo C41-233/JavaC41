@@ -1,8 +1,8 @@
 package c41.utility.linq;
 
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Iterator;
-import java.util.List;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -56,8 +56,8 @@ public final class Linq {
 	}
 	
 	public static <T> IReferenceEnumerable<T> from(Iterable<T> iterable){
-		if(iterable instanceof List) {
-			return new ListEnumerable<>((List<T>)iterable);
+		if(iterable instanceof ArrayList) {
+			return new ArrayListEnumerable<>((ArrayList<T>)iterable);
 		}
 		
 		return new IterableEnumerable<>(iterable);

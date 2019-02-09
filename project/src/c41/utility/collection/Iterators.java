@@ -164,11 +164,28 @@ public final class Iterators {
 		Arguments.isNotNull(iterator);
 		return iterator.next();
 	}
-
+	
 	public static <T> T firstDuplicate(Iterator<T> iterator) {
 		return firstDuplicateOrCreateDefault(iterator, ()->{
 			throw new NoSuchElementException();
 		});
+	}
+
+	public static <T> T firstDuplicateElementOrDefault(Iterator<T> iterator) {
+		return firstDuplicateElementOrDefault(iterator, null);
+	}
+
+	public static <T> T firstDuplicateElementOrDefault(Iterator<T> iterator, T def) {
+		Arguments.isNotNull(iterator);
+		
+		HashSet<T> set = new HashSet<>();
+		while(iterator.hasNext()) {
+			T obj = iterator.next();
+			if(set.add(obj) == false) {
+				return obj;
+			}
+		}
+		return def;
 	}
 
 	public static <T> T firstDuplicateOrCreateDefault(Iterator<T> iterator, IFunction<? extends T> defProvider){
@@ -185,21 +202,17 @@ public final class Iterators {
 		return defProvider.invoke();
 	}
 
-	public static <T> T firstDuplicateOrDefault(Iterator<T> iterator) {
-		return firstDuplicateOrDefault(iterator, null);
-	}
-
-	public static <T> T firstDuplicateOrDefault(Iterator<T> iterator, T def) {
+	public static <T> T firstIf(Iterator<T> iterator, IPredicate<? super T> predicate){
 		Arguments.isNotNull(iterator);
+		Arguments.isNotNull(predicate);
 		
-		HashSet<T> set = new HashSet<>();
 		while(iterator.hasNext()) {
-			T obj = iterator.next();
-			if(set.add(obj) == false) {
-				return obj;
+			T current = iterator.next();
+			if(predicate.is(current)) {
+				return current;
 			}
 		}
-		return def;
+		throw new NoSuchElementException();
 	}
 
 	public static <T> int firstIndexIf(Iterator<T> iterator, IPredicate<? super T> predicate) {
@@ -231,10 +244,33 @@ public final class Iterators {
 		return -1;
 	}
 
-	public static <T> T firstOrCreateDefaultIf(Iterator<T> iterator, IPredicate<? super T> predicate, IFunction<? extends T> defProvider) {
+	public static <T> int firstIndexOfReference(Iterator<T> iterator, T value) {
+		Arguments.isNotNull(iterator);
+		
+		int index = 0;
+		while(iterator.hasNext()) {
+			T val = iterator.next();
+			if(val == value) {
+				return index; 
+			}
+			++index;
+		}
+		return -1;
+	}
+	
+	public static <T> T firstOrCreateDefault(Iterator<T> iterator, IFunction<? extends T> defaultValueProvider) {
+		Arguments.isNotNull(iterator);
+		Arguments.isNotNull(defaultValueProvider);
+		if(iterator.hasNext()) {
+			return iterator.next();
+		}
+		return defaultValueProvider.invoke();
+	}
+
+	public static <T> T firstOrCreateDefaultIf(Iterator<T> iterator, IPredicate<? super T> predicate, IFunction<? extends T> defaultValueProvider) {
 		Arguments.isNotNull(iterator);
 		Arguments.isNotNull(predicate);
-		Arguments.isNotNull(defProvider);
+		Arguments.isNotNull(defaultValueProvider);
 		
 		while(iterator.hasNext()) {
 			T obj = iterator.next();
@@ -242,7 +278,22 @@ public final class Iterators {
 				return obj;
 			}
 		}
-		return defProvider.invoke();
+		return defaultValueProvider.invoke();
+	}
+
+	public static <T> T firstOrDefault(Iterator<T> iterator) {
+		Arguments.isNotNull(iterator);
+		if(iterator.hasNext()) {
+			return iterator.next();
+		}
+		return null;
+	}
+
+	public static <T> T firstOrDefault(Iterator<T> iterator, T defaultValue) {
+		if(iterator.hasNext()) {
+			return iterator.next();
+		}
+		return defaultValue;
 	}
 
 	public static <T> T firstOrDefaultIf(Iterator<T> iterable, IPredicate<? super T> predicate) {
@@ -260,34 +311,6 @@ public final class Iterators {
 			}
 		}
 		return def;
-	}
-
-	public static <T> int firstIndexOfReference(Iterator<T> iterator, T value) {
-		Arguments.isNotNull(iterator);
-		
-		int index = 0;
-		while(iterator.hasNext()) {
-			T val = iterator.next();
-			if(val == value) {
-				return index; 
-			}
-			++index;
-		}
-		return -1;
-	}
-
-	public static <T> T fisrtIf(Iterator<T> iterator, IPredicate<? super T> predicate) {
-		Arguments.isNotNull(iterator);
-		Arguments.isNotNull(predicate);
-		
-		while(iterator.hasNext()) {
-			T obj = iterator.next();
-			if(predicate.is(obj)) {
-				return obj;
-			}
-		}			
-		
-		throw new NoSuchElementException();
 	}
 
 	/**
@@ -326,26 +349,6 @@ public final class Iterators {
 		}
 		return count;
 	}
-
-	/**
-	 * 对每个元素执行操作。
-	 * @param <T> 泛型参数
-	 * @param iterator 迭代器
-	 * @param predicate 对每个元素执行的操作，返回false表示break
-	 * @return true表示循环完毕，false表示break退出
-	 */
-	public static <T> boolean foreach2(Iterator<T> iterator, IPredicate<? super T> predicate) {
-		Arguments.isNotNull(iterator);
-		Arguments.isNotNull(predicate);
-		
-		while(iterator.hasNext()) {
-			boolean next = predicate.invoke(iterator.next());
-			if(!next) {
-				return false;
-			}
-		}
-		return true;
-	}
 	
 	/**
 	 * 对每个元素执行操作。
@@ -368,6 +371,26 @@ public final class Iterators {
 		return true;
 	}
 
+	/**
+	 * 对每个元素执行操作。
+	 * @param <T> 泛型参数
+	 * @param iterator 迭代器
+	 * @param predicate 对每个元素执行的操作，返回false表示break
+	 * @return true表示循环完毕，false表示break退出
+	 */
+	public static <T> boolean foreach2(Iterator<T> iterator, IPredicate<? super T> predicate) {
+		Arguments.isNotNull(iterator);
+		Arguments.isNotNull(predicate);
+		
+		while(iterator.hasNext()) {
+			boolean next = predicate.invoke(iterator.next());
+			if(!next) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
 	public static boolean hasDuplicate(Iterator<?> iterator) {
 		Arguments.isNotNull(iterator);
 	
@@ -379,7 +402,7 @@ public final class Iterators {
 		}
 		return false;
 	}
-	
+
 	public static boolean isEmpty(Iterator<?> iterator) {
 		Arguments.isNotNull(iterator);
 		return iterator.hasNext() == false;
@@ -400,7 +423,7 @@ public final class Iterators {
 		}
 		return true;
 	}
-
+	
 	/**
 	 * 迭代器非所有元素都满足谓词。
 	 * @param <T> 泛型参数
@@ -435,7 +458,7 @@ public final class Iterators {
 		}
 		return notExistsIf(iterator, (Object obj)->set.contains(obj));
 	}
-	
+
 	public static <T> boolean notExistsIf(Iterator<T> iterator, IPredicate<? super T> predicate) {
 		Arguments.isNotNull(iterator);
 		Arguments.isNotNull(predicate);
@@ -448,7 +471,7 @@ public final class Iterators {
 		}
 		return true;
 	}
-
+	
 	public static boolean notExistsReference(Iterator<?> iterator, Object value) {
 		Arguments.isNotNull(iterator);
 
@@ -500,7 +523,7 @@ public final class Iterators {
 		List<T> list = toList(iterator); 
 		return list.toArray(array);
 	}
-	
+
 	public static <T> List<T> toList(Iterator<T> iterator){
 		return fillCollection(iterator, new ArrayList<>());
 	}

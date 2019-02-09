@@ -97,7 +97,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default T first() {
 		return Iterables.first(this);
 	}
-	
+
 	/**
 	 * 返回第一个重复的元素，重复元素按照@{code equals}方式比较。
 	 * @return 重复元素
@@ -105,7 +105,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default T firstDuplicateElement() {
 		return Iterables.firstDuplicate(this);
 	}
-
+	
 	/**
 	 * 返回第一个重复的元素。如果不存在，就返回默认值。
 	 * @param defProvider 默认值工厂
@@ -114,13 +114,13 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default T firstDuplicateElementOrCreateDefault(IFunction<? extends T> defProvider) {
 		return Iterables.firstDuplicateOrCreateDefault(this, defProvider);
 	}
-	
+
 	/**
 	 * 返回第一个重复元素。如果不存在，则返回null。
 	 * @return 第一个重复元素或null。
 	 */
 	public default T firstDuplicateElementOrDefault() {
-		return Iterables.firstDuplicateOrDefault(this);
+		return Iterables.firstDuplicateElementOrDefault(this);
 	}
 	
 	/**
@@ -129,9 +129,9 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	 * @return 第一个重复元素或默认值。
 	 */
 	public default T firstDuplicateElementOrDefault(T def) {
-		return Iterables.firstDuplicateOrDefault(this, def);
+		return Iterables.firstDuplicateElementOrDefault(this, def);
 	}
-
+	
 	/**
 	 * 返回第一个满足条件的元素。
 	 * @param predicate 谓词
@@ -141,7 +141,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default T firstIf(IPredicate<? super T> predicate) {
 		return Iterables.firstIf(this, predicate);
 	}
-	
+
 	/**
 	 * 返回第一个满足条件的下标。如果不存在，则返回-1。
 	 * @param predicate 谓词
@@ -150,7 +150,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default int firstIndexIf(IPredicate<? super T> predicate) {
 		return Iterables.firstIndexIf(this, predicate);
 	}
-
+	
 	/**
 	 * 返回元素value的下标。如果不存在，则返回-1。
 	 * <p>比较以@{code equals}的方式进行。</p>
@@ -160,7 +160,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default int firstIndexOf(T value) {
 		return Iterables.firstIndexOf(this, value);
 	}
-	
+
 	/**
 	 * 返回元素value的下标。如果不存在，则返回-1。
 	 * <p>比较以引用比较的方式进行。</p>
@@ -170,17 +170,29 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default int firstIndexOfReference(T value) {
 		return Iterables.firstIndexOfReference(this, value);
 	}
-
+	
+	public default T firstOrCreateDefault(IFunction<? extends T> defaultValueProvider) {
+		return Iterables.firstOrCreateDefault(this, defaultValueProvider);
+	}
+	
 	/**
 	 * 返回第一个满足条件的元素。如果不存在，则返回默认值。
 	 * @param predicate 谓词
-	 * @param defProvider 默认值
+	 * @param defaultValueProvider 默认值
 	 * @return 第一个满足条件的元素或默认值
 	 */
-	public default T firstOrCreateDefaultIf(IPredicate<? super T> predicate, IFunction<? extends T> defProvider) {
-		return Iterables.firstOrCreateDefaultIf(this, predicate, defProvider);
+	public default T firstOrCreateDefaultIf(IPredicate<? super T> predicate, IFunction<? extends T> defaultValueProvider) {
+		return Iterables.firstOrCreateDefaultIf(this, predicate, defaultValueProvider);
 	}
 
+	public default T firstOrDefault() {
+		return Iterables.firstOrDefault(this);
+	}
+
+	public default T firstOrDefault(T defaultValue) {
+		return Iterables.firstOrDefault(this, defaultValue);
+	}
+	
 	/**
 	 * 返回第一个满足条件的元素。如果不存在，则返回null。
 	 * @param predicate 谓词
@@ -218,12 +230,12 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 		return Iterables.foreach(this, action);
 	}
 
-	public default boolean foreach2(IPredicate<? super T> predicate) {
-		return Iterables.foreach2(this, predicate);
-	}
-
 	public default boolean foreach2(IForeachFunction<? super T> function) {
 		return Iterables.foreach2(this, function);
+	}
+
+	public default boolean foreach2(IPredicate<? super T> predicate) {
+		return Iterables.foreach2(this, predicate);
 	}
 
 	public default <K> IReferenceEnumerable<IReferenceGroup<K, T>> groupBy(ISelector<T, K> selector){
@@ -410,7 +422,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 		
 		Map<K, IReferenceEnumerable<T>> rst = new HashMap<>();
 		for(Entry<K, ArrayList<T>> kv : map.entrySet()) {
-			rst.put(kv.getKey(), new ListEnumerable<>(kv.getValue()));
+			rst.put(kv.getKey(), new ArrayListEnumerable<>(kv.getValue()));
 		}
 		return rst;
 	}

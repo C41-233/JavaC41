@@ -7,14 +7,14 @@ import java.util.NoSuchElementException;
 
 import c41.core.assertion.Arguments;
 
-class ListEnumerable<T> extends IterableEnumerable<T>{
+class ArrayListEnumerable<T> extends IterableEnumerable<T>{
 	
-	public ListEnumerable(List<T> list) {
+	public ArrayListEnumerable(ArrayList<T> list) {
 		super(list);
 	} 
 	
-	private List<T> list(){
-		return (List<T>)iterable;
+	private ArrayList<T> list(){
+		return (ArrayList<T>)iterable;
 	}
 	
 	@Override
@@ -32,6 +32,14 @@ class ListEnumerable<T> extends IterableEnumerable<T>{
 		return list().size();
 	}
 	
+	@Override
+	public T first() {
+		if(list().size() == 0) {
+			throw new NoSuchElementException();
+		}
+		return list().get(0);
+	}
+
 	@Override
 	public Object[] toArray() {
 		return list().toArray();
