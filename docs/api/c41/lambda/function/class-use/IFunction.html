@@ -155,15 +155,25 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
+<td class="colLast"><span class="typeNameLabel">Iterables.</span><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/Iterables.html#firstOrCreateDefault-java.lang.Iterable-c41.lambda.function.IFunction-">firstOrCreateDefault</a></span>(java.lang.Iterable&lt;T&gt;&nbsp;iterable,
+                    <a href="../../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends T&gt;&nbsp;defaultValueProvider)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
+<td class="colLast"><span class="typeNameLabel">Iterators.</span><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/Iterators.html#firstOrCreateDefault-java.util.Iterator-c41.lambda.function.IFunction-">firstOrCreateDefault</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
+                    <a href="../../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends T&gt;&nbsp;defaultValueProvider)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><span class="typeNameLabel">Iterables.</span><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/Iterables.html#firstOrCreateDefaultIf-java.lang.Iterable-c41.lambda.predicate.IPredicate-c41.lambda.function.IFunction-">firstOrCreateDefaultIf</a></span>(java.lang.Iterable&lt;T&gt;&nbsp;iterable,
                       <a href="../../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super T&gt;&nbsp;predicate,
-                      <a href="../../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends T&gt;&nbsp;defProvider)</code>&nbsp;</td>
+                      <a href="../../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends T&gt;&nbsp;defaultValueProvider)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><span class="typeNameLabel">Iterators.</span><code><span class="memberNameLink"><a href="../../../../c41/utility/collection/Iterators.html#firstOrCreateDefaultIf-java.util.Iterator-c41.lambda.predicate.IPredicate-c41.lambda.function.IFunction-">firstOrCreateDefaultIf</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
                       <a href="../../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super T&gt;&nbsp;predicate,
-                      <a href="../../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends T&gt;&nbsp;defProvider)</code>&nbsp;</td>
+                      <a href="../../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends T&gt;&nbsp;defaultValueProvider)</code>&nbsp;</td>
 </tr>
 </tbody>
 </table>
@@ -187,8 +197,12 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>default <a href="../../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a></code></td>
+<td class="colLast"><span class="typeNameLabel">IReferenceEnumerable.</span><code><span class="memberNameLink"><a href="../../../../c41/utility/linq/IReferenceEnumerable.html#firstOrCreateDefault-c41.lambda.function.IFunction-">firstOrCreateDefault</a></span>(<a href="../../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends <a href="../../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;defaultValueProvider)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>default <a href="../../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a></code></td>
 <td class="colLast"><span class="typeNameLabel">IReferenceEnumerable.</span><code><span class="memberNameLink"><a href="../../../../c41/utility/linq/IReferenceEnumerable.html#firstOrCreateDefaultIf-c41.lambda.predicate.IPredicate-c41.lambda.function.IFunction-">firstOrCreateDefaultIf</a></span>(<a href="../../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super <a href="../../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;predicate,
-                      <a href="../../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends <a href="../../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;defProvider)</code>
+                      <a href="../../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends <a href="../../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;defaultValueProvider)</code>
 <div class="block">返回第一个满足条件的元素。</div>
 </td>
 </tr>

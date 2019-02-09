@@ -276,10 +276,22 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 		return new ReferenceJoinEnumerable<>(this, new ReferenceArrayEnumerable<>(other), joiner);
 	}
 
+	public default T last() {
+		return Iterables.last(this);
+	}
+	
+	public default T lastOrDefault() {
+		return Iterables.lastOrDefault(this);
+	}
+	
+	public default T lastOrDefault(T defaultValue) {
+		return Iterables.lastOrDefault(this, defaultValue);
+	}
+	
 	public default IEnumerable<T> limit(int n){
 		return new ReferenceLimitEnumerable<>(this, n);
 	}
-	
+
 	/**
 	 * 非所有元素都满足谓词。
 	 * @param predicate 谓词
@@ -307,7 +319,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default boolean notExistsAnyOf(Object... values){
 		return Iterables.notExistsAnyOf(this, values);
 	}
-
+	
 	/**
 	 * 不存在满足谓词的元素。
 	 * @param predicate 谓词
@@ -316,7 +328,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default boolean notExistsIf(IPredicate<? super T> predicate) {
 		return Iterables.notExistsIf(this, predicate);
 	}
-	
+
 	/**
 	 * 不存在与{@code value}引用相同的元素。
 	 * @param value 元素
@@ -325,7 +337,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default boolean notExistsReference(T value) {
 		return Iterables.notExistsReference(this, value);
 	}
-	
+
 	public default IReferenceSortedEnumerable<T> orderBy(Comparator<? super T> comparator){
 		return new ReferenceOrderByEnumerable<>(this, comparator);
 	}
@@ -333,7 +345,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default <V extends Comparable<? super V>> IReferenceSortedEnumerable<T> orderBy(ISelector<? super T, V> selector){
 		return new ReferenceOrderByEnumerable<>(this, (t1, t2)->Comparators.compare(selector.select(t1), selector.select(t2)));
 	}
-
+	
 	/**
 	 * 对元素按照条件排序，条件成立的排在前，条件不成立的排在后
 	 * @param predicate 谓词
@@ -365,19 +377,19 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 			return Comparators.compareNatural(t1, t2);
 		});
 	}
-	
+
 	public default <V> IReferenceEnumerable<V> select(ISelector<? super T, ? extends V> selector){
 		return new ReferenceSelectEnumerable<>(this, selector);
 	}
-	
+
 	public default <V> IReferenceEnumerable<V> select(ISelectorEx<? super T, ? extends V> selector){
 		return new ReferenceSelectEnumerable<>(this, selector);
 	}
-
+	
 	public default <V> IReferenceEnumerable<V> selectMany(ISelector<? super T, ? extends Iterable<? extends V>> selector){
 		return new ReferenceSelectManyEnumerable<>(this, selector);
 	}
-
+	
 	/**
 	 * 构造所有元素组成的数组
 	 * @return 数组
@@ -385,7 +397,7 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 	public default Object[] toArray() {
 		return Iterables.toArray(this);
 	}
-
+	
 	/**
 	 * 构造所有元素组成的数组
 	 * @param type 用于指定类型
@@ -426,11 +438,11 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 		}
 		return rst;
 	}
-	
+
 	public default IReferenceEnumerable<T> union(Iterable<? extends T> iterable){
 		return new ReferenceUnionEnumerable<>(this, Linq.from(iterable));
 	}
-	
+
 	public default IReferenceEnumerable<T> where(IPredicate<? super T> predicate){
 		return new ReferenceWhereEnumerable<>(this, predicate);
 	}

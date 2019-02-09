@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import c41.core.assertion.Arguments;
+import c41.lambda.function.IFunction;
 
 class ArrayListEnumerable<T> extends IterableEnumerable<T>{
 	
@@ -40,6 +41,30 @@ class ArrayListEnumerable<T> extends IterableEnumerable<T>{
 		return list().get(0);
 	}
 
+	@Override
+	public T firstOrDefault() {
+		if(list().size() == 0) {
+			return null;
+		}
+		return list().get(0);
+	}
+
+	@Override
+	public T firstOrDefault(T defaultValue) {
+		if(list().size() == 0) {
+			return defaultValue;
+		}
+		return list().get(0);
+	}
+
+	@Override
+	public T firstOrCreateDefault(IFunction<? extends T> defaultValueProvider) {
+		if(list().size() == 0) {
+			return defaultValueProvider.invoke();
+		}
+		return list().get(0);
+	}
+	
 	@Override
 	public Object[] toArray() {
 		return list().toArray();

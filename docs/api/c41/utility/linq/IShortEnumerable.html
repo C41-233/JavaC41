@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":18,"i7":18,"i8":18,"i9":18,"i10":18,"i11":18,"i12":18,"i13":18,"i14":18,"i15":18,"i16":6,"i17":18,"i18":18,"i19":18};
+var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":18,"i7":18,"i8":18,"i9":18,"i10":18,"i11":18,"i12":18,"i13":18,"i14":18,"i15":18,"i16":18,"i17":6,"i18":18,"i19":18,"i20":18};
 var tabs = {65535:["t0","所有方法"],2:["t2","实例方法"],4:["t3","抽象方法"],16:["t5","默认方法"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -232,22 +232,28 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 </td>
 </tr>
 <tr id="i16" class="altColor">
+<td class="colFirst"><code>default boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IShortEnumerable.html#foreach2-c41.lambda.predicate.IShortPredicate-">foreach2</a></span>(<a href="../../../c41/lambda/predicate/IShortPredicate.html" title="c41.lambda.predicate中的接口">IShortPredicate</a>&nbsp;predicate)</code>
+<div class="block">对每个元素执行操作。</div>
+</td>
+</tr>
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code><a href="../../../c41/utility/linq/enumerator/IShortEnumerator.html" title="c41.utility.linq.enumerator中的接口">IShortEnumerator</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IShortEnumerable.html#iterator--">iterator</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>default boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IShortEnumerable.html#notAll-c41.lambda.predicate.IShortPredicate-">notAll</a></span>(<a href="../../../c41/lambda/predicate/IShortPredicate.html" title="c41.lambda.predicate中的接口">IShortPredicate</a>&nbsp;predicate)</code>
 <div class="block">非所有元素都满足谓词。</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>default <a href="../../../c41/utility/linq/IShortEnumerable.html" title="c41.utility.linq中的接口">IShortEnumerable</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IShortEnumerable.html#skip-int-">skip</a></span>(int&nbsp;n)</code>
 <div class="block">跳过前n个元素。</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>default short[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IShortEnumerable.html#toArray--">toArray</a></span>()</code>
 <div class="block">返回所有元素组成的数组。</div>
@@ -507,6 +513,22 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 <dd><code>action</code> - 对每个元素执行的操作，参数包含当前元素及其下标</dd>
 <dt><span class="returnLabel">返回:</span></dt>
 <dd>执行的次数</dd>
+</dl>
+</li>
+</ul>
+<a name="foreach2-c41.lambda.predicate.IShortPredicate-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>foreach2</h4>
+<pre>default&nbsp;boolean&nbsp;foreach2(<a href="../../../c41/lambda/predicate/IShortPredicate.html" title="c41.lambda.predicate中的接口">IShortPredicate</a>&nbsp;predicate)</pre>
+<div class="block">对每个元素执行操作。</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>predicate</code> - 对每个元素执行的操作，返回false表示break</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>true表示循环完毕，false表示break退出</dd>
 </dl>
 </li>
 </ul>

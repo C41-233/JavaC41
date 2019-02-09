@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9,"i25":9,"i26":9,"i27":9,"i28":9,"i29":9,"i30":9,"i31":9,"i32":9,"i33":9,"i34":9,"i35":9,"i36":9,"i37":9,"i38":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9,"i25":9,"i26":9,"i27":9,"i28":9,"i29":9,"i30":9,"i31":9,"i32":9,"i33":9,"i34":9,"i35":9,"i36":9,"i37":9,"i38":9,"i39":9,"i40":9,"i41":9,"i42":9,"i43":9,"i44":9};
 var tabs = {65535:["t0","所有方法"],1:["t1","静态方法"],8:["t4","具体方法"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -187,145 +187,172 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#firstDuplicateOrCreateDefault-java.util.Iterator-c41.lambda.function.IFunction-">firstDuplicateOrCreateDefault</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
-                             <a href="../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends T&gt;&nbsp;defProvider)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#firstDuplicateElementOrDefault-java.util.Iterator-">firstDuplicateElementOrDefault</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator)</code>&nbsp;</td>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#firstDuplicateOrDefault-java.util.Iterator-">firstDuplicateOrDefault</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#firstDuplicateElementOrDefault-java.util.Iterator-T-">firstDuplicateElementOrDefault</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
+                              T&nbsp;def)</code>&nbsp;</td>
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#firstDuplicateOrDefault-java.util.Iterator-T-">firstDuplicateOrDefault</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
-                       T&nbsp;def)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#firstDuplicateOrCreateDefault-java.util.Iterator-c41.lambda.function.IFunction-">firstDuplicateOrCreateDefault</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
+                             <a href="../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends T&gt;&nbsp;defProvider)</code>&nbsp;</td>
 </tr>
 <tr id="i14" class="altColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#firstIf-java.util.Iterator-c41.lambda.predicate.IPredicate-">firstIf</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
+       <a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super T&gt;&nbsp;predicate)</code>&nbsp;</td>
+</tr>
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#firstIndexIf-java.util.Iterator-c41.lambda.predicate.IPredicate-">firstIndexIf</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
             <a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super T&gt;&nbsp;predicate)</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#firstIndexOf-java.util.Iterator-T-">firstIndexOf</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
             T&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#firstIndexOfReference-java.util.Iterator-T-">firstIndexOfReference</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
+                     T&nbsp;value)</code>&nbsp;</td>
+</tr>
+<tr id="i18" class="altColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#firstOrCreateDefault-java.util.Iterator-c41.lambda.function.IFunction-">firstOrCreateDefault</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
+                    <a href="../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends T&gt;&nbsp;defaultValueProvider)</code>&nbsp;</td>
+</tr>
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#firstOrCreateDefaultIf-java.util.Iterator-c41.lambda.predicate.IPredicate-c41.lambda.function.IFunction-">firstOrCreateDefaultIf</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
                       <a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super T&gt;&nbsp;predicate,
-                      <a href="../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends T&gt;&nbsp;defProvider)</code>&nbsp;</td>
+                      <a href="../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends T&gt;&nbsp;defaultValueProvider)</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i20" class="altColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#firstOrDefault-java.util.Iterator-">firstOrDefault</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator)</code>&nbsp;</td>
+</tr>
+<tr id="i21" class="rowColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#firstOrDefault-java.util.Iterator-T-">firstOrDefault</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
+              T&nbsp;defaultValue)</code>&nbsp;</td>
+</tr>
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#firstOrDefaultIf-java.util.Iterator-c41.lambda.predicate.IPredicate-">firstOrDefaultIf</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterable,
                 <a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super T&gt;&nbsp;predicate)</code>&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#firstOrDefaultIf-java.util.Iterator-c41.lambda.predicate.IPredicate-T-">firstOrDefaultIf</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
                 <a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super T&gt;&nbsp;predicate,
                 T&nbsp;def)</code>&nbsp;</td>
 </tr>
-<tr id="i19" class="rowColor">
-<td class="colFirst"><code>static &lt;T&gt;&nbsp;int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#firstReferenceIndexOf-java.util.Iterator-T-">firstReferenceIndexOf</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
-                     T&nbsp;value)</code>&nbsp;</td>
-</tr>
-<tr id="i20" class="altColor">
-<td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#fisrtIf-java.util.Iterator-c41.lambda.predicate.IPredicate-">fisrtIf</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
-       <a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super T&gt;&nbsp;predicate)</code>&nbsp;</td>
-</tr>
-<tr id="i21" class="rowColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#foreach-java.util.Iterator-c41.lambda.action.IAction1-">foreach</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
        <a href="../../../c41/lambda/action/IAction1.html" title="c41.lambda.action中的接口">IAction1</a>&lt;? super T&gt;&nbsp;action)</code>
 <div class="block">对每个元素执行操作。</div>
 </td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#foreach-java.util.Iterator-c41.lambda.action.IForeachAction-">foreach</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
        <a href="../../../c41/lambda/action/IForeachAction.html" title="c41.lambda.action中的接口">IForeachAction</a>&lt;? super T&gt;&nbsp;action)</code>
 <div class="block">对每个元素执行操作。</div>
 </td>
 </tr>
-<tr id="i23" class="rowColor">
-<td class="colFirst"><code>static &lt;T&gt;&nbsp;int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#foreach2-java.util.Iterator-c41.lambda.function.IBooleanFunction1-">foreach2</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
-        <a href="../../../c41/lambda/function/IBooleanFunction1.html" title="c41.lambda.function中的接口">IBooleanFunction1</a>&lt;? super T&gt;&nbsp;function)</code>
-<div class="block">对每个元素执行操作。</div>
-</td>
-</tr>
-<tr id="i24" class="altColor">
-<td class="colFirst"><code>static &lt;T&gt;&nbsp;int</code></td>
+<tr id="i26" class="altColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#foreach2-java.util.Iterator-c41.lambda.function.IForeachFunction-">foreach2</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
         <a href="../../../c41/lambda/function/IForeachFunction.html" title="c41.lambda.function中的接口">IForeachFunction</a>&lt;? super T&gt;&nbsp;function)</code>
 <div class="block">对每个元素执行操作。</div>
 </td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i27" class="rowColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#foreach2-java.util.Iterator-c41.lambda.predicate.IPredicate-">foreach2</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
+        <a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super T&gt;&nbsp;predicate)</code>
+<div class="block">对每个元素执行操作。</div>
+</td>
+</tr>
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#hasDuplicate-java.util.Iterator-">hasDuplicate</a></span>(java.util.Iterator&lt;?&gt;&nbsp;iterator)</code>&nbsp;</td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#isEmpty-java.util.Iterator-">isEmpty</a></span>(java.util.Iterator&lt;?&gt;&nbsp;iterator)</code>&nbsp;</td>
 </tr>
-<tr id="i27" class="rowColor">
+<tr id="i30" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#isNotEmpty-java.util.Iterator-">isNotEmpty</a></span>(java.util.Iterator&lt;?&gt;&nbsp;iterable)</code>&nbsp;</td>
 </tr>
-<tr id="i28" class="altColor">
+<tr id="i31" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#isNotExist-java.util.Iterator-java.lang.Object-">isNotExist</a></span>(java.util.Iterator&lt;?&gt;&nbsp;iterator,
           java.lang.Object&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i29" class="rowColor">
+<tr id="i32" class="altColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#last-java.util.Iterator-">last</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator)</code>&nbsp;</td>
+</tr>
+<tr id="i33" class="rowColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#lastOrDefault-java.util.Iterator-">lastOrDefault</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator)</code>&nbsp;</td>
+</tr>
+<tr id="i34" class="altColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#lastOrDefault-java.util.Iterator-T-">lastOrDefault</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
+             T&nbsp;defaultValue)</code>&nbsp;</td>
+</tr>
+<tr id="i35" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#notAll-java.util.Iterator-c41.lambda.predicate.IPredicate-">notAll</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
       <a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super T&gt;&nbsp;predicate)</code>
 <div class="block">迭代器非所有元素都满足谓词。</div>
 </td>
 </tr>
-<tr id="i30" class="altColor">
+<tr id="i36" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#notExistsAnyOf-java.util.Iterator-java.lang.Object...-">notExistsAnyOf</a></span>(java.util.Iterator&lt;?&gt;&nbsp;iterator,
               java.lang.Object...&nbsp;values)</code>&nbsp;</td>
 </tr>
-<tr id="i31" class="rowColor">
+<tr id="i37" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#notExistsIf-java.util.Iterator-c41.lambda.predicate.IPredicate-">notExistsIf</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
            <a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super T&gt;&nbsp;predicate)</code>&nbsp;</td>
 </tr>
-<tr id="i32" class="altColor">
+<tr id="i38" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#notExistsReference-java.util.Iterator-java.lang.Object-">notExistsReference</a></span>(java.util.Iterator&lt;?&gt;&nbsp;iterator,
                   java.lang.Object&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i33" class="rowColor">
+<tr id="i39" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;java.util.Iterator&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#of-T:A-">of</a></span>(T[]&nbsp;array)</code>&nbsp;</td>
 </tr>
-<tr id="i34" class="altColor">
+<tr id="i40" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;java.lang.Object[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#toArray-java.util.Iterator-">toArray</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator)</code>&nbsp;</td>
 </tr>
-<tr id="i35" class="rowColor">
+<tr id="i41" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#toArray-java.util.Iterator-java.lang.Class-">toArray</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
        java.lang.Class&lt;T&gt;&nbsp;type)</code>&nbsp;</td>
 </tr>
-<tr id="i36" class="altColor">
+<tr id="i42" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#toArray-java.util.Iterator-T:A-">toArray</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator,
        T[]&nbsp;array)</code>&nbsp;</td>
 </tr>
-<tr id="i37" class="rowColor">
+<tr id="i43" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;java.util.List&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#toList-java.util.Iterator-">toList</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator)</code>&nbsp;</td>
 </tr>
-<tr id="i38" class="altColor">
+<tr id="i44" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;java.util.Set&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterators.html#toSet-java.util.Iterator-">toSet</a></span>(java.util.Iterator&lt;T&gt;&nbsp;iterator)</code>&nbsp;</td>
 </tr>
@@ -480,6 +507,27 @@ extends java.lang.Object</pre>
 <pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;firstDuplicate(java.util.Iterator&lt;T&gt;&nbsp;iterator)</pre>
 </li>
 </ul>
+<a name="firstDuplicateElementOrDefault-java.util.Iterator-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>firstDuplicateElementOrDefault</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;firstDuplicateElementOrDefault(java.util.Iterator&lt;T&gt;&nbsp;iterator)</pre>
+</li>
+</ul>
+<a name="firstDuplicateElementOrDefault-java.util.Iterator-java.lang.Object-">
+<!--   -->
+</a><a name="firstDuplicateElementOrDefault-java.util.Iterator-T-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>firstDuplicateElementOrDefault</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;firstDuplicateElementOrDefault(java.util.Iterator&lt;T&gt;&nbsp;iterator,
+                                                   T&nbsp;def)</pre>
+</li>
+</ul>
 <a name="firstDuplicateOrCreateDefault-java.util.Iterator-c41.lambda.function.IFunction-">
 <!--   -->
 </a>
@@ -490,25 +538,14 @@ extends java.lang.Object</pre>
                                                   <a href="../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends T&gt;&nbsp;defProvider)</pre>
 </li>
 </ul>
-<a name="firstDuplicateOrDefault-java.util.Iterator-">
+<a name="firstIf-java.util.Iterator-c41.lambda.predicate.IPredicate-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>firstDuplicateOrDefault</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;firstDuplicateOrDefault(java.util.Iterator&lt;T&gt;&nbsp;iterator)</pre>
-</li>
-</ul>
-<a name="firstDuplicateOrDefault-java.util.Iterator-java.lang.Object-">
-<!--   -->
-</a><a name="firstDuplicateOrDefault-java.util.Iterator-T-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>firstDuplicateOrDefault</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;firstDuplicateOrDefault(java.util.Iterator&lt;T&gt;&nbsp;iterator,
-                                            T&nbsp;def)</pre>
+<h4>firstIf</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;firstIf(java.util.Iterator&lt;T&gt;&nbsp;iterator,
+                            <a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super T&gt;&nbsp;predicate)</pre>
 </li>
 </ul>
 <a name="firstIndexIf-java.util.Iterator-c41.lambda.predicate.IPredicate-">
@@ -533,6 +570,28 @@ extends java.lang.Object</pre>
                                    T&nbsp;value)</pre>
 </li>
 </ul>
+<a name="firstIndexOfReference-java.util.Iterator-java.lang.Object-">
+<!--   -->
+</a><a name="firstIndexOfReference-java.util.Iterator-T-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>firstIndexOfReference</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;int&nbsp;firstIndexOfReference(java.util.Iterator&lt;T&gt;&nbsp;iterator,
+                                            T&nbsp;value)</pre>
+</li>
+</ul>
+<a name="firstOrCreateDefault-java.util.Iterator-c41.lambda.function.IFunction-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>firstOrCreateDefault</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;firstOrCreateDefault(java.util.Iterator&lt;T&gt;&nbsp;iterator,
+                                         <a href="../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends T&gt;&nbsp;defaultValueProvider)</pre>
+</li>
+</ul>
 <a name="firstOrCreateDefaultIf-java.util.Iterator-c41.lambda.predicate.IPredicate-c41.lambda.function.IFunction-">
 <!--   -->
 </a>
@@ -541,7 +600,28 @@ extends java.lang.Object</pre>
 <h4>firstOrCreateDefaultIf</h4>
 <pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;firstOrCreateDefaultIf(java.util.Iterator&lt;T&gt;&nbsp;iterator,
                                            <a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super T&gt;&nbsp;predicate,
-                                           <a href="../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends T&gt;&nbsp;defProvider)</pre>
+                                           <a href="../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends T&gt;&nbsp;defaultValueProvider)</pre>
+</li>
+</ul>
+<a name="firstOrDefault-java.util.Iterator-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>firstOrDefault</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;firstOrDefault(java.util.Iterator&lt;T&gt;&nbsp;iterator)</pre>
+</li>
+</ul>
+<a name="firstOrDefault-java.util.Iterator-java.lang.Object-">
+<!--   -->
+</a><a name="firstOrDefault-java.util.Iterator-T-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>firstOrDefault</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;firstOrDefault(java.util.Iterator&lt;T&gt;&nbsp;iterator,
+                                   T&nbsp;defaultValue)</pre>
 </li>
 </ul>
 <a name="firstOrDefaultIf-java.util.Iterator-c41.lambda.predicate.IPredicate-">
@@ -565,28 +645,6 @@ extends java.lang.Object</pre>
 <pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;firstOrDefaultIf(java.util.Iterator&lt;T&gt;&nbsp;iterator,
                                      <a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super T&gt;&nbsp;predicate,
                                      T&nbsp;def)</pre>
-</li>
-</ul>
-<a name="firstReferenceIndexOf-java.util.Iterator-java.lang.Object-">
-<!--   -->
-</a><a name="firstReferenceIndexOf-java.util.Iterator-T-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>firstReferenceIndexOf</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;int&nbsp;firstReferenceIndexOf(java.util.Iterator&lt;T&gt;&nbsp;iterator,
-                                            T&nbsp;value)</pre>
-</li>
-</ul>
-<a name="fisrtIf-java.util.Iterator-c41.lambda.predicate.IPredicate-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>fisrtIf</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;fisrtIf(java.util.Iterator&lt;T&gt;&nbsp;iterator,
-                            <a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super T&gt;&nbsp;predicate)</pre>
 </li>
 </ul>
 <a name="foreach-java.util.Iterator-c41.lambda.action.IAction1-">
@@ -629,34 +687,14 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="foreach2-java.util.Iterator-c41.lambda.function.IBooleanFunction1-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>foreach2</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;int&nbsp;foreach2(java.util.Iterator&lt;T&gt;&nbsp;iterator,
-                               <a href="../../../c41/lambda/function/IBooleanFunction1.html" title="c41.lambda.function中的接口">IBooleanFunction1</a>&lt;? super T&gt;&nbsp;function)</pre>
-<div class="block">对每个元素执行操作。</div>
-<dl>
-<dt><span class="paramLabel">类型参数:</span></dt>
-<dd><code>T</code> - 泛型参数</dd>
-<dt><span class="paramLabel">参数:</span></dt>
-<dd><code>iterator</code> - 迭代器</dd>
-<dd><code>function</code> - 对每个元素执行的操作，返回false表示break</dd>
-<dt><span class="returnLabel">返回:</span></dt>
-<dd>执行的次数</dd>
-</dl>
-</li>
-</ul>
 <a name="foreach2-java.util.Iterator-c41.lambda.function.IForeachFunction-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>foreach2</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;int&nbsp;foreach2(java.util.Iterator&lt;T&gt;&nbsp;iterator,
-                               <a href="../../../c41/lambda/function/IForeachFunction.html" title="c41.lambda.function中的接口">IForeachFunction</a>&lt;? super T&gt;&nbsp;function)</pre>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;boolean&nbsp;foreach2(java.util.Iterator&lt;T&gt;&nbsp;iterator,
+                                   <a href="../../../c41/lambda/function/IForeachFunction.html" title="c41.lambda.function中的接口">IForeachFunction</a>&lt;? super T&gt;&nbsp;function)</pre>
 <div class="block">对每个元素执行操作。</div>
 <dl>
 <dt><span class="paramLabel">类型参数:</span></dt>
@@ -665,7 +703,27 @@ extends java.lang.Object</pre>
 <dd><code>iterator</code> - 迭代器</dd>
 <dd><code>function</code> - 对每个元素执行的操作，参数包含当前元素及其下标，返回false表示break</dd>
 <dt><span class="returnLabel">返回:</span></dt>
-<dd>执行的次数</dd>
+<dd>true表示循环完毕，false表示break退出</dd>
+</dl>
+</li>
+</ul>
+<a name="foreach2-java.util.Iterator-c41.lambda.predicate.IPredicate-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>foreach2</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;boolean&nbsp;foreach2(java.util.Iterator&lt;T&gt;&nbsp;iterator,
+                                   <a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super T&gt;&nbsp;predicate)</pre>
+<div class="block">对每个元素执行操作。</div>
+<dl>
+<dt><span class="paramLabel">类型参数:</span></dt>
+<dd><code>T</code> - 泛型参数</dd>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>iterator</code> - 迭代器</dd>
+<dd><code>predicate</code> - 对每个元素执行的操作，返回false表示break</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>true表示循环完毕，false表示break退出</dd>
 </dl>
 </li>
 </ul>
@@ -704,6 +762,36 @@ extends java.lang.Object</pre>
 <h4>isNotExist</h4>
 <pre>public static&nbsp;boolean&nbsp;isNotExist(java.util.Iterator&lt;?&gt;&nbsp;iterator,
                                  java.lang.Object&nbsp;value)</pre>
+</li>
+</ul>
+<a name="last-java.util.Iterator-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>last</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;last(java.util.Iterator&lt;T&gt;&nbsp;iterator)</pre>
+</li>
+</ul>
+<a name="lastOrDefault-java.util.Iterator-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>lastOrDefault</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;lastOrDefault(java.util.Iterator&lt;T&gt;&nbsp;iterator)</pre>
+</li>
+</ul>
+<a name="lastOrDefault-java.util.Iterator-java.lang.Object-">
+<!--   -->
+</a><a name="lastOrDefault-java.util.Iterator-T-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>lastOrDefault</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;lastOrDefault(java.util.Iterator&lt;T&gt;&nbsp;iterator,
+                                  T&nbsp;defaultValue)</pre>
 </li>
 </ul>
 <a name="notAll-java.util.Iterator-c41.lambda.predicate.IPredicate-">

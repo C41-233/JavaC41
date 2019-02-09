@@ -225,6 +225,21 @@ public final class Iterables {
 		return Iterators.isNotEmpty(iterable.iterator());
 	}
 	
+	public static <T> T last(Iterable<T> iterable) {
+		Arguments.isNotNull(iterable);
+		return Iterators.last(iterable.iterator());
+	}
+
+	public static <T> T lastOrDefault(Iterable<T> iterable) {
+		Arguments.isNotNull(iterable);
+		return Iterators.lastOrDefault(iterable.iterator());
+	}
+
+	public static <T> T lastOrDefault(Iterable<T> iterable, T defaultValue) {
+		Arguments.isNotNull(iterable);
+		return Iterators.lastOrDefault(iterable.iterator(), defaultValue);
+	}
+	
 	/**
 	 * 非所有元素都满足谓词。
 	 * @param <T> 泛型参数
@@ -266,7 +281,7 @@ public final class Iterables {
 			}
 		};
 	}
-	
+
 	public static <T> Object[] toArray(Iterable<T> iterable) {
 		Arguments.isNotNull(iterable);
 		return Iterators.toArray(iterable.iterator());
@@ -286,7 +301,7 @@ public final class Iterables {
 		Arguments.isNotNull(iterable);
 		return Iterators.toList(iterable.iterator());
 	}
-
+	
 	public static <T> Set<T> toSet(Iterable<T> iterable){
 		Arguments.isNotNull(iterable);
 		return Iterators.toSet(iterable.iterator());

@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":18,"i7":18,"i8":18,"i9":18,"i10":18,"i11":18,"i12":18,"i13":18,"i14":18,"i15":18,"i16":18,"i17":18,"i18":18,"i19":18,"i20":18,"i21":18,"i22":18,"i23":18,"i24":6,"i25":18,"i26":18,"i27":18,"i28":18,"i29":18,"i30":18,"i31":18,"i32":18,"i33":18,"i34":18,"i35":18,"i36":18,"i37":18,"i38":18,"i39":18,"i40":18,"i41":18,"i42":18,"i43":18,"i44":18,"i45":18,"i46":18};
+var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":18,"i7":18,"i8":18,"i9":18,"i10":18,"i11":18,"i12":18,"i13":18,"i14":18,"i15":18,"i16":18,"i17":18,"i18":18,"i19":18,"i20":18,"i21":18,"i22":18,"i23":18,"i24":18,"i25":18,"i26":18,"i27":6,"i28":18,"i29":18,"i30":18,"i31":18,"i32":18,"i33":18,"i34":18,"i35":18,"i36":18,"i37":18,"i38":18,"i39":18,"i40":18,"i41":18,"i42":18,"i43":18,"i44":18,"i45":18,"i46":18,"i47":18,"i48":18,"i49":18,"i50":18,"i51":18,"i52":18};
 var tabs = {65535:["t0","所有方法"],2:["t2","实例方法"],4:["t3","抽象方法"],16:["t5","默认方法"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -219,174 +219,198 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 </td>
 </tr>
 <tr id="i14" class="altColor">
-<td class="colFirst"><code>default <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#firstOrCreateDefaultIf-c41.lambda.predicate.IPredicate-c41.lambda.function.IFunction-">firstOrCreateDefaultIf</a></span>(<a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;predicate,
-                      <a href="../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;defProvider)</code>
-<div class="block">返回第一个满足条件的元素。</div>
+<td class="colFirst"><code>default int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#firstIndexOfReference-T-">firstIndexOfReference</a></span>(<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&nbsp;value)</code>
+<div class="block">返回元素value的下标。</div>
 </td>
 </tr>
 <tr id="i15" class="rowColor">
+<td class="colFirst"><code>default <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#firstOrCreateDefault-c41.lambda.function.IFunction-">firstOrCreateDefault</a></span>(<a href="../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;defaultValueProvider)</code>&nbsp;</td>
+</tr>
+<tr id="i16" class="altColor">
+<td class="colFirst"><code>default <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#firstOrCreateDefaultIf-c41.lambda.predicate.IPredicate-c41.lambda.function.IFunction-">firstOrCreateDefaultIf</a></span>(<a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;predicate,
+                      <a href="../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;defaultValueProvider)</code>
+<div class="block">返回第一个满足条件的元素。</div>
+</td>
+</tr>
+<tr id="i17" class="rowColor">
+<td class="colFirst"><code>default <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#firstOrDefault--">firstOrDefault</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i18" class="altColor">
+<td class="colFirst"><code>default <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#firstOrDefault-T-">firstOrDefault</a></span>(<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&nbsp;defaultValue)</code>&nbsp;</td>
+</tr>
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>default <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#firstOrDefaultIf-c41.lambda.predicate.IPredicate-">firstOrDefaultIf</a></span>(<a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;predicate)</code>
 <div class="block">返回第一个满足条件的元素。</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>default <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#firstOrDefaultIf-c41.lambda.predicate.IPredicate-T-">firstOrDefaultIf</a></span>(<a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;predicate,
                 <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&nbsp;def)</code>
 <div class="block">返回第一个满足条件的元素。</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
-<td class="colFirst"><code>default int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#firstReferenceIndexOf-T-">firstReferenceIndexOf</a></span>(<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&nbsp;value)</code>
-<div class="block">返回元素value的下标。</div>
-</td>
-</tr>
-<tr id="i18" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>default int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#foreach-c41.lambda.action.IAction1-">foreach</a></span>(<a href="../../../c41/lambda/action/IAction1.html" title="c41.lambda.action中的接口">IAction1</a>&lt;? super <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;action)</code>
 <div class="block">对每个元素执行操作。</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>default int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#foreach-c41.lambda.action.IForeachAction-">foreach</a></span>(<a href="../../../c41/lambda/action/IForeachAction.html" title="c41.lambda.action中的接口">IForeachAction</a>&lt;? super <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;action)</code>
 <div class="block">对每个元素执行操作。</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
-<td class="colFirst"><code>default int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#foreach2-c41.lambda.function.IBooleanFunction1-">foreach2</a></span>(<a href="../../../c41/lambda/function/IBooleanFunction1.html" title="c41.lambda.function中的接口">IBooleanFunction1</a>&lt;? super <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;function)</code>&nbsp;</td>
-</tr>
-<tr id="i21" class="rowColor">
-<td class="colFirst"><code>default int</code></td>
+<tr id="i23" class="rowColor">
+<td class="colFirst"><code>default boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#foreach2-c41.lambda.function.IForeachFunction-">foreach2</a></span>(<a href="../../../c41/lambda/function/IForeachFunction.html" title="c41.lambda.function中的接口">IForeachFunction</a>&lt;? super <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;function)</code>&nbsp;</td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i24" class="altColor">
+<td class="colFirst"><code>default boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#foreach2-c41.lambda.predicate.IPredicate-">foreach2</a></span>(<a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;predicate)</code>&nbsp;</td>
+</tr>
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>default &lt;K&gt;&nbsp;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="c41.utility.linq中的接口">IReferenceEnumerable</a>&lt;<a href="../../../c41/utility/linq/IReferenceGroup.html" title="c41.utility.linq中的接口">IReferenceGroup</a>&lt;K,<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#groupBy-c41.lambda.selector.ISelector-">groupBy</a></span>(<a href="../../../c41/lambda/selector/ISelector.html" title="c41.lambda.selector中的接口">ISelector</a>&lt;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>,K&gt;&nbsp;selector)</code>&nbsp;</td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>default &lt;V&gt;&nbsp;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="c41.utility.linq中的接口">IReferenceEnumerable</a>&lt;V&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#instanceOf-java.lang.Class-">instanceOf</a></span>(java.lang.Class&lt;V&gt;&nbsp;cl)</code>&nbsp;</td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code><a href="../../../c41/utility/linq/enumerator/IEnumerator.html" title="c41.utility.linq.enumerator中的接口">IEnumerator</a>&lt;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#iterator--">iterator</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>default &lt;U&gt;&nbsp;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="c41.utility.linq中的接口">IReferenceEnumerable</a>&lt;<a href="../../../c41/utility/collection/tuple/Tuple2.html" title="c41.utility.collection.tuple中的类">Tuple2</a>&lt;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>,U&gt;&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#join-java.lang.Iterable-">join</a></span>(java.lang.Iterable&lt;U&gt;&nbsp;other)</code>
 <div class="block">返回该Enumerable与other的笛卡尔积，针对每一个T和U的组合，生成一个Tuple2</div>
 </td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code>default &lt;U,V&gt;&nbsp;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="c41.utility.linq中的接口">IReferenceEnumerable</a>&lt;V&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#join-java.lang.Iterable-c41.lambda.function.IJoiner-">join</a></span>(java.lang.Iterable&lt;U&gt;&nbsp;other,
     <a href="../../../c41/lambda/function/IJoiner.html" title="c41.lambda.function中的接口">IJoiner</a>&lt;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>,U,V&gt;&nbsp;joiner)</code>
 <div class="block">返回该Enumerable与other的笛卡尔积，针对每一个T和U的组合，生成一个V。</div>
 </td>
 </tr>
-<tr id="i27" class="rowColor">
+<tr id="i30" class="altColor">
 <td class="colFirst"><code>default &lt;U,V&gt;&nbsp;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="c41.utility.linq中的接口">IReferenceEnumerable</a>&lt;V&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#join-U:A-c41.lambda.function.IJoiner-">join</a></span>(U[]&nbsp;other,
     <a href="../../../c41/lambda/function/IJoiner.html" title="c41.lambda.function中的接口">IJoiner</a>&lt;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>,U,V&gt;&nbsp;joiner)</code>&nbsp;</td>
 </tr>
-<tr id="i28" class="altColor">
+<tr id="i31" class="rowColor">
+<td class="colFirst"><code>default <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#last--">last</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i32" class="altColor">
+<td class="colFirst"><code>default <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#lastOrDefault--">lastOrDefault</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i33" class="rowColor">
+<td class="colFirst"><code>default <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#lastOrDefault-T-">lastOrDefault</a></span>(<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&nbsp;defaultValue)</code>&nbsp;</td>
+</tr>
+<tr id="i34" class="altColor">
 <td class="colFirst"><code>default <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.linq中的接口">IEnumerable</a>&lt;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#limit-int-">limit</a></span>(int&nbsp;n)</code>&nbsp;</td>
 </tr>
-<tr id="i29" class="rowColor">
+<tr id="i35" class="rowColor">
 <td class="colFirst"><code>default boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#notAll-c41.lambda.predicate.IPredicate-">notAll</a></span>(<a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;predicate)</code>
 <div class="block">非所有元素都满足谓词。</div>
 </td>
 </tr>
-<tr id="i30" class="altColor">
+<tr id="i36" class="altColor">
 <td class="colFirst"><code>default boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#notExists-T-">notExists</a></span>(<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&nbsp;value)</code>
 <div class="block">不存在与<code>value</code>相等的元素。</div>
 </td>
 </tr>
-<tr id="i31" class="rowColor">
+<tr id="i37" class="rowColor">
 <td class="colFirst"><code>default boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#notExistsAnyOf-java.lang.Object...-">notExistsAnyOf</a></span>(java.lang.Object...&nbsp;values)</code>
 <div class="block">不存在与任何一个指定元素相等的元素。</div>
 </td>
 </tr>
-<tr id="i32" class="altColor">
+<tr id="i38" class="altColor">
 <td class="colFirst"><code>default boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#notExistsIf-c41.lambda.predicate.IPredicate-">notExistsIf</a></span>(<a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;predicate)</code>
 <div class="block">不存在满足谓词的元素。</div>
 </td>
 </tr>
-<tr id="i33" class="rowColor">
+<tr id="i39" class="rowColor">
 <td class="colFirst"><code>default boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#notExistsReference-T-">notExistsReference</a></span>(<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&nbsp;value)</code>
 <div class="block">不存在与<code>value</code>引用相同的元素。</div>
 </td>
 </tr>
-<tr id="i34" class="altColor">
+<tr id="i40" class="altColor">
 <td class="colFirst"><code>default <a href="../../../c41/utility/linq/IReferenceSortedEnumerable.html" title="c41.utility.linq中的接口">IReferenceSortedEnumerable</a>&lt;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#orderBy-java.util.Comparator-">orderBy</a></span>(java.util.Comparator&lt;? super <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;comparator)</code>&nbsp;</td>
 </tr>
-<tr id="i35" class="rowColor">
+<tr id="i41" class="rowColor">
 <td class="colFirst"><code>default &lt;V extends java.lang.Comparable&lt;? super V&gt;&gt;<br><a href="../../../c41/utility/linq/IReferenceSortedEnumerable.html" title="c41.utility.linq中的接口">IReferenceSortedEnumerable</a>&lt;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#orderBy-c41.lambda.selector.ISelector-">orderBy</a></span>(<a href="../../../c41/lambda/selector/ISelector.html" title="c41.lambda.selector中的接口">ISelector</a>&lt;? super <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>,V&gt;&nbsp;selector)</code>&nbsp;</td>
 </tr>
-<tr id="i36" class="altColor">
+<tr id="i42" class="altColor">
 <td class="colFirst"><code>default <a href="../../../c41/utility/linq/IReferenceSortedEnumerable.html" title="c41.utility.linq中的接口">IReferenceSortedEnumerable</a>&lt;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#orderByCondition-c41.lambda.predicate.IPredicate-">orderByCondition</a></span>(<a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;predicate)</code>
 <div class="block">对元素按照条件排序，条件成立的排在前，条件不成立的排在后</div>
 </td>
 </tr>
-<tr id="i37" class="rowColor">
+<tr id="i43" class="rowColor">
 <td class="colFirst"><code>default <a href="../../../c41/utility/linq/IReferenceSortedEnumerable.html" title="c41.utility.linq中的接口">IReferenceSortedEnumerable</a>&lt;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#orderBySelf--">orderBySelf</a></span>()</code>
 <div class="block">对元素进行自然排序</div>
 </td>
 </tr>
-<tr id="i38" class="altColor">
+<tr id="i44" class="altColor">
 <td class="colFirst"><code>default &lt;V&gt;&nbsp;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="c41.utility.linq中的接口">IReferenceEnumerable</a>&lt;V&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#select-c41.lambda.selector.ISelector-">select</a></span>(<a href="../../../c41/lambda/selector/ISelector.html" title="c41.lambda.selector中的接口">ISelector</a>&lt;? super <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>,? extends V&gt;&nbsp;selector)</code>&nbsp;</td>
 </tr>
-<tr id="i39" class="rowColor">
+<tr id="i45" class="rowColor">
 <td class="colFirst"><code>default &lt;V&gt;&nbsp;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="c41.utility.linq中的接口">IReferenceEnumerable</a>&lt;V&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#select-c41.lambda.selector.ISelectorEx-">select</a></span>(<a href="../../../c41/lambda/selector/ISelectorEx.html" title="c41.lambda.selector中的接口">ISelectorEx</a>&lt;? super <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>,? extends V&gt;&nbsp;selector)</code>&nbsp;</td>
 </tr>
-<tr id="i40" class="altColor">
+<tr id="i46" class="altColor">
 <td class="colFirst"><code>default &lt;V&gt;&nbsp;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="c41.utility.linq中的接口">IReferenceEnumerable</a>&lt;V&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#selectMany-c41.lambda.selector.ISelector-">selectMany</a></span>(<a href="../../../c41/lambda/selector/ISelector.html" title="c41.lambda.selector中的接口">ISelector</a>&lt;? super <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>,? extends java.lang.Iterable&lt;? extends V&gt;&gt;&nbsp;selector)</code>&nbsp;</td>
 </tr>
-<tr id="i41" class="rowColor">
+<tr id="i47" class="rowColor">
 <td class="colFirst"><code>default java.lang.Object[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#toArray--">toArray</a></span>()</code>
 <div class="block">构造所有元素组成的数组</div>
 </td>
 </tr>
-<tr id="i42" class="altColor">
+<tr id="i48" class="altColor">
 <td class="colFirst"><code>default <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#toArray-java.lang.Class-">toArray</a></span>(java.lang.Class&lt;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;type)</code>
 <div class="block">构造所有元素组成的数组</div>
 </td>
 </tr>
-<tr id="i43" class="rowColor">
+<tr id="i49" class="rowColor">
 <td class="colFirst"><code>default <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#toArray-T:A-">toArray</a></span>(<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>[]&nbsp;array)</code>
 <div class="block">构造所有元素组成的数组</div>
 </td>
 </tr>
-<tr id="i44" class="altColor">
+<tr id="i50" class="altColor">
 <td class="colFirst"><code>default &lt;K&gt;&nbsp;java.util.Map&lt;K,<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="c41.utility.linq中的接口">IReferenceEnumerable</a>&lt;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#toMap-c41.lambda.selector.ISelector-">toMap</a></span>(<a href="../../../c41/lambda/selector/ISelector.html" title="c41.lambda.selector中的接口">ISelector</a>&lt;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>,K&gt;&nbsp;selector)</code>&nbsp;</td>
 </tr>
-<tr id="i45" class="rowColor">
+<tr id="i51" class="rowColor">
 <td class="colFirst"><code>default <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="c41.utility.linq中的接口">IReferenceEnumerable</a>&lt;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#union-java.lang.Iterable-">union</a></span>(java.lang.Iterable&lt;? extends <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;iterable)</code>&nbsp;</td>
 </tr>
-<tr id="i46" class="altColor">
+<tr id="i52" class="altColor">
 <td class="colFirst"><code>default <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="c41.utility.linq中的接口">IReferenceEnumerable</a>&lt;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/linq/IReferenceEnumerable.html#where-c41.lambda.predicate.IPredicate-">where</a></span>(<a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;predicate)</code>&nbsp;</td>
 </tr>
@@ -657,6 +681,34 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 </dl>
 </li>
 </ul>
+<a name="firstIndexOfReference-java.lang.Object-">
+<!--   -->
+</a><a name="firstIndexOfReference-T-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>firstIndexOfReference</h4>
+<pre>default&nbsp;int&nbsp;firstIndexOfReference(<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&nbsp;value)</pre>
+<div class="block">返回元素value的下标。如果不存在，则返回-1。
+ <p>比较以引用比较的方式进行。</p></div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>value</code> - 目标元素</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>下标</dd>
+</dl>
+</li>
+</ul>
+<a name="firstOrCreateDefault-c41.lambda.function.IFunction-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>firstOrCreateDefault</h4>
+<pre>default&nbsp;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&nbsp;firstOrCreateDefault(<a href="../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;defaultValueProvider)</pre>
+</li>
+</ul>
 <a name="firstOrCreateDefaultIf-c41.lambda.predicate.IPredicate-c41.lambda.function.IFunction-">
 <!--   -->
 </a>
@@ -664,15 +716,35 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 <li class="blockList">
 <h4>firstOrCreateDefaultIf</h4>
 <pre>default&nbsp;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&nbsp;firstOrCreateDefaultIf(<a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;predicate,
-                                 <a href="../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;defProvider)</pre>
+                                 <a href="../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;defaultValueProvider)</pre>
 <div class="block">返回第一个满足条件的元素。如果不存在，则返回默认值。</div>
 <dl>
 <dt><span class="paramLabel">参数:</span></dt>
 <dd><code>predicate</code> - 谓词</dd>
-<dd><code>defProvider</code> - 默认值</dd>
+<dd><code>defaultValueProvider</code> - 默认值</dd>
 <dt><span class="returnLabel">返回:</span></dt>
 <dd>第一个满足条件的元素或默认值</dd>
 </dl>
+</li>
+</ul>
+<a name="firstOrDefault--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>firstOrDefault</h4>
+<pre>default&nbsp;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&nbsp;firstOrDefault()</pre>
+</li>
+</ul>
+<a name="firstOrDefault-java.lang.Object-">
+<!--   -->
+</a><a name="firstOrDefault-T-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>firstOrDefault</h4>
+<pre>default&nbsp;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&nbsp;firstOrDefault(<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&nbsp;defaultValue)</pre>
 </li>
 </ul>
 <a name="firstOrDefaultIf-c41.lambda.predicate.IPredicate-">
@@ -711,25 +783,6 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 </dl>
 </li>
 </ul>
-<a name="firstReferenceIndexOf-java.lang.Object-">
-<!--   -->
-</a><a name="firstReferenceIndexOf-T-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>firstReferenceIndexOf</h4>
-<pre>default&nbsp;int&nbsp;firstReferenceIndexOf(<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&nbsp;value)</pre>
-<div class="block">返回元素value的下标。如果不存在，则返回-1。
- <p>比较以引用比较的方式进行。</p></div>
-<dl>
-<dt><span class="paramLabel">参数:</span></dt>
-<dd><code>value</code> - 目标元素</dd>
-<dt><span class="returnLabel">返回:</span></dt>
-<dd>下标</dd>
-</dl>
-</li>
-</ul>
 <a name="foreach-c41.lambda.action.IAction1-">
 <!--   -->
 </a>
@@ -762,22 +815,22 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 </dl>
 </li>
 </ul>
-<a name="foreach2-c41.lambda.function.IBooleanFunction1-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>foreach2</h4>
-<pre>default&nbsp;int&nbsp;foreach2(<a href="../../../c41/lambda/function/IBooleanFunction1.html" title="c41.lambda.function中的接口">IBooleanFunction1</a>&lt;? super <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;function)</pre>
-</li>
-</ul>
 <a name="foreach2-c41.lambda.function.IForeachFunction-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>foreach2</h4>
-<pre>default&nbsp;int&nbsp;foreach2(<a href="../../../c41/lambda/function/IForeachFunction.html" title="c41.lambda.function中的接口">IForeachFunction</a>&lt;? super <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;function)</pre>
+<pre>default&nbsp;boolean&nbsp;foreach2(<a href="../../../c41/lambda/function/IForeachFunction.html" title="c41.lambda.function中的接口">IForeachFunction</a>&lt;? super <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;function)</pre>
+</li>
+</ul>
+<a name="foreach2-c41.lambda.predicate.IPredicate-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>foreach2</h4>
+<pre>default&nbsp;boolean&nbsp;foreach2(<a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super <a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&gt;&nbsp;predicate)</pre>
 </li>
 </ul>
 <a name="groupBy-c41.lambda.selector.ISelector-">
@@ -862,6 +915,35 @@ extends <a href="../../../c41/utility/linq/IEnumerable.html" title="c41.utility.
 <h4>join</h4>
 <pre>default&nbsp;&lt;U,V&gt;&nbsp;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="c41.utility.linq中的接口">IReferenceEnumerable</a>&lt;V&gt;&nbsp;join(U[]&nbsp;other,
                                            <a href="../../../c41/lambda/function/IJoiner.html" title="c41.lambda.function中的接口">IJoiner</a>&lt;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>,U,V&gt;&nbsp;joiner)</pre>
+</li>
+</ul>
+<a name="last--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>last</h4>
+<pre>default&nbsp;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&nbsp;last()</pre>
+</li>
+</ul>
+<a name="lastOrDefault--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>lastOrDefault</h4>
+<pre>default&nbsp;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&nbsp;lastOrDefault()</pre>
+</li>
+</ul>
+<a name="lastOrDefault-java.lang.Object-">
+<!--   -->
+</a><a name="lastOrDefault-T-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>lastOrDefault</h4>
+<pre>default&nbsp;<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&nbsp;lastOrDefault(<a href="../../../c41/utility/linq/IReferenceEnumerable.html" title="IReferenceEnumerable中的类型参数">T</a>&nbsp;defaultValue)</pre>
 </li>
 </ul>
 <a name="limit-int-">

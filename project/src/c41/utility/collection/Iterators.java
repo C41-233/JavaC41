@@ -424,6 +424,39 @@ public final class Iterators {
 		return true;
 	}
 	
+	public static <T> T last(Iterator<T> iterator) {
+		Arguments.isNotNull(iterator);
+		
+		if(!iterator.hasNext()) {
+			throw new NoSuchElementException();
+		}
+		T current = iterator.next();
+		while(iterator.hasNext()) {
+			current = iterator.next();
+		}
+		return current;
+	}
+
+	public static <T> T lastOrDefault(Iterator<T> iterator) {
+		Arguments.isNotNull(iterator);
+		
+		T current = null;
+		while(iterator.hasNext()) {
+			current = iterator.next();
+		}
+		return current;
+	}
+
+	public static <T> T lastOrDefault(Iterator<T> iterator, T defaultValue) {
+		Arguments.isNotNull(iterator);
+		
+		T current = defaultValue;
+		while(iterator.hasNext()) {
+			current = iterator.next();
+		}
+		return current;
+	}
+	
 	/**
 	 * 迭代器非所有元素都满足谓词。
 	 * @param <T> 泛型参数
@@ -443,7 +476,7 @@ public final class Iterators {
 		}
 		return false;
 	}
-	
+
 	public static boolean notExistsAnyOf(Iterator<?> iterator, Object...values) {
 		Arguments.isNotNull(iterator);
 		Arguments.isNotNull(values);
@@ -458,7 +491,7 @@ public final class Iterators {
 		}
 		return notExistsIf(iterator, (Object obj)->set.contains(obj));
 	}
-
+	
 	public static <T> boolean notExistsIf(Iterator<T> iterator, IPredicate<? super T> predicate) {
 		Arguments.isNotNull(iterator);
 		Arguments.isNotNull(predicate);
@@ -516,7 +549,7 @@ public final class Iterators {
 		T[] array = (T[]) Array.newInstance(type, list.size());
 		return list.toArray(array);
 	}
-	
+
 	public static <T> T[] toArray(Iterator<T> iterator, T[] array) {
 		Arguments.isNotNull(array);
 		
@@ -527,7 +560,7 @@ public final class Iterators {
 	public static <T> List<T> toList(Iterator<T> iterator){
 		return fillCollection(iterator, new ArrayList<>());
 	}
-
+	
 	public static <T> Set<T> toSet(Iterator<T> iterator){
 		return fillCollection(iterator, new HashSet<>());
 	}
