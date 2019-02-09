@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9,"i25":9,"i26":9,"i27":9,"i28":9,"i29":9,"i30":9,"i31":9,"i32":9,"i33":9,"i34":9,"i35":9,"i36":9,"i37":9,"i38":9,"i39":9,"i40":9,"i41":9,"i42":9,"i43":9,"i44":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9,"i25":9,"i26":9,"i27":9,"i28":9,"i29":9,"i30":9,"i31":9,"i32":9,"i33":9,"i34":9,"i35":9,"i36":9,"i37":9,"i38":9,"i39":9,"i40":9,"i41":9,"i42":9,"i43":9,"i44":9,"i45":9};
 var tabs = {65535:["t0","所有方法"],1:["t1","静态方法"],8:["t4","具体方法"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -297,63 +297,68 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i32" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterables.html#lastOrDefault-java.lang.Iterable-">lastOrDefault</a></span>(java.lang.Iterable&lt;T&gt;&nbsp;iterable)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterables.html#lastOrCreateDefault-java.lang.Iterable-c41.lambda.function.IFunction-">lastOrCreateDefault</a></span>(java.lang.Iterable&lt;T&gt;&nbsp;iterable,
+                   <a href="../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends T&gt;&nbsp;defaultValueProvider)</code>&nbsp;</td>
 </tr>
 <tr id="i33" class="rowColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterables.html#lastOrDefault-java.lang.Iterable-">lastOrDefault</a></span>(java.lang.Iterable&lt;T&gt;&nbsp;iterable)</code>&nbsp;</td>
+</tr>
+<tr id="i34" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterables.html#lastOrDefault-java.lang.Iterable-T-">lastOrDefault</a></span>(java.lang.Iterable&lt;T&gt;&nbsp;iterable,
              T&nbsp;defaultValue)</code>&nbsp;</td>
 </tr>
-<tr id="i34" class="altColor">
+<tr id="i35" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterables.html#notAll-java.lang.Iterable-c41.lambda.predicate.IPredicate-">notAll</a></span>(java.lang.Iterable&lt;T&gt;&nbsp;iterable,
       <a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super T&gt;&nbsp;predicate)</code>
 <div class="block">非所有元素都满足谓词。</div>
 </td>
 </tr>
-<tr id="i35" class="rowColor">
+<tr id="i36" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterables.html#notExists-java.lang.Iterable-java.lang.Object-">notExists</a></span>(java.lang.Iterable&lt;?&gt;&nbsp;iterable,
          java.lang.Object&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i36" class="altColor">
+<tr id="i37" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterables.html#notExistsAnyOf-java.lang.Iterable-java.lang.Object...-">notExistsAnyOf</a></span>(java.lang.Iterable&lt;?&gt;&nbsp;iterable,
               java.lang.Object...&nbsp;values)</code>&nbsp;</td>
 </tr>
-<tr id="i37" class="rowColor">
+<tr id="i38" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterables.html#notExistsIf-java.lang.Iterable-c41.lambda.predicate.IPredicate-">notExistsIf</a></span>(java.lang.Iterable&lt;T&gt;&nbsp;iterable,
            <a href="../../../c41/lambda/predicate/IPredicate.html" title="c41.lambda.predicate中的接口">IPredicate</a>&lt;? super T&gt;&nbsp;predicate)</code>&nbsp;</td>
 </tr>
-<tr id="i38" class="altColor">
+<tr id="i39" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterables.html#notExistsReference-java.lang.Iterable-java.lang.Object-">notExistsReference</a></span>(java.lang.Iterable&lt;?&gt;&nbsp;iterable,
                   java.lang.Object&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i39" class="rowColor">
+<tr id="i40" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;java.lang.Iterable&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterables.html#of-T:A-">of</a></span>(T[]&nbsp;array)</code>&nbsp;</td>
 </tr>
-<tr id="i40" class="altColor">
+<tr id="i41" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;java.lang.Object[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterables.html#toArray-java.lang.Iterable-">toArray</a></span>(java.lang.Iterable&lt;T&gt;&nbsp;iterable)</code>&nbsp;</td>
 </tr>
-<tr id="i41" class="rowColor">
+<tr id="i42" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterables.html#toArray-java.lang.Iterable-java.lang.Class-">toArray</a></span>(java.lang.Iterable&lt;T&gt;&nbsp;iterable,
        java.lang.Class&lt;T&gt;&nbsp;cl)</code>&nbsp;</td>
 </tr>
-<tr id="i42" class="altColor">
+<tr id="i43" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterables.html#toArray-java.lang.Iterable-T:A-">toArray</a></span>(java.lang.Iterable&lt;T&gt;&nbsp;iterable,
        T[]&nbsp;array)</code>&nbsp;</td>
 </tr>
-<tr id="i43" class="rowColor">
+<tr id="i44" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;java.util.List&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterables.html#toList-java.lang.Iterable-">toList</a></span>(java.lang.Iterable&lt;T&gt;&nbsp;iterable)</code>&nbsp;</td>
 </tr>
-<tr id="i44" class="altColor">
+<tr id="i45" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;java.util.Set&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../c41/utility/collection/Iterables.html#toSet-java.lang.Iterable-">toSet</a></span>(java.lang.Iterable&lt;T&gt;&nbsp;iterable)</code>&nbsp;</td>
 </tr>
@@ -762,6 +767,16 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>last</h4>
 <pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;last(java.lang.Iterable&lt;T&gt;&nbsp;iterable)</pre>
+</li>
+</ul>
+<a name="lastOrCreateDefault-java.lang.Iterable-c41.lambda.function.IFunction-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>lastOrCreateDefault</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;lastOrCreateDefault(java.lang.Iterable&lt;T&gt;&nbsp;iterable,
+                                        <a href="../../../c41/lambda/function/IFunction.html" title="c41.lambda.function中的接口">IFunction</a>&lt;? extends T&gt;&nbsp;defaultValueProvider)</pre>
 </li>
 </ul>
 <a name="lastOrDefault-java.lang.Iterable-">
