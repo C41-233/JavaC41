@@ -76,6 +76,22 @@ public interface ICharEnumerable extends IEnumerable<Character>{
 		return enumerator.next();
 	}
 	
+	public default char firstOrDefault(){
+		ICharEnumerator enumerator = iterator();
+		if(enumerator.hasNext()){
+			return enumerator.nextChar();
+		}
+		return (char)0;
+	}
+	
+	public default char firstOrDefault(char defaultValue){
+		ICharEnumerator enumerator = iterator();
+		if(enumerator.hasNext()){
+			return enumerator.nextChar();
+		}
+		return defaultValue;
+	}
+	
 	/**
 	 * 获取第一个重复元素。
 	 * @return 第一个重复元素
@@ -202,6 +218,42 @@ public interface ICharEnumerable extends IEnumerable<Character>{
 			}
 		}
 		return def;
+	}
+	
+	public default char last(){
+		ICharEnumerator enumerator = iterator();
+		if(!enumerator.hasNext()){
+			throw new NoSuchElementException();
+		}
+		char current = enumerator.nextChar();
+		while(enumerator.hasNext()){
+			current = enumerator.nextChar();
+		}
+		return current;
+	}
+	
+	public default char lastOrDefault(){
+		ICharEnumerator enumerator = iterator();
+		if(!enumerator.hasNext()){
+			return (char)0;
+		}
+		char current = enumerator.nextChar();
+		while(enumerator.hasNext()){
+			current = enumerator.nextChar();
+		}
+		return current;
+	}
+	
+	public default char lastOrDefault(char defaultValue){
+		ICharEnumerator enumerator = iterator();
+		if(!enumerator.hasNext()){
+			return defaultValue;
+		}
+		char current = enumerator.nextChar();
+		while(enumerator.hasNext()){
+			current = enumerator.nextChar();
+		}
+		return current;
 	}
 	
 	/**

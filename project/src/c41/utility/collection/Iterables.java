@@ -230,6 +230,11 @@ public final class Iterables {
 		return Iterators.last(iterable.iterator());
 	}
 
+	public static <T> T lastOrCreateDefault(Iterable<T> iterable, IFunction<? extends T> defaultValueProvider) {
+		Arguments.isNotNull(iterable);
+		return Iterators.lastOrCreateDefault(iterable.iterator(), defaultValueProvider);
+	}
+
 	public static <T> T lastOrDefault(Iterable<T> iterable) {
 		Arguments.isNotNull(iterable);
 		return Iterators.lastOrDefault(iterable.iterator());

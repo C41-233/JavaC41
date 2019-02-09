@@ -77,6 +77,22 @@ public interface IDoubleEnumerable extends IEnumerable<Double>{
 		return enumerator.next();
 	}
 	
+	public default double firstOrDefault(){
+		IDoubleEnumerator enumerator = iterator();
+		if(enumerator.hasNext()){
+			return enumerator.nextDouble();
+		}
+		return 0.0;
+	}
+	
+	public default double firstOrDefault(double defaultValue){
+		IDoubleEnumerator enumerator = iterator();
+		if(enumerator.hasNext()){
+			return enumerator.nextDouble();
+		}
+		return defaultValue;
+	}
+	
 	/**
 	 * 获取第一个重复元素。
 	 * @return 第一个重复元素
@@ -223,6 +239,42 @@ public interface IDoubleEnumerable extends IEnumerable<Double>{
 			}
 		}
 		return def;
+	}
+	
+	public default double last(){
+		IDoubleEnumerator enumerator = iterator();
+		if(!enumerator.hasNext()){
+			throw new NoSuchElementException();
+		}
+		double current = enumerator.nextDouble();
+		while(enumerator.hasNext()){
+			current = enumerator.nextDouble();
+		}
+		return current;
+	}
+	
+	public default double lastOrDefault(){
+		IDoubleEnumerator enumerator = iterator();
+		if(!enumerator.hasNext()){
+			return 0.0;
+		}
+		double current = enumerator.nextDouble();
+		while(enumerator.hasNext()){
+			current = enumerator.nextDouble();
+		}
+		return current;
+	}
+	
+	public default double lastOrDefault(double defaultValue){
+		IDoubleEnumerator enumerator = iterator();
+		if(!enumerator.hasNext()){
+			return defaultValue;
+		}
+		double current = enumerator.nextDouble();
+		while(enumerator.hasNext()){
+			current = enumerator.nextDouble();
+		}
+		return current;
 	}
 	
 	/**

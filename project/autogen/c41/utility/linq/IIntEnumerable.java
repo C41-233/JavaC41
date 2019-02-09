@@ -76,6 +76,22 @@ public interface IIntEnumerable extends IEnumerable<Integer>{
 		return enumerator.next();
 	}
 	
+	public default int firstOrDefault(){
+		IIntEnumerator enumerator = iterator();
+		if(enumerator.hasNext()){
+			return enumerator.nextInt();
+		}
+		return 0;
+	}
+	
+	public default int firstOrDefault(int defaultValue){
+		IIntEnumerator enumerator = iterator();
+		if(enumerator.hasNext()){
+			return enumerator.nextInt();
+		}
+		return defaultValue;
+	}
+	
 	/**
 	 * 获取第一个重复元素。
 	 * @return 第一个重复元素
@@ -202,6 +218,42 @@ public interface IIntEnumerable extends IEnumerable<Integer>{
 			}
 		}
 		return def;
+	}
+	
+	public default int last(){
+		IIntEnumerator enumerator = iterator();
+		if(!enumerator.hasNext()){
+			throw new NoSuchElementException();
+		}
+		int current = enumerator.nextInt();
+		while(enumerator.hasNext()){
+			current = enumerator.nextInt();
+		}
+		return current;
+	}
+	
+	public default int lastOrDefault(){
+		IIntEnumerator enumerator = iterator();
+		if(!enumerator.hasNext()){
+			return 0;
+		}
+		int current = enumerator.nextInt();
+		while(enumerator.hasNext()){
+			current = enumerator.nextInt();
+		}
+		return current;
+	}
+	
+	public default int lastOrDefault(int defaultValue){
+		IIntEnumerator enumerator = iterator();
+		if(!enumerator.hasNext()){
+			return defaultValue;
+		}
+		int current = enumerator.nextInt();
+		while(enumerator.hasNext()){
+			current = enumerator.nextInt();
+		}
+		return current;
 	}
 	
 	/**

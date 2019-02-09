@@ -76,6 +76,22 @@ public interface IByteEnumerable extends IEnumerable<Byte>{
 		return enumerator.next();
 	}
 	
+	public default byte firstOrDefault(){
+		IByteEnumerator enumerator = iterator();
+		if(enumerator.hasNext()){
+			return enumerator.nextByte();
+		}
+		return (byte)0;
+	}
+	
+	public default byte firstOrDefault(byte defaultValue){
+		IByteEnumerator enumerator = iterator();
+		if(enumerator.hasNext()){
+			return enumerator.nextByte();
+		}
+		return defaultValue;
+	}
+	
 	/**
 	 * 获取第一个重复元素。
 	 * @return 第一个重复元素
@@ -202,6 +218,42 @@ public interface IByteEnumerable extends IEnumerable<Byte>{
 			}
 		}
 		return def;
+	}
+	
+	public default byte last(){
+		IByteEnumerator enumerator = iterator();
+		if(!enumerator.hasNext()){
+			throw new NoSuchElementException();
+		}
+		byte current = enumerator.nextByte();
+		while(enumerator.hasNext()){
+			current = enumerator.nextByte();
+		}
+		return current;
+	}
+	
+	public default byte lastOrDefault(){
+		IByteEnumerator enumerator = iterator();
+		if(!enumerator.hasNext()){
+			return (byte)0;
+		}
+		byte current = enumerator.nextByte();
+		while(enumerator.hasNext()){
+			current = enumerator.nextByte();
+		}
+		return current;
+	}
+	
+	public default byte lastOrDefault(byte defaultValue){
+		IByteEnumerator enumerator = iterator();
+		if(!enumerator.hasNext()){
+			return defaultValue;
+		}
+		byte current = enumerator.nextByte();
+		while(enumerator.hasNext()){
+			current = enumerator.nextByte();
+		}
+		return current;
 	}
 	
 	/**

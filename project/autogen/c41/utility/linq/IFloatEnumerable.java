@@ -77,6 +77,22 @@ public interface IFloatEnumerable extends IEnumerable<Float>{
 		return enumerator.next();
 	}
 	
+	public default float firstOrDefault(){
+		IFloatEnumerator enumerator = iterator();
+		if(enumerator.hasNext()){
+			return enumerator.nextFloat();
+		}
+		return 0.0F;
+	}
+	
+	public default float firstOrDefault(float defaultValue){
+		IFloatEnumerator enumerator = iterator();
+		if(enumerator.hasNext()){
+			return enumerator.nextFloat();
+		}
+		return defaultValue;
+	}
+	
 	/**
 	 * 获取第一个重复元素。
 	 * @return 第一个重复元素
@@ -223,6 +239,42 @@ public interface IFloatEnumerable extends IEnumerable<Float>{
 			}
 		}
 		return def;
+	}
+	
+	public default float last(){
+		IFloatEnumerator enumerator = iterator();
+		if(!enumerator.hasNext()){
+			throw new NoSuchElementException();
+		}
+		float current = enumerator.nextFloat();
+		while(enumerator.hasNext()){
+			current = enumerator.nextFloat();
+		}
+		return current;
+	}
+	
+	public default float lastOrDefault(){
+		IFloatEnumerator enumerator = iterator();
+		if(!enumerator.hasNext()){
+			return 0.0F;
+		}
+		float current = enumerator.nextFloat();
+		while(enumerator.hasNext()){
+			current = enumerator.nextFloat();
+		}
+		return current;
+	}
+	
+	public default float lastOrDefault(float defaultValue){
+		IFloatEnumerator enumerator = iterator();
+		if(!enumerator.hasNext()){
+			return defaultValue;
+		}
+		float current = enumerator.nextFloat();
+		while(enumerator.hasNext()){
+			current = enumerator.nextFloat();
+		}
+		return current;
 	}
 	
 	/**

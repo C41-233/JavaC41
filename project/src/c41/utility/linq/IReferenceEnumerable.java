@@ -288,6 +288,10 @@ public interface IReferenceEnumerable<T> extends IEnumerable<T>{
 		return Iterables.lastOrDefault(this, defaultValue);
 	}
 	
+	public default T lastOrCreateDefault(IFunction<? extends T> defaultValueProvider) {
+		return Iterables.lastOrCreateDefault(this, defaultValueProvider);
+	}
+	
 	public default IEnumerable<T> limit(int n){
 		return new ReferenceLimitEnumerable<>(this, n);
 	}

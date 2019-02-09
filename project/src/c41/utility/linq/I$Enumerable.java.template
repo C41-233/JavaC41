@@ -89,6 +89,22 @@ public interface ${Enumerable} extends IEnumerable<${Box}>{
 		return enumerator.next();
 	}
 	
+	public default ${Primitive} firstOrDefault(){
+		${Enumerator} enumerator = iterator();
+		if(enumerator.hasNext()){
+			return enumerator.${Next}();
+		}
+		return ${Default};
+	}
+	
+	public default ${Primitive} firstOrDefault(${Primitive} defaultValue){
+		${Enumerator} enumerator = iterator();
+		if(enumerator.hasNext()){
+			return enumerator.${Next}();
+		}
+		return defaultValue;
+	}
+	
 	/**
 	 * 获取第一个重复元素。
 	 * @return 第一个重复元素
@@ -237,6 +253,42 @@ public interface ${Enumerable} extends IEnumerable<${Box}>{
 			}
 		}
 		return def;
+	}
+	
+	public default ${Primitive} last(){
+		${Enumerator} enumerator = iterator();
+		if(!enumerator.hasNext()){
+			throw new NoSuchElementException();
+		}
+		${Primitive} current = enumerator.${Next}();
+		while(enumerator.hasNext()){
+			current = enumerator.${Next}();
+		}
+		return current;
+	}
+	
+	public default ${Primitive} lastOrDefault(){
+		${Enumerator} enumerator = iterator();
+		if(!enumerator.hasNext()){
+			return ${Default};
+		}
+		${Primitive} current = enumerator.${Next}();
+		while(enumerator.hasNext()){
+			current = enumerator.${Next}();
+		}
+		return current;
+	}
+	
+	public default ${Primitive} lastOrDefault(${Primitive} defaultValue){
+		${Enumerator} enumerator = iterator();
+		if(!enumerator.hasNext()){
+			return defaultValue;
+		}
+		${Primitive} current = enumerator.${Next}();
+		while(enumerator.hasNext()){
+			current = enumerator.${Next}();
+		}
+		return current;
 	}
 	
 	/**

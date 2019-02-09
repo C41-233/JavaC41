@@ -437,6 +437,19 @@ public final class Iterators {
 		return current;
 	}
 
+	public static <T> T lastOrCreateDefault(Iterator<T> iterator, IFunction<? extends T> defaultValueProvider) {
+		Arguments.isNotNull(iterator);
+
+		if(!iterator.hasNext()) {
+			return defaultValueProvider.invoke();
+		}
+		T current = iterator.next();
+		while(iterator.hasNext()) {
+			current = iterator.next();
+		}
+		return current;
+	}
+
 	public static <T> T lastOrDefault(Iterator<T> iterator) {
 		Arguments.isNotNull(iterator);
 		
@@ -446,7 +459,7 @@ public final class Iterators {
 		}
 		return current;
 	}
-
+	
 	public static <T> T lastOrDefault(Iterator<T> iterator, T defaultValue) {
 		Arguments.isNotNull(iterator);
 		

@@ -76,6 +76,22 @@ public interface IShortEnumerable extends IEnumerable<Short>{
 		return enumerator.next();
 	}
 	
+	public default short firstOrDefault(){
+		IShortEnumerator enumerator = iterator();
+		if(enumerator.hasNext()){
+			return enumerator.nextShort();
+		}
+		return (short)0;
+	}
+	
+	public default short firstOrDefault(short defaultValue){
+		IShortEnumerator enumerator = iterator();
+		if(enumerator.hasNext()){
+			return enumerator.nextShort();
+		}
+		return defaultValue;
+	}
+	
 	/**
 	 * 获取第一个重复元素。
 	 * @return 第一个重复元素
@@ -202,6 +218,42 @@ public interface IShortEnumerable extends IEnumerable<Short>{
 			}
 		}
 		return def;
+	}
+	
+	public default short last(){
+		IShortEnumerator enumerator = iterator();
+		if(!enumerator.hasNext()){
+			throw new NoSuchElementException();
+		}
+		short current = enumerator.nextShort();
+		while(enumerator.hasNext()){
+			current = enumerator.nextShort();
+		}
+		return current;
+	}
+	
+	public default short lastOrDefault(){
+		IShortEnumerator enumerator = iterator();
+		if(!enumerator.hasNext()){
+			return (short)0;
+		}
+		short current = enumerator.nextShort();
+		while(enumerator.hasNext()){
+			current = enumerator.nextShort();
+		}
+		return current;
+	}
+	
+	public default short lastOrDefault(short defaultValue){
+		IShortEnumerator enumerator = iterator();
+		if(!enumerator.hasNext()){
+			return defaultValue;
+		}
+		short current = enumerator.nextShort();
+		while(enumerator.hasNext()){
+			current = enumerator.nextShort();
+		}
+		return current;
 	}
 	
 	/**

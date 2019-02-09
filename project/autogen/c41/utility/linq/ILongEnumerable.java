@@ -76,6 +76,22 @@ public interface ILongEnumerable extends IEnumerable<Long>{
 		return enumerator.next();
 	}
 	
+	public default long firstOrDefault(){
+		ILongEnumerator enumerator = iterator();
+		if(enumerator.hasNext()){
+			return enumerator.nextLong();
+		}
+		return 0L;
+	}
+	
+	public default long firstOrDefault(long defaultValue){
+		ILongEnumerator enumerator = iterator();
+		if(enumerator.hasNext()){
+			return enumerator.nextLong();
+		}
+		return defaultValue;
+	}
+	
 	/**
 	 * 获取第一个重复元素。
 	 * @return 第一个重复元素
@@ -202,6 +218,42 @@ public interface ILongEnumerable extends IEnumerable<Long>{
 			}
 		}
 		return def;
+	}
+	
+	public default long last(){
+		ILongEnumerator enumerator = iterator();
+		if(!enumerator.hasNext()){
+			throw new NoSuchElementException();
+		}
+		long current = enumerator.nextLong();
+		while(enumerator.hasNext()){
+			current = enumerator.nextLong();
+		}
+		return current;
+	}
+	
+	public default long lastOrDefault(){
+		ILongEnumerator enumerator = iterator();
+		if(!enumerator.hasNext()){
+			return 0L;
+		}
+		long current = enumerator.nextLong();
+		while(enumerator.hasNext()){
+			current = enumerator.nextLong();
+		}
+		return current;
+	}
+	
+	public default long lastOrDefault(long defaultValue){
+		ILongEnumerator enumerator = iterator();
+		if(!enumerator.hasNext()){
+			return defaultValue;
+		}
+		long current = enumerator.nextLong();
+		while(enumerator.hasNext()){
+			current = enumerator.nextLong();
+		}
+		return current;
 	}
 	
 	/**
